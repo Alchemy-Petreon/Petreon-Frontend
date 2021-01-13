@@ -1,0 +1,93 @@
+@font-face {
+    font-family: Pinkerston;
+    src: url('../fonts/Pinkerston.ttf')
+}
+
+@font-face {
+    font-family: Routhers;
+    src: url('../fonts/Routhers\ DEMO.ttf')
+}
+
+@font-face {
+    font-family: Excalibur;
+    src: url('../fonts/Excalibur\ Nouveau.ttf')
+}
+
+@font-face {
+    font-family: Lonely;
+    src: url('../fonts/Lonely.ttf')
+}
+
+@font-face {
+    font-family: Burma;
+    src: url('../fonts/Burma-Regular.ttf')
+}
+
+@font-face {
+    font-family: Burma-Soft;
+    src: url('../fonts/BurmaSoft-Regular.ttf')
+}
+
+@font-face {
+    font-family: Berka;
+    src: url('../fonts/Berka-Light.ttf')
+}
+
+@font-face {
+    font-family: WesternRetro;
+    src: url('../fonts/Western\ Retro.ttf')
+}
+
+html {
+    background-color: #F7FFF7;
+}
+
+.landing-banner {
+    width: 100%;
+    margin-top: 75px;
+}
+
+.colors {
+    margin-top: 87px;
+}
+
+.midnightgreen {
+    height: 35px;
+    width: 100%;
+    background-color: #1A535C;
+}
+
+.bittersweet {
+    height: 35px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.naplesyellow {
+    height: 35px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.flaunt {
+    margin-top: -210px;
+    text-align: center;
+    font-family: Excalibur;
+    font-size: 75pt;
+    letter-spacing: 5pt;
+    color: #F7FFF7;
+    text-shadow: 4px 4px 0px #1A535C;
+    z-index: 1;
+}
+
+.intro {
+    margin-top: 100px;
+    margin-right: 100px;
+    margin-left: 100px;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+}
+
+h2 {
+    font-family: Burma-Soft;
+}
