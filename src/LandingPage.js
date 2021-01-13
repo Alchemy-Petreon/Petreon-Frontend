@@ -6,10 +6,16 @@ export default class LandingPage extends Component {
             <div>
                 <div className="banner">
                     <img src="/five-little-grey-kittens.jpg" alt="kitties" className="landing-banner"/>
-                    <h1 className="monetize">Monetize Your Monster</h1>
+                    <h1 className="flaunt">Flaunt Your Furbaby</h1>
+                </div>
+                <div className="colors">
+                    <div className="midnightgreen"> </div>
+                    <div className="bittersweet"> </div>
+                    <div className="naplesyellow"> </div>
                 </div>
                 <div className="intro">
-                    <p>Petreon is an application where pet owners can showcase their pets by posting images, videos, and/or blogs while soliciting donations from followers. Users can choose pets to follow and curate their dash as well as like and comment on posts they they enjoy.</p>
+                    <h2>Showcase your pet!</h2> 
+                    <p>by posting images, videos, and/or blogs while soliciting donations from followers. Users can choose pets to follow and curate their dash as well as like and comment on posts they they enjoy.</p>
                 </div>
             </div>
         )
