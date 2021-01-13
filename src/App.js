@@ -5,7 +5,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
-import LandingPage from './Landing.js';
+import LandingPage from './LandingPage.js';
 
 export default class App extends Component {
   render() {
