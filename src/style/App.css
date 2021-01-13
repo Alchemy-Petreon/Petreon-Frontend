@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Pinkerston;
+    src: url('../fonts/Pinkerston.ttf')
+}
+
+@font-face {
+    font-family: Routhers;
+    src: url('../fonts/Routhers\ DEMO.ttf')
+}
+
+@font-face {
+    font-family: MilKey;
+    src: url('../fonts/Milton\ Keynes.otf')
+}
+
+@font-face {
+    font-family: MillionDreams;
+    src: url('../fonts/Million\ Dreams.otf')
+}
+
+html {
+    background-color: #F7FFF7;
+}
+
+.landing-banner {
+    width: 100%;
+    margin-top: 100px;
+}
+
+.monetize {
+    display: grid;
+    margin-top: -250px;
+    text-align: center;
+    font-family: Routhers;
+    font-size: 70pt;
+    letter-spacing: 2pt;
+    color: #FF6B6B;
+    text-shadow: 2px 2px 4px #1A535C;
+    z-index: 1;
+}
+
+.intro {
+    margin-top: 200px;
+}
