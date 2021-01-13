@@ -6,10 +6,11 @@ export default class LandingPage extends Component {
             <div>
                 <div className="banner">
                     <img src="/five-little-grey-kittens.jpg" alt="kitties" className="landing-banner"/>
-                    <h1 className="flaunt">Flaunt Your Furbaby</h1>
                 </div>
                 <div className="colors">
-                    <div className="midnightgreen"> </div>
+                    <div className="midnightgreen">
+                    <h1 className="flaunt">Flaunt Your Furbaby</h1>
+                    </div>
                     <div className="bittersweet"> </div>
                     <div className="naplesyellow"> </div>
                 </div>

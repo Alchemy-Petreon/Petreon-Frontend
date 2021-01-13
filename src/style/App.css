@@ -42,41 +42,45 @@ html {
     background-color: #F7FFF7;
 }
 
+body {
+    min-width: 1000px;
+    display: block;
+}
+
 .landing-banner {
     width: 100%;
     margin-top: 75px;
 }
 
 .colors {
-    margin-top: 87px;
+    margin-top: -70px;
 }
 
 .midnightgreen {
-    height: 35px;
+    height: 120px;
     width: 100%;
     background-color: #1A535C;
 }
 
 .bittersweet {
-    height: 35px;
+    height: 55px;
     width: 100%;
     background-color: #FF6B6B;
 }
 
 .naplesyellow {
-    height: 35px;
+    height: 55px;
     width: 100%;
     background-color: #FFE66D;
 }
 
 .flaunt {
-    margin-top: -210px;
     text-align: center;
     font-family: Excalibur;
-    font-size: 75pt;
+    font-size: 6rem;
     letter-spacing: 5pt;
     color: #F7FFF7;
-    text-shadow: 4px 4px 0px #1A535C;
+    text-shadow: 4px 4px 0px #4ECDC4;
     z-index: 1;
 }
 
