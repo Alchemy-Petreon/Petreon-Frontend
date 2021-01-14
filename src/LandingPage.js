@@ -45,7 +45,6 @@ export default class LandingPage extends Component {
                         <div className="bittersweetdiv3"> </div>
                         <div className="naplesyellowdiv3"> </div>
                     </div>
-
                 </div>
             </div>
         )
