@@ -22,3 +22,13 @@
     font-family: Burma-Soft;
     src: url('../fonts/BurmaSoft-Regular.ttf')
 }
+
+html {
+    margin: 0;
+    background-color: #F7FFF7;
+}
+
+body {
+    min-width: 1200px;
+    margin: 0;
+}

@@ -1,16 +1,6 @@
-html {
-    margin: 0;
-    background-color: #F7FFF7;
-}
-
-body {
-    min-width: 1200px;
-    margin: 0;
-}
-
 .lp {
     position: relative;
-    min-height: 260vh;
+    min-height: 245vh;
     padding-bottom: 0;
 }
 
