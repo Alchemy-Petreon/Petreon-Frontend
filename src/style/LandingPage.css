@@ -19,7 +19,7 @@ body {
     height: 40vh;
     object-fit: cover;
     object-position: 0 -95px;
-    margin-top: 75px;
+    border-top: solid 10px #1A535C;
 }
 
 .colors {
