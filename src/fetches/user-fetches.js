@@ -29,7 +29,7 @@ export async function createUser(newUser) {
         const response = await request
             .post(`${URL}api/v1/users`)
             .send(newUser)
-            .withCredentials()
+        // .withCredentials()
         return response.body;
     } catch (err) {
         throw err;
