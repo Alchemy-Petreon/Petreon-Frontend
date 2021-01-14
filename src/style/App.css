@@ -14,11 +14,6 @@
 }
 
 @font-face {
-    font-family: Lonely;
-    src: url('../fonts/Lonely.ttf')
-}
-
-@font-face {
     font-family: Burma;
     src: url('../fonts/Burma-Regular.ttf')
 }
@@ -28,23 +23,18 @@
     src: url('../fonts/BurmaSoft-Regular.ttf')
 }
 
-@font-face {
-    font-family: Berka;
-    src: url('../fonts/Berka-Light.ttf')
-}
-
-@font-face {
-    font-family: WesternRetro;
-    src: url('../fonts/Western\ Retro.ttf')
-}
-
 html {
     background-color: #F7FFF7;
 }
 
 body {
-    min-width: 1000px;
-    display: block;
+    min-width: 1200px;
+}
+
+.lp {
+    position: relative;
+    min-height: 285vh;
+    padding-bottom: 0;
 }
 
 .landing-banner {
@@ -63,13 +53,13 @@ body {
 }
 
 .bittersweet {
-    height: 55px;
+    height: 25px;
     width: 100%;
     background-color: #FF6B6B;
 }
 
 .naplesyellow {
-    height: 55px;
+    height: 25px;
     width: 100%;
     background-color: #FFE66D;
 }
@@ -85,13 +75,150 @@ body {
 }
 
 .intro {
-    margin-top: 100px;
+    position: relative;
+    margin-top: 50px;
     margin-right: 100px;
     margin-left: 100px;
-    font-family: Burma-Soft;
+    font-family: Burma;
     font-size: 20pt;
 }
 
 h2 {
     font-family: Burma-Soft;
+    color: #1A535C;
+    font-size: 50pt;
+    text-shadow: 1.5px 1.5px 0px #4ECDC4;
+}
+
+.lp1 {
+    margin-top: 0px;
+    width: 45%;
+    text-align: justify;
+}
+
+.ben {
+    float: right;
+    margin-top: -300px;
+    width: 375px;
+    height: 375px;
+    object-fit: cover;
+    border: solid 15px #FF6B6B;
+    transform: rotate(3deg);
+}
+
+.divider1 {
+    margin-top: 5%;
+    margin-left: -13%;
+    width: 90%;
+}
+
+.midnightgreendiv1 {
+    height: 10px;
+    width: 100%;
+    background-color: #1A535C;
+}
+
+.bittersweetdiv1 {
+    height: 10px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.naplesyellowdiv1 {
+    height: 10px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.follow {
+    text-align: right;
+    margin-top: 10%;
+    margin-left: 40%;
+    width: 55%;
+}
+
+.lp2 {
+    text-align: right;
+    margin-left: 55%;
+    width: 40%;
+    text-align: justify;
+}
+
+.vinewood {
+    float: left;
+    margin-top: -300px;
+    width: 375px;
+    height: 375px;
+    object-fit: cover;
+    object-position: 0 -55px;
+    border: solid 15px #FF6B6B;
+    transform: rotate(-3deg);
+}
+
+.divider2 {
+    margin-left: 100px;
+    margin-top: 5%;
+    width: 100%;
+}
+
+.midnightgreendiv2 {
+    height: 10px;
+    width: 100%;
+    background-color: #1A535C;
+}
+
+.bittersweetdiv2 {
+    height: 10px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.naplesyellowdiv2 {
+    height: 10px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.monetize {
+    margin-top: 10%;
+    width: 55%;
+}
+
+.lp3 {
+    margin-top: 0px;
+    width: 45%;
+    text-align: justify;
+}
+
+.tulsi {
+    float: right;
+    margin-top: -295px;
+    margin-bottom: 10%;
+    width: 375px;
+    height: 375px;
+    object-fit: cover;
+    object-position: 0px 0;
+    border: solid 15px #FF6B6B;
+    transform: rotate(3deg);
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.midnightgreenfoot {
+    height: 25px;
+    background-color: #1A535C;
+}
+
+.bittersweetfoot {
+    height: 25px;
+    background-color: #FF6B6B;
+}
+
+.naplesyellowfoot {
+    height: 25px;
+    background-color: #FFE66D;
 }
