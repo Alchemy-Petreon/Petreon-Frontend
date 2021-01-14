@@ -37,6 +37,11 @@ body {
     padding-bottom: 0;
 }
 
+body {
+    min-width: 1000px;
+    display: block;
+}
+
 .landing-banner {
     width: 100%;
     margin-top: 75px;
