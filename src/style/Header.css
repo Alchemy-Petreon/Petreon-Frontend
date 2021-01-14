@@ -7,44 +7,46 @@ a {
     width: 100%;
     padding-top: 10px;
     background-color: #F7FFF7;
+    border-bottom: solid 10px #1A535C;
 }
 
 .logo {
+    float: left;
     margin-left: 1%;
     margin-right: 3%;
     font-family: Excalibur;
-    font-size: 45pt;
+    font-size: 47pt;
     color: #1A535C;
 }
 
 .browse {
+    float: left;
     margin-right: 3%;
-    margin-top: -10px;
+    margin-top: 18px;
     font-family: Burma-Soft;
     font-size: 25pt;
-    color: #1A535C
-}
-
-.logo:hover, .browse:hover {
-    color: #FF6B6B;
-    text-shadow: 1px 1px 0 #1A535C;
-    transition-duration: 1s;
+    color: #1A535C;
 }
 
 .search {
+    float: left;
+    margin-top: 20px;
     width: 40%;
     border: solid 2px #1A535C;
     border-radius: 12px;
+    padding: 5px;
     font-family: Burma;
-    font-size: 18pt;
+    font-size: 16pt;
     background-color: #F7FFF7;
 }
 
 .button1 {
+    float: left;
+    margin-top: 30px;
     margin-right: 5%;
+    margin-left: -40px;
     background-color: #F7FFF7;
     border: none;
-    margin-left: -40px;
 }
 
 .glass {
@@ -54,6 +56,8 @@ a {
 }
 
 .login {
+    float: left;
+    margin-top: 18px;
     margin-right: 3%;
     font-family: Burma-Soft;
     font-size: 25pt;
@@ -61,7 +65,16 @@ a {
 }
 
 .signup {
+    float: left;
+    margin-top: 18px;
     font-family: Burma-Soft;
     font-size: 25pt;
     color: #1A535C
+}
+
+
+.logo:hover, .browse:hover, .login:hover, .signup:hover {
+    color: #FF6B6B;
+    text-shadow: 1px 1px 0 #1A535C;
+    transition-duration: 1s;
 }
