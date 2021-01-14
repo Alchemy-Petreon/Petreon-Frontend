@@ -16,7 +16,6 @@ export default class Header extends Component {
                 <span className="login">Log In</span>
 
                 <Link to="/signup"><span className="signup">Sign Up</span></Link>
-
             </div>
         )
     }
