@@ -168,14 +168,14 @@ h2 {
     text-align: justify;
 }
 
-.dayzee {
+.wallace {
     float: right;
     margin-top: -295px;
     margin-bottom: 10%;
     width: 375px;
     height: 375px;
     object-fit: cover;
-    object-position: 0px 0;
+    object-position: 0px -70px;
     border: solid 15px #FF6B6B;
     transform: rotate(3deg);
 }
