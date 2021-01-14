@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import './style/Header.css';
 
 export default class Header extends Component {
     render() {
         return (
             <div className="header">
-                <h3 className="logo">PetPark</h3>
-                <span className="browse">Browse Pets</span>
-                <span className="about">About Us</span>
+                <Link to="/"><h3 className="logo">PetPark</h3></Link>
+
+                <Link to="/browse"><span className="browse">Browse Pets</span></Link>
+
+                <Link to="/aboutus"><span className="about">About Us</span></Link>
+
                 <input type="text" className="search" />
+
                 <span className="login">Log In</span>
-                <span className="signup">Sign Up</span>
+                
+                <Link to="/signup"><span className="signup">Sign Up</span></Link>
             </div>
         )
     }

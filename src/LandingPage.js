@@ -39,11 +39,13 @@ export default class LandingPage extends Component {
                     <h2 className="monetize">Monetize your monster!</h2>
                     <p className="lp3">Accept tips from people who want the best for your beast!</p>
                     <img src="/Wallace2.jpg" alt="wallace" className="wallace" />
-                </div>
-                <div className="footer">
-                    <div className="midnightgreenfoot"> </div>
-                    <div className="bittersweetfoot"> </div>
-                    <div className="naplesyellowfoot"> </div>
+
+                    <div className="divider3">
+                        <div className="midnightgreendiv3"> </div>
+                        <div className="bittersweetdiv3"> </div>
+                        <div className="naplesyellowdiv3"> </div>
+                    </div>
+
                 </div>
             </div>
         )

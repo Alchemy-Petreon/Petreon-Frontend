@@ -1,9 +1,11 @@
 html {
+    margin: 0;
     background-color: #F7FFF7;
 }
 
 body {
     min-width: 1200px;
+    margin: 0;
 }
 
 .lp {
@@ -171,7 +173,7 @@ h2 {
 .wallace {
     float: right;
     margin-top: -295px;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
     width: 375px;
     height: 375px;
     object-fit: cover;
@@ -180,23 +182,26 @@ h2 {
     transform: rotate(3deg);
 }
 
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+.divider3 {
+    margin-top: 5%;
+    margin-left: -13%;
+    width: 90%;
 }
 
-.midnightgreenfoot {
-    height: 25px;
+.midnightgreendiv3 {
+    height: 10px;
+    width: 100%;
     background-color: #1A535C;
 }
 
-.bittersweetfoot {
-    height: 25px;
+.bittersweetdiv3 {
+    height: 10px;
+    width: 100%;
     background-color: #FF6B6B;
 }
 
-.naplesyellowfoot {
-    height: 25px;
+.naplesyellowdiv3 {
+    height: 10px;
+    width: 100%;
     background-color: #FFE66D;
 }
