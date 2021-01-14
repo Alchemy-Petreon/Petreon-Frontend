@@ -5,6 +5,7 @@ import {
   Route,
   Switch,
 } from 'react-router-dom';
+import Header from './Header.js';
 import LandingPage from './LandingPage.js';
 
 export default class App extends Component {
@@ -12,6 +13,7 @@ export default class App extends Component {
     return (
       <div className="App">
         <Router>
+          <Header />
           <Switch>
             <Route
             path = "/"

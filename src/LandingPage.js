@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import './style/LandingPage.css';
 
 export default class LandingPage extends Component {
     render() {
