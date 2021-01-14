@@ -7,6 +7,10 @@ import {
 } from 'react-router-dom';
 import Header from './Header.js';
 import LandingPage from './LandingPage.js';
+import Login from './Login.js';
+import SignUp from './SignUp.js';
+import Browse from './Browse.js';
+import AboutUs from './AboutUs.js';
 
 export default class App extends Component {
   render() {
@@ -18,6 +22,22 @@ export default class App extends Component {
             <Route
             path = "/"
             exact render={(routerProps) => <LandingPage {...routerProps} />}
+            />
+            <Route
+            path = "/login"
+            exact render={(routerProps) => <Login {...routerProps} />}
+            />
+            <Route
+            path = "/signup"
+            exact render={(routerProps) => <SignUp {...routerProps} />}
+            />
+            <Route
+            path = "/browse"
+            exact render={(routerProps) => <Browse {...routerProps} />}
+            />
+            <Route
+            path = "/aboutus"
+            exact render={(routerProps) => <AboutUs {...routerProps} />}
             />
           </Switch>
         </Router>
