@@ -23,6 +23,22 @@ export default class App extends Component {
             path = "/"
             exact render={(routerProps) => <LandingPage {...routerProps} />}
             />
+            <Route
+            path = "/login"
+            exact render={(routerProps) => <Login {...routerProps} />}
+            />
+            <Route
+            path = "/signup"
+            exact render={(routerProps) => <SignUp {...routerProps} />}
+            />
+            <Route
+            path = "/browse"
+            exact render={(routerProps) => <Browse {...routerProps} />}
+            />
+            <Route
+            path = "/aboutus"
+            exact render={(routerProps) => <AboutUs {...routerProps} />}
+            />
           </Switch>
         </Router>
       </div>
