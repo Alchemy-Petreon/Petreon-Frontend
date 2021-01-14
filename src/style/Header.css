@@ -1,4 +1,67 @@
-body {
-    height: 75px;
-    background-color: #1A535C;
+a {
+    text-decoration: none;
+}
+
+.header {
+    height: 70px;
+    width: 100%;
+    padding-top: 10px;
+    background-color: #F7FFF7;
+}
+
+.logo {
+    margin-left: 1%;
+    margin-right: 3%;
+    font-family: Excalibur;
+    font-size: 45pt;
+    color: #1A535C;
+}
+
+.browse {
+    margin-right: 3%;
+    margin-top: -10px;
+    font-family: Burma-Soft;
+    font-size: 25pt;
+    color: #1A535C
+}
+
+.logo:hover, .browse:hover {
+    color: #FF6B6B;
+    text-shadow: 1px 1px 0 #1A535C;
+    transition-duration: 1s;
+}
+
+.search {
+    width: 40%;
+    border: solid 2px #1A535C;
+    border-radius: 12px;
+    font-family: Burma;
+    font-size: 18pt;
+    background-color: #F7FFF7;
+}
+
+.button1 {
+    margin-right: 5%;
+    background-color: #F7FFF7;
+    border: none;
+    margin-left: -40px;
+}
+
+.glass {
+    display: inline;
+    height: 20px;
+    width: 20px;
+}
+
+.login {
+    margin-right: 3%;
+    font-family: Burma-Soft;
+    font-size: 25pt;
+    color: #1A535C
+}
+
+.signup {
+    font-family: Burma-Soft;
+    font-size: 25pt;
+    color: #1A535C
 }

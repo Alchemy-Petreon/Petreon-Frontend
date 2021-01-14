@@ -6,7 +6,7 @@ export default class LandingPage extends Component {
         return (
             <div className="lp">
                 <div className="banner">
-                    <img src="/five-little-grey-kittens.jpg" alt="kitties" className="landing-banner"/>
+                    <img src="/minimalcolorizing.jpg" alt="kitties" className="landing-banner"/>
                 </div>
                 <div className="colors">
                     <div className="midnightgreen">
@@ -38,12 +38,13 @@ export default class LandingPage extends Component {
 
                     <h2 className="monetize">Monetize your monster!</h2>
                     <p className="lp3">Accept tips from people who want the best for your beast!</p>
-                    <img src="/Tulsi.jpg" alt="tulsi" className="tulsi" />
-                </div>
-                <div className="footer">
-                    <div className="midnightgreenfoot"> </div>
-                    <div className="bittersweetfoot"> </div>
-                    <div className="naplesyellowfoot"> </div>
+                    <img src="/Wallace2.jpg" alt="wallace" className="wallace" />
+
+                    <div className="divider3">
+                        <div className="midnightgreendiv3"> </div>
+                        <div className="bittersweetdiv3"> </div>
+                        <div className="naplesyellowdiv3"> </div>
+                    </div>
                 </div>
             </div>
         )
