@@ -1,7 +1,6 @@
 .lp {
     position: relative;
-    min-height: 245vh;
-    padding-bottom: 0;
+    height: 220vh;
 }
 
 .landing-banner {
