@@ -1,0 +1,27 @@
+.footer {
+    height: 35px;
+    width: 100%;
+    padding-top: 5px;
+    background-color: #1A535C;
+}
+
+.foot-logo {
+    float: left;
+    margin-left: 1%;
+    margin-right: 3%;
+    font-family: Excalibur;
+    font-size: 20pt;
+    color: #F7FFF7;
+}
+
+.about-us {
+    float: left;
+    font-family: Burma;
+    font-size: 18pt;
+    color: #F7FFF7;
+}
+
+.about-us:hover {
+    color: #FF6B6B;
+    transition-duration: 1s;
+}
