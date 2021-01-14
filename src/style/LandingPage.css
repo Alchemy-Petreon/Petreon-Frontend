@@ -10,7 +10,7 @@ body {
 
 .lp {
     position: relative;
-    min-height: 285vh;
+    min-height: 260vh;
     padding-bottom: 0;
 }
 
@@ -172,7 +172,6 @@ h2 {
 .wallace {
     float: right;
     margin-top: -295px;
-    margin-bottom: 5%;
     width: 375px;
     height: 375px;
     object-fit: cover;
