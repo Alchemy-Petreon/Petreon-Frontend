@@ -21,24 +21,24 @@ export default class App extends Component {
           <Header />
           <Switch>
             <Route
-            path = "/"
-            exact render={(routerProps) => <LandingPage {...routerProps} />}
+              path="/"
+              exact render={(routerProps) => <LandingPage {...routerProps} />}
             />
             <Route
-            path = "/login"
-            exact render={(routerProps) => <Login {...routerProps} />}
+              path="/login/:email/:firstName/:exisiting"
+              exact render={(routerProps) => <Login {...routerProps} />}
             />
             <Route
-            path = "/signup"
-            exact render={(routerProps) => <SignUp {...routerProps} />}
+              path="/signup"
+              exact render={(routerProps) => <SignUp {...routerProps} />}
             />
             <Route
-            path = "/browse"
-            exact render={(routerProps) => <Browse {...routerProps} />}
+              path="/browse"
+              exact render={(routerProps) => <Browse {...routerProps} />}
             />
             <Route
-            path = "/aboutus"
-            exact render={(routerProps) => <AboutUs {...routerProps} />}
+              path="/aboutus"
+              exact render={(routerProps) => <AboutUs {...routerProps} />}
             />
           </Switch>
           <Footer />

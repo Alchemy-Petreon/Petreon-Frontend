@@ -20,10 +20,9 @@ export default class SignUp extends Component {
 
         this.setState({ loading: true })
         const user = {
-
             userName: this.state.userName,
             firstName: this.state.firstName,
-            email: this.state.em,
+            email: this.state.email,
             profilePicture: this.state.profilePicture,
             profileDescription: this.state.profileDescription,
             likes: "0"
