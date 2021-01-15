@@ -34,13 +34,15 @@ export default class App extends Component {
             <Route
               path="/"
               exact render={(routerProps) => <LandingPage {...routerProps} />}
-            />
+              />
+
             <Route
               path="/login/:email/:firstName/:exisiting"
               exact render={(routerProps) => <Login {...routerProps}
                 handleAppState={this.handleAppState}
               />}
             />
+            
             <Route
               path="/signup"
               exact render={(routerProps) => <SignUp {...routerProps}

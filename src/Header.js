@@ -11,9 +11,9 @@ export default class Header extends Component {
                 <Link to="/browse"><span className="browse">Browse Pets</span></Link>
 
                 <input type="text" placeholder="Search..." className="search" />
-                <button className="button1"><img src="./loupe.png" alt="Search" className="glass" /></button>
+                <button className="button1"><img src="/loupe.png" alt="Search" className="glass" /></button>
 
-                <a href="https://petreon-api.herokuapp.com/api/v1/auth/google" className="login">Log In/Sign Up</a>
+                <a href="https://petreon-api.herokuapp.com/api/v1/auth/google" className="login">Log In</a>
 
                 {/* <Link to="/signup"><span className="signup">Sign Up</span></Link> */}
 
