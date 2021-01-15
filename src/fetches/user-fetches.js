@@ -24,10 +24,10 @@ export async function fetchUser(id) {
     }
 }
 
-export async function fetchUserByEmail(email) {
+export async function fetchUserByEmail() {
     try {
         const response = await request
-            .get(`${URL}api/v1/users/email/${email}`)
+            .get(`${URL}api/v1/users/email`)
             .withCredentials()
         return response.body;
     } catch (err) {
