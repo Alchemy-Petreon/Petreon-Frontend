@@ -34,8 +34,9 @@ export default class App extends Component {
             <Route
               path="/"
               exact render={(routerProps) => <LandingPage {...routerProps} />}
-            />
+
             <Route
+
               path="/login/:email/:firstName/:exisiting"
               exact render={(routerProps) => <Login {...routerProps}
                 handleAppState={this.handleAppState}
@@ -46,6 +47,7 @@ export default class App extends Component {
               exact render={(routerProps) => <SignUp {...routerProps}
                 loginInfo={this.state.loginInfo}
               />}
+
             />
             <Route
               path="/browse"
