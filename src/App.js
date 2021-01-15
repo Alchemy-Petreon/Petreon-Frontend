@@ -6,12 +6,13 @@ import {
   Switch,
 } from 'react-router-dom';
 import Header from './Header.js';
-import Footer from './Footer.js';
 import LandingPage from './LandingPage.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
 import Browse from './Browse.js';
 import AboutUs from './AboutUs.js';
+import UserDash from './UserDash.js';
+import Footer from './Footer.js';
 
 export default class App extends Component {
   render() {
@@ -39,6 +40,10 @@ export default class App extends Component {
             <Route
             path = "/aboutus"
             exact render={(routerProps) => <AboutUs {...routerProps} />}
+            />
+            <Route
+            path = "/userdash"
+            exact render={(routerProps) => <UserDash {...routerProps} />}
             />
           </Switch>
           <Footer />
