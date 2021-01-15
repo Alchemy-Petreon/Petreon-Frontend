@@ -65,9 +65,11 @@ export default class App extends Component {
               path="/aboutus"
               exact render={(routerProps) => <AboutUs {...routerProps} />}
             />
+
             <Route
               path="/userdash"
-              exact render={(routerProps) => <UserDash {...routerProps} />}
+              exact render={(routerProps) => <UserDash {...routerProps}
+                user={this.state.user} />}
             />
           </Switch>
           <Footer />

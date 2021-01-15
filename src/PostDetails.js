@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { fetchPost } from './fetches/post-fetches.js'
+import CreateComment from './CreateComment.js'
 
 export default class PostDetails extends Component {
     state = {
-        loading: false,
+        loading: true,
         post: [],
     }
     componentDidMount = async () => {
@@ -26,6 +27,16 @@ export default class PostDetails extends Component {
 
                             <img className='post-picture' alt={this.state.post.pictureUrl} src={this.state.post.pictureUrl} />
                             <p className='post-text'>{this.state.post.postText}</p>
+                            <p>Comments </p>
+                            {
+                                this.state.post.comments.map(comment =>
+                                    <div key={comment.id}>
+                                        {comment.text}
+                                    </div>)
+                            }
+
+                            <CreateComment
+                                postId={this.props.match.params.id} />
                         </div>
                     </div>
                 }
