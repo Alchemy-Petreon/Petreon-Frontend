@@ -13,7 +13,6 @@ import SignUp from './SignUp.js';
 import Browse from './Browse.js';
 import AboutUs from './AboutUs.js';
 import UserDash from './UserDash.js';
-import Footer from './Footer.js';
 
 export default class App extends Component {
   state = {
@@ -57,8 +56,8 @@ export default class App extends Component {
               exact render={(routerProps) => <AboutUs {...routerProps} />}
             />
             <Route
-            path = "/userdash"
-            exact render={(routerProps) => <UserDash {...routerProps} />}
+              path="/userdash"
+              exact render={(routerProps) => <UserDash {...routerProps} />}
             />
           </Switch>
           <Footer />

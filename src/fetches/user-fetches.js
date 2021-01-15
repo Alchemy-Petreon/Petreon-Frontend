@@ -27,7 +27,7 @@ export async function fetchUser(id) {
 export async function fetchUserByEmail(email) {
     try {
         const response = await request
-            .get(`${URL}api/v1/users/${email}`)
+            .get(`${URL}api/v1/users/email/${email}`)
             .withCredentials()
         return response.body;
     } catch (err) {

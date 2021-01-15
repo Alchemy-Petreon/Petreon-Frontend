@@ -15,8 +15,6 @@ export default class SignUp extends Component {
 
     componentDidMount = () => {
 
-        console.log(this.props.loginInfo)
-
         this.setState({
             email: this.props.loginInfo.email,
             firstName: this.props.loginInfo.firstName,
