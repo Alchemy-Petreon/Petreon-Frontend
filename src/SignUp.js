@@ -37,9 +37,9 @@ export default class SignUp extends Component {
             profileDescription: this.state.profileDescription,
             likes: "0"
         }
-        createUser(user);
+        await createUser(user);
 
-        this.props.history.push('/');
+
 
     }
     render() {
@@ -64,7 +64,6 @@ export default class SignUp extends Component {
                         <p className='profile-description'>Profile Description:</p>
                         <input onChange={(e) => this.setState({ profileDescription: e.target.value })}
                             value={this.state.profileDescription} ></input>
-
                         <br />
                         <button className='signup-button'>Submit</button>
                         <br />

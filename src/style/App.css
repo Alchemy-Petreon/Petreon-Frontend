@@ -34,3 +34,10 @@ body {
     min-width: 1200px;
     margin: 0;
 }
+
+.App {
+    height: 100%;
+    margin: 0;
+    position: relative;
+    padding-bottom: 12%;
+}
