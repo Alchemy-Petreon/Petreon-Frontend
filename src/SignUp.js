@@ -13,6 +13,16 @@ export default class SignUp extends Component {
 
     }
 
+    componentDidMount = () => {
+
+        console.log(this.props.loginInfo)
+
+        this.setState({
+            email: this.props.loginInfo.email,
+            firstName: this.props.loginInfo.firstName,
+        })
+    }
+
     handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -45,8 +55,9 @@ export default class SignUp extends Component {
                         <input onChange={(e) => this.setState({ firstName: e.target.value })}
                             value={this.state.firstName} ></input>
                         <p className='email'>Email:</p>
-                        <input onChange={(e) => this.setState({ email: e.target.value })}
-                            value={this.state.email} ></input>
+                        <p>{this.state.email}</p>
+                        {/* <input onChange={(e) => this.setState({ email: e.target.value })}
+                            value={this.state.email} ></input> */}
                         <p className='profile-picture'>Profile Picture URL:</p>
                         <input onChange={(e) => this.setState({ profilePicture: e.target.value })}
                             value={this.state.profilePicture} ></input>

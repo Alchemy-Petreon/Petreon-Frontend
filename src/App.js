@@ -14,6 +14,16 @@ import Browse from './Browse.js';
 import AboutUs from './AboutUs.js';
 
 export default class App extends Component {
+  state = {
+    loginInfo: {}
+  }
+
+  handleAppState = async (object) => {
+    console.log(object)
+    await this.setState(object)
+    // console.log(this.state.loginInfo)
+  }
+
   render() {
     return (
       <div className="App">
@@ -26,11 +36,15 @@ export default class App extends Component {
             />
             <Route
               path="/login/:email/:firstName/:exisiting"
-              exact render={(routerProps) => <Login {...routerProps} />}
+              exact render={(routerProps) => <Login {...routerProps}
+                handleAppState={this.handleAppState}
+              />}
             />
             <Route
               path="/signup"
-              exact render={(routerProps) => <SignUp {...routerProps} />}
+              exact render={(routerProps) => <SignUp {...routerProps}
+                loginInfo={this.state.loginInfo}
+              />}
             />
             <Route
               path="/browse"
