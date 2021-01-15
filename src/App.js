@@ -22,7 +22,6 @@ export default class App extends Component {
   handleAppState = async (object) => {
     console.log(object)
     await this.setState(object)
-    // console.log(this.state.loginInfo)
   }
 
   render() {
@@ -34,7 +33,7 @@ export default class App extends Component {
             <Route
               path="/"
               exact render={(routerProps) => <LandingPage {...routerProps} />}
-
+            />
             <Route
 
               path="/login/:email/:firstName/:exisiting"
