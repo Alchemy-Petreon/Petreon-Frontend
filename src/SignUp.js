@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { createUser } from "./fetches/user-fetches.js"
+import './style/SignUp.css'
 
 
 export default class SignUp extends Component {
@@ -43,31 +44,41 @@ export default class SignUp extends Component {
     }
     render() {
         return (
-            <div className='sign-up-page'>
-                <div className='box'>
-                    <h2 className='user-signup'> Sign Up</h2>
+            <div className='sup'>
+                <div className='naplesyellowborder'> </div>
+
+                    <h3 className='suhead'> Sign Up</h3>
+
+                    <div className="box">
+
                     <form onSubmit={this.handleSubmit}>
-                        <p className='user-name'>User Name:</p>
+                        
+                        <p className='username'>Username:</p>
                         <input name="userName" onChange={(e) => this.setState({ userName: e.target.value })}
                             value={this.state.userName}></input>
-                        <p className='first-Name'>First Name:</p>
+                        
+                        <p className='firstname'>First Name:</p>
                         <input name="firstName" onChange={(e) => this.setState({ firstName: e.target.value })}
                             value={this.state.firstName} ></input>
-                        <p className='email'>Email:</p>
+                        
+                        <p className='email'>E-mail:</p>
                         <p>{this.state.email}</p>
-                        {/* <input onChange={(e) => this.setState({ email: e.target.value })}
-                            value={this.state.email} ></input> */}
-                        <p className='profile-picture'>Profile Picture URL:</p>
+                        
+                        <p className='profile-pic'>Profile Picture:</p>
                         <input type="file" name="profilePicture" onChange={(e) => this.setState({ profilePicture: e.target.value })}
                             value={this.state.profilePicture} ></input>
-                        <p className='profile-description'>Profile Description:</p>
+                        
+                        <p className='profile-desc'>Tagline:</p>
                         <input name="profileDescription" onChange={(e) => this.setState({ profileDescription: e.target.value })}
                             value={this.state.profileDescription} ></input>
+                        
                         <br />
+                        
                         <button className='signup-button'>Submit</button>
+                        
                         <br />
                     </form>
-                </div>
+                    </div>
             </div>
         )
     }

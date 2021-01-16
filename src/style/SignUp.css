@@ -1,0 +1,21 @@
+.sup {
+    position: relative;
+    height: 100%;
+    border-top: solid 10px #FF6B6B;
+    border-bottom: solid 5px red;
+}
+
+.naplesyellowborder {
+    border-top: solid 10px #FFE66D;
+}
+
+.suhead {
+    margin-top: 20px;
+    text-align: center;
+    font-family: Burma-Soft;
+    font-size: 30pt;
+}
+
+.box {
+    border: solid 2px black;
+}
