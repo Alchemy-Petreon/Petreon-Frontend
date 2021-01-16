@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { createComment } from "./fetches/comment-fetches.js"
 
 
-export default class CreatePet extends Component {
+export default class CreateComment extends Component {
     state = {
         commentText: ''
     }
