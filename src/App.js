@@ -24,7 +24,6 @@ export default class App extends Component {
   handleAppState = async (object) => {
     console.log(object)
     await this.setState(object)
-    // console.log(this.state.loginInfo)
   }
 
   render() {
@@ -37,27 +36,38 @@ export default class App extends Component {
               path="/"
               exact render={(routerProps) => <LandingPage {...routerProps} />}
             />
+
             <Route
               path="/login/:email/:firstName/:exisiting"
               exact render={(routerProps) => <Login {...routerProps}
                 handleAppState={this.handleAppState}
               />}
             />
+            
             <Route
               path="/signup"
               exact render={(routerProps) => <SignUp {...routerProps}
                 loginInfo={this.state.loginInfo}
               />}
             />
+
             <Route
               path="/browse"
               exact render={(routerProps) => <Browse {...routerProps} />}
             />
+
             <Route
+
               path="/pets/:id"
               exact render={(routerProps) => <PetDetails {...routerProps} />}
+
+              path="/aboutus"
+              exact render={(routerProps) => <AboutUs {...routerProps} />}
+
             />
+            
             <Route
+
               path="/posts/:id"
               exact render={(routerProps) => <PostDetails {...routerProps} />}
             />
@@ -70,6 +80,7 @@ export default class App extends Component {
               path="/userdash"
               exact render={(routerProps) => <UserDash {...routerProps}
                 user={this.state.user} />}
+
             />
           </Switch>
           <Footer />

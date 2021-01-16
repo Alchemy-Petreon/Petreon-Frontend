@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { createComment } from "./fetches/comment-fetches.js"
 
 
+
 export default class CreateComment extends Component {
+
     state = {
         commentText: ''
     }
@@ -14,9 +16,10 @@ export default class CreateComment extends Component {
 
         this.setState({ loading: true })
         const comment = {
-            userId: 41,
+
+            userId: this.props.userId,
             postId: this.props.postId,
-            text: this.state.commentText
+            commentText: this.state.commentText
 
         }
         createComment(comment);

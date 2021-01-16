@@ -4,8 +4,12 @@ import { fetchUserByEmail } from "./fetches/user-fetches.js"
 export default class Login extends Component {
     componentDidMount = async () => {
 
+        console.log('/------------------------/')
+        console.log(this.context)
+        console.log('/------------------------/')
+
         if (this.props.match.params.exisiting === 'true') {
-            const exisitingUser = await fetchUserByEmail(this.props.match.params.email)
+            const exisitingUser = await fetchUserByEmail()
             this.props.handleAppState({ userInfo: exisitingUser })
             this.props.history.push('/userdash')
         } else {
