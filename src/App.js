@@ -18,7 +18,8 @@ import PostDetails from './PostDetails.js'
 
 export default class App extends Component {
   state = {
-    loginInfo: {}
+    loginInfo: {},
+    userInfo: {}
   }
 
   handleAppState = async (object) => {
@@ -59,7 +60,8 @@ export default class App extends Component {
             <Route
 
               path="/pets/:id"
-              exact render={(routerProps) => <PetDetails {...routerProps} />}
+              exact render={(routerProps) => <PetDetails {...routerProps}
+                user={this.state.userInfo} />}
 
 
             />
@@ -67,7 +69,8 @@ export default class App extends Component {
             <Route
 
               path="/posts/:id"
-              exact render={(routerProps) => <PostDetails {...routerProps} />}
+              exact render={(routerProps) => <PostDetails {...routerProps}
+                user={this.state.userInfo} />}
             />
             <Route
               path="/aboutus"
@@ -77,7 +80,7 @@ export default class App extends Component {
             <Route
               path="/userdash"
               exact render={(routerProps) => <UserDash {...routerProps}
-                user={this.state.user} />}
+                user={this.state.userInfo} />}
 
             />
           </Switch>

@@ -17,13 +17,16 @@ export default class CreatePet extends Component {
         console.log(this.state);
 
         this.setState({ loading: true })
-        const post = {
-            petId: this.props.petId,
-            userId: this.props.userId,
-            pictureUrl: this.state.pictureUrl,
-            videoUrlUrl: this.state.videoUrl,
+        const post = new FormData(e.target)
+        // const post = {
+        //     petId: this.props.petId,
+        //     userId: this.props.userId,
+        //     pictureUrl: this.state.pictureUrl,
+        //     videoUrlUrl: this.state.videoUrl,
 
-        }
+        // }
+        post.append("petId", this.props.petId)
+        post.append("userId", this.props.userId)
         createPost(post);
 
         this.props.history.push('/');
@@ -36,13 +39,13 @@ export default class CreatePet extends Component {
                     <h2 className='create-post'> Sign Up</h2>
                     <form onSubmit={this.handleSubmit}>
                         <p className='post-text'>Post Text:</p>
-                        <input onChange={(e) => this.setState({ postText: e.target.value })}
+                        <input name='postText' onChange={(e) => this.setState({ postText: e.target.value })}
                             value={this.state.postText}></input>
                         <p className='post-pictuer'>Picture URL:</p>
-                        <input onChange={(e) => this.setState({ pictureUrl: e.target.value })}
+                        <input name='pictureUrl' type='file' onChange={(e) => this.setState({ pictureUrl: e.target.value })}
                             value={this.state.pictureUrl} ></input>
                         <p className='pet-video'>Video URL:</p>
-                        <input onChange={(e) => this.setState({ videoUrl: e.target.value })}
+                        <input name='videoUrl' type='file' onChange={(e) => this.setState({ videoUrl: e.target.value })}
                             value={this.state.videoUrl} ></input>
                         <br />
                         <button className='create-post-button'>Submit</button>
