@@ -34,28 +34,31 @@ export default class App extends Component {
               path="/"
               exact render={(routerProps) => <LandingPage {...routerProps} />}
             />
-            <Route
 
+            <Route
               path="/login/:email/:firstName/:exisiting"
               exact render={(routerProps) => <Login {...routerProps}
                 handleAppState={this.handleAppState}
               />}
             />
+            
             <Route
               path="/signup"
               exact render={(routerProps) => <SignUp {...routerProps}
                 loginInfo={this.state.loginInfo}
               />}
-
             />
+
             <Route
               path="/browse"
               exact render={(routerProps) => <Browse {...routerProps} />}
             />
+
             <Route
               path="/aboutus"
               exact render={(routerProps) => <AboutUs {...routerProps} />}
             />
+            
             <Route
               path="/userdash"
               exact render={(routerProps) => <UserDash {...routerProps} />}
