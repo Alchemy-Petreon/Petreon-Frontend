@@ -13,6 +13,8 @@ import SignUp from './SignUp.js';
 import Browse from './Browse.js';
 import AboutUs from './AboutUs.js';
 import UserDash from './UserDash.js';
+import PetDetails from './PetDetails.js'
+import PostDetails from './PostDetails.js'
 
 export default class App extends Component {
   state = {
@@ -55,13 +57,24 @@ export default class App extends Component {
             />
 
             <Route
+              path="/pets/:id"
+              exact render={(routerProps) => <PetDetails {...routerProps} />}
+            />
+
+            <Route
+              path="/posts/:id"
+              exact render={(routerProps) => <PostDetails {...routerProps} />}
+            />
+
+            <Route
               path="/aboutus"
               exact render={(routerProps) => <AboutUs {...routerProps} />}
             />
-            
+
             <Route
               path="/userdash"
-              exact render={(routerProps) => <UserDash {...routerProps} />}
+              exact render={(routerProps) => <UserDash {...routerProps}
+                user={this.state.user} />}
             />
           </Switch>
           <Footer />
