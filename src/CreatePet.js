@@ -18,7 +18,8 @@ export default class CreatePet extends Component {
 
         this.setState({ loading: true })
         const pet = {
-            userId: this.props.userId,
+            userId: this.props.user.id,
+
             petName: this.state.petName,
             type: this.state.type,
             petProfilePicture: this.state.petProfilePicture,
@@ -34,7 +35,8 @@ export default class CreatePet extends Component {
         return (
             <div className='create-pet-page'>
                 <div className='box'>
-                    <h2 className='create-pet'> Sign Up</h2>
+                    <h2 className='create-pet'> Create Pet</h2>
+
                     <form onSubmit={this.handleSubmit}>
                         <p className='pet-name'>Pet Name:</p>
                         <input onChange={(e) => this.setState({ petName: e.target.value })}
