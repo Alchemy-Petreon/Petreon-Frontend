@@ -17,9 +17,9 @@ export default class CreateComment extends Component {
         this.setState({ loading: true })
         const comment = {
 
-            userId: this.props.userId,
+            userId: 41,
             postId: this.props.postId,
-            commentText: this.state.commentText
+            text: this.state.commentText
 
         }
         createComment(comment);

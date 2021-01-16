@@ -43,7 +43,7 @@ export default class App extends Component {
                 handleAppState={this.handleAppState}
               />}
             />
-            
+
             <Route
               path="/signup"
               exact render={(routerProps) => <SignUp {...routerProps}
@@ -61,11 +61,9 @@ export default class App extends Component {
               path="/pets/:id"
               exact render={(routerProps) => <PetDetails {...routerProps} />}
 
-              path="/aboutus"
-              exact render={(routerProps) => <AboutUs {...routerProps} />}
 
             />
-            
+
             <Route
 
               path="/posts/:id"
