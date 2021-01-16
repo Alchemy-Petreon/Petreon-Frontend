@@ -15,6 +15,6 @@ Petreon is an application where pet owners can showcase their pets by posting im
 - [Miro Board] (https://miro.com/welcomeonboard/heZOhp9Orgw83XrE4mQVniPAhfXyR5xDYQIlnluYMzN8rGXzA2cHhqvVpgBi4JUH)
 
 ## Wireframe for Front End
-![Front End Wireframing](/WebpageWireframes.png)
+![Front End Wireframing](./WebpageWireframes.png)
 
 ###### Version 1.0.0
