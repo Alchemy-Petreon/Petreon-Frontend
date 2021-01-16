@@ -2,7 +2,6 @@
     position: relative;
     height: 100%;
     border-top: solid 10px #FF6B6B;
-    border-bottom: solid 5px red;
 }
 
 .naplesyellowborder {
@@ -17,6 +16,33 @@
 }
 
 .box {
+    margin-left: 30%;
+    margin-right: 30%;
     text-align: center;
-    border: solid 2px black;
+    border: solid 2px #1A535C;
+}
+
+p {
+    font-family: Burma;
+    font-size: 20pt;
+}
+
+.userinput, .nameinput, .descinput {
+    font-family: Burma;
+    font-size: 18pt;
+    width: 60%;
+    background-color: #F7FFF7;
+    border-radius: 5px;
+    border: solid 2px #FF6B6B;
+}
+
+.signup-button {
+    margin-top: 7%;
+    margin-bottom: 7%;
+    width: 40%;
+    font-family: Burma-Soft;
+    font-size: 18pt;
+    background-color: #FFE66D;
+    border: solid 2px #FFE66D;
+    border-radius: 5px;
 }
