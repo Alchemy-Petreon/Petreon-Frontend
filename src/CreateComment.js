@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { createComment } from "./fetches/comment-fetches.js"
 
 
-export default class CreatePet extends Component {
+
+export default class CreateComment extends Component {
+
     state = {
         commentText: ''
     }
@@ -14,6 +16,7 @@ export default class CreatePet extends Component {
 
         this.setState({ loading: true })
         const comment = {
+
             userId: this.props.userId,
             postId: this.props.postId,
             commentText: this.state.commentText
@@ -26,9 +29,9 @@ export default class CreatePet extends Component {
         return (
             <div className='create-pet-page'>
                 <div className='box'>
-                    <h2 className='create-comment'> Sign Up</h2>
+
                     <form onSubmit={this.handleSubmit}>
-                        <p className='comment'>Comment Text:</p>
+                        <p className='comment'>Create Comment:</p>
                         <input onChange={(e) => this.setState({ commentText: e.target.value })}
                             value={this.state.commentText}></input>
                         <br />

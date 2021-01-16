@@ -1,34 +1,33 @@
 import React, { Component } from 'react'
-import './style/BrowsePets.css'
-import { fetchPets } from './fetches/pet-fetches.js'
-import PetItem from './PetItem.js'
+import { fetchPosts } from './fetches/post-fetches.js'
+import PostItem from './PostItem.js'
 
 
-export default class Browse extends Component {
+export default class Posts extends Component {
     state = {
         loading: true,
-        allPets: [],
+        allPosts: [],
     }
     componentDidMount = async () => {
         await this.setState({ loading: true });
-        const allPets = await fetchPets();
+        const allPosts = await fetchPosts();
         this.setState({
             loading: false,
-            allPets: allPets
+            allPosts: allPosts
         })
     };
 
     render() {
         return (
 
-            <div className='pet-box'>
+            <div className='post-box'>
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
-                    this.state.allPets.map(pet =>
-                        <div key={pet.id}>
-                            <PetItem
-                                pet={pet} />
+                    this.state.allPosts.map(post =>
+                        <div key={post.id}>
+                            <PostItem
+                                post={post} />
                         </div>)
                 }
 

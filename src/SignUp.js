@@ -27,6 +27,7 @@ export default class SignUp extends Component {
         console.log(this.state);
 
         this.setState({ loading: true })
+
         const user = new FormData(e.target)
         // const user = {
         //     userName: this.state.userName,

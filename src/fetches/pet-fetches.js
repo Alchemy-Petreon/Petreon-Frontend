@@ -7,7 +7,7 @@ export async function fetchPets() {
     try {
         const response = await request
             .get(`${URL}api/v1/pets`)
-            .withCredentials()
+        // .withCredentials()
         return response.body;
     } catch (err) {
         throw err;
