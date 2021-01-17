@@ -42,8 +42,8 @@ export async function createUser(newUser) {
             .post(`${URL}api/v1/users`)
             .send(newUser)
             .withCredentials()
-        return response.body;
-    } catch (err) {
+            return response.body;
+        } catch (err) {
         throw err;
     }
 }
