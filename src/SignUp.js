@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createUser } from "./fetches/user-fetches.js"
+import { createUser, checkUsername } from "./fetches/user-fetches.js"
 import './style/SignUp.css'
 
 
@@ -8,7 +8,8 @@ export default class SignUp extends Component {
         userName: '',
         firstName: '',
         email: '',
-        profileDescription: ''
+        profileDescription: '',
+        validUsername: true
     }
 
     componentDidMount = () => {
@@ -23,40 +24,59 @@ export default class SignUp extends Component {
 
         this.setState({ loading: true })
         const user = new FormData(e.target)
-        console.log(...user)
-        console.log(e.target)
-        await createUser(user);
+        const newUser = Object.fromEntries(user);
+        await createUser(newUser);
+        this.props.history.push('/userdash')
     }
+
+    handleUsername = async (e) => {
+        e.preventDefault();
+
+        await this.setState({ userName: e.target.value });
+        if (this.state.userName) {
+            const currentUsername = await checkUsername(this.state.userName)
+            await this.setState({ validUsername: !currentUsername })
+        }
+    }
+
 
     render() {
         return (
             <div className='sup'>
                 <div className='naplesyellowborder'> </div>
 
-                    <h3 className='suhead'>Sign Up</h3>
+                <h3 className='suhead'>Sign Up</h3>
 
-                    <div className="box">
+                <div className="box">
 
                     <form onSubmit={this.handleSubmit}>
-                        
+
                         <p>Username:</p>
-                        <input 
+                        <input
                             className='userinput'
-                            name="userName" 
+                            name="userName"
                             maxLength="35"
-                            onChange={(e) => this.setState({ userName: e.target.value })}
-                            value={this.state.userName} 
-                            />
-                        
+                            onChange={(e) => this.handleUsername(e)}
+                            value={this.state.userName}
+                            required
+                        />
+                        {this.state.validUsername ?
+                            <></>
+                            :
+                            <p>INVALID USERNAME</p>
+
+                        }
+
                         <p>First Name:</p>
-                        <input 
+                        <input
                             className='nameinput'
                             name="firstName"
                             maxLength="35"
-                            onChange={(e) => this.setState({ firstName: e.target.value })}    
-                            value={this.state.firstName} 
-                            />
-                        
+                            onChange={(e) => this.setState({ firstName: e.target.value })}
+                            value={this.state.firstName}
+                            required
+                        />
+
                         {/* <p>Profile Picture:</p>
                         <input 
                         type="file" 
@@ -65,23 +85,28 @@ export default class SignUp extends Component {
                         onChange={(e) => this.setState({ profilePicture: e.target.value })}
                             value={this.state.profilePicture}/>
                          */}
-                        
+
                         <p>Tagline:</p>
-                        <input 
-                            className='descinput' 
+                        <input
+                            className='descinput'
                             name="profileDescription"
                             maxLength="144"
                             onChange={(e) => this.setState({ profileDescription: e.target.value })}
-                            value={this.state.profileDescription} 
-                            />
-                        
+                            value={this.state.profileDescription}
+                            required
+                        />
+
                         <br />
-                        
-                        <button className='signup-button'>Submit</button>
-                        
+
+                        <button
+                            className='signup-button'
+                            disabled={!this.state.validUsername}>
+                            Submit
+                            </button>
+
                         <br />
                     </form>
-                    </div>
+                </div>
             </div>
         )
     }

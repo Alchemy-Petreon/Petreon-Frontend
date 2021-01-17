@@ -36,7 +36,7 @@ export async function fetchUserByEmail() {
 }
 
 export async function createUser(newUser) {
-    console.log(...newUser)
+    console.log(newUser)
     try {
         const response = await request
             .post(`${URL}api/v1/users`)
@@ -64,6 +64,17 @@ export async function deleteUser(id) {
     try {
         const response = await request
             .delete(`${URL}api/v1/users/${id}`)
+            .withCredentials()
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function checkUsername(username) {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/users/username/${username}`)
             .withCredentials()
         return response.body;
     } catch (err) {
