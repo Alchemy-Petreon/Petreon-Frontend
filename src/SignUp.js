@@ -8,14 +8,10 @@ export default class SignUp extends Component {
         userName: '',
         firstName: '',
         email: '',
-        profilePicture: '',
-        profileDescription: '',
-        likes: ''
-
+        profileDescription: ''
     }
 
     componentDidMount = () => {
-
         this.setState({
             email: this.props.loginInfo.email,
             firstName: this.props.loginInfo.firstName,
@@ -25,52 +21,59 @@ export default class SignUp extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(this.state);
-
         this.setState({ loading: true })
         const user = new FormData(e.target)
-        // const user = {
-        //     userName: this.state.userName,
-        //     firstName: this.state.firstName,
-        //     email: this.state.email,
-        //     profilePicture: this.state.profilePicture,
-        //     profileDescription: this.state.profileDescription,
-        //     likes: "0"
-        // }
+        console.log(...user)
+        console.log(e.target)
         await createUser(user);
-
-
-
     }
+
     render() {
         return (
             <div className='sup'>
                 <div className='naplesyellowborder'> </div>
 
-                    <h3 className='suhead'> Sign Up</h3>
+                    <h3 className='suhead'>Sign Up</h3>
 
                     <div className="box">
 
                     <form onSubmit={this.handleSubmit}>
                         
-                        <p className='username'>Username:</p>
-                        <input name="userName" onChange={(e) => this.setState({ userName: e.target.value })}
-                            value={this.state.userName}></input>
+                        <p>Username:</p>
+                        <input 
+                            className='userinput'
+                            name="userName" 
+                            maxLength="35"
+                            onChange={(e) => this.setState({ userName: e.target.value })}
+                            value={this.state.userName} 
+                            />
                         
-                        <p className='firstname'>First Name:</p>
-                        <input name="firstName" onChange={(e) => this.setState({ firstName: e.target.value })}
-                            value={this.state.firstName} ></input>
+                        <p>First Name:</p>
+                        <input 
+                            className='nameinput'
+                            name="firstName"
+                            maxLength="35"
+                            onChange={(e) => this.setState({ firstName: e.target.value })}    
+                            value={this.state.firstName} 
+                            />
                         
-                        {/* <p className='email'>E-mail:</p>
-                        <p>{this.state.email}</p> */}
+                        {/* <p>Profile Picture:</p>
+                        <input 
+                        type="file" 
+                        name="profilePicture"
+                        className="profilepic"
+                        onChange={(e) => this.setState({ profilePicture: e.target.value })}
+                            value={this.state.profilePicture}/>
+                         */}
                         
-                        <p className='profile-pic'>Profile Picture:</p>
-                        <input type="file" name="profilePicture" onChange={(e) => this.setState({ profilePicture: e.target.value })}
-                            value={this.state.profilePicture} ></input>
-                        
-                        <p className='profile-desc'>Tagline:</p>
-                        <input name="profileDescription" onChange={(e) => this.setState({ profileDescription: e.target.value })}
-                            value={this.state.profileDescription} ></input>
+                        <p>Tagline:</p>
+                        <input 
+                            className='descinput' 
+                            name="profileDescription"
+                            maxLength="144"
+                            onChange={(e) => this.setState({ profileDescription: e.target.value })}
+                            value={this.state.profileDescription} 
+                            />
                         
                         <br />
                         

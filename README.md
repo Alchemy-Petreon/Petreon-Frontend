@@ -15,6 +15,11 @@ Petreon is an application where pet owners can showcase their pets by posting im
 - [Miro Board] (https://miro.com/welcomeonboard/heZOhp9Orgw83XrE4mQVniPAhfXyR5xDYQIlnluYMzN8rGXzA2cHhqvVpgBi4JUH)
 
 ## Wireframe for Front End
+<<<<<<< HEAD
+![Front End Wireframing](./WebpageWireframes.png)
+
+###### Version 1.0.0
+=======
 ![Front End Wireframing](./public/WebpageWireframes.png)
 
 ## User Stories
@@ -66,3 +71,4 @@ I will search for other animal hoarders
 And make meaningful connections through Petreon’s messaging services
 
 ###### Version 1.0.0
+>>>>>>> fd96112fd0c185f6c6310c96157c44f5571a30f7
