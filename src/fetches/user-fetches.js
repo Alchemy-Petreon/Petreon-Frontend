@@ -36,14 +36,13 @@ export async function fetchUserByEmail() {
 }
 
 export async function createUser(newUser) {
-    console.log(newUser)
     try {
         const response = await request
             .post(`${URL}api/v1/users`)
             .send(newUser)
             .withCredentials()
-        return response.body;
-    } catch (err) {
+            return response.body;
+        } catch (err) {
         throw err;
     }
 }
