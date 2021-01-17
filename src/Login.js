@@ -12,7 +12,7 @@ export default class Login extends Component {
             this.context.logIn();
             this.props.history.push('/userdash')
         } else {
-            this.props.setProfile({ profile: this.props.match.params })
+            this.context.setProfile({ profile: this.props.match.params })
             this.props.history.push('/signup')
         }
     }
