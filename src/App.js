@@ -57,8 +57,7 @@ export default class App extends Component {
 
               <Route
                 path="/pets/:id"
-                exact render={(routerProps) => <PetDetails {...routerProps}
-                  user={this.state.userInfo} />}
+                exact render={(routerProps) => <PetDetails {...routerProps} />}
 
 
 
@@ -66,8 +65,7 @@ export default class App extends Component {
 
               <Route
                 path="/posts/:id"
-                exact render={(routerProps) => <PostDetails {...routerProps}
-                  user={this.state.userInfo} />}
+                exact render={(routerProps) => <PostDetails {...routerProps} />}
               />
 
               <Route
@@ -77,8 +75,7 @@ export default class App extends Component {
 
               <Route
                 path="/userdash"
-                exact render={(routerProps) => <UserDash {...routerProps}
-                  user={this.state.userInfo} />}
+                exact render={(routerProps) => <UserDash {...routerProps} />}
 
 
               />

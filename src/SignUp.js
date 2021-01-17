@@ -26,9 +26,13 @@ export default class SignUp extends Component {
 
         this.setState({ loading: true })
         const user = new FormData(e.target)
-        const newProfile = await createUser(user);
+        const newUser = Object.fromEntries(user);
+        const newProfile = await createUser(newUser);
+
         this.context.setProfile({ profile: newProfile })
         this.context.logIn();
+
+        this.props.history.push('/userdash')
     }
 
     render() {
