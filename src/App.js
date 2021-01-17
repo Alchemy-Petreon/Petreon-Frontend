@@ -25,6 +25,7 @@ export default class App extends Component {
   handleAppState = async (object) => {
     console.log(object)
     await this.setState(object)
+    console.log(this.state.userInfo)
   }
 
   render() {
