@@ -8,14 +8,10 @@ export default class SignUp extends Component {
         userName: '',
         firstName: '',
         email: '',
-        profilePicture: '',
-        profileDescription: '',
-        likes: '',
-        file: null
+        profileDescription: ''
     }
 
     componentDidMount = () => {
-
         this.setState({
             email: this.props.loginInfo.email,
             firstName: this.props.loginInfo.firstName,
@@ -27,6 +23,8 @@ export default class SignUp extends Component {
 
         this.setState({ loading: true })
         const user = new FormData(e.target)
+        console.log(...user)
+        console.log(e.target)
         await createUser(user);
     }
 
@@ -35,7 +33,7 @@ export default class SignUp extends Component {
             <div className='sup'>
                 <div className='naplesyellowborder'> </div>
 
-                    <h3 className='suhead'> Sign Up</h3>
+                    <h3 className='suhead'>Sign Up</h3>
 
                     <div className="box">
 
@@ -43,13 +41,21 @@ export default class SignUp extends Component {
                         
                         <p>Username:</p>
                         <input 
-                            className= 'userinput' name="userName" 
+                            className='userinput'
+                            name="userName" 
+                            maxLength="35"
                             onChange={(e) => this.setState({ userName: e.target.value })}
-                                value={this.state.userName} />
+                            value={this.state.userName} 
+                            />
                         
                         <p>First Name:</p>
-                        <input className='nameinput' name="firstName" onChange={(e) => this.setState({ firstName: e.target.value })}
-                            value={this.state.firstName} />
+                        <input 
+                            className='nameinput'
+                            name="firstName"
+                            maxLength="35"
+                            onChange={(e) => this.setState({ firstName: e.target.value })}    
+                            value={this.state.firstName} 
+                            />
                         
                         {/* <p>Profile Picture:</p>
                         <input 
@@ -62,10 +68,12 @@ export default class SignUp extends Component {
                         
                         <p>Tagline:</p>
                         <input 
-                        className='descinput' 
-                        name="profileDescription" 
-                        onChange={(e) => this.setState({ profileDescription: e.target.value })}
-                            value={this.state.profileDescription} />
+                            className='descinput' 
+                            name="profileDescription"
+                            maxLength="144"
+                            onChange={(e) => this.setState({ profileDescription: e.target.value })}
+                            value={this.state.profileDescription} 
+                            />
                         
                         <br />
                         

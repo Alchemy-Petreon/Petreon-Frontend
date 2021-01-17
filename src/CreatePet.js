@@ -17,15 +17,17 @@ export default class CreatePet extends Component {
         console.log(this.state);
 
         this.setState({ loading: true })
-        const pet = {
-            userId: this.props.user.id,
+        const pet = new FormData(e.target)
+        pet.append("userId", this.props.user.id)
+        // const pet = {
+        //     userId: this.props.user.id,
 
-            petName: this.state.petName,
-            type: this.state.type,
-            petProfilePicture: this.state.petProfilePicture,
-            petProfileDescription: this.state.petProfileDescription,
-            bannerPicture: this.state.bannerPicture
-        }
+        //     petName: this.state.petName,
+        //     type: this.state.type,
+        //     petProfilePicture: this.state.petProfilePicture,
+        //     petProfileDescription: this.state.petProfileDescription,
+        //     bannerPicture: this.state.bannerPicture
+        // }
         createPet(pet);
 
         this.props.history.push('/');
@@ -39,19 +41,19 @@ export default class CreatePet extends Component {
 
                     <form onSubmit={this.handleSubmit}>
                         <p className='pet-name'>Pet Name:</p>
-                        <input onChange={(e) => this.setState({ petName: e.target.value })}
+                        <input name='userName' onChange={(e) => this.setState({ petName: e.target.value })}
                             value={this.state.petName}></input>
                         <p className='pet-type'>Pet Type:</p>
-                        <input onChange={(e) => this.setState({ type: e.target.value })}
+                        <input name='type' onChange={(e) => this.setState({ type: e.target.value })}
                             value={this.state.type} ></input>
                         <p className='pet-picture'>Pet Profile Picture URL:</p>
-                        <input onChange={(e) => this.setState({ petProfilePicture: e.target.value })}
+                        <input name='petProfilePicture' type='file' onChange={(e) => this.setState({ petProfilePicture: e.target.value })}
                             value={this.state.petProfilePicture} ></input>
                         <p className='pet-description'>Pet Description:</p>
-                        <input onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
+                        <input name='petProfileDescription' onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
                             value={this.state.petProfileDescription} ></input>
                         <p className='pet-banner'>Banner Picture URL:</p>
-                        <input onChange={(e) => this.setState({ bannerPicture: e.target.value })}
+                        <input name='bannerPicture' type='file' onChange={(e) => this.setState({ bannerPicture: e.target.value })}
                             value={this.state.bannerPicture} ></input>
                         <br />
                         <button className='create-pet-button'>Submit</button>
