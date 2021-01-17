@@ -36,7 +36,6 @@ export async function fetchUserByEmail() {
 }
 
 export async function createUser(newUser) {
-    console.log(...newUser)
     try {
         const response = await request
             .post(`${URL}api/v1/users`)
