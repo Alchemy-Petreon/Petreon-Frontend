@@ -15,9 +15,11 @@ export default class SignUp extends Component {
     }
 
     componentDidMount = () => {
+        const profile = this.context.profile;
+
         this.setState({
-            email: this.context.profile.email,
-            firstName: this.context.profile.firstName,
+            email: profile.email,
+            firstName: profile.firstName,
         })
     }
 
