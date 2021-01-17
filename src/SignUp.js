@@ -23,9 +23,8 @@ export default class SignUp extends Component {
 
         this.setState({ loading: true })
         const user = new FormData(e.target)
-        console.log(...user)
-        console.log(e.target)
-        await createUser(user);
+        const newUser = Object.fromEntries(user);
+        await createUser(newUser);
     }
 
     render() {
