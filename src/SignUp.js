@@ -11,7 +11,8 @@ export default class SignUp extends Component {
         userName: '',
         firstName: '',
         email: '',
-        profileDescription: ''
+        profileDescription: '',
+        validUsername: true
     }
 
     componentDidMount = () => {
@@ -36,6 +37,17 @@ export default class SignUp extends Component {
 
         this.props.history.push('/userdash')
     }
+
+    handleUsername = async (e) => {
+        e.preventDefault();
+
+        await this.setState({ userName: e.target.value });
+        if (this.state.userName) {
+            const currentUsername = await checkUsername(this.state.userName)
+            await this.setState({ validUsername: !currentUsername })
+        }
+    }
+
 
     render() {
         return (
