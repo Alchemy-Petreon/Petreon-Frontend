@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
-import { createUser, checkUsername } from "./fetches/user-fetches.js"
+import { createUser } from "./fetches/user-fetches.js"
+import { MainContext } from './MainContext.js'
 import './style/SignUp.css'
 
 
 export default class SignUp extends Component {
+    static contextType = MainContext;
+
     state = {
         userName: '',
         firstName: '',
@@ -13,9 +16,11 @@ export default class SignUp extends Component {
     }
 
     componentDidMount = () => {
+        const profile = this.context.profile;
+
         this.setState({
-            email: this.props.loginInfo.email,
-            firstName: this.props.loginInfo.firstName,
+            email: profile.email,
+            firstName: profile.firstName,
         })
     }
 
@@ -25,7 +30,11 @@ export default class SignUp extends Component {
         this.setState({ loading: true })
         const user = new FormData(e.target)
         const newUser = Object.fromEntries(user);
-        await createUser(newUser);
+        const newProfile = await createUser(newUser);
+
+        this.context.setProfile({ profile: newProfile })
+        this.context.logIn();
+
         this.props.history.push('/userdash')
     }
 
@@ -56,16 +65,9 @@ export default class SignUp extends Component {
                             className='userinput'
                             name="userName"
                             maxLength="35"
-                            onChange={(e) => this.handleUsername(e)}
+                            onChange={(e) => this.setState({ userName: e.target.value })}
                             value={this.state.userName}
-                            required
                         />
-                        {this.state.validUsername ?
-                            <></>
-                            :
-                            <p>INVALID USERNAME</p>
-
-                        }
 
                         <p>First Name:</p>
                         <input
@@ -74,7 +76,6 @@ export default class SignUp extends Component {
                             maxLength="35"
                             onChange={(e) => this.setState({ firstName: e.target.value })}
                             value={this.state.firstName}
-                            required
                         />
 
                         {/* <p>Profile Picture:</p>
@@ -93,16 +94,11 @@ export default class SignUp extends Component {
                             maxLength="144"
                             onChange={(e) => this.setState({ profileDescription: e.target.value })}
                             value={this.state.profileDescription}
-                            required
                         />
 
                         <br />
 
-                        <button
-                            className='signup-button'
-                            disabled={!this.state.validUsername}>
-                            Submit
-                            </button>
+                        <button className='signup-button'>Submit</button>
 
                         <br />
                     </form>
