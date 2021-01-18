@@ -19,9 +19,12 @@ import { MainContext } from './MainContext';
 
 export default class App extends Component {
   state = {
-    profile: "test",
+    profile: JSON.parse(localStorage.getItem('profile')),
     loggedIn: false,
-    setProfile: (profile) => this.setState(profile),
+    setProfile: (profile) => {
+      this.setState(profile);
+      localStorage.setItem('profile', JSON.stringify(profile));
+    },
     logOut: () => this.setState({ loggedIn: false }),
     logIn: () => this.setState({ loggedIn: true })
   }
@@ -74,7 +77,7 @@ export default class App extends Component {
 
               <Route
                 path="/userdash"
-                exact render={(routerProps) => <UserDash {...routerProps} 
+                exact render={(routerProps) => <UserDash {...routerProps}
                 />}
               />
             </Switch>
