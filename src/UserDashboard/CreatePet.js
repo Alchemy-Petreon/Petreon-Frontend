@@ -10,11 +10,9 @@ export default class CreatePet extends Component {
     static contextType = MainContext;
 
     state = {
-        petName: 'Enter Pet Name',
+        petName: '',
         type: '',
-        petProfilePicture: 'https://placekitten.com/200/200',
-        petProfileDescription: 'Enter Pet Description',
-        bannerPicture: 'https://placekitten.com/1200/350'
+        petProfileDescription: ''
     }
 
     handleSubmit = async (e) => {
@@ -35,25 +33,29 @@ export default class CreatePet extends Component {
                 <div className='cppbox'>
 
                     <form onSubmit={this.handleSubmit}>
-                    <div className="banner">
-                    <img src={this.state.bannerPicture} alt="" className="petcreatebanner"/>
-                </div>
+                <div className="bannerpicupload">
                     <BannerPictureUpload />
-                    <img src={this.state.petProfilePicture} alt='' className="petprofilepicture" />
+                </div>
+                <div className="petpicupload">
                     <PetProfilePictureUpload />
+                </div>
                         {/* <p className='pet-picture'>Pet Profile Picture URL:</p>
                         <input name='petProfilePicture' type='file' onChange={(e) => this.setState({ petProfilePicture: e.target.value })}
                             value={this.state.petProfilePicture} ></input> */}
-
-                        <input 
-                            name='petName'
-                            placeholder={this.state.petName}
-                            onChange={(e) => this.setState({ petName: e.target.value })}
-                            value={this.state.petName} />
-
-                        <p className='pet-type'>Pet Type:</p>
+                <span>
+                    <h5 className='petnameheader'>Pet Name</h5>
+                    <input 
+                        name='petName'
+                        className='petnameupload'
+                        placeholder={this.state.petName}
+                        onChange={(e) => this.setState({ petName: e.target.value })}
+                        value={this.state.petName} />
+                </span>
+                <div className="typechoice">
+                        <h5 className='typeheader'>Pet Type</h5>
                         <select 
-                          name='type' 
+                          name='type'
+                          className='typedropdown'
                           onChange={(e) => this.setState({ type: e.target.value })}>
                               <option value='cat'>Cat</option>
                               <option value='dog'>Dog</option>
@@ -63,12 +65,14 @@ export default class CreatePet extends Component {
                               <option value='rodent'>Rodent</option>
                               <option value='other'>Other</option>
                         </select>
-
-                        <p className='pet-description'>Pet Description:</p>
-                        <input name='petProfileDescription'
-                        placeholder={this.state.petProfileDescription}
-                        onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
-                        value={this.state.petProfileDescription} />
+                    </div>
+                    <br />
+                    <h5 className='petdescheader'>Pet Description:</h5>
+                    <input name='petProfileDescription'
+                    className='petdesc'
+                    placeholder={this.state.petProfileDescription}
+                    onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
+                    value={this.state.petProfileDescription} />
 
                         {/* <p className='pet-banner'>Banner Picture URL:</p>
                         <input name='bannerPicture' type='file' onChange={(e) => this.setState({ bannerPicture: e.target.value })}

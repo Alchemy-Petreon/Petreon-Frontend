@@ -10,7 +10,6 @@
 
 .cppbox {
     height: 100%;
-    border: solid 1px red;
 }
 
 .petcreatebanner {
@@ -18,4 +17,95 @@
     height: 40vh;
     object-fit: cover;
     border-bottom: solid 5px #1A535C;
+}
+
+.petprofilepicupload {
+    float: left;
+    width: 250px;
+    height: 250px;
+    margin-top: 3.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 10px;
+    border: solid 3px #FFE66D;
+}
+
+.petnameheader {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 1%;
+    font-family: Burma;
+    font-size: 18pt;
+    color: #1A535C;
+}
+
+.petnameupload {
+    float: left;
+    margin-top: 2%;
+    width: 30%;
+    height: 27pt;
+    padding: 5px;
+    font-family: Burma-Soft;
+    font-size: 25pt;
+    border: solid 2px #FF6B6B;
+    border-radius: 10px;
+    background-color: #F7FFF7;
+}
+
+.typechoice {
+    float: left;
+    margin-top: -7.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.typeheader {
+    margin-left: 5%;
+    font-family: Burma;
+    font-size: 18pt;
+    color: #1A535C;
+}
+
+.typedropdown {
+    margin-top: -1%;
+    height: 39pt;
+    width: 125pt;
+    padding-left: 10px;
+    font-family: Burma-Soft;
+    font-size: 25pt;
+    background-color: #F7FFF7;
+    border: solid 2px #FF6B6B;
+    border-radius: 10px;
+}
+
+.typedropdown option {
+    font-family: Burma-Soft;
+    font-size: 15pt;
+}
+
+.petdescheader {
+    margin-top: 7%;
+    margin-left: 5%;
+    margin-bottom: 1%;
+    font-family: Burma;
+    font-size: 18pt;
+    color: #1A535C;
+}
+
+.petdesc {
+    height: 50pt;
+    width: 70%;
+    font-family: Burma-Soft;
+    font-size: 25pt;
+    background-color: #F7FFF7;
+    border: solid 2px #1A535C;
+    border-radius: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.create-pet-button {
+    float: right;
+    margin-top: 
 }
