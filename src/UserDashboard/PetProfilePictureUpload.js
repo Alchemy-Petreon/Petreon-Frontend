@@ -23,12 +23,31 @@ export default class PetProfilePictureUpload extends Component {
 
         const petpicture = new FormData(e.target)
 
-        const existingPet = await uploadPetProfilePicture(petpicture);
+        await uploadPetProfilePicture(petpicture);
+
+        this.setState({
+            open: false
+        })
     }
+
     render() {
         return (
             <div>
                 <img src={this.state.petProfilePicture} alt='' className="petprofilepicupload" />
+                <div onClick={(e) => this.toggleUpload(e)}><span className='uploadpetpicture'>Change Picture</span></div>
+            {this.state.open ? (
+                    <div className='petprofilepicupload'>
+                        <form onSubmit={this.handleSubmit}>
+                            <input
+                                type="file"
+                                name="petProfilePicture"
+                                className="petprofilepicsubmit"
+                                onChange={(e) => this.setState({petProfilePicture: e.target.value })}
+                                value={this.state.petProfilePicture}/>
+                            <button className='petprofilesubbutton'>Submit</button>
+                    </form>
+                    </div>
+            ): null}
             </div>
         )
     }

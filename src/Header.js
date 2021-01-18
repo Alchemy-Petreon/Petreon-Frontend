@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style/Header.css';
+import { MainContext } from './MainContext.js'
+
 
 export default class Header extends Component {
+    static contextType = MainContext;
+
+    componentDidMount = async () => {
+        await this.context.setProfile(JSON.parse(localStorage.getItem('profile')))
+    }
+
     render() {
         return (
             <div className="header">
