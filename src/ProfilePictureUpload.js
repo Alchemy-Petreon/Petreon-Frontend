@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { uploadProfilePicture } from './fetches/user-fetches.js';
+import { MainContext } from './MainContext.js';
 
 export default class ProfilePictureUpload extends Component {
+    static contextType = MainContext;
 
     constructor(props) {
         super(props);
@@ -11,9 +13,6 @@ export default class ProfilePictureUpload extends Component {
         }
         this.toggleUpload = this.toggleUpload.bind(this)
     }
-    // state = {
-    //     profilePicture: ''
-    // }  
     
     toggleUpload(e) {
         this.setState({ open: !this.state.open })
@@ -23,7 +22,14 @@ export default class ProfilePictureUpload extends Component {
         e.preventDefault();
 
         const picture = new FormData(e.target)
-        await uploadProfilePicture(picture);
+
+        const existingUser = await uploadProfilePicture(picture);
+
+        this.context.setProfile({ profile: existingUser })
+
+        this.setState({
+            open: false
+        })
     }
 
     render() {
