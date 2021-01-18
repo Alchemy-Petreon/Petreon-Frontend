@@ -12,9 +12,10 @@ import Login from './Login.js';
 import SignUp from './SignUp.js';
 import Browse from './Browse.js';
 import AboutUs from './AboutUs.js';
-import UserDash from './UserDash.js';
-import PetDetails from './PetDetails.js'
-import PostDetails from './PostDetails.js'
+import UserDash from './UserDashboard/UserDash.js';
+import PetDetails from './PetDetails.js';
+import PostDetails from './PostDetails.js';
+import CreatePet from './UserDashboard/CreatePet.js';
 import { MainContext } from './MainContext';
 
 export default class App extends Component {
@@ -64,6 +65,12 @@ export default class App extends Component {
               <Route
                 path="/posts/:id"
                 exact render={(routerProps) => <PostDetails {...routerProps}
+                />}
+              />
+
+              <Route
+                path="/createpet"
+                exact render={(routerProps) => <CreatePet {...routerProps}
                 />}
               />
 

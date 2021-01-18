@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ProfilePictureUpload from './ProfilePictureUpload.js';
-import { MainContext } from './MainContext.js'
-import './style/UserInfo.css'
+import { MainContext } from '../MainContext.js'
+import '../style/UserInfo.css'
 
 export default class UserInformation extends Component {
     static contextType = MainContext;

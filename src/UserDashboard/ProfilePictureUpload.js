@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { uploadProfilePicture } from './fetches/user-fetches.js';
-import { MainContext } from './MainContext.js';
+import { uploadProfilePicture } from '../fetches/user-fetches.js';
+import { MainContext } from '../MainContext.js';
 
 export default class ProfilePictureUpload extends Component {
     static contextType = MainContext;
