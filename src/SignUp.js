@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createUser } from "./fetches/user-fetches.js"
+import { createUser, checkUsername } from "./fetches/user-fetches.js"
 import { MainContext } from './MainContext.js'
 import './style/SignUp.css'
 

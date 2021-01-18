@@ -57,15 +57,14 @@ export default class App extends Component {
 
               <Route
                 path="/pets/:id"
-                exact render={(routerProps) => <PetDetails {...routerProps} />}
-
-
-
+                exact render={(routerProps) => <PetDetails {...routerProps}
+                />}
               />
 
               <Route
                 path="/posts/:id"
-                exact render={(routerProps) => <PostDetails {...routerProps} />}
+                exact render={(routerProps) => <PostDetails {...routerProps}
+                />}
               />
 
               <Route
@@ -75,9 +74,8 @@ export default class App extends Component {
 
               <Route
                 path="/userdash"
-                exact render={(routerProps) => <UserDash {...routerProps} />}
-
-
+                exact render={(routerProps) => <UserDash {...routerProps} 
+                />}
               />
             </Switch>
             <Footer />

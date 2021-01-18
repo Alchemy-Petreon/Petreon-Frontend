@@ -80,3 +80,15 @@ export async function checkUsername(username) {
         throw err;
     }
 }
+
+export async function uploadProfilePicture(file) {
+    try {
+        const response = await request
+            .post(`${URL}api/v1/users/picture`)
+            .withCredentials()
+            .send(file)
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}

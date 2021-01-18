@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import CreatePet from './CreatePet.js'
+// import CreatePet from './CreatePet.js'
 import { MainContext } from './MainContext.js'
+import UserInformation from './UserInformation.js'
 
 
 export default class UserDash extends Component {
@@ -9,7 +10,10 @@ export default class UserDash extends Component {
     render() {
         return (
             <div className="user-dashboard">
-                <CreatePet />
+                <UserInformation 
+                user={this.props.user}/>
+                <h6>Pets:</h6>
+                {/* <CreatePet /> */}
             </div>
         )
     }
