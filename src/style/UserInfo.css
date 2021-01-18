@@ -1,0 +1,34 @@
+.uinfo {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.greeting {
+    margin-top: 4%;
+    margin-bottom: 6%;
+    font-family: Burma;
+    font-size: 25pt;
+    color: #1A535C;
+}
+
+.profpic {
+    border: solid 2px #4ECDC4;
+    border-radius: 10px;
+}
+
+.un {
+    font-family: Excalibur;
+    font-size: 20pt;
+    margin-top: 3%;
+    margin-bottom: 0;
+    color: #FF6B6B;
+}
+
+.prde {
+    margin-top: 3%;
+    font-family: Burma-Soft;
+    font-size: 16pt;
+}
