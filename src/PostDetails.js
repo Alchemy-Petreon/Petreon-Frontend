@@ -1,7 +1,12 @@
 import React, { Component } from 'react'
 import { fetchPost } from './fetches/post-fetches.js'
+import { deleteComment } from './fetches/comment-fetches.js'
 import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
+<<<<<<< HEAD
+import './style/Comment.css'
+=======
+>>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
 export default class PostDetails extends Component {
     static contextType = MainContext;
@@ -17,6 +22,8 @@ export default class PostDetails extends Component {
             loading: false,
             post: post
         })
+<<<<<<< HEAD
+=======
 
     }
     changeLoading = async (loading) => {
@@ -30,7 +37,27 @@ export default class PostDetails extends Component {
         })
 
     };
+>>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
+    }
+    changeLoading = async (loading) => {
+        await this.setState({
+            loading: loading
+        })
+        const post = await fetchPost(this.props.match.params.id);
+        this.setState({
+            loading: false,
+            post: post
+        })
+
+    };
+    handleDelete = async (id) => {
+        await deleteComment(id)
+        const post = await fetchPost(this.props.match.params.id);
+        this.setState({
+            post: post
+        })
+    }
     render() {
         return (
             <div>
@@ -45,9 +72,18 @@ export default class PostDetails extends Component {
                             <p>Comments </p>
                             {
                                 this.state.post.comments.map(comment =>
-                                    <div key={comment.id}>
-                                        {comment.text}
-                                    </div>)
+                                    <div className='comment-box'>
+                                        <div key={comment.id}>
+                                            <p><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' />{this.context.profile.userName}</p>
+
+                                            <p>{comment.text}</p>
+                                            <div>{comment.timestamp}</div>
+
+                                        </div>
+
+                                        <button onClick={() => this.handleDelete(comment.id)}>delete</button>
+                                    </div>
+                                )
                             }
 
                             <CreateComment
