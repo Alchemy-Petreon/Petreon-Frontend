@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { createPost } from "./fetches/post-fetches.js"
+import { MainContext } from './MainContext.js'
 
 
 
 
 export default class CreatePet extends Component {
+    static contextType = MainContext;
+
     state = {
         pictureUrl: '',
         videoUrl: '',
@@ -26,10 +29,10 @@ export default class CreatePet extends Component {
 
         // }
         post.append("petId", this.props.petId)
-        post.append("userId", this.props.userId)
+        post.append("userId", this.context.profile.id)
         createPost(post);
 
-        this.props.history.push('/');
+        // this.props.history.push('/');
 
     }
     render() {

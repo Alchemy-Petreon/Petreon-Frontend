@@ -17,12 +17,13 @@ export default class CreateComment extends Component {
         this.setState({ loading: true })
         const comment = {
 
-            userId: 41,
+            userId: this.props.userId,
             postId: this.props.postId,
             text: this.state.commentText
 
         }
-        createComment(comment);
+        await createComment(comment);
+        this.props.changeLoading(true)
 
     }
     render() {
