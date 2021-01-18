@@ -70,3 +70,27 @@ export async function fetchUserPets(id) {
         throw err;
     }
 }
+
+export async function uploadPetProfilePicture(file) {
+    try {
+        const response = await request
+          .post(`${URL}api/v1/pets/picture`)
+          .withCredentials()
+          .send(file)
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function uploadPetBanner(file) {
+    try {
+        const response = await request
+          .post(`${URL}api/v1/pets/banner`)
+          .withCredentials()
+          .send(file)
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}

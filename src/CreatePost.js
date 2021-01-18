@@ -32,14 +32,14 @@ export default class CreatePet extends Component {
         post.append("userId", this.context.profile.id)
         createPost(post);
 
-        // this.props.history.push('/');
+        this.props.history.push(`/pets/${this.props.petId}`);
 
     }
     render() {
         return (
             <div className='create-post-page'>
                 <div className='box'>
-                    <h2 className='create-post'> Sign Up</h2>
+                    <h2 className='create-post'> Make A Post for Your Pet!</h2>
                     <form onSubmit={this.handleSubmit}>
                         <p className='post-text'>Post Text:</p>
                         <input name='postText' onChange={(e) => this.setState({ postText: e.target.value })}
