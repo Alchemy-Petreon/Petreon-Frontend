@@ -32,7 +32,7 @@ export default class SignUp extends Component {
         const newUser = Object.fromEntries(user);
         const newProfile = await createUser(newUser);
 
-        this.context.setProfile({ profile: newProfile })
+        await this.context.setProfile({ profile: newProfile })
         this.context.logIn();
 
         this.props.history.push('/userdash')
