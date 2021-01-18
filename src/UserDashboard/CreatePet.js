@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../style/CreatePets.css'
-import { createPet } from '../fetches/pet-fetches.js';
+import { createPet, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
 import PetProfilePictureUpload from './PetProfilePictureUpload.js';
 import BannerPictureUpload from './BannerPictureUpload.js';
@@ -8,11 +8,14 @@ import BannerPictureUpload from './BannerPictureUpload.js';
 
 export default class CreatePet extends Component {
     static contextType = MainContext;
+    pictureData = new FormData();
+    bannerData = new FormData();
 
     state = {
         petName: '',
+        bannerPicture: 'https://placekitten.com/1300/350',
         type: '',
-        petProfilePicture: '',
+        petProfilePicture: 'https://placekitten.com/250/250',
         petProfileDescription: '',
         isHidden: true
     }
@@ -23,13 +26,34 @@ export default class CreatePet extends Component {
         })
     }
 
+    handlePetProfilePicture = async (petProfilePic) => {
+        await this.setState({petProfilePicture: petProfilePic})
+
+        console.log(this.state.petProfilePicture)
+
+        this.pictureData.append('petProfilePicture'
+        , petProfilePic)
+        this.toggleHidden()
+    }
+
+    handleBannerPicture = async (bannerPic) => {
+        await this.setState(
+            {bannerPicture: bannerPic})
+
+            this.bannerData.append('bannerPicture', bannerPic)
+    }
+
     handleSubmit = async (e) => {
         e.preventDefault();
 
         this.setState({ loading: true })
         const pet = new FormData(e.target)
         pet.append("userId", this.context.profile.id)
-        createPet(pet);
+        const newPet = Object.fromEntries(pet);
+        
+        createPet(newPet);
+
+        await uploadPetProfilePicture(this.pictureData);
 
         this.props.history.push('/userdash');
 
@@ -40,18 +64,31 @@ export default class CreatePet extends Component {
                 <div className='cppnaplesyellow'> </div>
                 <div className='cppbox'>
 
-                <form onSubmit={this.handleSubmit}>
+                <div className="banner">
+                    <img src={this.state.bannerPicture} alt="" className="petcreatebanner"/>
+                </div>
+
                     <div className="bannerpicupload">
-                    <BannerPictureUpload />
+                    <BannerPictureUpload 
+                    onBannerUpload={this.handleBannerPicture}
+                    bannerPicture={this.state.bannerPicture}/>
                     </div>
 
                     <div className="petpicupload">
 
-                    <img src={this.state.petProfilePicture} alt='' className="petprofilepicupload" />
+                    <img src={this.state.petProfilePicture}
+                    key={Date.now()}
+                    alt='' 
+                    className="petprofilepicupload" 
+                    />
 
-                    <button onClick={this.toggleHidden.bind(this)} className="uploadpetpicturemenu">Change Pet Picture</button>
-                    {!this.state.isHidden &&<PetProfilePictureUpload />}
+                    <div onClick={this.toggleHidden.bind(this)} className="uploadpetpicturemenu">Change Pet Picture</div>
+
+                    {!this.state.isHidden && <PetProfilePictureUpload onPetProfilePictureUpload={this.handlePetProfilePicture}
+                    petProfilePicture={this.state.petProfilePicture} 
+                    />}
                     </div>
+                <form onSubmit={this.handleSubmit}>
              
                 <div className='petnamediv'>
                     <h5 className='petnameheader'>Pet Name</h5>
