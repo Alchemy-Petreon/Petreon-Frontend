@@ -13,7 +13,7 @@ export default class ProfilePictureUpload extends Component {
         }
         this.toggleUpload = this.toggleUpload.bind(this)
     }
-    
+
     toggleUpload(e) {
         this.setState({ open: !this.state.open })
     }
@@ -22,7 +22,6 @@ export default class ProfilePictureUpload extends Component {
         e.preventDefault();
 
         const picture = new FormData(e.target)
-
         const existingUser = await uploadProfilePicture(picture);
 
         this.context.setProfile({ profile: existingUser })
@@ -36,22 +35,22 @@ export default class ProfilePictureUpload extends Component {
         return (
             <div>
 
-            <div onClick={(e) => this.toggleUpload(e)} ><span className='uploadpicturemenu'>Change Profile Picture</span></div>
-            {this.state.open ? (
+                <div onClick={(e) => this.toggleUpload(e)} ><span className='uploadpicturemenu'>Change Profile Picture</span></div>
+                {this.state.open ? (
 
-            <div className="profilepicupload">
-                <form onSubmit={this.handleSubmit}>
-                <input 
-                    type="file" 
-                    name="profilePicture"
-                    className="profilepicsubmit"
-                    onChange={(e) => this.setState({ profilePicture: e.target.value })}
-                    value={this.state.profilePicture}/>
-                <button className='profilesubbutton'>Submit</button>
-                </form>
-            </div>
+                    <div className="profilepicupload">
+                        <form onSubmit={this.handleSubmit}>
+                            <input
+                                type="file"
+                                name="profilePicture"
+                                className="profilepicsubmit"
+                                onChange={(e) => this.setState({ profilePicture: e.target.value })}
+                                value={this.state.profilePicture} />
+                            <button className='profilesubbutton'>Submit</button>
+                        </form>
+                    </div>
 
-            ): null}
+                ) : null}
             </div>
         )
     }

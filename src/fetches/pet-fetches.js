@@ -7,7 +7,7 @@ export async function fetchPets() {
     try {
         const response = await request
             .get(`${URL}api/v1/pets`)
-        // .withCredentials()
+            .withCredentials()
         return response.body;
     } catch (err) {
         throw err;
@@ -74,9 +74,9 @@ export async function fetchUserPets(id) {
 export async function uploadPetProfilePicture(file) {
     try {
         const response = await request
-          .post(`${URL}api/v1/pets/picture`)
-          .withCredentials()
-          .send(file)
+            .post(`${URL}api/v1/pets/picture`)
+            .withCredentials()
+            .send(file)
         return response.body;
     } catch (err) {
         throw err;
@@ -86,9 +86,9 @@ export async function uploadPetProfilePicture(file) {
 export async function uploadPetBanner(file) {
     try {
         const response = await request
-          .post(`${URL}api/v1/pets/banner`)
-          .withCredentials()
-          .send(file)
+            .post(`${URL}api/v1/pets/banner`)
+            .withCredentials()
+            .send(file)
         return response.body;
     } catch (err) {
         throw err;
