@@ -31,11 +31,12 @@
 }
 
 .uploadpicturemenu {
-    margin-top: 5%;
     padding: 5px;
     font-family: Burma-Soft;
+    font-size: 12pt;
     background-color: #1A535C;
     color: #F7FFF7;
+    border: none;
     border-radius: 5px;
 }
 

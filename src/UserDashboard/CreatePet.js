@@ -12,7 +12,15 @@ export default class CreatePet extends Component {
     state = {
         petName: '',
         type: '',
-        petProfileDescription: ''
+        petProfilePicture: '',
+        petProfileDescription: '',
+        isHidden: true
+    }
+
+    toggleHidden() {
+        this.setState({
+            isHidden: !this.state.isHidden
+        })
     }
 
     handleSubmit = async (e) => {
@@ -32,16 +40,19 @@ export default class CreatePet extends Component {
                 <div className='cppnaplesyellow'> </div>
                 <div className='cppbox'>
 
-                    <form onSubmit={this.handleSubmit}>
-                <div className="bannerpicupload">
+                <form onSubmit={this.handleSubmit}>
+                    <div className="bannerpicupload">
                     <BannerPictureUpload />
-                </div>
-                <div className="petpicupload">
-                    <PetProfilePictureUpload />
-                </div>
-                        {/* <p className='pet-picture'>Pet Profile Picture URL:</p>
-                        <input name='petProfilePicture' type='file' onChange={(e) => this.setState({ petProfilePicture: e.target.value })}
-                            value={this.state.petProfilePicture} ></input> */}
+                    </div>
+
+                    <div className="petpicupload">
+
+                    <img src={this.state.petProfilePicture} alt='' className="petprofilepicupload" />
+
+                    <button onClick={this.toggleHidden.bind(this)} className="uploadpetpicturemenu">Change Pet Picture</button>
+                    {!this.state.isHidden &&<PetProfilePictureUpload />}
+                    </div>
+             
                 <div className='petnamediv'>
                     <h5 className='petnameheader'>Pet Name</h5>
                     <input 
