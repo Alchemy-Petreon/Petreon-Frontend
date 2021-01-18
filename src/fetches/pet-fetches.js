@@ -59,3 +59,14 @@ export async function deletePet(id) {
         throw err;
     }
 }
+
+export async function fetchUserPets(id) {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/pets/user${id}`)
+            .withCredentials()
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}

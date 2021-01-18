@@ -1,0 +1,67 @@
+.uinfo {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.greeting {
+    margin-top: 4%;
+    margin-bottom: 6%;
+    font-family: Burma;
+    font-size: 25pt;
+    color: #1A535C;
+}
+
+
+.un {
+    font-family: Excalibur;
+    font-size: 20pt;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    color: #FF6B6B;
+}
+
+
+.profpic {
+    border: solid 2px #FFE66D;
+    border-radius: 10px;
+    margin-bottom: 5%;
+}
+
+.uploadpicturemenu {
+    margin-top: 5%;
+    padding: 5px;
+    font-family: Burma-Soft;
+    background-color: #1A535C;
+    color: #F7FFF7;
+    border-radius: 5px;
+}
+
+.profilepicsubmit {
+    margin-top: 5%;
+}
+
+.profilepicsubmit::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
+
+.profilesubbutton {
+    margin-top: 5%;
+    font-family: Burma-Soft;
+    font-size: 12pt;
+    background-color: #FFE66D;
+    border: none;
+    border-radius: 5px;
+}
+
+.prde {
+    margin-top: 5%;
+    font-family: Burma-Soft;
+    font-size: 14pt;
+}
