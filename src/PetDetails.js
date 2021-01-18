@@ -2,8 +2,11 @@ import React, { Component } from 'react'
 import { fetchPet } from './fetches/pet-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
+import { MainContext } from './MainContext.js'
+
 
 export default class PetDetails extends Component {
+    static contextType = MainContext;
     state = {
         loading: false,
         pet: [],

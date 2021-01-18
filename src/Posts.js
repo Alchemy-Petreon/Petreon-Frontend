@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { fetchPosts } from './fetches/post-fetches.js'
 import PostItem from './PostItem.js'
+import { MainContext } from './MainContext.js'
+
 
 
 export default class Posts extends Component {
+    static contextType = MainContext;
+
     state = {
         loading: true,
         allPosts: [],

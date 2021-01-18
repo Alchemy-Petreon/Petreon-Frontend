@@ -1,26 +1,24 @@
 import React, { Component } from 'react'
 import { fetchUserByEmail } from "./fetches/user-fetches.js"
+import { MainContext } from './MainContext.js'
 
 export default class Login extends Component {
+    static contextType = MainContext;
+
     componentDidMount = async () => {
-
-        console.log('/------------------------/')
-        console.log(this.context)
-        console.log('/------------------------/')
-
         if (this.props.match.params.exisiting === 'true') {
             const exisitingUser = await fetchUserByEmail()
-            this.props.handleAppState({ userInfo: exisitingUser })
+            this.context.setProfile({ profile: exisitingUser })
+            this.context.logIn();
             this.props.history.push('/userdash')
         } else {
-            this.props.handleAppState({ loginInfo: this.props.match.params })
+            this.context.setProfile({ profile: this.props.match.params })
             this.props.history.push('/signup')
         }
     }
-
     render() {
         return (
-            <div style={{ height: "80vh" }}>
+            <div style={{ height: "100vh" }}>
             </div>
         )
     }
