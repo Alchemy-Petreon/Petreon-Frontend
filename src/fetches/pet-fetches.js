@@ -71,10 +71,10 @@ export async function fetchUserPets(id) {
     }
 }
 
-export async function uploadPetProfilePicture(file) {
+export async function uploadPetProfilePicture(petId, file) {
     try {
         const response = await request
-          .post(`${URL}api/v1/pets/picture`)
+          .post(`${URL}api/v1/pets/picture/${petId}`)
           .withCredentials()
           .send(file)
         return response.body;
@@ -83,10 +83,10 @@ export async function uploadPetProfilePicture(file) {
     }
 }
 
-export async function uploadPetBanner(file) {
+export async function uploadPetBanner(petId, file) {
     try {
         const response = await request
-          .post(`${URL}api/v1/pets/banner`)
+          .post(`${URL}api/v1/pets/banner/${petId}`)
           .withCredentials()
           .send(file)
         return response.body;

@@ -11,10 +11,10 @@ export default class PetProfilePictureUpload extends Component {
             petProfilePicture: 'https://placekitten.com/250/250',
             open: false
         }
-        this.toggleUpload = this.toggleUpload.bind(this)
+        this.togglePetUpload = this.togglePetUpload.bind(this)
     }
 
-    toggleUpload(e) {
+    togglePetUpload(e) {
         this.setState({ open: !this.state.open })
     }
 
@@ -34,7 +34,7 @@ export default class PetProfilePictureUpload extends Component {
         return (
             <div>
                 <img src={this.state.petProfilePicture} alt='' className="petprofilepicupload" />
-                <div onClick={(e) => this.toggleUpload(e)}><span className='uploadpetpicture'>Change Picture</span></div>
+                <div onClick={(e) => this.togglePetUpload(e)}><span className='uploadpetpicture'>Change Picture</span></div>
             {this.state.open ? (
                     <div className='petprofilepicupload'>
                         <form onSubmit={this.handleSubmit}>
