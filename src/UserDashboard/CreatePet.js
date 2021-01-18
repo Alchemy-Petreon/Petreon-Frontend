@@ -42,7 +42,7 @@ export default class CreatePet extends Component {
                         {/* <p className='pet-picture'>Pet Profile Picture URL:</p>
                         <input name='petProfilePicture' type='file' onChange={(e) => this.setState({ petProfilePicture: e.target.value })}
                             value={this.state.petProfilePicture} ></input> */}
-                <span>
+                <div className='petnamediv'>
                     <h5 className='petnameheader'>Pet Name</h5>
                     <input 
                         name='petName'
@@ -50,7 +50,7 @@ export default class CreatePet extends Component {
                         placeholder={this.state.petName}
                         onChange={(e) => this.setState({ petName: e.target.value })}
                         value={this.state.petName} />
-                </span>
+                </div>
                 <div className="typechoice">
                         <h5 className='typeheader'>Pet Type</h5>
                         <select 
@@ -67,8 +67,9 @@ export default class CreatePet extends Component {
                         </select>
                     </div>
                     <br />
-                    <h5 className='petdescheader'>Pet Description:</h5>
-                    <input name='petProfileDescription'
+                    <h5 className='petdescheader'>Pet Profile Description:</h5>
+                    <textarea
+                    rows="1" name='petProfileDescription'
                     className='petdesc'
                     placeholder={this.state.petProfileDescription}
                     onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
