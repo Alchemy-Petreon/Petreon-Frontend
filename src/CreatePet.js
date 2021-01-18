@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { createPet } from "./fetches/pet-fetches.js"
+import { MainContext } from './MainContext.js'
 
 
 export default class CreatePet extends Component {
+    static contextType = MainContext;
+
     state = {
         petName: '',
         type: '',
@@ -18,7 +21,7 @@ export default class CreatePet extends Component {
 
         this.setState({ loading: true })
         const pet = new FormData(e.target)
-        pet.append("userId", this.props.user.id)
+        pet.append("userId", this.context.profile.id)
         // const pet = {
         //     userId: this.props.user.id,
 
