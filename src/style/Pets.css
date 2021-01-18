@@ -1,0 +1,13 @@
+.petsdisplay {
+    position: relative;
+    height: 100%;
+    width: 20%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.petsheader {
+    font-family: Excalibur;
+    font-size: 20pt;
+    color: #FF6B6B;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { createPet } from "./fetches/pet-fetches.js"
-import { MainContext } from './MainContext.js'
+import { createPet } from "../fetches/pet-fetches.js"
+import { MainContext } from '../MainContext.js'
 
 
 export default class CreatePet extends Component {
@@ -22,15 +22,6 @@ export default class CreatePet extends Component {
         this.setState({ loading: true })
         const pet = new FormData(e.target)
         pet.append("userId", this.context.profile.id)
-        // const pet = {
-        //     userId: this.props.user.id,
-
-        //     petName: this.state.petName,
-        //     type: this.state.type,
-        //     petProfilePicture: this.state.petProfilePicture,
-        //     petProfileDescription: this.state.petProfileDescription,
-        //     bannerPicture: this.state.bannerPicture
-        // }
         createPet(pet);
 
         this.props.history.push('/');
