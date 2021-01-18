@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { fetchUserPets } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
+import { Link } from 'react-router-dom';
 import '../style/Pets.css'
 
 export default class Pets extends Component {
@@ -29,6 +30,7 @@ export default class Pets extends Component {
                     <img className='petthumbnail' src={pet.petProfilePicture} alt='' />
                     </div>)
                 : null } 
+                    <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
             </div>
         )
     }
