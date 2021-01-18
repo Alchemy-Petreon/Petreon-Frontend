@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { fetchPost } from './fetches/post-fetches.js'
 import CreateComment from './CreateComment.js'
+import { MainContext } from './MainContext.js'
 
 export default class PostDetails extends Component {
+    static contextType = MainContext;
+
     state = {
         loading: true,
         post: [],
@@ -14,6 +17,18 @@ export default class PostDetails extends Component {
             loading: false,
             post: post
         })
+
+    }
+    changeLoading = async (loading) => {
+        await this.setState({
+            loading: loading
+        })
+        const post = await fetchPost(this.props.match.params.id);
+        this.setState({
+            loading: false,
+            post: post
+        })
+
     };
 
     render() {
@@ -36,7 +51,8 @@ export default class PostDetails extends Component {
                             }
 
                             <CreateComment
-                                postId={this.props.match.params.id} />
+                                postId={this.props.match.params.id} userId={this.context.profile.id}
+                                changeLoading={this.changeLoading} />
                         </div>
                     </div>
                 }

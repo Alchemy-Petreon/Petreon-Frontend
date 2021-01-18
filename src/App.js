@@ -15,6 +15,7 @@ import AboutUs from './AboutUs.js';
 import UserDash from './UserDashboard/UserDash.js';
 import PetDetails from './PetDetails.js';
 import PostDetails from './PostDetails.js';
+import PetDash from './PetDash.js';
 import CreatePet from './UserDashboard/CreatePet.js';
 import { MainContext } from './MainContext';
 
@@ -74,6 +75,11 @@ export default class App extends Component {
               <Route
                 path="/createpet"
                 exact render={(routerProps) => <CreatePet {...routerProps}
+                />}
+              />
+              <Route
+                path="/petdash/:id"
+                exact render={(routerProps) => <PetDash {...routerProps}
                 />}
               />
 

@@ -2,6 +2,7 @@
     position: relative;
     height: 100%;
     border-top: solid 10px #FF6B6B;
+    padding-bottom: 1%;
 }
 
 .cppnaplesyellow {
@@ -26,14 +27,16 @@
     margin-top: 3.5%;
     margin-left: 2%;
     margin-right: 2%;
-    border-radius: 10px;
+    border-radius: 15px;
     border: solid 3px #FFE66D;
 }
 
+.petnamediv {
+    position: absolute;
+    margin-left: 25.3%;
+}
+
 .petnameheader {
-    margin-top: 2%;
-    margin-left: 2%;
-    margin-right: 2%;
     margin-bottom: 1%;
     font-family: Burma;
     font-size: 18pt;
@@ -41,9 +44,8 @@
 }
 
 .petnameupload {
-    float: left;
     margin-top: 2%;
-    width: 30%;
+    width: 375px;
     height: 27pt;
     padding: 5px;
     font-family: Burma-Soft;
@@ -54,21 +56,20 @@
 }
 
 .typechoice {
-    float: left;
-    margin-top: -7.5%;
-    margin-left: 2%;
+    position: absolute;
+    margin-left: 60%;
     margin-right: 2%;
 }
 
 .typeheader {
-    margin-left: 5%;
+    margin-bottom: 5%;
     font-family: Burma;
     font-size: 18pt;
     color: #1A535C;
 }
 
 .typedropdown {
-    margin-top: -1%;
+    margin-top: 1%;
     height: 39pt;
     width: 125pt;
     padding-left: 10px;
@@ -85,7 +86,7 @@
 }
 
 .petdescheader {
-    margin-top: 7%;
+    margin-top: 12%;
     margin-left: 5%;
     margin-bottom: 1%;
     font-family: Burma;
@@ -97,14 +98,20 @@
     height: 50pt;
     width: 70%;
     font-family: Burma-Soft;
-    font-size: 25pt;
+    font-size: 18pt;
     background-color: #F7FFF7;
     border: solid 2px #1A535C;
     border-radius: 10px;
-    word-wrap: break-word;
-    word-break: break-all;
 }
 
 .create-pet-button {
     float: right;
+    margin-top: 3%;
+    margin-right: 5%;
+    height: 39pt;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    background-color: #FFE66D;
+    border: none;
+    border-radius: 10px;
 }
