@@ -11,3 +11,17 @@
     font-size: 20pt;
     color: #FF6B6B;
 }
+
+.add-pet-button {
+    width: 75px;
+    height: 75px;
+    font-family: Burma;
+    font-size: 14pt;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 75px;
+    color: #F7FFF7;
+    background-color: #1A535C;
+    border: none;
+    border-radius: 75px;
+}

@@ -1,0 +1,21 @@
+.create-pet-page {
+    position: relative;
+    height: 100%;
+    border-top: solid 10px #FF6B6B;
+}
+
+.cppnaplesyellow {
+    border-top: solid 10px #FFE66D;
+}
+
+.cppbox {
+    height: 100%;
+    border: solid 1px red;
+}
+
+.petcreatebanner {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    border-bottom: solid 5px #1A535C;
+}
