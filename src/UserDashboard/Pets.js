@@ -13,9 +13,10 @@ export default class Pets extends Component {
     componentDidMount = async() => {
         const petArray = await fetchUserPets(this.context.profile.id)
 
-        this.setState({
-            pets: petArray
+        await this.setState({
+            petArray: petArray
         });
+        console.log(this.state.petArray)
     };
 
     render() {
@@ -25,10 +26,13 @@ export default class Pets extends Component {
 
                 {this.state.petArray.length > 0 ? 
                 this.state.petArray.map(pet =>
-                    <div className='petthumbnail'>
+                    <div className='petownerthumbnail'>
+
                     <p className='petthumbnailname'>{pet.petName}</p>
+
                     <img className='petthumbnail' src={pet.petProfilePicture} alt='' />
                     </div>)
+
                 : null } 
                     <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
             </div>
