@@ -19,11 +19,16 @@ export default class CreatePet extends Component {
         petProfilePictureURL: 'https://placekitten.com/250/250',
         petProfilePictureFile: '',
         petProfileDescription: '',
-        loading: true
+        loading: true,
+        disableSubmit: false,
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
+
+        this.setState({
+            disableSubmit: true
+        })
 
         const petFiles = new FormData(e.target)
 
@@ -77,11 +82,6 @@ export default class CreatePet extends Component {
 
     }
 
-    componentDidMount = () => {
-
-        console.log(this.context.profile)
-        console.log(this.state)
-    }
     render() {
         return (
             <div className='create-pet-page'>
@@ -170,7 +170,7 @@ export default class CreatePet extends Component {
 
                         <br />
 
-                        <button className='create-pet-button'>Save Changes</button>
+                        <button className='create-pet-button' disabled={this.state.disableSubmit}>Save Changes</button>
                         <br />
                     </form>
                 </div>
