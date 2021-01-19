@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import './style/Header.css';
 import { MainContext } from './MainContext.js'
+import { seedData } from './fetches/dev-fetches'
 
 
 export default class Header extends Component {
@@ -9,6 +10,10 @@ export default class Header extends Component {
 
     componentDidMount = async () => {
         await this.context.setProfile(JSON.parse(localStorage.getItem('profile')))
+    }
+
+    handleSeed = async () => {
+        await seedData();
     }
 
     render() {
@@ -24,6 +29,7 @@ export default class Header extends Component {
                 <a href="https://petreon-api.herokuapp.com/api/v1/auth/google" className="login">Log In</a>
 
                 {/* <Link to="/signup"><span className="signup">Sign Up</span></Link> */}
+                <button onClick={this.handleSeed}>SEED DATA</button>
 
             </div>
         )

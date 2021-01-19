@@ -58,3 +58,16 @@ export async function deletePost(id) {
         throw err;
     }
 }
+
+export async function updatePostPicture(file, postId) {
+    try {
+        const response = await request
+            .post(`${URL}api/v1/posts/media/${postId}`)
+            .send(file)
+            .withCredentials();
+        return response.body;
+
+    } catch (err) {
+        throw err;
+    }
+}

@@ -4,7 +4,6 @@ import { deleteComment } from './fetches/comment-fetches.js'
 import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
 import './style/Comment.css'
-
 export default class PostDetails extends Component {
     static contextType = MainContext;
 
@@ -67,7 +66,7 @@ export default class PostDetails extends Component {
 
                                         </div>
 
-                                        <button className={this.handleHidden} onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
+                                        <button onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
                                     </div>
                                 )
                             }
