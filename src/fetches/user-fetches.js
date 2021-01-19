@@ -94,6 +94,7 @@ export async function uploadProfilePicture(file) {
 }
 
 export async function logoutUser() {
+    console.log('hello!')
     try {
         const response = await request
             .get(`${URL}api/v1/auth/logout`)

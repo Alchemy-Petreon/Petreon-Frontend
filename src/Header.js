@@ -18,9 +18,9 @@ export default class Header extends Component {
     }
 
     handleLogout = async () => {
-        await logoutUser();
         this.context.logOut();
-        this.context.setProfile('');
+        this.context.setProfile({ 'profile': 'empty' });
+        await logoutUser();
     }
 
     render() {
