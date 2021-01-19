@@ -94,10 +94,19 @@ export async function uploadProfilePicture(file) {
 }
 
 export async function logoutUser() {
-    console.log('hello!')
     try {
-        const response = await request
+        await request
             .get(`${URL}api/v1/auth/logout`)
+            .withCredentials()
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function subscribe(petId) {
+    try {
+        await request
+            .get(`${URL}api/v1/users/subscribe/${petId}`)
             .withCredentials()
     } catch (err) {
         throw err;

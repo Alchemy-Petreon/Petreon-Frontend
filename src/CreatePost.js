@@ -20,10 +20,11 @@ export default class CreatePet extends Component {
 
         const newPost = {
             petId: this.props.petId,
-            userId: this.props.userId,
+            userId: this.context.profile.id,
             mediaType: this.state.mediaType,
             postText: this.state.postText
         }
+        console.log(newPost)
 
         let newPostResponse = await createPost(newPost);
 
@@ -46,7 +47,6 @@ export default class CreatePet extends Component {
             this.setState({ mediaFile: '' })
         }
 
-        // this.props.history.push(`/pets/${this.props.petId}`);
 
     }
 
