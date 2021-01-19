@@ -105,9 +105,41 @@ export async function logoutUser() {
 
 export async function subscribe(petId) {
     try {
+<<<<<<< HEAD
+        const response = await request
+            .get(`${URL}api/v1/users/subscribe/${petId}`)
+            .withCredentials()
+        return response.body;
+
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function unsubscribe(petId) {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/users/unsubscribe/${petId}`)
+            .withCredentials()
+
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function subscribedToPet(petId) {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/users/subscriptions/${petId}`)
+            .withCredentials()
+
+        return response.body
+=======
         await request
             .get(`${URL}api/v1/users/subscribe/${petId}`)
             .withCredentials()
+>>>>>>> 59cb7939a64e7b323b5f692426fdc90b6c99279f
     } catch (err) {
         throw err;
     }

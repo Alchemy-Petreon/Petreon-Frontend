@@ -4,6 +4,8 @@ import { fetchUser } from './fetches/user-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
+import { subscribe, unsubscribe, subscribedToPet } from './fetches/user-fetches.js';
+import request from 'superagent';
 
 import { subscribe } from './fetches/user-fetches.js';
 
@@ -22,15 +24,38 @@ export default class PetDetails extends Component {
 
         await this.setState({ loading: true });
         const pet = await fetchPet(this.props.match.params.id);
-        const user = await fetchUser(pet.userId);
+        const isSubscribed = await subscribedToPet(pet.id)
 
         this.setState({
             loading: false,
             pet: pet,
-            user: user
+            isSubscribed
         })
-        console.log(this.state.pet)
+
     };
+
+    handleSubscribe = async (petId) => {
+        await this.setState({ loading: true })
+
+        const isSubscribed = await subscribe(petId);
+        await this.setState({
+            isSubscribed,
+            loading: false
+        })
+        console.log(this.state)
+
+    }
+
+    handleUnsubscribe = async (petId) => {
+        await this.setState({ loading: true })
+        const isSubscribed = await unsubscribe(petId);
+        await this.setState({
+            isSubscribed,
+            loading: false
+        })
+        console.log(this.state)
+    }
+
 
     render() {
         return (
@@ -45,10 +70,17 @@ export default class PetDetails extends Component {
                         <p>{this.state.pet.petName}</p>
                         <Link to={`/user/${this.state.user.id}`}> <p>Owned by: {this.state.user.userName}<img src={this.state.user.profilePicture} alt='profile' /></p></Link>
                         <p>{this.state.pet.petProfileDescription}</p>
-                        <p><button
-                            onClick={() => subscribe(this.state.pet.id)}>
-                            Subscribe
-                            </button>
+                        <p>
+                            {this.state.isSubscribed ?
+                                <button
+                                    onClick={() => this.handleUnsubscribe(this.state.pet.id)}>
+                                    UnSubscribe </button>
+                                :
+                                <button
+                                    onClick={() => this.handleSubscribe(this.state.pet.id)}>
+                                    Subscribe
+                                </button>
+                            }
                         </p>
                         <Posts
                             posts={this.state.pet.posts} />
