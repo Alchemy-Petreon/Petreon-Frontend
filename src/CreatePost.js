@@ -31,12 +31,9 @@ export default class CreatePet extends Component {
 
         await updatePostPicture(newMedia, newPostResponse.id)
 
+        this.props.history.push('/');
+
     }
-
-    // const post = new FormData(e.target)
-
-
-    // this.props.history.push('/');
 
 
     handleFileChange = (e) => {
