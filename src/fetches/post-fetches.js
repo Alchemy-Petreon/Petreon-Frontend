@@ -71,3 +71,15 @@ export async function updatePostPicture(file, postId) {
         throw err;
     }
 }
+
+export async function fetchSubscriptions() {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/posts/subscriptions`)
+            .withCredentials();
+
+        return response.body
+    } catch (err) {
+        throw err;
+    }
+}
