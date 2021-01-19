@@ -1,15 +1,22 @@
 .petsdisplay {
     position: relative;
     height: 100%;
-    width: 20%;
+    width: 250px;
     margin-left: 1%;
     text-align: center;
 }
 
 .petsheader {
+    margin-bottom: 2%;
     font-family: Excalibur;
     font-size: 20pt;
     color: #FF6B6B;
+}
+
+.petlist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
 }
 
 .add-pet-button {
@@ -24,4 +31,21 @@
     background-color: #1A535C;
     border: none;
     border-radius: 75px;
+}
+
+.petownerthumbnail {
+    margin: 7px;
+}
+
+.petthumbnailname {
+    font-size: 18pt;
+    margin: 0;
+}
+
+.petthumbnailimg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: solid 2px #FF6B6B;
+    border-radius: 5px;
 }
