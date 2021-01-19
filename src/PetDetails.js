@@ -4,7 +4,9 @@ import { fetchUser } from './fetches/user-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
+
 import { subscribe } from './fetches/user-fetches.js';
+
 import { Link } from 'react-router-dom';
 
 

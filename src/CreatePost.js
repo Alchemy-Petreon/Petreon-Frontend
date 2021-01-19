@@ -47,6 +47,7 @@ export default class CreatePet extends Component {
             this.setState({ mediaFile: '' })
         }
 
+
     }
 
 
