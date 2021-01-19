@@ -25,6 +25,7 @@ export default class CreatePet extends Component {
             mediaType: this.state.mediaType,
             postText: this.state.postText
         }
+        console.log(newPost)
 
         let newPostResponse = await createPost(newPost);
 
@@ -46,8 +47,6 @@ export default class CreatePet extends Component {
             window.alert('INVALID MEDIA TYPE');
             this.setState({ mediaFile: '' })
         }
-
-        // this.props.history.push(`/pets/${this.props.petId}`);
 
     }
 

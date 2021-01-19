@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { fetchPet } from '../fetches/pet-fetches';
 import { MainContext } from '../MainContext'
 
@@ -9,7 +10,7 @@ export default class PetInformation extends Component {
         pet: []
     }
 
-    componentDidMount = async() => {
+    componentDidMount = async () => {
         await this.setState({ loading: true });
         const pet = await fetchPet(this.props.petId);
         this.setState({
@@ -23,10 +24,10 @@ export default class PetInformation extends Component {
         return (
             <div className='petdashinfo'>
                 <h2 className='petdashname'>{this.state.pet.petName}</h2>
-                <img 
+                <Link to={`/pets/${this.state.pet.id}`}><img
                     src={this.state.pet.petProfilePicture}
                     className="petdashpic"
-                    alt={this.state.pet.petName}/>
+                    alt={this.state.pet.petName} /></Link>
                 <h6 className='petdashdescription'>{this.state.pet.petProfileDescription}</h6>
                 <h6 className='petdashfollowers'>Followers: </h6>
             </div>
