@@ -8,7 +8,7 @@ export default class PostItem extends Component {
                 <Link className='post-link' to={`/posts/${this.props.post.id}`}>
                     <div className='post-item'>
                         <div>
-                            <img className='post-picture' alt={this.props.post.pictureUrl} src={this.props.post.postUrl} />
+                            <img className='post-picture' alt={this.props.post.pictureUrl} src={this.props.post.mediaUrl} />
                             <p className='post-text'>{this.props.post.postText}</p>
                         </div>
                     </div>

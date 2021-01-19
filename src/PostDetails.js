@@ -54,8 +54,9 @@ export default class PostDetails extends Component {
                     <div>
                         <div className='post-item'>
 
-                            <img className='post-picture' alt={this.state.post.pictureUrl} src={this.state.post.pictureUrl} />
+                            <img className='post-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
                             <p className='post-text'>{this.state.post.postText}</p>
+                            <Link to={`/update-post/${this.state.post.id}`}> <button>Edit Post</button></Link>
                             <p>Comments </p>
                             {
                                 this.state.post.comments.map(comment =>

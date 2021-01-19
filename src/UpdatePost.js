@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { createPost, updatePostPicture } from "./fetches/post-fetches.js"
+import { updatePost, updatePostPicture, fetchPost } from "./fetches/post-fetches.js"
 import { MainContext } from './MainContext.js'
 import mime from 'mime-types';
 
@@ -11,8 +11,15 @@ export default class CreatePet extends Component {
         mediaType: '',
         invalidMediaType: false,
         mediaFile: '',
+        post: []
     }
-
+    componentDidMount = async () => {
+        await this.setState({ loading: true });
+        const post = await fetchPost(this.props.match.params.id);
+        this.setState({
+            post: post
+        })
+    }
     handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -20,17 +27,17 @@ export default class CreatePet extends Component {
 
         const newPost = {
 
-            petId: this.props.petId,
+            petId: this.state.post.petId,
             userId: this.context.profile.id,
             mediaType: this.state.mediaType,
             postText: this.state.postText
         }
 
-        let newPostResponse = await createPost(newPost);
+        let newPostResponse = await updatePost(this.props.match.params.id, newPost);
 
         await updatePostPicture(newMedia, newPostResponse.id)
 
-        this.props.history.push(`/pets/${this.props.petId}`);
+        this.props.history.push(`/pets/${this.state.post.petId}`);
 
     }
 

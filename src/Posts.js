@@ -24,16 +24,16 @@ export default class Posts extends Component {
     };
 
     handleDelete = async (id, postId) => {
-        // console.log(id, postId, this.context.profile.id, this.props.userId)
-        // if (this.context.profile.id === String(postId)) {
-        await deletePost(id)
-        const allPosts = await fetchPosts();
-        this.setState({
-            allPosts: allPosts
-        })
-        // } else {
-        //     alert('You can not delete someone elses post')
-        // }
+        console.log(id, postId, this.context.profile.id, this.props.userId)
+        if (this.context.profile.id === String(postId)) {
+            await deletePost(id)
+            const allPosts = await fetchPosts();
+            this.setState({
+                allPosts: allPosts
+            })
+        } else {
+            alert('You can not delete someone elses post')
+        }
     }
 
     render() {
