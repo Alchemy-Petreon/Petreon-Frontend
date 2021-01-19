@@ -3,10 +3,7 @@ import { fetchPost } from './fetches/post-fetches.js'
 import { deleteComment } from './fetches/comment-fetches.js'
 import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
-<<<<<<< HEAD
 import './style/Comment.css'
-=======
->>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
 export default class PostDetails extends Component {
     static contextType = MainContext;
@@ -22,22 +19,6 @@ export default class PostDetails extends Component {
             loading: false,
             post: post
         })
-<<<<<<< HEAD
-=======
-
-    }
-    changeLoading = async (loading) => {
-        await this.setState({
-            loading: loading
-        })
-        const post = await fetchPost(this.props.match.params.id);
-        this.setState({
-            loading: false,
-            post: post
-        })
-
-    };
->>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
     }
     changeLoading = async (loading) => {
