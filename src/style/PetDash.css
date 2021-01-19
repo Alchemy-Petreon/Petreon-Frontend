@@ -16,7 +16,6 @@
     height: 300%;
     padding-left: 2%;
     text-align: center;
-    border: solid 2px blue;
 }
 
 .petdashname {
@@ -45,5 +44,27 @@
     position: absolute;
     margin-left: 400px;
     margin-top: 0;
-    border: solid 2px red;
+    text-align: center;
+}
+
+.create-post-header, .post-preview-header {
+    font-size: 23pt;
+}
+
+.cpdividermidnight {
+    height: 4px;
+    width: 100%;
+    background-color: #1A535C;
+}
+
+.cpdividerbittersweet {
+    height: 4px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.cpdividernaplesyellow {
+    height: 4px;
+    width: 100%;
+    background-color: #FFE66D;
 }

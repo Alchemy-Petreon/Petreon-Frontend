@@ -11,6 +11,7 @@ export default class CreatePet extends Component {
         mediaType: '',
         invalidMediaType: false,
         mediaFile: '',
+        mediaURL: ''
     }
 
     handleSubmit = async (e) => {
@@ -39,14 +40,16 @@ export default class CreatePet extends Component {
         if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
             this.setState({
                 mediaFile: e.target.value,
+                mediaURL: URL.createObjectURL(e.target.files[0]),
                 mediaType
             })
+            console.log(this.state.mediaType)
         } else {
             window.alert('INVALID MEDIA TYPE');
             this.setState({ mediaFile: '' })
         }
 
-        this.props.history.push(`/pets/${this.props.petId}`);
+        // this.props.history.push(`/pets/${this.props.petId}`);
 
     }
 
@@ -55,9 +58,9 @@ export default class CreatePet extends Component {
         return (
             <div className='create-post-page'>
 
-                <div className='box'>
+                <div className='create-post-box'>
 
-                    <h2 className='create-post'> Add New Post</h2>
+                    <h2 className='create-post-header'> Add New Post</h2>
 
                     <form onSubmit={this.handleSubmit}>
 
@@ -71,16 +74,25 @@ export default class CreatePet extends Component {
 
                         <br />
 
-                        <p className='post-text'>Post Text:</p>
+                        <p className='post-text'>Caption</p>
 
                         <input 
                             name='postText' 
                             onChange={(e) => this.setState({ postText: e.target.value })}
                             value={this.state.postText} />
                         
+                        <br />
+
                         <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
                         <br />
                     </form>
+
+                    <div className='cpdividermidnight'> </div>
+                    <div className='cpdividerbittersweet'> </div>
+                    <div className='cpdividernaplesyellow'> </div>
+
+                    <h2 className='post-preview-header'>Post Preview</h2>
+                    <img src={this.state.mediaURL} alt='preview' />
                 </div>
             </div>
         )
