@@ -15,7 +15,7 @@ import AboutUs from './AboutUs.js';
 import UserDash from './UserDashboard/UserDash.js';
 import PetDetails from './PetDetails.js';
 import PostDetails from './PostDetails.js';
-import PetDash from './PetDash.js';
+import PetDash from './PetDashboard/PetDash.js';
 import CreatePet from './UserDashboard/CreatePet.js';
 import CreatePost from './CreatePost.js';
 import { MainContext } from './MainContext';
