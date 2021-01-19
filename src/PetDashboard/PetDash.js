@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CreatePost from '../CreatePost.js';
+import CreatePost from './CreatePost.js';
 import PetInformation from './PetInformation.js';
 import { MainContext } from '../MainContext.js';
 import '../style/PetDash.css';

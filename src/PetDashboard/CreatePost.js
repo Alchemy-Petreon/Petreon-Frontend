@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { createPost, updatePostPicture } from "./fetches/post-fetches.js"
-import { MainContext } from './MainContext.js'
+import { createPost, updatePostPicture } from "../fetches/post-fetches.js"
+import { MainContext } from '../MainContext.js'
 import mime from 'mime-types';
 
 export default class CreatePet extends Component {
@@ -67,7 +67,7 @@ export default class CreatePet extends Component {
                             name='mediaFile'
                             className='post-media-submit'
                             type='file'
-                            accept="video/*, image/*"
+                            accept="image/*"
                             onChange={(e) => this.handleFileChange(e)}
                             value={this.state.mediaFile} />
 
@@ -80,12 +80,12 @@ export default class CreatePet extends Component {
                         src={this.state.mediaURL} />
                      : null}
 
-                    {this.state.mediaTypeName === 'video'
+                    {/* {this.state.mediaTypeName === 'video'
                     ? 
                     <div>
                     <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
                     </div>
-                        : null}
+                        : null} */}
 
                     <p className='post-text'>Caption</p>
 
