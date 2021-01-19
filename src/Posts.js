@@ -13,6 +13,7 @@ export default class Posts extends Component {
         allPosts: [],
     }
     componentDidMount = async () => {
+        console.log('this is posts.js', this.props.userId)
         await this.setState({ loading: true });
         const allPosts = await fetchPosts();
         this.setState({
@@ -31,7 +32,8 @@ export default class Posts extends Component {
                     this.state.allPosts.map(post =>
                         <div key={post.id}>
                             <PostItem
-                                post={post} />
+                                post={post}
+                                userId={this.props.userId} />
                         </div>)
                 }
 

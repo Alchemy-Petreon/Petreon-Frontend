@@ -12,12 +12,14 @@ export default class PetDetails extends Component {
         pet: [],
     }
     componentDidMount = async () => {
+
         await this.setState({ loading: true });
         const pet = await fetchPet(this.props.match.params.id);
         this.setState({
             loading: false,
             pet: pet
         })
+        console.log(this.state.pet)
     };
 
     render() {
@@ -33,7 +35,8 @@ export default class PetDetails extends Component {
                         <p>{this.state.pet.petName}</p>
                         <p>{this.state.pet.petProfileDescription}</p>
 
-                        <Posts />
+                        <Posts
+                            userId={this.state.pet.userId} />
                     </div>
                 }
             </div>

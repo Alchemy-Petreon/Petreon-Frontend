@@ -35,12 +35,11 @@ export default class CreatePet extends Component {
 
     }
 
-
-
     handleFileChange = (e) => {
         const mediaType = mime.lookup(e.target.value)
         // this.props.history.push(`/pets/${this.props.petId}`);
         // this.props.history.push('/');
+        this.props.history.push(`/pets/${this.props.petId}`);
 
         if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
             this.setState({
