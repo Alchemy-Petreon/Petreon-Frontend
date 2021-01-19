@@ -29,7 +29,7 @@ export default class CreatePet extends Component {
 
         await updatePostPicture(newMedia, newPostResponse.id)
 
-        this.props.history.push('/');
+        this.props.history.push(`/pets/${this.props.petId}`);
 
     }
 
