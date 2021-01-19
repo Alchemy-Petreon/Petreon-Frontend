@@ -46,7 +46,7 @@ export default class CreatePet extends Component {
             this.setState({ mediaFile: '' })
         }
 
-        this.props.history.push(`/pets/${this.props.petId}`);
+        // this.props.history.push(`/pets/${this.props.petId}`);
 
     }
 
