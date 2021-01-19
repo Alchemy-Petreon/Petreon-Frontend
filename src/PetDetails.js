@@ -3,6 +3,7 @@ import { fetchPet } from './fetches/pet-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
+import { subscribe } from './fetches/user-fetches.js';
 
 
 export default class PetDetails extends Component {
@@ -34,9 +35,13 @@ export default class PetDetails extends Component {
                         </div>
                         <p>{this.state.pet.petName}</p>
                         <p>{this.state.pet.petProfileDescription}</p>
-
+                        <p><button
+                            onClick={() => subscribe(this.state.pet.id)}>
+                            Subscribe
+                            </button>
+                        </p>
                         <Posts
-                            userId={this.state.pet.userId} />
+                            posts={this.state.pet.posts} />
                     </div>
                 }
             </div>
