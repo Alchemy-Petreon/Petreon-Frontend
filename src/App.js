@@ -20,7 +20,11 @@ import CreatePet from './UserDashboard/CreatePet.js';
 import CreatePost from './CreatePost.js';
 import { MainContext } from './MainContext';
 import UserProfile from './UserProfile';
+<<<<<<< HEAD
 import UpdatePost from './UpdatePost'
+=======
+
+>>>>>>> d54955b6fca4bbea3cda9f4ee15f6d80fd02210d
 export default class App extends Component {
   state = {
     profile: JSON.parse(localStorage.getItem('profile')),
@@ -102,11 +106,14 @@ export default class App extends Component {
                 />}
               />
               <Route
+<<<<<<< HEAD
                 path="/update-post/:id"
                 exact render={(routerProps) => <UpdatePost {...routerProps}
                 />}
               />
               <Route
+=======
+>>>>>>> d54955b6fca4bbea3cda9f4ee15f6d80fd02210d
                 path="/user/:id"
                 exact render={(routerProps) => <UserProfile {...routerProps}
                 />}
