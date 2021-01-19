@@ -34,14 +34,14 @@ export default class Header extends Component {
                 <button className="button1"><img src="/loupe.png" alt="Search" className="glass" /></button>
                 {this.context.loggedIn ?
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <img
+                        <Link to={'/userdash'}> <img
                             src={this.context.profile.profilePicture}
                             alt={this.context.profile.userName}
                             style={{
                                 height: '60px',
                                 borderRadius: '50px'
                             }}
-                        />
+                        /></Link>
                         <h3>{this.context.profile.userName}</h3>
                         <button
                             onClick={this.handleLogout}>

@@ -31,7 +31,8 @@ export default class UserInformation extends Component {
                 src={this.context.profile.profilePicture} 
                 alt='' 
                 width='150' 
-                height='150' />
+                height='150'
+                accept=".png, .jpg, .jpeg, .gif" />
 
                 <button onClick={this.toggleHidden.bind(this)} className="uploadpicturemenu">Change Profile Picture</button>
                 {!this.state.isHidden && <ProfilePictureUpload />}

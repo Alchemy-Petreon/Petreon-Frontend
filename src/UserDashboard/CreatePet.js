@@ -4,10 +4,6 @@ import { createPet, uploadPetBanner, uploadPetProfilePicture } from '../fetches/
 import { MainContext } from '../MainContext.js';
 import mime from 'mime-types';
 
-// import PetProfilePictureUpload from './PetProfilePictureUpload.js';
-// import BannerPictureUpload from './BannerPictureUpload.js';
-
-
 export default class CreatePet extends Component {
     static contextType = MainContext;
 
@@ -116,10 +112,10 @@ export default class CreatePet extends Component {
                                 <input
                                     type="file"
                                     name="bannerPicture"
+                                    className="bannerpicturesubmit"
                                     onChange={(e) => this.handleBannerChange(e)}
                                     value={this.state.bannerPictureFile}
                                 />
-                                {/* <button className='bannerpicsubbutton'>Submit</button> */}
                             </div>
                         </div>
 

@@ -50,6 +50,35 @@
     margin-left: 2.5%;
 }
 
+.bannerpicturesubmit {
+    color: transparent;
+}
+
+.bannerpicturesubmit::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.bannerpicturesubmit::before {
+    margin-left: 10%;
+    content: 'Update Banner';
+    font-family: Burma-Soft;
+    font-size: 14pt;
+    padding: 10px;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+.bannerpicturesubmit::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
+
 .petprofilepicsubmit::file-selector-button {
     font-family: Burma-Soft;
     font-size: 10pt;
@@ -58,11 +87,30 @@
     border-radius: 5px;
 }
 
-.petprofilesubbutton {
-    margin-left: -8%;
+.petprofilepicsubmit {
+    color: transparent;
+}
+
+.petprofilepicsubmit::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.petprofilepicsubmit::before {
+    content: 'Update Pet Picture';
     font-family: Burma-Soft;
-    font-size: 12pt;
-    background-color: #FFE66D;
+    font-size: 14pt;
+    padding: 10px;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+.petprofilepicsubmit::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
     border: none;
     border-radius: 5px;
 }
