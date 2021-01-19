@@ -3,8 +3,6 @@ import { createPost, updatePostPicture } from "./fetches/post-fetches.js"
 import { MainContext } from './MainContext.js'
 import mime from 'mime-types';
 
-
-
 export default class CreatePet extends Component {
     static contextType = MainContext;
 
@@ -21,7 +19,7 @@ export default class CreatePet extends Component {
         let newMedia = new FormData(e.target)
 
         const newPost = {
-            petId: 1,
+            petId: this.props.petId,
             userId: this.props.userId,
             mediaType: this.state.mediaType,
             postText: this.state.postText
@@ -37,8 +35,6 @@ export default class CreatePet extends Component {
 
     handleFileChange = (e) => {
         const mediaType = mime.lookup(e.target.value)
-        // this.props.history.push(`/pets/${this.props.petId}`);
-        // this.props.history.push('/');
 
         if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
             this.setState({
@@ -49,6 +45,9 @@ export default class CreatePet extends Component {
             window.alert('INVALID MEDIA TYPE');
             this.setState({ mediaFile: '' })
         }
+
+        this.props.history.push(`/pets/${this.props.petId}`);
+
     }
 
 
