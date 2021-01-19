@@ -1,0 +1,39 @@
+.bittersweetud {
+    height: 10px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.naplesyellowud {
+    height: 10px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.petdashinfo {
+    width: 30%;
+    height: 100%;
+    padding-left: 2%;
+    text-align: center;
+}
+
+.petdashname {
+    font-family: Excalibur;
+    font-size: 30pt;
+    color: #FF6B6B;
+    text-shadow: 2px 2px 0px #FFE66D;
+}
+
+.petdashpic {
+    height: 300px;
+    width: 300px;
+    border: solid 5px #1A535C;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.petdashdescription, .petdashfollowers {
+    font-family: Burma-Soft;
+    font-size: 15pt;
+    color: #1A535C;
+}
