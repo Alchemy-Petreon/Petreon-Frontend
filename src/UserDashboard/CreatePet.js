@@ -41,16 +41,24 @@ export default class CreatePet extends Component {
 
         let petInfo = await createPet(newPet);
 
-        const profilePicture = new FormData()
-        profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
+        console.log(petFiles.get('petProfilePicture'))
 
-        await uploadPetProfilePicture(petInfo.id, profilePicture);
+        if (petFiles.get('petProfilePicture')) {
+            const profilePicture = new FormData()
 
-        const bannerPicture = new FormData()
-        bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
+            profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
 
-        await uploadPetBanner(petInfo.id, bannerPicture);
+            await uploadPetProfilePicture(petInfo.id, profilePicture);
+        }
 
+
+        if (petFiles.get('bannerPicture')) {
+            const bannerPicture = new FormData()
+
+            bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
+
+            await uploadPetBanner(petInfo.id, bannerPicture);
+        }
         this.props.history.push('/userdash');
 
     }
@@ -61,6 +69,8 @@ export default class CreatePet extends Component {
         if (mediaType.split('/')[0] === 'image') {
             this.setState({
                 bannerPictureFile: e.target.value,
+                bannerPictureURL: URL.createObjectURL(e.target.files[0])
+
             })
         } else {
             window.alert('INVALID MEDIA TYPE');
@@ -68,13 +78,15 @@ export default class CreatePet extends Component {
         }
     }
 
-    handlePictureChange = (e) => {
+    handlePictureChange = async (e) => {
         const mediaType = mime.lookup(e.target.value)
 
         if (mediaType.split('/')[0] === 'image') {
-            this.setState({
+            await this.setState({
                 petProfilePictureFile: e.target.value,
+                petProfilePictureURL: URL.createObjectURL(e.target.files[0])
             })
+
         } else {
             window.alert('INVALID MEDIA TYPE');
             this.setState({ petPictureFile: '' })
