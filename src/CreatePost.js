@@ -11,7 +11,8 @@ export default class CreatePet extends Component {
         mediaType: '',
         invalidMediaType: false,
         mediaFile: '',
-        mediaURL: ''
+        mediaURL: '',
+        mediaTypeName: ''
     }
 
     handleSubmit = async (e) => {
@@ -35,19 +36,32 @@ export default class CreatePet extends Component {
     }
 
     handleFileChange = (e) => {
+        
         const mediaType = mime.lookup(e.target.value)
 
-        if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
-            this.setState({
-                mediaFile: e.target.value,
-                mediaURL: URL.createObjectURL(e.target.files[0]),
-                mediaType
-            })
-            console.log(this.state.mediaType)
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ mediaFile: '' })
-        }
+        const mediaTypeName = mediaType.split('/')[0]
+
+        this.setState({
+            mediaFile: e.target.value,
+            mediaURL: URL.createObjectURL(e.target.files[0]),
+            mediaType,
+            mediaTypeName: mediaTypeName
+        })
+        console.log(mediaType)
+        console.log(mediaTypeName)
+
+
+        // if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
+        //     this.setState({
+        //         mediaFile: e.target.value,
+        //         mediaURL: URL.createObjectURL(e.target.files[0]),
+        //         mediaType
+        //     })
+        //     console.log(this.state.mediaType)
+        // } else {
+        //     window.alert('INVALID MEDIA TYPE');
+        //     this.setState({ mediaFile: '' })
+        // }
 
         // this.props.history.push(`/pets/${this.props.petId}`);
 
@@ -64,11 +78,12 @@ export default class CreatePet extends Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                    <p className='post-picture'>Post Media</p>
+                    <p className='post-media'>Post Media</p>
 
                         <input
                             name='mediaFile'
                             type='file'
+                            accept="video/*, image/*"
                             onChange={(e) => this.handleFileChange(e)}
                             value={this.state.mediaFile} />
 

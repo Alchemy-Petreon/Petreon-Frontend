@@ -43,7 +43,7 @@ export default class ProfilePictureUpload extends Component {
                             <input
                                 type="file"
                                 name="profilePicture"
-                                accept=".png, .jpg, .jpeg, .gif"
+                                accept="image/*"
                                 className="profilepicsubmit"
                                 onChange={(e) => this.setState({ profilePicture: e.target.value })}
                                 value={this.state.profilePicture} />
