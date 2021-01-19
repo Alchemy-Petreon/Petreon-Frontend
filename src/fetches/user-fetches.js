@@ -41,8 +41,8 @@ export async function createUser(newUser) {
             .post(`${URL}api/v1/users`)
             .send(newUser)
             .withCredentials()
-            return response.body;
-        } catch (err) {
+        return response.body;
+    } catch (err) {
         throw err;
     }
 }
@@ -88,6 +88,16 @@ export async function uploadProfilePicture(file) {
             .withCredentials()
             .send(file)
         return response.body;
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function logoutUser() {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/auth/logout`)
+            .withCredentials()
     } catch (err) {
         throw err;
     }
