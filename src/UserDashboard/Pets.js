@@ -7,15 +7,20 @@ import '../style/Pets.css'
 export default class Pets extends Component {
     static contextType = MainContext;
     state = {
-        petArray: []
+        petArray: [],
+        loading: true
     }
 
-    componentDidMount = async() => {
+    componentDidMount = async () => {
         const petArray = await fetchUserPets(this.context.profile.id)
 
-        this.setState({
-            pets: petArray
+        await this.setState({
+            petArray: petArray
         });
+        this.setState({
+            loading: false
+        })
+        console.log(this.state.petArray)
     };
 
     render() {
@@ -23,14 +28,17 @@ export default class Pets extends Component {
             <div className='petsdisplay'>
                 <h5 className='petsheader'>Pets</h5>
 
-                {this.state.petArray.length > 0 ? 
-                this.state.petArray.map(pet =>
-                    <div className='petthumbnail'>
-                    <p className='petthumbnailname'>{pet.petName}</p>
-                    <img className='petthumbnail' src={pet.petProfilePicture} alt='' />
-                    </div>)
-                : null } 
-                    <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
+                {this.state.petArray.length > 0 && !this.state.loading ?
+                    this.state.petArray.map(pet =>
+                        <div className='petownerthumbnail' key={pet.id}>
+
+                            <p className='petthumbnailname'>{pet.petName}</p>
+
+                            <img className='petthumbnail' src={pet.petProfilePicture} alt='' />
+                        </div>)
+
+                    : null}
+                <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
             </div>
         )
     }

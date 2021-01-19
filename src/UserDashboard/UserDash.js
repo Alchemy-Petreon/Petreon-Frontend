@@ -12,13 +12,14 @@ export default class UserDash extends Component {
     render() {
         return (
             <div>
-                <div className="udbittersweet"> </div>    
+                <div className="udbittersweet"> </div>
                 <div className="udnaplesyellow"> </div>
                 <div className="user-dashboard">
-                    <UserInformation 
-                    user={this.props.user}/>
+                    <UserInformation
+                        user={this.context.profile} />
                     <Pets
-                    user={this.props.user}/>
+                    // user={this.context.profile}/>
+                    />
                 </div>
             </div>
         )

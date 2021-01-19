@@ -36,8 +36,11 @@ export default class CreatePet extends Component {
     }
 
 
+
     handleFileChange = (e) => {
         const mediaType = mime.lookup(e.target.value)
+        // this.props.history.push(`/pets/${this.props.petId}`);
+        // this.props.history.push('/');
 
         if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
             this.setState({
@@ -55,7 +58,7 @@ export default class CreatePet extends Component {
         return (
             <div className='create-post-page'>
                 <div className='box'>
-                    <h2 className='create-post'> Sign Up</h2>
+                    <h2 className='create-post'> Make A Post for Your Pet!</h2>
                     <form onSubmit={this.handleSubmit}>
                         <p className='post-text'>Post Text:</p>
                         <input name='postText' onChange={(e) => this.setState({ postText: e.target.value })}
