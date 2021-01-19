@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { createPost, updatePostPicture } from "./fetches/post-fetches.js"
-import { MainContext } from './MainContext.js'
+import { createPost, updatePostPicture } from "../fetches/post-fetches.js"
+import { MainContext } from '../MainContext.js'
 import mime from 'mime-types';
 
 export default class CreatePet extends Component {

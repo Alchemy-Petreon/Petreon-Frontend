@@ -17,7 +17,7 @@ import PetDetails from './PetDetails.js';
 import PostDetails from './PostDetails.js';
 import PetDash from './PetDashboard/PetDash.js';
 import CreatePet from './UserDashboard/CreatePet.js';
-import CreatePost from './CreatePost.js';
+import CreatePost from './PetDashboard/CreatePost.js';
 import { MainContext } from './MainContext';
 import UserProfile from './UserProfile';
 
