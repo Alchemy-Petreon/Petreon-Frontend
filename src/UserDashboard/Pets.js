@@ -34,7 +34,7 @@ export default class Pets extends Component {
 
                             <p className='petthumbnailname'>{pet.petName}</p>
 
-                            <img className='petthumbnail' src={pet.petProfilePicture} alt='' />
+                            <Link to={`/petdash/${pet.id}`}><img className='petthumbnail' src={pet.petProfilePicture} alt='' /></Link>
                         </div>)
 
                     : null}
