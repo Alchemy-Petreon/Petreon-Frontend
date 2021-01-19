@@ -54,19 +54,30 @@ export default class CreatePet extends Component {
     render() {
         return (
             <div className='create-post-page'>
+
                 <div className='box'>
-                    <h2 className='create-post'> Make A Post for Your Pet!</h2>
+
+                    <h2 className='create-post'> Add New Post</h2>
+
                     <form onSubmit={this.handleSubmit}>
-                        <p className='post-text'>Post Text:</p>
-                        <input name='postText' onChange={(e) => this.setState({ postText: e.target.value })}
-                            value={this.state.postText}></input>
-                        <p className='post-picture'>Post Media</p>
+
+                    <p className='post-picture'>Post Media</p>
+
                         <input
                             name='mediaFile'
                             type='file'
                             onChange={(e) => this.handleFileChange(e)}
-                            value={this.state.mediaFile} ></input>
+                            value={this.state.mediaFile} />
+
                         <br />
+
+                        <p className='post-text'>Post Text:</p>
+
+                        <input 
+                            name='postText' 
+                            onChange={(e) => this.setState({ postText: e.target.value })}
+                            value={this.state.postText} />
+                        
                         <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
                         <br />
                     </form>
