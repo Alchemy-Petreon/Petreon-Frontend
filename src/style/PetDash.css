@@ -47,24 +47,64 @@
     text-align: center;
 }
 
-.create-post-header, .post-preview-header {
+.create-post-header {
     font-size: 23pt;
 }
 
-.cpdividermidnight {
-    height: 4px;
-    width: 100%;
-    background-color: #1A535C;
+.post-media, .post-text {
+    font-size: 18pt;
 }
 
-.cpdividerbittersweet {
-    height: 4px;
-    width: 100%;
+.post-media-submit {
+    color: transparent;
+    margin-bottom: 5%;
+}
+
+.post-media-submit::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.post-media-submit::before {
+    margin-left: 25%;
+    content: 'Add New Media';
+    font-family: Burma-Soft;
+    font-size: 14pt;
+    padding: 10px;
+    color: black;
     background-color: #FF6B6B;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+.post-media-submit::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
 }
 
-.cpdividernaplesyellow {
-    height: 4px;
-    width: 100%;
-    background-color: #FFE66D;
+.post-preview-image {
+    width: 40%;
+}
+
+.post-text-input {
+    width: 40%;
+    font-family: Burma-Soft;
+    font-size: 18pt;
+    background-color: #F7FFF7;
+    border: solid 2px #1A535C;
+    border-radius: 10px;
+}
+
+.create-post-button {
+    margin-top: 5%;
+    margin-bottom: 10%;
+    width: 20%;
+    font-family: Burma;
+    font-size: 20pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 10px;
 }

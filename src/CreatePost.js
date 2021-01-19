@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { createPost, updatePostPicture } from "./fetches/post-fetches.js"
 import { MainContext } from './MainContext.js'
 import mime from 'mime-types';
-import ReactPlayer from 'react-player'
 
 export default class CreatePet extends Component {
     static contextType = MainContext;
@@ -67,31 +66,13 @@ export default class CreatePet extends Component {
 
                         <input
                             name='mediaFile'
+                            className='post-media-submit'
                             type='file'
                             accept="video/*, image/*"
                             onChange={(e) => this.handleFileChange(e)}
                             value={this.state.mediaFile} />
 
                         <br />
-
-                        <p className='post-text'>Caption</p>
-
-                        <input 
-                            name='postText' 
-                            onChange={(e) => this.setState({ postText: e.target.value })}
-                            value={this.state.postText} />
-                        
-                        <br />
-
-                        <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
-                        <br />
-                    </form>
-
-                    <div className='cpdividermidnight'> </div>
-                    <div className='cpdividerbittersweet'> </div>
-                    <div className='cpdividernaplesyellow'> </div>
-
-                    <h2 className='post-preview-header'>Post Preview</h2>
                     
                     {this.state.mediaTypeName === 'image'
                     ? <img
@@ -106,6 +87,21 @@ export default class CreatePet extends Component {
                     <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
                     </div>
                         : null}
+
+                    <p className='post-text'>Caption</p>
+
+                    <input 
+                        name='postText'
+                        maxLength='144'
+                        className='post-text-input'
+                        onChange={(e) => this.setState({ postText: e.target.value })}
+                        value={this.state.postText} />
+
+                    <br />
+
+                    <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
+                    <br />
+                    </form>
                 </div>
             </div>
         )
