@@ -4,6 +4,8 @@ import { deleteComment } from './fetches/comment-fetches.js'
 import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
 import './style/Comment.css'
+import { Link } from 'react-router-dom';
+
 export default class PostDetails extends Component {
     static contextType = MainContext;
 
@@ -59,7 +61,7 @@ export default class PostDetails extends Component {
                                 this.state.post.comments.map(comment =>
                                     <div className='comment-box'>
                                         <div key={comment.id}>
-                                            <p><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' />{this.context.profile.userName}</p>
+                                            <p><Link to={`/user/${comment.userId}`}><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' /></Link>{this.context.profile.userName}</p>
 
                                             <p>{comment.text}</p>
                                             <div>{comment.timestamp}</div>
