@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { createPost, updatePostPicture } from "./fetches/post-fetches.js"
 import { MainContext } from './MainContext.js'
 import mime from 'mime-types';
+import ReactPlayer from 'react-player'
 
 export default class CreatePet extends Component {
     static contextType = MainContext;
@@ -12,7 +13,8 @@ export default class CreatePet extends Component {
         invalidMediaType: false,
         mediaFile: '',
         mediaURL: '',
-        mediaTypeName: ''
+        mediaTypeName: '',
+        videoType: ''
     }
 
     handleSubmit = async (e) => {
@@ -35,36 +37,19 @@ export default class CreatePet extends Component {
 
     }
 
-    handleFileChange = (e) => {
+    handleFileChange = async (e) => {
         
         const mediaType = mime.lookup(e.target.value)
-
         const mediaTypeName = mediaType.split('/')[0]
 
-        this.setState({
+        await this.setState({
             mediaFile: e.target.value,
-            mediaURL: URL.createObjectURL(e.target.files[0]),
             mediaType,
-            mediaTypeName: mediaTypeName
+            mediaURL: URL.createObjectURL(e.target.files[0]),
+            mediaTypeName: mediaTypeName,
         })
-        console.log(mediaType)
-        console.log(mediaTypeName)
 
-
-        // if (mediaType.split('/')[0] === 'image' || mediaType.split('/')[0] === 'video') {
-        //     this.setState({
-        //         mediaFile: e.target.value,
-        //         mediaURL: URL.createObjectURL(e.target.files[0]),
-        //         mediaType
-        //     })
-        //     console.log(this.state.mediaType)
-        // } else {
-        //     window.alert('INVALID MEDIA TYPE');
-        //     this.setState({ mediaFile: '' })
-        // }
-
-        // this.props.history.push(`/pets/${this.props.petId}`);
-
+        console.log(this.state.mediaURL)
     }
 
 
@@ -107,7 +92,20 @@ export default class CreatePet extends Component {
                     <div className='cpdividernaplesyellow'> </div>
 
                     <h2 className='post-preview-header'>Post Preview</h2>
-                    <img src={this.state.mediaURL} alt='preview' />
+                    
+                    {this.state.mediaTypeName === 'image'
+                    ? <img
+                        className='post-preview-image'
+                        alt='post preview'
+                        src={this.state.mediaURL} />
+                     : null}
+
+                    {this.state.mediaTypeName === 'video'
+                    ? 
+                    <div>
+                    <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
+                    </div>
+                        : null}
                 </div>
             </div>
         )
