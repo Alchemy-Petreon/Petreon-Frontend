@@ -5,6 +5,7 @@ import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
 import './style/Comment.css'
 
+
 export default class PostDetails extends Component {
     static contextType = MainContext;
 
@@ -32,6 +33,7 @@ export default class PostDetails extends Component {
         })
 
     };
+
     handleDelete = async (id, commentId) => {
         console.log(id, commentId, this.context.profile.id, this.props.userId)
         if (this.context.profile.id === String(commentId)) {
@@ -43,6 +45,7 @@ export default class PostDetails extends Component {
         } else {
             alert('You can not delete someone elses comment')
         }
+
     }
     render() {
         return (

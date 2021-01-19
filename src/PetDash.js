@@ -15,7 +15,7 @@ export default class PetDash extends Component {
                     user={this.context.user} />
                 <h6>Pets:</h6>
                 <CreatePost
-                    petId={this.props.match.params.id}
+                    petId={this.props.match.params.id} />
                     history={this.props.history} />
             </div>
         )

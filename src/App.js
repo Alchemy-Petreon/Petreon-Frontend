@@ -17,6 +17,7 @@ import PetDetails from './PetDetails.js';
 import PostDetails from './PostDetails.js';
 import PetDash from './PetDash.js';
 import CreatePet from './UserDashboard/CreatePet.js';
+import CreatePost from './CreatePost.js';
 import { MainContext } from './MainContext';
 
 export default class App extends Component {
@@ -91,6 +92,12 @@ export default class App extends Component {
               <Route
                 path="/userdash"
                 exact render={(routerProps) => <UserDash {...routerProps}
+                />}
+              />
+
+              <Route
+                path="/createpost/:id"
+                exact render={(routerProps) => <CreatePost {...routerProps}
                 />}
               />
             </Switch>
