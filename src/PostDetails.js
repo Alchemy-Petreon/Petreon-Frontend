@@ -3,10 +3,7 @@ import { fetchPost } from './fetches/post-fetches.js'
 import { deleteComment } from './fetches/comment-fetches.js'
 import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
-<<<<<<< HEAD
 import './style/Comment.css'
-=======
->>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
 export default class PostDetails extends Component {
     static contextType = MainContext;
@@ -22,8 +19,6 @@ export default class PostDetails extends Component {
             loading: false,
             post: post
         })
-<<<<<<< HEAD
-=======
 
     }
     changeLoading = async (loading) => {
@@ -37,26 +32,17 @@ export default class PostDetails extends Component {
         })
 
     };
->>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
-
-    }
-    changeLoading = async (loading) => {
-        await this.setState({
-            loading: loading
-        })
-        const post = await fetchPost(this.props.match.params.id);
-        this.setState({
-            loading: false,
-            post: post
-        })
-
-    };
-    handleDelete = async (id) => {
-        await deleteComment(id)
-        const post = await fetchPost(this.props.match.params.id);
-        this.setState({
-            post: post
-        })
+    handleDelete = async (id, commentId) => {
+        console.log(id, commentId, this.context.profile.id, this.props.userId)
+        if (this.context.profile.id === String(commentId)) {
+            await deleteComment(id)
+            const post = await fetchPost(this.props.match.params.id);
+            this.setState({
+                post: post
+            })
+        } else {
+            alert('You can not delete someone elses comment')
+        }
     }
     render() {
         return (
@@ -81,13 +67,14 @@ export default class PostDetails extends Component {
 
                                         </div>
 
-                                        <button onClick={() => this.handleDelete(comment.id)}>delete</button>
+                                        <button className={this.handleHidden} onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
                                     </div>
                                 )
                             }
 
                             <CreateComment
-                                postId={this.props.match.params.id} userId={this.context.profile.id}
+                                postId={this.props.match.params.id}
+                                userId={this.context.profile.id}
                                 changeLoading={this.changeLoading} />
                         </div>
                     </div>

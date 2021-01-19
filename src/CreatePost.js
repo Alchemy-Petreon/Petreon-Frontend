@@ -32,11 +32,7 @@ export default class CreatePet extends Component {
         post.append("userId", this.context.profile.id)
         createPost(post);
 
-<<<<<<< HEAD
         this.props.history.push(`/pets/${this.props.petId}`);
-=======
-        // this.props.history.push('/');
->>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
     }
     render() {
