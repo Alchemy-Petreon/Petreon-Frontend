@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
 import { createPost } from "./fetches/post-fetches.js"
+import { MainContext } from './MainContext.js'
 
 
 
 
 export default class CreatePet extends Component {
+    static contextType = MainContext;
+
     state = {
         pictureUrl: '',
         videoUrl: '',
@@ -26,17 +29,21 @@ export default class CreatePet extends Component {
 
         // }
         post.append("petId", this.props.petId)
-        post.append("userId", this.props.userId)
+        post.append("userId", this.context.profile.id)
         createPost(post);
 
-        this.props.history.push('/');
+<<<<<<< HEAD
+        this.props.history.push(`/pets/${this.props.petId}`);
+=======
+        // this.props.history.push('/');
+>>>>>>> eb53a3a1b49cfe12d6bc6aa9a4c73d323c6de690
 
     }
     render() {
         return (
             <div className='create-post-page'>
                 <div className='box'>
-                    <h2 className='create-post'> Sign Up</h2>
+                    <h2 className='create-post'> Make A Post for Your Pet!</h2>
                     <form onSubmit={this.handleSubmit}>
                         <p className='post-text'>Post Text:</p>
                         <input name='postText' onChange={(e) => this.setState({ postText: e.target.value })}

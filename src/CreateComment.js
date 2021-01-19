@@ -9,7 +9,7 @@ export default class CreateComment extends Component {
         commentText: ''
     }
 
-    handleSubmit = async (e) => {
+    handleCreate = async (e) => {
         e.preventDefault();
 
         console.log(this.state);
@@ -17,12 +17,13 @@ export default class CreateComment extends Component {
         this.setState({ loading: true })
         const comment = {
 
-            userId: 41,
+            userId: this.props.userId,
             postId: this.props.postId,
             text: this.state.commentText
 
         }
-        createComment(comment);
+        await createComment(comment);
+        this.props.changeLoading(true)
 
     }
     render() {
@@ -30,7 +31,7 @@ export default class CreateComment extends Component {
             <div className='create-pet-page'>
                 <div className='box'>
 
-                    <form onSubmit={this.handleSubmit}>
+                    <form onSubmit={this.handleCreate}>
                         <p className='comment'>Create Comment:</p>
                         <input onChange={(e) => this.setState({ commentText: e.target.value })}
                             value={this.state.commentText}></input>

@@ -72,6 +72,11 @@
     margin-left: 305px;
 }
 
+.petnamediv {
+    position: absolute;
+    margin-left: 25.3%;
+}
+
 .petnameheader {
     margin-bottom: 1%;
     font-family: Burma;

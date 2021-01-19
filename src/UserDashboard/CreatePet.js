@@ -92,7 +92,7 @@ export default class CreatePet extends Component {
                         {/* <button className='petprofilesubbutton'>Submit</button> */}
                     </div>
                 </div>
-             
+
                 <div className='petnamediv'>
                     <h5 className='petnameheader'>Pet Name</h5>
                     <input 
