@@ -6,8 +6,18 @@ import '../style/UserInfo.css'
 export default class UserInformation extends Component {
     static contextType = MainContext;
 
-    state = {
-        profilePicture: ''
+    constructor() {
+        super()
+        this.state = {
+            profilePicture: '',
+            isHidden: true
+        }
+    }
+
+    toggleHidden() {
+        this.setState({
+            isHidden: !this.state.isHidden
+        })
     }
 
     render() {
@@ -22,8 +32,9 @@ export default class UserInformation extends Component {
                 alt='' 
                 width='150' 
                 height='150' />
-                
-                <ProfilePictureUpload />
+
+                <button onClick={this.toggleHidden.bind(this)} className="uploadpicturemenu">Change Profile Picture</button>
+                {!this.state.isHidden && <ProfilePictureUpload />}
 
                 <h5 className="prde">{this.context.profile.profileDescription}</h5>
             </div>

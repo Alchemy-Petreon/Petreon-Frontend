@@ -32,12 +32,17 @@ export default class PostDetails extends Component {
         })
 
     };
-    handleDelete = async (id) => {
-        await deleteComment(id)
-        const post = await fetchPost(this.props.match.params.id);
-        this.setState({
-            post: post
-        })
+    handleDelete = async (id, commentId) => {
+        console.log(id, commentId, this.context.profile.id, this.props.userId)
+        if (this.context.profile.id === String(commentId)) {
+            await deleteComment(id)
+            const post = await fetchPost(this.props.match.params.id);
+            this.setState({
+                post: post
+            })
+        } else {
+            alert('You can not delete someone elses comment')
+        }
     }
     render() {
         return (
@@ -62,13 +67,14 @@ export default class PostDetails extends Component {
 
                                         </div>
 
-                                        <button onClick={() => this.handleDelete(comment.id)}>delete</button>
+                                        <button className={this.handleHidden} onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
                                     </div>
                                 )
                             }
 
                             <CreateComment
-                                postId={this.props.match.params.id} userId={this.context.profile.id}
+                                postId={this.props.match.params.id}
+                                userId={this.context.profile.id}
                                 changeLoading={this.changeLoading} />
                         </div>
                     </div>
