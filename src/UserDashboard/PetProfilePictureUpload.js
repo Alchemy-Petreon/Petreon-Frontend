@@ -1,53 +1,37 @@
 import React, { Component } from 'react';
-import { uploadPetProfilePicture } from '../fetches/pet-fetches.js';
-import { MainContext } from '../MainContext';
+// import { uploadPetProfilePicture } from '../fetches/pet-fetches.js';
 
 export default class PetProfilePictureUpload extends Component {
-    static contextType = MainContext;
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            petProfilePicture: 'https://placekitten.com/250/250',
-            open: false
-        }
-        this.toggleUpload = this.toggleUpload.bind(this)
-    }
-
-    toggleUpload(e) {
-        this.setState({ open: !this.state.open })
+    state = {
+        petProfilePic: ''
     }
 
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const petpicture = new FormData(e.target)
+        // const petpicture = new FormData(e.target)
 
-        await uploadPetProfilePicture(petpicture);
+        // const pet = await uploadPetProfilePicture(petpicture);
 
-        this.setState({
-            open: false
-        })
+        this.props.onPetProfilePictureUpload(this.state.petProfilePic)
+
+        console.log(this.state.petProfilePic)
     }
 
     render() {
         return (
             <div>
-                <img src={this.state.petProfilePicture} alt='' className="petprofilepicupload" />
-                <div onClick={(e) => this.toggleUpload(e)}><span className='uploadpetpicture'>Change Picture</span></div>
-            {this.state.open ? (
-                    <div className='petprofilepicupload'>
-                        <form onSubmit={this.handleSubmit}>
-                            <input
-                                type="file"
-                                name="petProfilePicture"
-                                className="petprofilepicsubmit"
-                                onChange={(e) => this.setState({petProfilePicture: e.target.value })}
-                                value={this.state.petProfilePicture}/>
-                            <button className='petprofilesubbutton'>Submit</button>
-                    </form>
-                    </div>
-            ): null}
+                <div className='petprofilepicchange'>
+                    <form onSubmit={this.handleSubmit}>
+                        <input
+                            type="file"
+                            name="petProfilePicture"
+                            className="petprofilepicsubmit"
+                            onChange={(e) => this.setState({petProfilePic: e.target.value })}
+                            value={this.props.petProfilePic}/>
+                        <button className='petprofilesubbutton'>Submit</button>
+                </form>
+                </div>
             </div>
         )
     }

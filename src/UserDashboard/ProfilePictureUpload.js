@@ -8,14 +8,8 @@ export default class ProfilePictureUpload extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            profilePicture: '',
-            open: false
+            profilePicture: ''
         }
-        this.toggleUpload = this.toggleUpload.bind(this)
-    }
-    
-    toggleUpload(e) {
-        this.setState({ open: !this.state.open })
     }
 
     handleSubmit = async (e) => {
@@ -26,19 +20,11 @@ export default class ProfilePictureUpload extends Component {
         const existingUser = await uploadProfilePicture(picture);
 
         this.context.setProfile({ profile: existingUser })
-
-        this.setState({
-            open: false
-        })
     }
 
     render() {
         return (
             <div>
-
-            <div onClick={(e) => this.toggleUpload(e)} ><span className='uploadpicturemenu'>Change Profile Picture</span></div>
-            {this.state.open ? (
-
             <div className="profilepicupload">
                 <form onSubmit={this.handleSubmit}>
                 <input 
@@ -50,8 +36,6 @@ export default class ProfilePictureUpload extends Component {
                 <button className='profilesubbutton'>Submit</button>
                 </form>
             </div>
-
-            ): null}
             </div>
         )
     }

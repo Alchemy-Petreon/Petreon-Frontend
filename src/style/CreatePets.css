@@ -29,6 +29,47 @@
     margin-right: 2%;
     border-radius: 15px;
     border: solid 3px #FFE66D;
+    object-fit: cover;
+}
+
+.uploadpetpicturemenu {
+    position: absolute;
+    margin-top: 25%;
+    margin-left: 2.5%;
+    padding: 5px;
+    font-family: Burma-Soft;
+    font-size: 14pt;
+    color: #F7FFF7;
+    background-color: #1A535C;
+    border-radius: 5px;
+}
+
+.petprofilepicchange {
+    position: absolute;
+    margin-top: 29%;
+    margin-left: 2.5%;
+}
+
+.petprofilepicsubmit::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
+
+.petprofilesubbutton {
+    margin-left: -8%;
+    font-family: Burma-Soft;
+    font-size: 12pt;
+    background-color: #FFE66D;
+    border: none;
+    border-radius: 5px;
+}
+
+.petnamediv {
+    position: absolute;
+    margin-left: 305px;
 }
 
 .petnamediv {
@@ -57,7 +98,7 @@
 
 .typechoice {
     position: absolute;
-    margin-left: 60%;
+    margin-left: 725px;
     margin-right: 2%;
 }
 
