@@ -52,7 +52,7 @@ export default class PostDetails extends Component {
                     <div>
                         <div className='post-item'>
 
-                            <img className='post-picture' alt={this.state.post.pictureUrl} src={this.state.post.pictureUrl} />
+                            <img className='post-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
                             <p className='post-text'>{this.state.post.postText}</p>
                             <p>Comments </p>
                             {
