@@ -10,10 +10,14 @@
     background-color: #FFE66D;
 }
 
-.petlist {
+.pet-box {
+    margin-top: 2%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 5%;
     display: flex;
     flex-flow: row wrap;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
 }
 
@@ -25,7 +29,10 @@
 
 .pet-profile-picture {
     width: 300px;
-    border: solid 2px #1A535C;
+    height: 300px;
+    object-fit: cover;
+    border: solid 5px #1A535C;
+    border-radius: 10px;
 }
 
 

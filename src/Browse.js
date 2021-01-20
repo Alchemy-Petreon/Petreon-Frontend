@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './style/BrowsePets.css'
+import './style/Browse.css'
 import { fetchPets } from './fetches/pet-fetches.js'
 import PetItem from './PetItem.js'
 
