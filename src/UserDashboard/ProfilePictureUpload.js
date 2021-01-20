@@ -9,6 +9,7 @@ export default class ProfilePictureUpload extends PureComponent {
     static contextType = MainContext;
     state = {
         profilePicture: '',
+        imageShown: true,
         src: null,
         crop: {
             unit: '%',
@@ -90,16 +91,18 @@ export default class ProfilePictureUpload extends PureComponent {
         e.preventDefault();
 
         const picture = new FormData();
-
         picture.append('profilePicture', this.state.blob)
-
         const existingUser = await uploadProfilePicture(picture);
-
         this.context.setProfile({ profile: existingUser })
+
+        this.setState({
+            imageShown: false
+        })
+
     }
 
     render() {
-        const { crop, croppedImageUrl, src, profilePicture } = this.state;
+        const { crop, croppedImageUrl, src } = this.state;
 
         return (
             <div>
@@ -112,23 +115,28 @@ export default class ProfilePictureUpload extends PureComponent {
                     accept="image/*"
                     className="profilepicsubmit"
                     onChange={this.onSelectFile}
-                    // value={profilePicture}
                     />
+                {this.state.imageShown === true
+                ?
+                <div>
+                    {src && (
+                        <ReactCrop
+                            src={src}
+                            crop={crop}
+                            ruleOfThirds
+                            onImageLoaded={this.onImageLoaded}
+                            onComplete={this.onCropComplete}
+                            onChange={this.onCropChange}
+                        />
+                    )}
+                    <br />
+                    {croppedImageUrl && (
+                        <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
+                    )}
+                </div>
+                : null}
 
-                {src && (
-                    <ReactCrop
-                        src={src}
-                        crop={crop}
-                        ruleOfThirds
-                        onImageLoaded={this.onImageLoaded}
-                        onComplete={this.onCropComplete}
-                        onChange={this.onCropChange}
-                    />
-                )}
-                {croppedImageUrl && (
-                    <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
-                )}
-
+                <br />
                 <button className='profilesubbutton'>Submit</button>
                 </form>
             </div>
