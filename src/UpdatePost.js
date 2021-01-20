@@ -20,7 +20,13 @@ export default class UpdatePost extends Component {
         const post = await fetchPost(this.props.match.params.id);
 
         this.setState({
-            post: post
+            post: post,
+            postText: post.postText,
+            mediaType: post.mediaType,
+            invalidMediaType: false,
+            mediaFile: post.mediaFile,
+            mediaURL: post.mediaURL,
+            mediaTypeName: post.mediaTypeName,
         })
     }
 
