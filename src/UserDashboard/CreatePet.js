@@ -111,6 +111,7 @@ export default class CreatePet extends Component {
                             <div className='bannerpicchange'>
                                 <input
                                     type="file"
+                                    accept='image/*'
                                     name="bannerPicture"
                                     className="bannerpicturesubmit"
                                     onChange={(e) => this.handleBannerChange(e)}
