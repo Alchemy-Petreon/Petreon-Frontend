@@ -56,15 +56,17 @@ export default class PostDetails extends Component {
 
                             <img className='post-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
                             <p className='post-text'>{this.state.post.postText}</p>
+                            <Link to={`/update-post/${this.state.post.id}`}> <button>Edit Post</button></Link>
                             <p>Comments </p>
                             {
                                 this.state.post.comments.map(comment =>
                                     <div className='comment-box'>
                                         <div key={comment.id}>
-                                            <p><Link to={`/user/${comment.userId}`}><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' /></Link>{this.context.profile.userName}</p>
-
+                                            <p><Link to={`/user/${comment.userId}`}></Link>
+                                                <p className='comment-by-box'>Comment By:  <div className='user-card'><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' />{this.context.profile.userName}</div></p>
+                                            </p>
                                             <p>{comment.text}</p>
-                                            <div>{comment.timestamp}</div>
+                                            <div>Made On: {comment.timestamp}</div>
 
                                         </div>
 

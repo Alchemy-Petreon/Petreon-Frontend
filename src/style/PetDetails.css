@@ -2,3 +2,36 @@
     height: 150px;
     width:150px;
 }
+.post-item-box{
+    border: solid black 1px;
+    margin: 20px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-picture{
+   height: 250px;
+    width: 250px;
+    margin-bottom: 15px;
+    display: block;
+}
+.user-card{
+    border: black solid 1px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.comment-by-box{
+    display: flex;
+    flex-direction: row;
+}
+.owner-profile-picture{
+    width: 100px;
+    height: 100px;
+    margin: 15px
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { fetchPet } from './fetches/pet-fetches.js'
-// import { fetchUser } from './fetches/user-fetches.js'
+import { fetchUser } from './fetches/user-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
@@ -21,11 +21,14 @@ export default class PetDetails extends Component {
         await this.setState({ loading: true });
         const pet = await fetchPet(this.props.match.params.id);
         const isSubscribed = await subscribedToPet(pet.id)
+        const user = await fetchUser(pet.userId)
+
 
         this.setState({
             loading: false,
             pet: pet,
-            isSubscribed
+            isSubscribed,
+            user
         })
 
     };
@@ -64,7 +67,7 @@ export default class PetDetails extends Component {
                             <img className='pet-profile-picture' alt={this.state.pet.petName} src={this.state.pet.petProfilePicture} />
                         </div>
                         <p>{this.state.pet.petName}</p>
-                        <Link to={`/user/${this.state.user.id}`}> <p>Owned by: {this.state.user.userName}<img src={this.state.user.profilePicture} alt='profile' /></p></Link>
+                        Owned by:<Link to={`/user/${this.state.user.id}`}> <p className='user-card'> {this.state.user.userName}<img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' /></p></Link>
                         <p>{this.state.pet.petProfileDescription}</p>
                         <p>
                             {this.state.isSubscribed ?

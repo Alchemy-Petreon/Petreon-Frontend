@@ -1,0 +1,15 @@
+.pet-profile-picture{
+    height: 150px;
+    width:150px;
+    margin-bottom: 15px;
+    
+}
+
+.pet-box{
+    border: solid black 1px;
+    margin: 20px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

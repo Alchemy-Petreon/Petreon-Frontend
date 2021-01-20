@@ -1,5 +1,7 @@
 .comment-box{
 border: solid black 1px;
+width: 450px;
+margin-bottom: 20px;
 }
 
 .comment-profile-pic{

@@ -38,7 +38,7 @@ export default class CreatePet extends Component {
     }
 
     handleFileChange = async (e) => {
-        
+
         const mediaType = mime.lookup(e.target.value)
         const mediaTypeName = mediaType.split('/')[0]
 
@@ -61,7 +61,7 @@ export default class CreatePet extends Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                    <p className='post-media'>Post Media</p>
+                        <p className='post-media'>Post Media</p>
 
                         <input
                             name='mediaFile'
@@ -72,34 +72,34 @@ export default class CreatePet extends Component {
                             value={this.state.mediaFile} />
 
                         <br />
-                    
-                    {this.state.mediaTypeName === 'image'
-                    ? <img
-                        className='post-preview-image'
-                        alt='post preview'
-                        src={this.state.mediaURL} />
-                     : null}
 
-                    {/* {this.state.mediaTypeName === 'video'
+                        {this.state.mediaTypeName === 'image'
+                            ? <img
+                                className='post-preview-image'
+                                alt='post preview'
+                                src={this.state.mediaURL} />
+                            : null}
+
+                        {/* {this.state.mediaTypeName === 'video'
                     ? 
                     <div>
                     <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
                     </div>
                         : null} */}
 
-                    <p className='post-text'>Caption</p>
+                        <p className='post-text'>Caption</p>
 
-                    <input 
-                        name='postText'
-                        maxLength='144'
-                        className='post-text-input'
-                        onChange={(e) => this.setState({ postText: e.target.value })}
-                        value={this.state.postText} />
+                        <input
+                            name='postText'
+                            maxLength='144'
+                            className='post-text-input'
+                            onChange={(e) => this.setState({ postText: e.target.value })}
+                            value={this.state.postText} />
 
-                    <br />
+                        <br />
 
-                    <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
-                    <br />
+                        <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
+                        <br />
                     </form>
                 </div>
             </div>
