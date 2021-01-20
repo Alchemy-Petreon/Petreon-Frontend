@@ -7,8 +7,7 @@ import '../style/PetDash.css';
 
 export default class PetDash extends Component {
     static contextType = MainContext;
-
-
+    
     render() {
         return (
             <div className="user-dashboard">

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import { fetchPet } from '../fetches/pet-fetches';
 import { MainContext } from '../MainContext'
 
@@ -29,6 +30,8 @@ export default class PetInformation extends Component {
                     alt={this.state.pet.petName}/>
                 <h6 className='petdashdescription'>{this.state.pet.petProfileDescription}</h6>
                 <h6 className='petdashfollowers'>Followers: </h6>
+
+                <Link to={`/pets/${this.props.petId}`}><span className='details-link'>Go to Pet Profile</span></Link>
             </div>
         )
     }
