@@ -134,9 +134,6 @@ export async function subscribedToPet(petId) {
             .withCredentials()
 
         return response.body
-        // await request
-        //     .get(`${URL}api/v1/users/subscribe/${petId}`)
-        //     .withCredentials()
     } catch (err) {
         throw err;
     }
