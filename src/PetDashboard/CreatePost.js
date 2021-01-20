@@ -12,8 +12,7 @@ export default class CreatePet extends Component {
         invalidMediaType: false,
         mediaFile: '',
         mediaURL: '',
-        mediaTypeName: '',
-        videoType: ''
+        mediaTypeName: ''
     }
 
     handleSubmit = async (e) => {
@@ -27,7 +26,6 @@ export default class CreatePet extends Component {
             mediaType: this.state.mediaType,
             postText: this.state.postText
         }
-        console.log(newPost)
 
         let newPostResponse = await createPost(newPost);
 

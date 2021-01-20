@@ -3,7 +3,7 @@ import { fetchPost } from './fetches/post-fetches.js'
 import { deleteComment } from './fetches/comment-fetches.js'
 import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
-import './style/Comment.css'
+import './style/PostDetails.css'
 import { Link } from 'react-router-dom';
 
 export default class PostDetails extends Component {
@@ -51,39 +51,53 @@ export default class PostDetails extends Component {
                 {this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
-                    <div>
-                        <div className='post-item'>
+                    <div className='post-detail-page'>
+                        <div className='post-detail-naplesyellow'> </div>
+                        <div className='post-detail'>
 
-                            <img className='post-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
-                            <p className='post-text'>{this.state.post.postText}</p>
-                            <Link to={`/pets/${this.state.post.petId}`}><button>Back to Pet Profile</button></Link>
+                            <img className='post-detail-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
+
+                            <p className='post-detail-text'>{this.state.post.postText}</p>
+
+                        </div>
+
+                            <Link to={`/pets/${this.state.post.petId}`}><button className='back-button'>Back to Pet Profile</button></Link>
 
                             {this.context.profile.id === this.state.post.userId ?
-                                <Link to={`/update-post/${this.state.post.id}`}> <button>Edit Post</button></Link>
+                                <Link to={`/update-post/${this.state.post.id}`}> <button className='edit-button'>Edit Post</button></Link>
                                 : <div></div>}
-                            <p>Comments </p>
-                            {
-                                this.state.post.comments.map(comment =>
-                                    <div className='comment-box'>
-                                        <div key={comment.id}>
-                                            Comment By:<p><Link to={`/user/${comment.userId}`}>
-                                                <p className='comment-by-box'>  <div className='user-card'><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' />{this.context.profile.userName}</div></p></Link>
-                                            </p>
-                                            <p>{comment.text}</p>
-                                            <div>Made On: {comment.timestamp}</div>
-
-                                        </div>
-                                        {this.context.profile.id === String(comment.userId) ?
-                                            <button onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
-                                            : <div></div>}
-                                    </div>
-                                )
-                            }
-
+                        <div className='comments-box'>
+                            
                             <CreateComment
                                 postId={this.props.match.params.id}
                                 userId={this.context.profile.id}
-                                changeLoading={this.changeLoading} />
+                                changeLoading={this.changeLoading} /> 
+                            {
+                                this.state.post.comments.map(comment =>
+                                    <div className='comment-box'>
+
+
+                                        <div key={comment.id}>
+
+                                            <div className='comment-text'>
+                                            <Link to={`/user/${comment.userId}`}>
+                                            <div className='comment-user-card'>
+                                                <img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' />
+                                                <p className='comment-username'> 
+                                                    {this.context.profile.userName}</p>
+                                            </div>
+                                            </Link>
+                                            <p className='comment'>{comment.text}</p>
+                                            <div className='comment-date'>{comment.timestamp}</div>
+
+                                            {this.context.profile.id === String(comment.userId) ?
+                                            <button className='comment-delete' onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
+                                            : <div></div>}
+                                            </div>
+                                            </div>
+                                    </div>
+                                )
+                            }
                         </div>
                     </div>
                 }

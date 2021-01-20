@@ -28,16 +28,16 @@ export default class CreateComment extends Component {
     }
     render() {
         return (
-            <div className='create-pet-page'>
-                <div className='box'>
+            <div className='comment-box'>
+                <div className='add-comment'>
 
                     <form onSubmit={this.handleCreate}>
-                        <p className='comment'>Create Comment:</p>
-                        <input onChange={(e) => this.setState({ commentText: e.target.value })}
+                        <input 
+                            className='comment-input'
+                            placeholder='Add Comment...'
+                            onChange={(e) => this.setState({ commentText: e.target.value })}
                             value={this.state.commentText}></input>
-                        <br />
                         <button className='create-comment-button'>Submit</button>
-                        <br />
                     </form>
                 </div>
             </div>
