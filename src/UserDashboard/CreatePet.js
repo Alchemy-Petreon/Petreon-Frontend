@@ -100,27 +100,25 @@ export default class CreatePet extends Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                        <div className="banner">
+                        <div>
                             <img
                                 src={this.state.bannerPictureURL}
-                                alt=""
+                                alt='banner'
                                 className="petcreatebanner" />
                         </div>
 
-                        <div className="bannerpicupload">
-                            <div className='bannerpicchange'>
-                                <input
-                                    type="file"
-                                    accept='image/*'
-                                    name="bannerPicture"
-                                    className="bannerpicturesubmit"
-                                    onChange={(e) => this.handleBannerChange(e)}
-                                    value={this.state.bannerPictureFile}
-                                />
-                            </div>
+                        <div>
+                            <input
+                                type="file"
+                                accept='image/*'
+                                name="bannerPicture"
+                                className="bannerpicturesubmit"
+                                onChange={(e) => this.handleBannerChange(e)}
+                                value={this.state.bannerPictureFile}
+                            />
                         </div>
 
-                        <div className="petpicupload">
+                        <div>
                             <div className='upload-image-frame'>
                             <img
                                 src={this.state.petProfilePictureURL}
@@ -130,16 +128,14 @@ export default class CreatePet extends Component {
                             />
                             </div>
 
-                            <div className='petprofilepicchange'>
-                                <input
-                                    type="file"
-                                    name="petProfilePicture"
-                                    accept='image/*'
-                                    className="petprofilepicsubmit"
-                                    onChange={(e) => this.handlePictureChange(e)}
-                                    value={this.state.petProfilePictureFile}
-                                />
-                            </div>
+                            <input
+                                type="file"
+                                name="petProfilePicture"
+                                accept='image/*'
+                                className="petprofilepicsubmit"
+                                onChange={(e) => this.handlePictureChange(e)}
+                                value={this.state.petProfilePictureFile}
+                            />
                         </div>
 
                         <div className='petnamediv'>
@@ -170,14 +166,18 @@ export default class CreatePet extends Component {
 
                         <br />
 
+
+                        <div className='petdescdiv'>
                         <h5 className='petdescheader'>Pet Profile Description:</h5>
                         <textarea
                             rows="1"
                             name='petProfileDescription'
+                            maxLength='750'
                             className='petdesc'
                             placeholder={this.state.petProfileDescription}
                             onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
                             value={this.state.petProfileDescription} />
+                        </div>
 
                         <br />
 
