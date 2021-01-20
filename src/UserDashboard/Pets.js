@@ -40,7 +40,7 @@ export default class Pets extends Component {
                     {this.state.petArray.length > 0 && !this.state.loading ?
                         this.state.petArray.map(pet =>
                             <div className='petownerthumbnail' key={pet.id}>
-                                <div className='petthumbnail'>
+                                <div>
                                     <p className='petthumbnailname'>{pet.petName}</p>
 
                                     <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
