@@ -121,12 +121,14 @@ export default class CreatePet extends Component {
                         </div>
 
                         <div className="petpicupload">
+                            <div className='upload-image-frame'>
                             <img
                                 src={this.state.petProfilePictureURL}
                                 key={Date.now()}
                                 alt=''
                                 className="petprofilepicupload"
                             />
+                            </div>
 
                             <div className='petprofilepicchange'>
                                 <input
@@ -137,7 +139,6 @@ export default class CreatePet extends Component {
                                     onChange={(e) => this.handlePictureChange(e)}
                                     value={this.state.petProfilePictureFile}
                                 />
-                                {/* <button className='petprofilesubbutton'>Submit</button> */}
                             </div>
                         </div>
 
