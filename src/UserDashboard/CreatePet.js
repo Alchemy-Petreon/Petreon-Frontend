@@ -100,56 +100,56 @@ export default class CreatePet extends Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                        <div className="banner">
+                        <div>
                             <img
                                 src={this.state.bannerPictureURL}
-                                alt=""
+                                alt='banner'
                                 className="petcreatebanner" />
                         </div>
 
-                        <div className="bannerpicupload">
-                            <div className='bannerpicchange'>
-                                <input
-                                    type="file"
-                                    name="bannerPicture"
-                                    className="bannerpicturesubmit"
-                                    onChange={(e) => this.handleBannerChange(e)}
-                                    value={this.state.bannerPictureFile}
-                                />
-                            </div>
+                        <div>
+                            <input
+                                type="file"
+                                accept='image/*'
+                                name="bannerPicture"
+                                className="bannerpicturesubmit"
+                                onChange={(e) => this.handleBannerChange(e)}
+                                value={this.state.bannerPictureFile}
+                            />
                         </div>
 
-                        <div className="petpicupload">
+                        <div>
+                            <div className='upload-image-frame'>
                             <img
                                 src={this.state.petProfilePictureURL}
                                 key={Date.now()}
                                 alt=''
                                 className="petprofilepicupload"
                             />
-
-                            <div className='petprofilepicchange'>
-                                <input
-                                    type="file"
-                                    name="petProfilePicture"
-                                    className="petprofilepicsubmit"
-                                    onChange={(e) => this.handlePictureChange(e)}
-                                    value={this.state.petProfilePictureFile}
-                                />
-                                {/* <button className='petprofilesubbutton'>Submit</button> */}
                             </div>
+
+                            <input
+                                type="file"
+                                name="petProfilePicture"
+                                accept='image/*'
+                                className="petprofilepicsubmit"
+                                onChange={(e) => this.handlePictureChange(e)}
+                                value={this.state.petProfilePictureFile}
+                            />
                         </div>
 
                         <div className='petnamediv'>
                             <h5 className='petnameheader'>Pet Name</h5>
                             <input
                                 name='petName'
+                                maxLength='144'
                                 className='petnameupload'
                                 placeholder={this.state.petName}
                                 onChange={(e) => this.setState({ petName: e.target.value })}
                                 value={this.state.petName} />
                         </div>
 
-                        <div className="typechoice">
+                        <div className="typechoicediv">
                             <h5 className='typeheader'>Pet Type</h5>
                             <select
                                 name='type'
@@ -165,16 +165,17 @@ export default class CreatePet extends Component {
                             </select>
                         </div>
 
-                        <br />
-
+                        <div className='petdescdiv'>
                         <h5 className='petdescheader'>Pet Profile Description:</h5>
                         <textarea
                             rows="1"
                             name='petProfileDescription'
+                            maxLength='750'
                             className='petdesc'
                             placeholder={this.state.petProfileDescription}
                             onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
                             value={this.state.petProfileDescription} />
+                        </div>
 
                         <br />
 

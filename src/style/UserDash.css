@@ -7,3 +7,153 @@
     width: 100%;
     border-top: solid 10px #FFE66D;
 }
+
+.uinfo {
+    position: relative;
+    height: 100%;
+    width: 250px;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.greeting {
+    margin-top: 4%;
+    margin-bottom: 6%;
+    font-family: Burma;
+    font-size: 25pt;
+    color: #1A535C;
+}
+
+
+.un {
+    font-family: Excalibur;
+    font-size: 20pt;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    color: #FF6B6B;
+}
+
+
+.profpic {
+    border: solid 2px #FFE66D;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    object-fit: cover;
+}
+
+.uploadpicturemenu {
+    padding: 5px;
+    font-family: Burma-Soft;
+    font-size: 12pt;
+    background-color: #1A535C;
+    color: #F7FFF7;
+    border: none;
+    border-radius: 5px;
+}
+
+.profilepicsubmit {
+    margin-top: 5%;
+}
+
+.profilepicsubmit {
+    margin-top: 5%;
+}
+
+.profilepicsubmit::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.profilepicsubmit::before {
+    margin-left: 18%;
+    content: 'Update Profile Picture';
+    font-family: Burma-Soft;
+    font-size: 14pt;
+    padding: 10px;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+.profilepicsubmit::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
+
+.profilesubbutton {
+    margin-top: 5%;
+    font-family: Burma-Soft;
+    font-size: 12pt;
+    background-color: #FFE66D;
+    border: none;
+    border-radius: 5px;
+}
+
+.prde {
+    margin-top: 5%;
+    font-family: Burma-Soft;
+    font-size: 14pt;
+}
+
+.petsdisplay {
+    position: relative;
+    height: 100%;
+    width: 250px;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.petsheader {
+    margin-bottom: 2%;
+    font-family: Excalibur;
+    font-size: 20pt;
+    color: #FF6B6B;
+}
+
+.petlist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.add-pet-button {
+    width: 75px;
+    height: 75px;
+    font-family: Burma;
+    font-size: 14pt;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 75px;
+    color: #F7FFF7;
+    background-color: #1A535C;
+    border: none;
+    border-radius: 75px;
+}
+
+.petownerthumbnail {
+    margin: 7px;
+}
+
+.petthumbnailname {
+    font-size: 12pt;
+    margin: 0;
+}
+
+.petthumbnailimg {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: solid 2px #FF6B6B;
+    border-radius: 5px;
+}
+
+.delete-pet-button {
+    font-family: Burma;
+    font-size: 10pt;
+    border: none;
+    background-color: #FF6B6B;
+}

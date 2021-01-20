@@ -49,3 +49,10 @@
     border: solid 2px #FF6B6B;
     border-radius: 5px;
 }
+
+.delete-pet-button {
+    font-family: Burma;
+    font-size: 10pt;
+    border: none;
+    background-color: #FF6B6B;
+}
