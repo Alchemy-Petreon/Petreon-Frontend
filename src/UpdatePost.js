@@ -6,11 +6,9 @@ import mime from 'mime-types';
 export default class UpdatePost extends Component {
     static contextType = MainContext;
 
-
     state = {
         postText: '',
         mediaType: '',
-        invalidMediaType: false,
         mediaFile: '',
         mediaURL: '',
         mediaTypeName: '',
@@ -20,6 +18,7 @@ export default class UpdatePost extends Component {
     componentDidMount = async () => {
         await this.setState({ loading: true });
         const post = await fetchPost(this.props.match.params.id);
+
         this.setState({
             post: post,
             postText: post.postText,
@@ -37,7 +36,6 @@ export default class UpdatePost extends Component {
         let newMedia = new FormData(e.target)
 
         const newPost = {
-
             petId: this.state.post.petId,
             userId: this.context.profile.id,
             mediaType: this.state.mediaType,
@@ -59,7 +57,7 @@ export default class UpdatePost extends Component {
         await this.setState({
             mediaFile: e.target.value,
             mediaType,
-            mediaURL: URL.createObjectURL(e.target.files[0]),
+            mediaUrl: URL.createObjectURL(e.target.files[0]),
             mediaTypeName: mediaTypeName,
         })
 
@@ -68,44 +66,44 @@ export default class UpdatePost extends Component {
 
     render() {
         return (
-            <div className='create-post-page'>
+            <div className='post-detail-page'>
+                <div className='post-detail-naplesyellow'> </div>
 
-                <div className='create-post-box'>
-
-                    <h2 className='create-post-header'>Update Post</h2>
+                <div className='post-detail'>
 
                     <form onSubmit={this.handleSubmit}>
 
-                        <p className='post-media'>Post Media</p>
+                    {this.state.mediaTypeName === 'image'
+                    ? <img
+                        className='post-update-picture'
+                        alt='post preview'
+                        src={this.state.mediaUrl} />
+                    :
+                    <img
+                        className='post-update-picture'
+                        alt='post preview'
+                        src={this.state.post.mediaUrl} />
+                    }
+
+                        <textarea 
+                            name='postText' 
+                            maxLength='144'
+                            className='post-update-text'
+                            rows='1'
+                            placeholder={this.state.post.postText}
+                            onChange={(e) => this.setState({ postText: e.target.value })}
+                            value={this.state.postText} />
+                        <br />
 
                         <input
                             name='mediaFile'
-                            className='post-media-submit'
+                            className='post-update-media'
                             type='file'
                             accept='image/*'
                             onChange={(e) => this.handleFileChange(e)}
                             value={this.state.mediaFile} />
 
-                        <br />
-
-                        {this.state.mediaTypeName === 'image'
-                            ? <img
-                                className='post-preview-image'
-                                alt='post preview'
-                                src={this.state.mediaURL} />
-                            : null}
-
-                        <p className='post-text'>Caption</p>
-
-                        <input
-                            name='postText'
-                            maxLength='144'
-                            onChange={(e) => this.setState({ postText: e.target.value })}
-                            value={this.state.postText} />
-
-                        <br />
-
-                        <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
+                        <button className='edit-post-button'>Save Changes</button>
                         <br />
                     </form>
                 </div>

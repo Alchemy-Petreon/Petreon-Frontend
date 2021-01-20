@@ -14,6 +14,7 @@ export default class PostDetails extends Component {
         post: [],
     }
     componentDidMount = async () => {
+        console.log(this.state.post.mediaUrl)
         await this.setState({ loading: true });
         const post = await fetchPost(this.props.match.params.id);
         this.setState({

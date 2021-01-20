@@ -35,6 +35,7 @@ export default class CreateComment extends Component {
                         <input 
                             className='comment-input'
                             placeholder='Add Comment...'
+                            maxLength='200'
                             onChange={(e) => this.setState({ commentText: e.target.value })}
                             value={this.state.commentText}></input>
                         <button className='create-comment-button'>Submit</button>
