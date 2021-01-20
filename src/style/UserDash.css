@@ -55,6 +55,27 @@
     margin-top: 5%;
 }
 
+.profilepicsubmit {
+    margin-top: 5%;
+}
+
+.profilepicsubmit::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.profilepicsubmit::before {
+    margin-left: 18%;
+    content: 'Update Profile Picture';
+    font-family: Burma-Soft;
+    font-size: 14pt;
+    padding: 10px;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
 .profilepicsubmit::file-selector-button {
     font-family: Burma-Soft;
     font-size: 10pt;
