@@ -62,10 +62,11 @@ export default class PostDetails extends Component {
                                 this.state.post.comments.map(comment =>
                                     <div className='comment-box'>
                                         <div key={comment.id}>
-                                            <p><Link to={`/user/${comment.userId}`}><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' /></Link>{this.context.profile.userName}</p>
-
+                                            <p><Link to={`/user/${comment.userId}`}></Link>
+                                                <p className='comment-by-box'>Comment By:  <div className='user-card'><img className='comment-profile-pic' src={this.context.profile.profilePicture} alt='profile pic' />{this.context.profile.userName}</div></p>
+                                            </p>
                                             <p>{comment.text}</p>
-                                            <div>{comment.timestamp}</div>
+                                            <div>Made On: {comment.timestamp}</div>
 
                                         </div>
 

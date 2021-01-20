@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { fetchSubscriptions } from '../fetches/post-fetches.js'
+import '../style/Subscriptions.css';
 
 
 
@@ -21,14 +22,14 @@ export default class Browse extends Component {
     render() {
         return (
 
-            <div className='pet-box'>
+            <div className='subscription-list'>
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
                     this.state.subscriptions.map(subscription =>
-                        <div key={subscription.id}>
-                            {subscription.postText}
-                            <img src={subscription.mediaUrl} alt={subscription.mediaUrl} />]
+                        <div className='subscription-box' key={subscription.id}>
+                            <p>{subscription.postText}</p>
+                            <img className='subscription-image' src={subscription.mediaUrl} alt={subscription.mediaUrl} />
 
                         </div>)
                 }
