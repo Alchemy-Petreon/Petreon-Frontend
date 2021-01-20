@@ -1,0 +1,32 @@
+.browsebittersweet {
+    height: 10px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.browsenaplesyellow {
+    height: 10px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.petlist {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.pet-name {
+    font-family: Burma-Soft;
+    font-size: 18pt;
+    color: #1A535C;
+}
+
+.pet-profile-picture {
+    width: 300px;
+    border: solid 2px #1A535C;
+}
+
+
+

@@ -20,7 +20,9 @@ export default class Browse extends Component {
 
     render() {
         return (
-
+        <div>
+            <div className='browsebittersweet'> </div>
+            <div className='browsenaplesyellow'> </div>
             <div className='pet-box'>
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
@@ -33,6 +35,7 @@ export default class Browse extends Component {
                 }
 
             </div>
+        </div>
         )
     }
 }
