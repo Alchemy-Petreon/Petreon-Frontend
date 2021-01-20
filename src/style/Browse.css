@@ -22,12 +22,13 @@
 }
 
 .pet-name {
+    margin-top: 1%;
     font-family: Burma-Soft;
     font-size: 18pt;
     color: #1A535C;
 }
 
-.pet-profile-picture {
+.pet-browse-picture {
     width: 300px;
     height: 300px;
     object-fit: cover;
