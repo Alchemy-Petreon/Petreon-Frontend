@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 
 
 
-
 export default class Browse extends Component {
     state = {
         loading: false,
@@ -30,12 +29,11 @@ export default class Browse extends Component {
                     :
                     this.state.subscriptions.map(subscription =>
                         <Link to={`/posts/${subscription.id}`}> <div className='subscription-box' key={subscription.id}>
+
                             <p>{subscription.postText}</p>
                             <img className='subscription-image' src={subscription.mediaUrl} alt={subscription.mediaUrl} />
 
                         </div></Link>)
-
-                       
                 }
 
             </div>

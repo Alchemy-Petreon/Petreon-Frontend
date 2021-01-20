@@ -38,7 +38,7 @@ export default class App extends Component {
       <MainContext.Provider value={this.state}>
         <div className="App">
           <Router>
-            <Header />
+            <Header history={this.history} />
             <Switch>
               <Route
                 path="/"
