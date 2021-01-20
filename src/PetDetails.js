@@ -1,18 +1,19 @@
 import React, { Component } from 'react'
 import { fetchPet } from './fetches/pet-fetches.js'
-import { fetchUser } from './fetches/user-fetches.js'
+// import { fetchUser } from './fetches/user-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
 import { subscribe, unsubscribe, subscribedToPet } from './fetches/user-fetches.js';
-import request from 'superagent';
+// import request from 'superagent';
+import { Link } from 'react-router-dom'
 
 export default class PetDetails extends Component {
     static contextType = MainContext;
     state = {
         loading: false,
         pet: [],
-        isSubscribed: ''
+        isSubscribed: '',
         user: []
     }
     componentDidMount = async () => {
