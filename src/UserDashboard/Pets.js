@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { fetchUserPets, deletePet } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
 import { Link } from 'react-router-dom';
-import '../style/Pets.css'
 
 export default class Pets extends Component {
     static contextType = MainContext;
