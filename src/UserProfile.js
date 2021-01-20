@@ -35,7 +35,7 @@ export default class UserProfile extends Component {
     render() {
         return (
             <section>
-                <QRCode value={`venmo://users/`} />,
+                <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />,
 
                 <div>
                     <p>{this.state.user.firstName}</p>
