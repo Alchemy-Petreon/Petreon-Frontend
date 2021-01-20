@@ -105,7 +105,6 @@ export async function logoutUser() {
 
 export async function subscribe(petId) {
     try {
-<<<<<<< HEAD
         const response = await request
             .get(`${URL}api/v1/users/subscribe/${petId}`)
             .withCredentials()
@@ -135,11 +134,6 @@ export async function subscribedToPet(petId) {
             .withCredentials()
 
         return response.body
-=======
-        await request
-            .get(`${URL}api/v1/users/subscribe/${petId}`)
-            .withCredentials()
->>>>>>> 59cb7939a64e7b323b5f692426fdc90b6c99279f
     } catch (err) {
         throw err;
     }
