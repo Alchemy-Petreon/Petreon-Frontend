@@ -132,6 +132,7 @@ export default class CreatePet extends Component {
                                 <input
                                     type="file"
                                     name="petProfilePicture"
+                                    accept='image/*'
                                     className="petprofilepicsubmit"
                                     onChange={(e) => this.handlePictureChange(e)}
                                     value={this.state.petProfilePictureFile}
