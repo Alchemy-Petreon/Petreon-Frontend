@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { fetchPet } from './fetches/pet-fetches.js'
-import { deletePost, fetchSubscriptions } from './fetches/post-fetches.js'
+import { deletePost } from './fetches/post-fetches.js'
 import PostItem from './PostItem.js'
 import { MainContext } from './MainContext.js'
 import './style/PetDetails.css';
@@ -25,7 +25,6 @@ export default class Posts extends Component {
     };
 
     handleDelete = async (id, postId) => {
-        // console.log(id, postId, this.context.profile.id, this.props.userId)
         if (this.context.profile.id === String(postId)) {
             await deletePost(id)
 
@@ -42,20 +41,10 @@ export default class Posts extends Component {
         }
     }
 
-    handleSubscriptions = async () => {
-        const subscriptions = await fetchSubscriptions();
-        console.log('1010101010101010101010101010101010')
-        console.log('subscriptions')
-        console.log(subscriptions)
-        console.log('1010101010101010101010101010101010')
-
-    }
-
     render() {
         return (
 
             <div className='post-box'>
-                <button onClick={() => this.handleSubscriptions()}>SUBS</button>
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
@@ -64,9 +53,16 @@ export default class Posts extends Component {
                             <div className='post-item-box' key={post.id}>
                                 <PostItem
                                     post={post} />
+                                    
                                 {this.context.profile.id === String(post.userId) ?
                                     <p><button className='delete-button' onClick={() => this.handleDelete(post.id, post.userId)}>delete</button></p>
                                     : <div></div>}
+
+                                <div className='post-colors'>
+                                    <div className='post-div-midnightgreen'> </div>
+                                    <div className='post-div-bittersweet'> </div>
+                                    <div className='post-div-naplesyellow'> </div>
+                                </div>
                             </div>)
                         :
                         <></>
