@@ -1,4 +1,72 @@
+.pet-detail-page {
+    border-top: solid 10px #FF6B6B;
+    background-color: #F7FFF7;
+}
+
+.pdnaplesyellow {
+    height: 10px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.pet-profile-banner {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+    border-bottom: solid 5px #1A535C;
+    margin-bottom: 1%;
+}
+
+.pet-profile-info {
+    position: absolute;
+    width: 35%;
+    text-align: center;
+}
+
+.pet-profile-name {
+    margin-top: 0;
+    margin-bottom: 2%;
+    font-family: Excalibur;
+    font-size: 40pt;
+    color: #FF6B6B;
+    text-shadow: 1px 1px 0px #FFE66D;
+}
+
 .pet-profile-picture{
-    height: 150px;
-    width:150px;
+    height: 350px;
+    width: 350px;
+    object-fit: cover;
+    border: solid 4px #1A535C;
+    border-radius: 15px;
+}
+
+.pet-profile-desc {
+    margin-bottom: 5%;
+    font-family: Burma-Soft;
+    font-size: 18pt;
+}
+
+.pet-owner {
+    margin-bottom: 0;
+    font-family: Burma-Soft;
+    font-size: 16pt;
+    color: #1A535C;
+}
+
+.user-card {
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-family: Excalibur;
+    font-size: 16pt;
+    color: #FF6B6B;
+    text-shadow: 1px 1px 0px #FFE66D;
+}
+
+.owner-profile-picture {
+    margin-top: 0;
+    height: 100px;
+    width: 100px;
+    object-fit: cover;
+    border: solid 2px #FF6B6B;
+    border-radius: 100px;
 }
