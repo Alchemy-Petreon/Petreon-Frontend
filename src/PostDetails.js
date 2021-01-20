@@ -56,6 +56,7 @@ export default class PostDetails extends Component {
 
                             <img className='post-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
                             <p className='post-text'>{this.state.post.postText}</p>
+                            <Link to={`/pets/${this.state.post.petId}`}><button>Back to Pet Profile</button></Link>
 
                             {this.context.profile.id === this.state.post.userId ?
                                 <Link to={`/update-post/${this.state.post.id}`}> <button>Edit Post</button></Link>
