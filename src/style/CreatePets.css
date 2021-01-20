@@ -20,36 +20,6 @@
     border-bottom: solid 5px #1A535C;
 }
 
-.petprofilepicupload {
-    float: left;
-    width: 250px;
-    height: 250px;
-    margin-top: 3.5%;
-    margin-left: 2%;
-    margin-right: 2%;
-    border-radius: 15px;
-    border: solid 3px #FFE66D;
-    object-fit: cover;
-}
-
-.uploadpetpicturemenu {
-    position: absolute;
-    margin-top: 25%;
-    margin-left: 2.5%;
-    padding: 5px;
-    font-family: Burma-Soft;
-    font-size: 14pt;
-    color: #F7FFF7;
-    background-color: #1A535C;
-    border-radius: 5px;
-}
-
-.petprofilepicchange {
-    position: absolute;
-    margin-top: 29%;
-    margin-left: 2.5%;
-}
-
 .bannerpicturesubmit {
     color: transparent;
 }
@@ -79,7 +49,38 @@
     border-radius: 5px;
 }
 
+.upload-image-frame {
+    margin-top: 3.5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    border-radius: 15px;
+    border: solid 3px #FFE66D;
+    width: 250px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.petprofilepicupload {
+    float: left;
+    width: 250px;
+    object-fit: cover;
+}
+
+.uploadpetpicturemenu {
+    position: absolute;
+    margin-top: 25%;
+    margin-left: 2.5%;
+    padding: 5px;
+    font-family: Burma-Soft;
+    font-size: 14pt;
+    color: #F7FFF7;
+    background-color: #1A535C;
+    border-radius: 5px;
+}
+
 .petprofilepicsubmit {
+    margin-left: 2.5%;
+    margin-top: 1%;
     color: transparent;
 }
 
@@ -109,12 +110,8 @@
 
 .petnamediv {
     position: absolute;
-    margin-left: 305px;
-}
-
-.petnamediv {
-    position: absolute;
     margin-left: 25.3%;
+    margin-top: -325px;
 }
 
 .petnameheader {
@@ -136,9 +133,10 @@
     background-color: #F7FFF7;
 }
 
-.typechoice {
+.typechoicediv {
     position: absolute;
-    margin-left: 725px;
+    margin-left: 60%;
+    margin-top: -325px;
     margin-right: 2%;
 }
 
@@ -166,9 +164,14 @@
     font-size: 15pt;
 }
 
+.petdescdiv {
+    position: absolute;
+    margin-left: 25.3%;
+    margin-top: -200px;
+    width: 70%;
+}
+
 .petdescheader {
-    margin-top: 12%;
-    margin-left: 5%;
     margin-bottom: 1%;
     font-family: Burma;
     font-size: 18pt;
@@ -187,7 +190,6 @@
 
 .create-pet-button {
     float: right;
-    margin-top: 3%;
     margin-right: 5%;
     height: 39pt;
     font-family: Burma-Soft;
