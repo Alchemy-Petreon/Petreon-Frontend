@@ -53,6 +53,7 @@ export default class Posts extends Component {
                             <div className='post-item-box' key={post.id}>
                                 <PostItem
                                     post={post} />
+
                                 {this.context.profile.id === String(post.userId) ?
                                     <p><button className='delete-button' onClick={() => this.handleDelete(post.id, post.userId)}>delete</button></p>
                                     : <div></div>}

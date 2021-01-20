@@ -6,6 +6,7 @@ import mime from 'mime-types';
 export default class UpdatePost extends Component {
     static contextType = MainContext;
 
+
     state = {
         postText: '',
         mediaType: '',
@@ -103,7 +104,30 @@ export default class UpdatePost extends Component {
                             onChange={(e) => this.handleFileChange(e)}
                             value={this.state.mediaFile} />
 
+
+                        <br />
+
+                        {this.state.mediaTypeName === 'image'
+                            ? <img
+                                className='post-preview-image'
+                                alt='post preview'
+                                src={this.state.mediaURL} />
+                            : null}
+
+                        <p className='post-text'>Caption</p>
+
+                        <input
+                            name='postText'
+                            maxLength='144'
+                            onChange={(e) => this.setState({ postText: e.target.value })}
+                            value={this.state.postText} />
+
+                        <br />
+
+                        <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
+
                         <button className='edit-post-button'>Save Changes</button>
+
                         <br />
                     </form>
                 </div>
