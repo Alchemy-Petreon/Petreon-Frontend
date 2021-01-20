@@ -1,0 +1,129 @@
+.post-detail-page {
+    border-top: solid 10px #FF6B6B;
+    font-family: Burma-Soft;
+}
+
+.post-detail-naplesyellow {
+    border-top: solid 10px #FFE66D;
+}
+
+.post-detail {
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.post-detail-picture {
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 55%;
+    border: solid 5px #1A535C;
+    border-radius: 5px;
+}
+
+.post-detail-text {
+    width: 35%;
+    margin-left: 2%;
+    margin-top: 3%;
+    word-wrap: break-word;
+}
+
+.back-button {
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-bottom: 3%;
+    font-family: Burma-Soft;
+    color: #F7FFF7;
+    font-size: 20pt;
+    background-color: #1A535C;
+    border: none;
+    border-radius: 5px;
+}
+
+.edit-button {
+    float: right;
+    font-family: Burma-Soft;
+    margin-top: -35px;
+    margin-right: 2%;
+    font-size: 20pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
+
+.comment-input {
+    width: 50%;
+    font-family: Burma-Soft;
+    padding-left:1%;
+    font-size: 18pt;
+    border: solid 2px #1A535C;
+    border-radius: 5px;
+}
+
+.create-comment-button {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    background-color: #1A535C;
+    color: #F7FFF7;
+    border: none;
+    border-radius: 10px;
+}
+
+.comments-box {
+    width: 100%;
+    text-align: center;
+}
+
+.comment-user-card {
+    height: 100%;
+    padding-right: 20px;
+    border-right: solid 2px #FF6B6B;
+}
+
+.comment-profile-pic {
+    width: 75px;
+    height: 75px;
+    border-radius: 50px;
+    object-fit: cover;
+}
+
+.comment-username {
+    margin-top: 2%;
+    font-size: 12pt;
+}
+
+.comment-text {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    width: 70%;
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: solid 3px #1A535C;
+    border-radius: 10px;
+}
+
+.comment {
+    height: 100%;
+    width: 60%;
+    word-wrap: break-word;
+}
+
+.comment-date {
+    font-size: 8pt;
+    width: 10%;
+}
+
+.comment-delete {
+    font-family: Burma-Soft;
+    font-size: 15pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
