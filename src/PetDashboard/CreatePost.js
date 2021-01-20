@@ -9,7 +9,6 @@ export default class CreatePet extends Component {
     state = {
         postText: '',
         mediaType: '',
-        invalidMediaType: false,
         mediaFile: '',
         mediaURL: '',
         mediaTypeName: ''
@@ -96,7 +95,7 @@ export default class CreatePet extends Component {
 
                         <br />
 
-                        <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
+                        <button className='create-post-button'>Submit</button>
                         <br />
                     </form>
                 </div>

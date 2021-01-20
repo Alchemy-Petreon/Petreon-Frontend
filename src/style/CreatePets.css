@@ -79,14 +79,6 @@
     border-radius: 5px;
 }
 
-.petprofilepicsubmit::file-selector-button {
-    font-family: Burma-Soft;
-    font-size: 10pt;
-    background-color: #FF6B6B;
-    border: none;
-    border-radius: 5px;
-}
-
 .petprofilepicsubmit {
     color: transparent;
 }

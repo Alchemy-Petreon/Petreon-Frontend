@@ -14,6 +14,7 @@ export default class PostDetails extends Component {
         post: [],
     }
     componentDidMount = async () => {
+        console.log(this.state.post.mediaUrl)
         await this.setState({ loading: true });
         const post = await fetchPost(this.props.match.params.id);
         this.setState({
@@ -55,7 +56,9 @@ export default class PostDetails extends Component {
                         <div className='post-detail-naplesyellow'> </div>
                         <div className='post-detail'>
 
-                            <img className='post-detail-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
+                            <img className='post-detail-picture' 
+                            alt={this.state.post.mediaUrl} 
+                            src={this.state.post.mediaUrl} />
 
                             <p className='post-detail-text'>{this.state.post.postText}</p>
 

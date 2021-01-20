@@ -11,6 +11,7 @@
     width: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: center;
 }
 
 .post-detail-picture {
@@ -126,4 +127,62 @@
     background-color: #FF6B6B;
     border: none;
     border-radius: 5px;
+}
+
+.post-update-picture {
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 55%;
+    border: solid 5px #1A535C;
+    border-radius: 5px;
+}
+
+.post-update-media {
+    margin-top: 5%;
+    color: transparent;
+}
+
+.post-update-media::-webkit-file-upload-button {
+    visibility: hidden;
+}
+
+.post-update-media::before {
+    margin-left: 10%;
+    content: 'Update Photo';
+    font-family: Burma-Soft;
+    font-size: 16pt;
+    padding: 10px;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+}
+.post-update-media::file-selector-button {
+    font-family: Burma-Soft;
+    font-size: 10pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
+
+.post-update-text {
+    width: 35%;
+    height: 80%;
+    margin-left: 5%;
+    font-family: Burma-Soft;
+    font-size: 18pt;
+}
+
+.edit-post-button {
+    float: right;
+    margin-top: 4%;
+    margin-bottom: 2%;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    background-color: #1A535C;
+    color: #F7FFF7;
+    border: none;
+    border-radius: 10px;
 }
