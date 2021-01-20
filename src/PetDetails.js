@@ -82,7 +82,7 @@ export default class PetDetails extends Component {
                             <p className='pet-owner'>Caregiver:</p>
                             <Link to={`/user/${this.state.user.id}`}> 
                             <p className='user-card'> {this.state.user.userName}</p><img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' /></Link>
-                            
+
                             {this.state.isSubscribed ?
                                 <button
                                     onClick={() => this.handleUnsubscribe(this.state.pet.id)}>
@@ -94,9 +94,10 @@ export default class PetDetails extends Component {
                                 </button>
                             }
                         </div>
-
+                        <div className='pet-posts'>
                         <Posts
                             posts={this.state.pet.posts} />
+                        </div>
                     </div>
                 }
             </div>

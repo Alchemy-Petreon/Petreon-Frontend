@@ -70,3 +70,65 @@
     border: solid 2px #FF6B6B;
     border-radius: 100px;
 }
+
+.post-item-box {
+    width: 100%;
+}
+
+.post-item {
+    padding: 10px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.pet-posts {
+    width: 60%;
+    margin-left: 37%;
+}
+
+.post-picture {
+    width: 60%;
+    border: solid 3px #FF6B6B;
+    border-radius: 5px;
+}
+
+.post-text {
+    color: #1A535C;
+    margin-left: 3%;
+}
+
+.delete-button {
+    float: right;
+    margin-top: -7%;
+    font-family: Burma;
+    font-size: 18pt;
+    background-color: #1A535C;
+    color: #F7FFF7;
+    border: none;
+    border-radius: 10px;
+}
+
+.post-colors {
+    margin-top: 4%;
+    margin-bottom: 4%;
+    width: 100%;
+}
+
+.post-div-midnightgreen {
+    height: 3px;
+    width: 105%;
+    background-color: #1A535C;
+}
+
+.post-div-bittersweet {
+    height: 3px;
+    width: 105%;
+    background-color: #FF6B6B;
+}
+
+.post-div-naplesyellow {
+    height: 3px;
+    width: 105%;
+    background-color: #FFE66D;
+}

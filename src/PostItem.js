@@ -23,15 +23,13 @@ export default class PostItem extends Component {
             <div>
                 <Link className='post-link' to={`/posts/${this.props.post.id}`}>
                     <div className='post-item'>
-                        <div>
                             {/* {this.state.post.comments.length === null ?
                                 < p > Comments : {this.state.post.comments.length}</p>
                                 : <p>Comments: 0 </p>}
                             <p className='post-text'>{this.props.post.postText}</p> */}
-                            <p className='post-text'>{this.props.post.postText}</p>
                             <img className='post-picture' alt={this.props.post.mediaUrl} src={this.props.post.mediaUrl} />
 
-                        </div>
+                            <p className='post-text'>{this.props.post.postText}</p>
                     </div>
                 </Link>
             </div >
