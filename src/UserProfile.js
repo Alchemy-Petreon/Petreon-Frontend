@@ -4,6 +4,12 @@ import { fetchUser } from "./fetches/user-fetches.js"
 import { fetchUserPets } from './fetches/pet-fetches.js';
 import { Link } from 'react-router-dom';
 
+var QRCode = require('qrcode.react');
+
+// React.render(
+//     <QRCode value="http://facebook.github.io/react/" />,
+
+// );
 
 
 export default class UserProfile extends Component {
@@ -29,6 +35,8 @@ export default class UserProfile extends Component {
     render() {
         return (
             <section>
+                <QRCode value={`venmo://users/`} />,
+
                 <div>
                     <p>{this.state.user.firstName}</p>
                     <p>{this.state.user.userName}</p>
