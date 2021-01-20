@@ -28,6 +28,7 @@
     border: solid 2px #FFE66D;
     border-radius: 10px;
     margin-bottom: 5%;
+    object-fit: cover;
 }
 
 .uploadpicturemenu {

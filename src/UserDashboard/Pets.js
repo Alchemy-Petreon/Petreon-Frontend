@@ -29,18 +29,18 @@ export default class Pets extends Component {
                 <h5 className='petsheader'>My Pets</h5>
                 <div className='petlist'>
 
-                {this.state.petArray.length > 0 && !this.state.loading ?
-                    this.state.petArray.map(pet =>
-                        <div className='petownerthumbnail' key={pet.id}>
-                            <div className='petthumbnail'>
-                            <p className='petthumbnailname'>{pet.petName}</p>
+                    {this.state.petArray.length > 0 && !this.state.loading ?
+                        this.state.petArray.map(pet =>
+                            <div className='petownerthumbnail' key={pet.id}>
+                                <div className='petthumbnail'>
+                                    <p className='petthumbnailname'>{pet.petName}</p>
 
-                            <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
-                            </div>
-                        </div>)
+                                    <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
+                                </div>
+                            </div>)
 
-                    : null}
-                <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
+                        : null}
+                    <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
                 </div>
             </div>
         )

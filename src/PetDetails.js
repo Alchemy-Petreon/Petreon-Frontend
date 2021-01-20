@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { fetchPet } from './fetches/pet-fetches.js'
+import { fetchUser } from './fetches/user-fetches.js'
 import './style/PetDetails.css';
 import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
 import { subscribe, unsubscribe, subscribedToPet } from './fetches/user-fetches.js';
 import request from 'superagent';
-
 
 export default class PetDetails extends Component {
     static contextType = MainContext;
@@ -13,6 +13,7 @@ export default class PetDetails extends Component {
         loading: false,
         pet: [],
         isSubscribed: ''
+        user: []
     }
     componentDidMount = async () => {
 
@@ -62,6 +63,7 @@ export default class PetDetails extends Component {
                             <img className='pet-profile-picture' alt={this.state.pet.petName} src={this.state.pet.petProfilePicture} />
                         </div>
                         <p>{this.state.pet.petName}</p>
+                        <Link to={`/user/${this.state.user.id}`}> <p>Owned by: {this.state.user.userName}<img src={this.state.user.profilePicture} alt='profile' /></p></Link>
                         <p>{this.state.pet.petProfileDescription}</p>
                         <p>
                             {this.state.isSubscribed ?
