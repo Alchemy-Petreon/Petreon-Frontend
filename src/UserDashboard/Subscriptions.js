@@ -30,12 +30,11 @@ export default class Browse extends Component {
                     this.state.subscriptions ?
                         this.state.subscriptions.map(subscription =>
                             <Link to={`/posts/${subscription.id}`}> <div className='subscription-box' key={subscription.id}>
-
-                                <p>{subscription.postText}</p>
-                                <img className='subscription-image' src={subscription.mediaUrl} alt={subscription.mediaUrl} />
-
+                                <p>Posted By: {subscription.petName}</p>
                                 <p>{subscription.postText}</p>
                                 <img className='subscription-image' src={subscription.mediaURL} alt={subscription.mediaURL} />
+
+
                             </div></Link>)
                         : <div></div>
                 }

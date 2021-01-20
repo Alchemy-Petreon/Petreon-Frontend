@@ -32,6 +32,7 @@ export default class PetInformation extends Component {
                 <h6 className='petdashfollowers'>Followers: </h6>
 
                 <Link to={`/pets/${this.props.petId}`}><span className='details-link'>Go to Pet Profile</span></Link>
+                <Link to={`/update-pet/${this.props.petId}`}><button>Update Pet</button></Link>
             </div>
         )
     }

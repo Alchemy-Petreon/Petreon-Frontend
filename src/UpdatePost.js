@@ -20,7 +20,7 @@ export default class UpdatePost extends Component {
         await this.setState({ loading: true });
         const post = await fetchPost(this.props.match.params.id);
 
-        this.setState({
+        await this.setState({
             post: post,
             postText: post.postText,
             mediaType: post.mediaType,
@@ -40,12 +40,13 @@ export default class UpdatePost extends Component {
             petId: this.state.post.petId,
             userId: this.context.profile.id,
             mediaType: this.state.mediaType,
-            postText: this.state.postText
+            postText: this.state.postText,
+            mediaFile: this.state.mediaFile
         }
 
-        let newPostResponse = await updatePost(this.props.match.params.id, newPost);
+        await updatePost(this.props.match.params.id, newPost);
 
-        await updatePostPicture(newMedia, newPostResponse.id)
+        await updatePostPicture(newMedia, this.props.match.params.id)
 
         this.props.history.push(`/pets/${this.state.post.petId}`);
 
@@ -74,20 +75,20 @@ export default class UpdatePost extends Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                    {this.state.mediaTypeName === 'image'
-                    ? <img
-                        className='post-update-picture'
-                        alt='post preview'
-                        src={this.state.mediaUrl} />
-                    :
-                    <img
-                        className='post-update-picture'
-                        alt='post preview'
-                        src={this.state.post.mediaUrl} />
-                    }
+                        {this.state.mediaTypeName === 'image'
+                            ? <img
+                                className='post-update-picture'
+                                alt='post preview'
+                                src={this.state.mediaUrl} />
+                            :
+                            <img
+                                className='post-update-picture'
+                                alt='post preview'
+                                src={this.state.post.mediaUrl} />
+                        }
 
-                        <textarea 
-                            name='postText' 
+                        <textarea
+                            name='postText'
                             maxLength='144'
                             className='post-update-text'
                             rows='1'
@@ -114,19 +115,19 @@ export default class UpdatePost extends Component {
                                 src={this.state.mediaURL} />
                             : null}
 
-                        <p className='post-text'>Caption</p>
+                        {/* <p className='post-text'>Caption</p> */}
 
-                        <input
+                        {/* <input
                             name='postText'
                             maxLength='144'
                             onChange={(e) => this.setState({ postText: e.target.value })}
-                            value={this.state.postText} />
+                            value={this.state.postText} /> */}
 
                         <br />
 
                         <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
 
-                        <button className='edit-post-button'>Save Changes</button>
+                        {/* <button className='edit-post-button'>Save Changes</button> */}
 
                         <br />
                     </form>
