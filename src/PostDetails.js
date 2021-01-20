@@ -56,7 +56,10 @@ export default class PostDetails extends Component {
 
                             <img className='post-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
                             <p className='post-text'>{this.state.post.postText}</p>
-                            <Link to={`/update-post/${this.state.post.id}`}> <button>Edit Post</button></Link>
+
+                            {this.context.profile.id === this.state.post.userId ?
+                                <Link to={`/update-post/${this.state.post.id}`}> <button>Edit Post</button></Link>
+                                : <div></div>}
                             <p>Comments </p>
                             {
                                 this.state.post.comments.map(comment =>
@@ -69,8 +72,9 @@ export default class PostDetails extends Component {
                                             <div>Made On: {comment.timestamp}</div>
 
                                         </div>
-
-                                        <button onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
+                                        {this.context.profile.id === String(comment.userId) ?
+                                            <button onClick={() => this.handleDelete(comment.id, comment.userId)}>delete</button>
+                                            : <div></div>}
                                     </div>
                                 )
                             }
