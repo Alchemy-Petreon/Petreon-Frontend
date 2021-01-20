@@ -6,6 +6,7 @@ import mime from 'mime-types';
 export default class UpdatePost extends Component {
     static contextType = MainContext;
 
+
     state = {
         postText: '',
         mediaType: '',
@@ -15,14 +16,21 @@ export default class UpdatePost extends Component {
         mediaTypeName: '',
         post: []
     }
-    
+
     componentDidMount = async () => {
         await this.setState({ loading: true });
         const post = await fetchPost(this.props.match.params.id);
         this.setState({
-            post: post
+            post: post,
+            postText: post.postText,
+            mediaType: post.mediaType,
+            invalidMediaType: false,
+            mediaFile: post.mediaFile,
+            mediaURL: post.mediaURL,
+            mediaTypeName: post.mediaTypeName,
         })
     }
+
     handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -89,8 +97,8 @@ export default class UpdatePost extends Component {
 
                         <p className='post-text'>Caption</p>
 
-                        <input 
-                            name='postText' 
+                        <input
+                            name='postText'
                             maxLength='144'
                             onChange={(e) => this.setState({ postText: e.target.value })}
                             value={this.state.postText} />
