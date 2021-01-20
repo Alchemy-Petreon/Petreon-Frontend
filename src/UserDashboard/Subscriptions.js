@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { fetchSubscriptions } from '../fetches/post-fetches.js'
 import '../style/Subscriptions.css';
+import { Link } from 'react-router-dom'
+
 
 
 
@@ -27,11 +29,13 @@ export default class Browse extends Component {
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
                     this.state.subscriptions.map(subscription =>
-                        <div className='subscription-box' key={subscription.id}>
+                        <Link to={`/posts/${subscription.id}`}> <div className='subscription-box' key={subscription.id}>
                             <p>{subscription.postText}</p>
                             <img className='subscription-image' src={subscription.mediaUrl} alt={subscription.mediaUrl} />
 
-                        </div>)
+                        </div></Link>)
+
+                       
                 }
 
             </div>
