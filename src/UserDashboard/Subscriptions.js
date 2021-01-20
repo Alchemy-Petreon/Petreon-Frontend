@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
+
 export default class Browse extends Component {
     state = {
         loading: false,
@@ -33,6 +34,8 @@ export default class Browse extends Component {
                             <img className='subscription-image' src={subscription.mediaUrl} alt={subscription.mediaUrl} />
 
                         </div></Link>)
+
+                       
                 }
 
             </div>
