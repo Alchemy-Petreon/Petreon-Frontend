@@ -78,15 +78,6 @@ export default class SignUp extends Component {
                             value={this.state.firstName}
                         />
 
-                        {/* <p>Profile Picture:</p>
-                        <input 
-                        type="file" 
-                        name="profilePicture"
-                        className="profilepic"
-                        onChange={(e) => this.setState({ profilePicture: e.target.value })}
-                            value={this.state.profilePicture}/>
-                         */}
-
                         <p>Tagline:</p>
                         <input
                             className='descinput'
