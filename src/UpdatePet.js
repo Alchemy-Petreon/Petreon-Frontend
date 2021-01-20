@@ -1,23 +1,44 @@
 import React, { Component } from 'react';
-import '../style/CreatePets.css'
-import { createPet, uploadPetBanner, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
-import { MainContext } from '../MainContext.js';
+import './style/CreatePets.css'
+import { fetchPet, uploadPetBanner, uploadPetProfilePicture } from './fetches/pet-fetches.js';
+import { MainContext } from './MainContext.js';
 import mime from 'mime-types';
+import { updatePet } from './fetches/pet-fetches';
 
 export default class CreatePet extends Component {
     static contextType = MainContext;
 
     state = {
+        pet: [],
         petName: '',
-        bannerPictureURL: 'https://placekitten.com/1300/350',
+        bannerPicture: '',
         bannerPictureFile: '',
         type: '',
-        petProfilePictureURL: 'https://placekitten.com/250/250',
+        petProfilePicture: '',
         petProfilePictureFile: '',
         petProfileDescription: '',
         loading: true,
         disableSubmit: false,
     }
+
+    componentDidMount = async () => {
+
+        await this.setState({ loading: true });
+        const pet = await fetchPet(this.props.match.params.id);
+
+
+        await this.setState({
+            pet: pet,
+            petName: pet.petName,
+            bannerPicture: pet.bannerPicture,
+            bannerPictureFile: pet.bannerPictureFile,
+            type: pet.type,
+            petProfilePicture: pet.petProfilePicture,
+            petProfilePictureFile: pet.petProfilePictureFile,
+            petProfileDescription: pet.petProfileDescription,
+        })
+        console.log('petinfo', pet)
+    };
 
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -32,32 +53,37 @@ export default class CreatePet extends Component {
             userId: this.context.profile.id,
             petName: this.state.petName,
             type: this.state.type,
-            petProfileDescription: this.state.petProfileDescription
+            petProfilePicture: this.state.petProfilePicture,
+            petProfilePictureFile: this.state.petProfilePictureFile,
+            petProfileDescription: this.state.petProfileDescription,
+            bannerPicture: this.state.bannerPicture,
+
         }
 
-        let petInfo = await createPet(newPet);
+        await updatePet(this.props.match.params.id, newPet);
 
         console.log(petFiles.get('petProfilePicture'))
 
-        if (petFiles.get('petProfilePicture')) {
-            const profilePicture = new FormData()
+        // if (petFiles.get('petProfilePicture')) {
+        //     const profilePicture = new FormData()
 
-            profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
+        //     profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
 
-            await uploadPetProfilePicture(petInfo.id, profilePicture);
-        }
+        //     await uploadPetProfilePicture(petInfo.id, profilePicture);
+
+        // }
 
         this.props.history.push('/userdash')
-        if (petFiles.get('bannerPicture')) {
-            const bannerPicture = new FormData()
+        // if (petFiles.get('bannerPicture')) {
+        //     const bannerPicture = new FormData()
 
-            bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
+        //     bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
 
-            await uploadPetBanner(petInfo.id, bannerPicture);
-        }
-        this.props.history.push('/userdash');
-
+        //     await uploadPetBanner(petInfo.id, bannerPicture);
     }
+    // this.props.history.push('/userdash');
+
+
 
     handleBannerChange = (e) => {
         const mediaType = mime.lookup(e.target.value)
@@ -65,7 +91,7 @@ export default class CreatePet extends Component {
         if (mediaType.split('/')[0] === 'image') {
             this.setState({
                 bannerPictureFile: e.target.value,
-                bannerPictureURL: URL.createObjectURL(e.target.files[0])
+                bannerPicture: URL.createObjectURL(e.target.files[0])
 
             })
         } else {
@@ -80,7 +106,7 @@ export default class CreatePet extends Component {
         if (mediaType.split('/')[0] === 'image') {
             await this.setState({
                 petProfilePictureFile: e.target.value,
-                petProfilePictureURL: URL.createObjectURL(e.target.files[0])
+                petProfilePicture: URL.createObjectURL(e.target.files[0])
             })
 
         } else {
@@ -102,7 +128,7 @@ export default class CreatePet extends Component {
 
                         <div>
                             <img
-                                src={this.state.bannerPictureURL}
+                                src={this.state.bannerPicture}
                                 alt='banner'
                                 className="petcreatebanner" />
                         </div>
@@ -121,7 +147,7 @@ export default class CreatePet extends Component {
                         <div>
                             <div className='upload-image-frame'>
                                 <img
-                                    src={this.state.petProfilePictureURL}
+                                    src={this.state.petProfilePicture}
                                     key={Date.now()}
                                     alt=''
                                     className="petprofilepicupload"

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { fetchUserPets, deletePet } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
 import { Link } from 'react-router-dom';
-import '../style/Pets.css'
 
 export default class Pets extends Component {
     static contextType = MainContext;
@@ -41,12 +40,12 @@ export default class Pets extends Component {
                     {this.state.petArray.length > 0 && !this.state.loading ?
                         this.state.petArray.map(pet =>
                             <div className='petownerthumbnail' key={pet.id}>
-                                <div className='petthumbnail'>
+                                <div>
                                     <p className='petthumbnailname'>{pet.petName}</p>
 
                                     <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
                                 </div>
-                                <button onClick={() => this.handleDelete(pet.id)}>Delete Pet</button>
+                                <button className='delete-pet-button' onClick={() => this.handleDelete(pet.id)}>Delete Pet</button>
                             </div>)
 
                         : null}

@@ -21,6 +21,7 @@ import CreatePost from './PetDashboard/CreatePost.js';
 import { MainContext } from './MainContext';
 import UserProfile from './UserProfile';
 import UpdatePost from './UpdatePost'
+import UpdatePet from './UpdatePet'
 export default class App extends Component {
   state = {
     profile: JSON.parse(localStorage.getItem('profile')),
@@ -104,6 +105,11 @@ export default class App extends Component {
               <Route
                 path="/update-post/:id"
                 exact render={(routerProps) => <UpdatePost {...routerProps}
+                />}
+              />
+              <Route
+                path="/update-pet/:id"
+                exact render={(routerProps) => <UpdatePet {...routerProps}
                 />}
               />
               <Route

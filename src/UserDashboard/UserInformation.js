@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ProfilePictureUpload from './ProfilePictureUpload.js';
 import { MainContext } from '../MainContext.js'
-import '../style/UserInfo.css'
 
 export default class UserInformation extends Component {
     static contextType = MainContext;
@@ -28,11 +27,11 @@ export default class UserInformation extends Component {
                 <h4 className="un">{this.context.profile.userName}</h4>
 
                 <img className="profpic" 
-                src={this.context.profile.profilePicture} 
-                alt='' 
-                width='150' 
-                height='150'
-                accept=".png, .jpg, .jpeg, .gif" />
+                    src={this.context.profile.profilePicture} 
+                    alt='' 
+                    width='150' 
+                    height='150'
+                    accept=".png, .jpg, .jpeg, .gif" />
 
                 <button onClick={this.toggleHidden.bind(this)} className="uploadpicturemenu">Change Profile Picture</button>
                 {!this.state.isHidden && <ProfilePictureUpload />}
