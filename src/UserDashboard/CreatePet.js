@@ -47,7 +47,7 @@ export default class CreatePet extends Component {
             await uploadPetProfilePicture(petInfo.id, profilePicture);
         }
 
-
+        this.props.history.push('/userdash')
         if (petFiles.get('bannerPicture')) {
             const bannerPicture = new FormData()
 

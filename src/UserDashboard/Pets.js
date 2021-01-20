@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { fetchUserPets } from '../fetches/pet-fetches.js';
+import { fetchUserPets, deletePet } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
 import { Link } from 'react-router-dom';
 import '../style/Pets.css'
@@ -21,7 +21,16 @@ export default class Pets extends Component {
             loading: false
         })
         console.log(this.state.petArray)
+
     };
+    handleDelete = async (id) => {
+        await deletePet(id)
+        const petArray = await fetchUserPets(this.context.profile.id)
+
+        await this.setState({
+            petArray: petArray
+        });
+    }
 
     render() {
         return (
@@ -37,6 +46,7 @@ export default class Pets extends Component {
 
                                     <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
                                 </div>
+                                <button onClick={() => this.handleDelete(pet.id)}>Delete Pet</button>
                             </div>)
 
                         : null}
