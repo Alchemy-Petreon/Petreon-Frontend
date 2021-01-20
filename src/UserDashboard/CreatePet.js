@@ -142,13 +142,14 @@ export default class CreatePet extends Component {
                             <h5 className='petnameheader'>Pet Name</h5>
                             <input
                                 name='petName'
+                                maxLength='144'
                                 className='petnameupload'
                                 placeholder={this.state.petName}
                                 onChange={(e) => this.setState({ petName: e.target.value })}
                                 value={this.state.petName} />
                         </div>
 
-                        <div className="typechoice">
+                        <div className="typechoicediv">
                             <h5 className='typeheader'>Pet Type</h5>
                             <select
                                 name='type'
@@ -163,9 +164,6 @@ export default class CreatePet extends Component {
                                 <option value='other'>Other</option>
                             </select>
                         </div>
-
-                        <br />
-
 
                         <div className='petdescdiv'>
                         <h5 className='petdescheader'>Pet Profile Description:</h5>

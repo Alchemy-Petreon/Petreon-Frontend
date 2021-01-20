@@ -111,7 +111,7 @@
 .petnamediv {
     position: absolute;
     margin-left: 25.3%;
-    margin-top: -300px;
+    margin-top: -325px;
 }
 
 .petnameheader {
@@ -133,10 +133,10 @@
     background-color: #F7FFF7;
 }
 
-.typechoice {
+.typechoicediv {
     position: absolute;
     margin-left: 60%;
-    margin-top: -300px;
+    margin-top: -325px;
     margin-right: 2%;
 }
 
