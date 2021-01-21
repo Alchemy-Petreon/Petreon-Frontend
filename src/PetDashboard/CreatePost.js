@@ -76,7 +76,8 @@ export default class CreatePet extends Component {
                                 type='file'
                                 accept="image/*"
                                 onChange={(e) => this.handleFileChange(e)}
-                                value={this.state.mediaFile} />
+                                value={this.state.mediaFile}
+                                required />
 
                             <br />
 
@@ -87,21 +88,15 @@ export default class CreatePet extends Component {
                                     src={this.state.mediaURL} />
                                 : null}
 
-                            {/* {this.state.mediaTypeName === 'video'
-                    ? 
-                    <div>
-                    <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
-                    </div>
-                        : null} */}
-
-                            <p className='post-text'>Caption</p>
+                            <p className='caption-header'>Caption</p>
 
                             <input
                                 name='postText'
-                                maxLength='144'
+                                maxLength='500'
                                 className='post-text-input'
                                 onChange={(e) => this.setState({ postText: e.target.value })}
-                                value={this.state.postText} />
+                                value={this.state.postText}
+                                required />
 
                             <br />
 
