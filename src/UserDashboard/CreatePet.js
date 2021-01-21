@@ -26,9 +26,10 @@ export default class CreatePet extends PureComponent {
     onSelectFile = e => {
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
-            reader.addEventListener('load', () => 
-            this.setState({
-                src: reader.result })
+            reader.addEventListener('load', () =>
+                this.setState({
+                    src: reader.result
+                })
             );
             reader.readAsDataURL(e.target.files[0])
         }
@@ -49,11 +50,11 @@ export default class CreatePet extends PureComponent {
     async makeClientCrop(crop) {
         if (this.imageRef && crop.width && crop.height) {
             const { url, blob } = await
-            this.getCroppedImg(
-                this.imageRef,
-                crop,
-                'newFile.jpeg'
-            );
+                this.getCroppedImg(
+                    this.imageRef,
+                    crop,
+                    'newFile.jpeg'
+                );
             this.setState({ croppedImageUrl: url, blob })
         }
     }
@@ -163,6 +164,7 @@ export default class CreatePet extends PureComponent {
                                         accept='image/*'
                                         className="petprofilepicsubmit"
                                         onChange={this.onSelectFile}
+                                        required
                                     />
 
                                     <div>
@@ -177,7 +179,7 @@ export default class CreatePet extends PureComponent {
                                                 onChange={this.onCropChange}
                                             />
                                         )}
-                                    </div> 
+                                    </div>
                                 </div>
 
                                 <div className='petnamediv'>
@@ -217,17 +219,18 @@ export default class CreatePet extends PureComponent {
                                         className='petdesc'
                                         placeholder={this.state.petProfileDescription}
                                         onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
-                                        value={this.state.petProfileDescription} />
+                                        value={this.state.petProfileDescription}
+                                        required />
                                 </div>
 
                                 <br />
 
-                                <button className='create-pet-button' disabled={this.state.disableSubmit}>Save Changes</button>
+                                <button className='create-pet-button' disabled={this.state.disableSubmit}>Submit</button>
                                 <br />
                             </form>
                         </div>
                     </div>}
-                </div>
+            </div>
         )
     }
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
-import { fetchPet } from '../fetches/pet-fetches';
+import { fetchPet, deletePet } from '../fetches/pet-fetches';
 import { MainContext } from '../MainContext'
 
 export default class PetInformation extends Component {
@@ -19,6 +19,11 @@ export default class PetInformation extends Component {
         })
         console.log(this.state.pet)
     }
+    handleDelete = async () => {
+        await deletePet(this.state.pet.id)
+        this.props.history.push('/userdash')
+    }
+
 
     render() {
         return (
@@ -28,9 +33,9 @@ export default class PetInformation extends Component {
 
                 <Link to={`/pets/${this.state.pet.id}`}>
                     <img
-                    src={this.state.pet.petProfilePicture}
-                    className="petdashpic"
-                    alt={this.state.pet.petName} />
+                        src={this.state.pet.petProfilePicture}
+                        className="petdashpic"
+                        alt={this.state.pet.petName} />
                 </Link>
 
                 <h6 className='petdashdescription'>{this.state.pet.petProfileDescription}</h6>
