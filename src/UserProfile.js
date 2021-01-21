@@ -19,6 +19,7 @@ export default class UserProfile extends Component {
         petArray: {}
 
     }
+    
     componentDidMount = async () => {
 
         await this.setState({ loading: true });

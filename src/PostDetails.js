@@ -43,7 +43,7 @@ export default class PostDetails extends Component {
                 post: post
             })
         } else {
-            alert('You can not delete someone elses comment')
+            alert(`You can not delete someone else's comment`)
         }
     }
     render() {
