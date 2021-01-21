@@ -5,12 +5,11 @@
 }
 
 .subscription-box{
-    
-        border: solid black 1px;
-        margin: 20px;
-        width: 400px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
+    border: solid black 1px;
+    margin: 20px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

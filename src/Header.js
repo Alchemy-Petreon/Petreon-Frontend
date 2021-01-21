@@ -27,24 +27,39 @@ export default class Header extends Component {
     render() {
         return (
             <div className="header">
-                <Link to="/"><span className="logo">Petreon</span></Link>
+                <Link to="/">
+                    <span className="logo">Petreon</span>
+                </Link>
 
-                <Link to="/browse"><span className="browse">Browse Pets</span></Link>
+                <Link to="/browse">
+                    <span className="browse">Browse Pets</span>
+                </Link>
 
                 <input type="text" placeholder="Search..." className="search" />
-                <button className="button1"><img src="/loupe.png" alt="Search" className="glass" /></button>
+
+                <button className="button1">
+                    <img 
+                        src="/loupe.png" 
+                        alt="Search" 
+                        className="glass" />
+                </button>
+
                 {this.context.loggedIn ?
                     <div style={{ display: 'flex', alignItems: 'center' }}>
-                        <Link to={'/userdash'}> <img
-                            src={this.context.profile.profilePicture}
-                            alt={this.context.profile.userName}
-                            style={{
-                                height: '60px',
-                                borderRadius: '50px'
+                        <Link to={'/userdash'}>
+                            <img
+                                className='header-picture'
+                                src={this.context.profile.profilePicture}
+                                alt={this.context.profile.userName}
+                                style={{
+                                    height: '60px',
+                                    borderRadius: '50px'
                             }}
-                        /></Link>
-                        <h3>{this.context.profile.userName}</h3>
+                            />
+                        </Link>
+
                         <button
+                            className='logout-button'
                             onClick={this.handleLogout}>
                             Logout
                         </button>
@@ -52,11 +67,6 @@ export default class Header extends Component {
                     :
                     <a href="https://petreon-api.herokuapp.com/api/v1/auth/google" className="login">Log In / Sign Up</a>
                 }
-
-
-                {/* <Link to="/signup"><span className="signup">Sign Up</span></Link> */}
-
-
             </div>
         )
     }

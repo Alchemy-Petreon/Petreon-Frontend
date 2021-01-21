@@ -15,13 +15,11 @@ export default class Posts extends Component {
         allPosts: [],
     }
     componentDidMount = async () => {
-        console.log('this is posts.js', this.props.userId)
         await this.setState({ loading: true });
         this.setState({
             loading: false,
             allPosts: this.props.posts
         })
-        console.log(this.props.posts)
     };
 
     handleDelete = async (id, postId) => {
@@ -37,7 +35,7 @@ export default class Posts extends Component {
             //     allPosts: allPosts
             // })
         } else {
-            alert('You can not delete someone elses post')
+            alert(`You can not delete someone else's post`)
         }
     }
 
@@ -53,6 +51,7 @@ export default class Posts extends Component {
                             <div className='post-item-box' key={post.id}>
                                 <PostItem
                                     post={post} />
+
                                 {this.context.profile.id === String(post.userId) ?
                                     <p><button className='delete-button' onClick={() => this.handleDelete(post.id, post.userId)}>delete</button></p>
                                     : <div></div>}

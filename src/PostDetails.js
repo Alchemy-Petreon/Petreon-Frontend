@@ -43,7 +43,7 @@ export default class PostDetails extends Component {
                 post: post
             })
         } else {
-            alert('You can not delete someone elses comment')
+            alert(`You can not delete someone else's comment`)
         }
     }
     render() {
@@ -55,7 +55,7 @@ export default class PostDetails extends Component {
                     <div className='post-detail-page'>
                         <div className='post-detail-naplesyellow'> </div>
                         <div className='post-detail'>
-
+                            
                             <img className='post-detail-picture' alt={this.state.post.mediaUrl} src={this.state.post.mediaUrl} />
 
                             <p className='post-detail-text'>{this.state.post.postText}</p>

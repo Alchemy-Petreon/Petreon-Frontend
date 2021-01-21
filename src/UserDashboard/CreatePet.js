@@ -1,22 +1,101 @@
-import React, { Component } from 'react';
-import '../style/CreatePets.css'
-import { createPet, uploadPetBanner, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
+import React, { PureComponent } from 'react';
+import '../style/CreatePet.css'
+import { createPet, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
-import mime from 'mime-types';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css'
 
-export default class CreatePet extends Component {
+export default class CreatePet extends PureComponent {
     static contextType = MainContext;
 
     state = {
         petName: '',
-        bannerPictureURL: 'https://placekitten.com/1300/350',
-        bannerPictureFile: '',
         type: '',
-        petProfilePictureURL: 'https://placekitten.com/250/250',
+        croppedImageUrl: 'https://placekitten.com/250/250',
         petProfilePictureFile: '',
         petProfileDescription: '',
         loading: true,
         disableSubmit: false,
+        src: null,
+        crop: {
+            width: 250,
+            aspect: 1 / 1
+        }
+    };
+
+    onSelectFile = e => {
+        if (e.target.files && e.target.files.length > 0) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => 
+            this.setState({
+                src: reader.result })
+            );
+            reader.readAsDataURL(e.target.files[0])
+        }
+    };
+
+    onImageLoaded = image => {
+        this.imageRef = image;
+    };
+
+    onCropComplete = crop => {
+        this.makeClientCrop(crop);
+    };
+
+    onCropChange = (crop) => {
+        this.setState({ crop })
+    };
+
+    async makeClientCrop(crop) {
+        if (this.imageRef && crop.width && crop.height) {
+            const { url, blob } = await
+            this.getCroppedImg(
+                this.imageRef,
+                crop,
+                'newFile.jpeg'
+            );
+            this.setState({ croppedImageUrl: url, blob })
+        }
+    }
+
+    getCroppedImg(image, crop, fileName) {
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        const ctx = canvas.getContext('2d');
+
+        ctx.drawImage(
+            image,
+            crop.x * scaleX,
+            crop.y * scaleY,
+            crop.width * scaleX,
+            crop.height * scaleY,
+            0,
+            0,
+            crop.width,
+            crop.height
+        );
+
+        return new Promise((resolve) => {
+            canvas.toBlob(blob => {
+                if (!blob) {
+                    console.error('Canvas is empty');
+                    return;
+                }
+                blob.name = fileName;
+                window.URL.revokeObjectURL(this.fileUrl);
+                const url = window.URL.createObjectURL(blob);
+                resolve({ url, blob });
+            }, 'image/jpeg')
+        });
+    }
+
+    hideCrop = e => {
+        this.setState({
+            petShown: false
+        })
     }
 
     handleSubmit = async (e) => {
@@ -37,60 +116,20 @@ export default class CreatePet extends Component {
 
         let petInfo = await createPet(newPet);
 
-        console.log(petFiles.get('petProfilePicture'))
-
         if (petFiles.get('petProfilePicture')) {
-            const profilePicture = new FormData()
+            const profilePicture = new FormData();
 
-            profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
+            profilePicture.append('petProfilePicture', this.state.blob)
 
             await uploadPetProfilePicture(petInfo.id, profilePicture);
         }
 
-        this.props.history.push('/userdash')
-        if (petFiles.get('bannerPicture')) {
-            const bannerPicture = new FormData()
-
-            bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
-
-            await uploadPetBanner(petInfo.id, bannerPicture);
-        }
         this.props.history.push('/userdash');
-
-    }
-
-    handleBannerChange = (e) => {
-        const mediaType = mime.lookup(e.target.value)
-
-        if (mediaType.split('/')[0] === 'image') {
-            this.setState({
-                bannerPictureFile: e.target.value,
-                bannerPictureURL: URL.createObjectURL(e.target.files[0])
-
-            })
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ bannerPictureFile: '' })
-        }
-    }
-
-    handlePictureChange = async (e) => {
-        const mediaType = mime.lookup(e.target.value)
-
-        if (mediaType.split('/')[0] === 'image') {
-            await this.setState({
-                petProfilePictureFile: e.target.value,
-                petProfilePictureURL: URL.createObjectURL(e.target.files[0])
-            })
-
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ petPictureFile: '' })
-        }
-
     }
 
     render() {
+        const { crop, croppedImageUrl, src } = this.state;
+
         return (
             <div className='create-pet-page'>
 
@@ -100,56 +139,51 @@ export default class CreatePet extends Component {
 
                     <form onSubmit={this.handleSubmit}>
 
-                        <div className="banner">
+                        <div>
+                            <div className='upload-image-frame'>
                             <img
-                                src={this.state.bannerPictureURL}
-                                alt=""
-                                className="petcreatebanner" />
-                        </div>
-
-                        <div className="bannerpicupload">
-                            <div className='bannerpicchange'>
-                                <input
-                                    type="file"
-                                    name="bannerPicture"
-                                    className="bannerpicturesubmit"
-                                    onChange={(e) => this.handleBannerChange(e)}
-                                    value={this.state.bannerPictureFile}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="petpicupload">
-                            <img
-                                src={this.state.petProfilePictureURL}
+                                src={croppedImageUrl}
                                 key={Date.now()}
                                 alt=''
                                 className="petprofilepicupload"
                             />
-
-                            <div className='petprofilepicchange'>
-                                <input
-                                    type="file"
-                                    name="petProfilePicture"
-                                    className="petprofilepicsubmit"
-                                    onChange={(e) => this.handlePictureChange(e)}
-                                    value={this.state.petProfilePictureFile}
-                                />
-                                {/* <button className='petprofilesubbutton'>Submit</button> */}
                             </div>
+
+                            <input
+                                type="file"
+                                name="petProfilePicture"
+                                accept='image/*'
+                                className="petprofilepicsubmit"
+                                onChange={this.onSelectFile}
+                            />
+
+                            <div>
+                                {src && (
+                                    <ReactCrop
+                                        className='petpicpreview'
+                                        src={src}
+                                        crop={crop}
+                                        ruleOfThirds
+                                        onImageLoaded={this.onImageLoaded}
+                                        onComplete={this.onCropComplete}
+                                        onChange={this.onCropChange}
+                                    />
+                                )}
+                            </div> 
                         </div>
 
                         <div className='petnamediv'>
                             <h5 className='petnameheader'>Pet Name</h5>
                             <input
                                 name='petName'
+                                maxLength='144'
                                 className='petnameupload'
                                 placeholder={this.state.petName}
                                 onChange={(e) => this.setState({ petName: e.target.value })}
                                 value={this.state.petName} />
                         </div>
 
-                        <div className="typechoice">
+                        <div className="typechoicediv">
                             <h5 className='typeheader'>Pet Type</h5>
                             <select
                                 name='type'
@@ -165,16 +199,17 @@ export default class CreatePet extends Component {
                             </select>
                         </div>
 
-                        <br />
-
-                        <h5 className='petdescheader'>Pet Profile Description:</h5>
-                        <textarea
-                            rows="1"
-                            name='petProfileDescription'
-                            className='petdesc'
-                            placeholder={this.state.petProfileDescription}
-                            onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
-                            value={this.state.petProfileDescription} />
+                        <div className='petdescdiv'>
+                            <h5 className='petdescheader'>Pet Profile Description:</h5>
+                            <textarea
+                                rows="1"
+                                name='petProfileDescription'
+                                maxLength='750'
+                                className='petdesc'
+                                placeholder={this.state.petProfileDescription}
+                                onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
+                                value={this.state.petProfileDescription} />
+                        </div>
 
                         <br />
 

@@ -12,6 +12,7 @@ export default class SignUp extends Component {
         firstName: '',
         email: '',
         profileDescription: '',
+        venmo: '',
         validUsername: true
     }
 
@@ -77,15 +78,15 @@ export default class SignUp extends Component {
                             onChange={(e) => this.setState({ firstName: e.target.value })}
                             value={this.state.firstName}
                         />
-
-                        {/* <p>Profile Picture:</p>
-                        <input 
-                        type="file" 
-                        name="profilePicture"
-                        className="profilepic"
-                        onChange={(e) => this.setState({ profilePicture: e.target.value })}
-                            value={this.state.profilePicture}/>
-                         */}
+                        
+                        <p>Venmo Username:</p>
+                        <input
+                            className='nameinput'
+                            name="venmo"
+                            maxLength="35"
+                            onChange={(e) => this.setState({ venmo: e.target.value })}
+                            value={this.state.venmo}
+                        />
 
                         <p>Tagline:</p>
                         <input

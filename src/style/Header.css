@@ -58,20 +58,23 @@ a {
 .login {
     float: left;
     margin-top: 18px;
-    margin-right: 3%;
     font-family: Burma-Soft;
     font-size: 25pt;
-    color: #1A535C
+    color: #1A535C;
 }
 
-.signup {
-    float: left;
-    margin-top: 18px;
-    font-family: Burma-Soft;
-    font-size: 25pt;
-    color: #1A535C
+.header-picture {
+    margin-left: 25px;
 }
 
+.logout-button {
+    margin-left: 25px;
+    font-family: Burma;
+    font-size: 12pt;
+    background-color: #FF6B6B;
+    border: none;
+    border-radius: 5px;
+}
 
 .logo:hover, .browse:hover, .login:hover, .signup:hover {
     color: #FF6B6B;
