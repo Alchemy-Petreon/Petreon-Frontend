@@ -131,7 +131,7 @@ export default class ProfilePictureUpload extends PureComponent {
                     )}
                     <br />
                     {croppedImageUrl && (
-                        <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
+                        <img alt="Crop" style={{ maxWidth: '30%' }} src={croppedImageUrl} />
                     )}
                 </div>
                 : null}

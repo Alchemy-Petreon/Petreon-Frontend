@@ -11,11 +11,91 @@ export default class CreatePet extends PureComponent {
     state = {
         petName: '',
         type: '',
-        petProfilePictureURL: 'https://placekitten.com/250/250',
+        croppedImageUrl: 'https://placekitten.com/250/250',
         petProfilePictureFile: '',
         petProfileDescription: '',
         loading: true,
         disableSubmit: false,
+        src: null,
+        crop: {
+            width: 250,
+            aspect: 1 / 1
+        }
+    };
+
+    onSelectFile = e => {
+        if (e.target.files && e.target.files.length > 0) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => 
+            this.setState({
+                src: reader.result })
+            );
+            reader.readAsDataURL(e.target.files[0])
+        }
+    };
+
+    onImageLoaded = image => {
+        this.imageRef = image;
+    };
+
+    onCropComplete = crop => {
+        this.makeClientCrop(crop);
+    };
+
+    onCropChange = (crop) => {
+        this.setState({ crop })
+    };
+
+    async makeClientCrop(crop) {
+        if (this.imageRef && crop.width && crop.height) {
+            const { url, blob } = await
+            this.getCroppedImg(
+                this.imageRef,
+                crop,
+                'newFile.jpeg'
+            );
+            this.setState({ croppedImageUrl: url, blob })
+        }
+    }
+
+    getCroppedImg(image, crop, fileName) {
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        const ctx = canvas.getContext('2d');
+
+        ctx.drawImage(
+            image,
+            crop.x * scaleX,
+            crop.y * scaleY,
+            crop.width * scaleX,
+            crop.height * scaleY,
+            0,
+            0,
+            crop.width,
+            crop.height
+        );
+
+        return new Promise((resolve) => {
+            canvas.toBlob(blob => {
+                if (!blob) {
+                    console.error('Canvas is empty');
+                    return;
+                }
+                blob.name = fileName;
+                window.URL.revokeObjectURL(this.fileUrl);
+                const url = window.URL.createObjectURL(blob);
+                resolve({ url, blob });
+            }, 'image/jpeg')
+        });
+    }
+
+    hideCrop = e => {
+        this.setState({
+            petShown: false
+        })
     }
 
     handleSubmit = async (e) => {
@@ -37,9 +117,9 @@ export default class CreatePet extends PureComponent {
         let petInfo = await createPet(newPet);
 
         if (petFiles.get('petProfilePicture')) {
-            const profilePicture = new FormData()
+            const profilePicture = new FormData();
 
-            profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
+            profilePicture.append('petProfilePicture', this.state.blob)
 
             await uploadPetProfilePicture(petInfo.id, profilePicture);
         }
@@ -47,14 +127,16 @@ export default class CreatePet extends PureComponent {
         this.props.history.push('/userdash');
     }
 
-    handlePictureChange = async (e) => {
-            await this.setState({
-                petProfilePictureFile: e.target.value,
-                petProfilePictureURL: URL.createObjectURL(e.target.files[0])
-            })
-    }
+    // handlePictureChange = async (e) => {
+    //         await this.setState({
+    //             petProfilePictureFile: e.target.value,
+    //             petProfilePictureURL: URL.createObjectURL(e.target.files[0])
+    //         })
+    // }
 
     render() {
+        const { crop, croppedImageUrl, src } = this.state;
+
         return (
             <div className='create-pet-page'>
 
@@ -67,7 +149,7 @@ export default class CreatePet extends PureComponent {
                         <div>
                             <div className='upload-image-frame'>
                             <img
-                                src={this.state.petProfilePictureURL}
+                                src={croppedImageUrl}
                                 key={Date.now()}
                                 alt=''
                                 className="petprofilepicupload"
@@ -79,9 +161,31 @@ export default class CreatePet extends PureComponent {
                                 name="petProfilePicture"
                                 accept='image/*'
                                 className="petprofilepicsubmit"
-                                onChange={(e) => this.handlePictureChange(e)}
-                                value={this.state.petProfilePictureFile}
+                                onChange={this.onSelectFile}
+                                // value={this.state.petProfilePictureFile}
                             />
+
+                            <div>
+                                {src && (
+                                    <ReactCrop
+                                        className='petpicpreview'
+                                        src={src}
+                                        crop={crop}
+                                        ruleOfThirds
+                                        onImageLoaded={this.onImageLoaded}
+                                        onComplete={this.onCropComplete}
+                                        onChange={this.onCropChange}
+                                    />
+                                )}
+                                <br />
+                                {/* {croppedImageUrl && (
+                                    <img 
+                                        alt='Crop'
+                                        style={{ maxWidth: '100%' }}
+                                        src={croppedImageUrl}
+                                    />
+                                )} */}
+                            </div> 
                         </div>
 
                         <div className='petnamediv'>
