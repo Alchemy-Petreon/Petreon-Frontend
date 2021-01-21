@@ -12,9 +12,9 @@ export default class CreatePet extends PureComponent {
         petName: '',
         type: '',
         croppedImageUrl: 'https://placekitten.com/250/250',
-        petProfilePictureFile: '',
+        petProfilePictureFile: 'https://placekitten.com/250/250',
         petProfileDescription: '',
-        loading: true,
+        loading: false,
         disableSubmit: false,
         src: null,
         crop: {
@@ -102,7 +102,8 @@ export default class CreatePet extends PureComponent {
         e.preventDefault();
 
         this.setState({
-            disableSubmit: true
+            disableSubmit: true,
+            loading: true
         })
 
         const petFiles = new FormData(e.target)
@@ -123,6 +124,9 @@ export default class CreatePet extends PureComponent {
 
             await uploadPetProfilePicture(petInfo.id, profilePicture);
         }
+        this.setState({
+            loading: false
+        })
 
         this.props.history.push('/userdash');
     }
@@ -131,93 +135,99 @@ export default class CreatePet extends PureComponent {
         const { crop, croppedImageUrl, src } = this.state;
 
         return (
-            <div className='create-pet-page'>
+            <div>
+                { this.state.loading
+                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    :
+                    <div className='create-pet-page'>
 
-                <div className='cppnaplesyellow'> </div>
+                        <div className='cppnaplesyellow'> </div>
 
-                <div className='cppbox'>
+                        <div className='cppbox'>
 
-                    <form onSubmit={this.handleSubmit}>
+                            <form onSubmit={this.handleSubmit}>
 
-                        <div>
-                            <div className='upload-image-frame'>
-                            <img
-                                src={croppedImageUrl}
-                                key={Date.now()}
-                                alt=''
-                                className="petprofilepicupload"
-                            />
-                            </div>
+                                <div>
+                                    <div className='upload-image-frame'>
+                                        <img
+                                            src={croppedImageUrl}
+                                            key={Date.now()}
+                                            alt=''
+                                            className="petprofilepicupload"
+                                        />
+                                    </div>
 
-                            <input
-                                type="file"
-                                name="petProfilePicture"
-                                accept='image/*'
-                                className="petprofilepicsubmit"
-                                onChange={this.onSelectFile}
-                            />
-
-                            <div>
-                                {src && (
-                                    <ReactCrop
-                                        className='petpicpreview'
-                                        src={src}
-                                        crop={crop}
-                                        ruleOfThirds
-                                        onImageLoaded={this.onImageLoaded}
-                                        onComplete={this.onCropComplete}
-                                        onChange={this.onCropChange}
+                                    <input
+                                        type="file"
+                                        name="petProfilePicture"
+                                        accept='image/*'
+                                        className="petprofilepicsubmit"
+                                        onChange={this.onSelectFile}
                                     />
-                                )}
-                            </div> 
+
+                                    <div>
+                                        {src && (
+                                            <ReactCrop
+                                                className='petpicpreview'
+                                                src={src}
+                                                crop={crop}
+                                                ruleOfThirds
+                                                onImageLoaded={this.onImageLoaded}
+                                                onComplete={this.onCropComplete}
+                                                onChange={this.onCropChange}
+                                            />
+                                        )}
+                                    </div> 
+                                </div>
+
+                                <div className='petnamediv'>
+                                    <h5 className='petnameheader'>Pet Name</h5>
+                                    <input
+                                        name='petName'
+                                        maxLength='30'
+                                        className='petnameupload'
+                                        placeholder={this.state.petName}
+                                        onChange={(e) => this.setState({ petName: e.target.value })}
+                                        value={this.state.petName}
+                                        required />
+                                </div>
+
+                                <div className="typechoicediv">
+                                    <h5 className='typeheader'>Pet Type</h5>
+                                    <select
+                                        name='type'
+                                        className='typedropdown'
+                                        onChange={(e) => this.setState({ type: e.target.value })}>
+                                        <option value='cat'>Cat</option>
+                                        <option value='dog'>Dog</option>
+                                        <option value='reptile'>Reptile</option>
+                                        <option value='amphibian'>Amphibian</option>
+                                        <option value='fish'>Fish</option>
+                                        <option value='rodent'>Rodent</option>
+                                        <option value='other'>Other</option>
+                                    </select>
+                                </div>
+
+                                <div className='petdescdiv'>
+                                    <h5 className='petdescheader'>Pet Profile Description:</h5>
+                                    <textarea
+                                        rows="1"
+                                        name='petProfileDescription'
+                                        maxLength='260'
+                                        className='petdesc'
+                                        placeholder={this.state.petProfileDescription}
+                                        onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
+                                        value={this.state.petProfileDescription} />
+                                </div>
+
+                                <br />
+
+                                <button className='create-pet-button' disabled={this.state.disableSubmit}>Save Changes</button>
+                                <br />
+                            </form>
                         </div>
-
-                        <div className='petnamediv'>
-                            <h5 className='petnameheader'>Pet Name</h5>
-                            <input
-                                name='petName'
-                                maxLength='30'
-                                className='petnameupload'
-                                placeholder={this.state.petName}
-                                onChange={(e) => this.setState({ petName: e.target.value })}
-                                value={this.state.petName} />
-                        </div>
-
-                        <div className="typechoicediv">
-                            <h5 className='typeheader'>Pet Type</h5>
-                            <select
-                                name='type'
-                                className='typedropdown'
-                                onChange={(e) => this.setState({ type: e.target.value })}>
-                                <option value='cat'>Cat</option>
-                                <option value='dog'>Dog</option>
-                                <option value='reptile'>Reptile</option>
-                                <option value='amphibian'>Amphibian</option>
-                                <option value='fish'>Fish</option>
-                                <option value='rodent'>Rodent</option>
-                                <option value='other'>Other</option>
-                            </select>
-                        </div>
-
-                        <div className='petdescdiv'>
-                            <h5 className='petdescheader'>Pet Profile Description:</h5>
-                            <textarea
-                                rows="1"
-                                name='petProfileDescription'
-                                maxLength='260'
-                                className='petdesc'
-                                placeholder={this.state.petProfileDescription}
-                                onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
-                                value={this.state.petProfileDescription} />
-                        </div>
-
-                        <br />
-
-                        <button className='create-pet-button' disabled={this.state.disableSubmit}>Save Changes</button>
-                        <br />
-                    </form>
+                    </div>}
                 </div>
-            </div>
         )
     }
 }
