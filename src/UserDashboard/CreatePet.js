@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import '../style/CreatePets.css'
-import { createPet, uploadPetBanner, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
+import '../style/CreatePet.css'
+import { createPet, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css'
