@@ -57,18 +57,18 @@ export default class CreatePet extends Component {
     }
 
     handleBannerChange = (e) => {
-            this.setState({
-                bannerPictureFile: e.target.value,
-                bannerPictureURL: URL.createObjectURL(e.target.files[0])
+        this.setState({
+            bannerPictureFile: e.target.value,
+            bannerPictureURL: URL.createObjectURL(e.target.files[0])
 
-            })
+        })
     }
 
     handlePictureChange = async (e) => {
-            await this.setState({
-                petProfilePictureFile: e.target.value,
-                petProfilePictureURL: URL.createObjectURL(e.target.files[0])
-            })
+        await this.setState({
+            petProfilePictureFile: e.target.value,
+            petProfilePictureURL: URL.createObjectURL(e.target.files[0])
+        })
     }
 
     render() {
