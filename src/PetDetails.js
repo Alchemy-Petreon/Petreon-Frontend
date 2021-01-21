@@ -6,6 +6,7 @@ import Posts from './Posts.js'
 import { MainContext } from './MainContext.js'
 import { subscribe, unsubscribe, subscribedToPet } from './fetches/user-fetches.js';
 import { Link } from 'react-router-dom'
+var QRCode = require('qrcode.react');
 
 export default class PetDetails extends Component {
     static contextType = MainContext;
@@ -29,7 +30,7 @@ export default class PetDetails extends Component {
             isSubscribed,
             user
         })
-
+        console.log('petinfo', pet)
     };
 
     handleSubscribe = async (petId) => {
@@ -73,16 +74,17 @@ export default class PetDetails extends Component {
                         <div className='pet-profile-info'>
                             <p className='pet-profile-name'>{this.state.pet.petName}</p>
 
-                            <img className='pet-profile-picture' 
-                            alt={this.state.pet.petName} 
-                            src={this.state.pet.petProfilePicture} />
+                            <img className='pet-profile-picture'
+                                alt={this.state.pet.petName}
+                                src={this.state.pet.petProfilePicture} />
 
                             <p className='pet-profile-desc'>{this.state.pet.petProfileDescription}</p>
 
                             <p className='pet-owner'>Caregiver</p>
-                            <Link to={`/user/${this.state.user.id}`}> 
-                            <p className='user-card'> {this.state.user.userName}</p><img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' /></Link>
-
+                            <Link to={`/user/${this.state.user.id}`}>
+                                <p className='user-card'> {this.state.user.userName}</p><img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' /></Link>
+                            
+                            <div> Buy {this.state.pet.petName} a treat:<QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.pet.venmo}&amount=1&note=For-${this.state.pet.petName}'s-treats`} /></div>
                             <br />
 
                             {this.state.isSubscribed ?
@@ -99,8 +101,8 @@ export default class PetDetails extends Component {
                             }
                         </div>
                         <div className='pet-posts'>
-                        <Posts
-                            posts={this.state.pet.posts} />
+                            <Posts
+                                posts={this.state.pet.posts} />
                         </div>
                     </div>
                 }

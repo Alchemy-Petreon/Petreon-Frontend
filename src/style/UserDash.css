@@ -55,6 +55,10 @@
     margin-top: 5%;
 }
 
+.profilepicsubmit {
+    margin-top: 5%;
+}
+
 .profilepicsubmit::-webkit-file-upload-button {
     visibility: hidden;
 }
