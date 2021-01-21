@@ -20,35 +20,6 @@
     border-bottom: solid 5px #1A535C;
 }
 
-.bannerpicturesubmit {
-    color: transparent;
-}
-
-.bannerpicturesubmit::-webkit-file-upload-button {
-    visibility: hidden;
-}
-
-.bannerpicturesubmit::before {
-    margin-left: 10%;
-    content: 'Update Banner';
-    font-family: Burma-Soft;
-    font-size: 14pt;
-    padding: 10px;
-    color: black;
-    background-color: #FF6B6B;
-    border: none;
-    outline: none;
-    white-space: nowrap;
-    -webkit-user-select: none;
-}
-.bannerpicturesubmit::file-selector-button {
-    font-family: Burma-Soft;
-    font-size: 10pt;
-    background-color: #FF6B6B;
-    border: none;
-    border-radius: 5px;
-}
-
 .upload-image-frame {
     margin-top: 3.5%;
     margin-left: 2%;
