@@ -11,10 +11,12 @@
 }
 
 .petdashinfo {
+    margin-bottom: 5%;
     position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
     width: 30%;
-    height: 300%;
-    padding-left: 2%;
     text-align: center;
 }
 
@@ -41,6 +43,31 @@
     font-family: Burma-Soft;
     font-size: 15pt;
     color: #1A535C;
+}
+
+.petdashfollowers {
+    margin-top: 2%;
+}
+
+.pet-dash-buttons {
+    width: 200px;
+}
+
+.details-link {
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+}
+
+.update-pet-button {
+    margin-top: 9%;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
 }
 
 .create-post-page {
@@ -111,12 +138,4 @@
     background-color: #FF6B6B;
     border: none;
     border-radius: 10px;
-}
-
-.details-link {
-    font-family: Burma-Soft;
-    font-size: 20pt;
-    padding: 5px;
-    color: black;
-    background-color: #FF6B6B;
 }

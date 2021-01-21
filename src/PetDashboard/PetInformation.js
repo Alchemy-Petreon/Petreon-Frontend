@@ -35,15 +35,17 @@ export default class PetInformation extends Component {
 
                 <h6 className='petdashdescription'>{this.state.pet.petProfileDescription}</h6>
 
-                <h6 className='petdashfollowers'>Followers: </h6>
+                <h6 className='petdashfollowers'>Followers:</h6>
 
-                <Link to={`/pets/${this.props.petId}`}>
-                    <span className='details-link'>Go to Pet Profile</span>
-                </Link>
-                
-                <Link to={`/update-pet/${this.props.petId}`}>
-                    <button>Update Pet</button>
-                </Link>
+                <div className='pet-dash-buttons'>
+                    <Link to={`/pets/${this.props.petId}`}>
+                        <button className='details-link'>Go to Pet Profile</button>
+                    </Link>
+                    
+                    <Link to={`/update-pet/${this.props.petId}`}>
+                        <button className='update-pet-button'>Update Pet</button>
+                    </Link>
+                </div>
             </div>
         )
     }
