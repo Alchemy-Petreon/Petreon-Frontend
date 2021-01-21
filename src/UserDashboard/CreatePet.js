@@ -37,8 +37,6 @@ export default class CreatePet extends Component {
 
         let petInfo = await createPet(newPet);
 
-        console.log(petFiles.get('petProfilePicture'))
-
         if (petFiles.get('petProfilePicture')) {
             const profilePicture = new FormData()
 
@@ -47,7 +45,6 @@ export default class CreatePet extends Component {
             await uploadPetProfilePicture(petInfo.id, profilePicture);
         }
 
-        this.props.history.push('/userdash')
         if (petFiles.get('bannerPicture')) {
             const bannerPicture = new FormData()
 
@@ -55,39 +52,23 @@ export default class CreatePet extends Component {
 
             await uploadPetBanner(petInfo.id, bannerPicture);
         }
-        this.props.history.push('/userdash');
 
+        this.props.history.push('/userdash');
     }
 
     handleBannerChange = (e) => {
-        const mediaType = mime.lookup(e.target.value)
-
-        if (mediaType.split('/')[0] === 'image') {
             this.setState({
                 bannerPictureFile: e.target.value,
                 bannerPictureURL: URL.createObjectURL(e.target.files[0])
 
             })
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ bannerPictureFile: '' })
-        }
     }
 
     handlePictureChange = async (e) => {
-        const mediaType = mime.lookup(e.target.value)
-
-        if (mediaType.split('/')[0] === 'image') {
             await this.setState({
                 petProfilePictureFile: e.target.value,
                 petProfilePictureURL: URL.createObjectURL(e.target.files[0])
             })
-
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ petPictureFile: '' })
-        }
-
     }
 
     render() {

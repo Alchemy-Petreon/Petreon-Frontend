@@ -22,7 +22,6 @@ export default class SignUp extends Component {
         this.setState({
             email: profile.email,
             firstName: profile.firstName,
-
         })
     }
 
@@ -79,6 +78,7 @@ export default class SignUp extends Component {
                             onChange={(e) => this.setState({ firstName: e.target.value })}
                             value={this.state.firstName}
                         />
+                        
                         <p>Venmo Username:</p>
                         <input
                             className='nameinput'

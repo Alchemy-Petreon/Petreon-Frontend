@@ -115,19 +115,9 @@ export default class UpdatePost extends Component {
                                 src={this.state.mediaURL} />
                             : null}
 
-                        {/* <p className='post-text'>Caption</p> */}
-
-                        {/* <input
-                            name='postText'
-                            maxLength='144'
-                            onChange={(e) => this.setState({ postText: e.target.value })}
-                            value={this.state.postText} /> */}
-
                         <br />
 
-                        <button className='create-post-button' disabled={this.state.invalidMediaType}>Submit</button>
-
-                        {/* <button className='edit-post-button'>Save Changes</button> */}
+                        <button className='edit-post-button'>Save Changes</button>
 
                         <br />
                     </form>
