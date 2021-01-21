@@ -3,6 +3,7 @@ import CreatePost from './CreatePost.js';
 import PetInformation from './PetInformation.js';
 import { MainContext } from '../MainContext.js';
 import '../style/PetDash.css';
+// import { Link } from 'react-router-dom';
 
 
 export default class PetDash extends Component {

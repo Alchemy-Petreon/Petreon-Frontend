@@ -26,9 +26,10 @@ export default class CreatePet extends PureComponent {
     onSelectFile = e => {
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
-            reader.addEventListener('load', () => 
-            this.setState({
-                src: reader.result })
+            reader.addEventListener('load', () =>
+                this.setState({
+                    src: reader.result
+                })
             );
             reader.readAsDataURL(e.target.files[0])
         }
@@ -49,11 +50,11 @@ export default class CreatePet extends PureComponent {
     async makeClientCrop(crop) {
         if (this.imageRef && crop.width && crop.height) {
             const { url, blob } = await
-            this.getCroppedImg(
-                this.imageRef,
-                crop,
-                'newFile.jpeg'
-            );
+                this.getCroppedImg(
+                    this.imageRef,
+                    crop,
+                    'newFile.jpeg'
+                );
             this.setState({ croppedImageUrl: url, blob })
         }
     }
@@ -141,12 +142,12 @@ export default class CreatePet extends PureComponent {
 
                         <div>
                             <div className='upload-image-frame'>
-                            <img
-                                src={croppedImageUrl}
-                                key={Date.now()}
-                                alt=''
-                                className="petprofilepicupload"
-                            />
+                                <img
+                                    src={croppedImageUrl}
+                                    key={Date.now()}
+                                    alt=''
+                                    className="petprofilepicupload"
+                                />
                             </div>
 
                             <input
@@ -169,7 +170,7 @@ export default class CreatePet extends PureComponent {
                                         onChange={this.onCropChange}
                                     />
                                 )}
-                            </div> 
+                            </div>
                         </div>
 
                         <div className='petnamediv'>

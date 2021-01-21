@@ -46,7 +46,8 @@ export default class Posts extends Component {
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
-                    this.state.allPosts ?
+
+                    this.state.allPosts[0].id !== null ?
                         this.state.allPosts.map(post =>
                             <div className='post-item-box' key={post.id}>
                                 <PostItem

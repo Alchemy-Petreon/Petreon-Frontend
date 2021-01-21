@@ -46,8 +46,8 @@ export default class Pets extends Component {
 
                                     <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
                                 </div>
-                                <button className='delete-pet-button' 
-                                onClick={() => this.handleDelete(pet.id)}>Delete Pet</button>
+                                <button className='delete-pet-button'
+                                    onClick={() => this.handleDelete(pet.id)}>Delete Pet</button>
                             </div>)
 
                         : null}

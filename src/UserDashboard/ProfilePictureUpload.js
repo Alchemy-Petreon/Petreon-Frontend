@@ -17,15 +17,16 @@ export default class ProfilePictureUpload extends PureComponent {
             aspect: 1 / 1
         }
     };
-    
+
     onSelectFile = e => {
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
-            reader.addEventListener('load', () => 
-            this.setState({ 
-                    src: reader.result })
-                );
-                reader.readAsDataURL(e.target.files[0])
+            reader.addEventListener('load', () =>
+                this.setState({
+                    src: reader.result
+                })
+            );
+            reader.readAsDataURL(e.target.files[0])
         }
     };
 
@@ -46,7 +47,7 @@ export default class ProfilePictureUpload extends PureComponent {
             const { url, blob } = await this.getCroppedImg(
                 this.imageRef,
                 crop,
-                'newFile.png'
+                'newFile.jpeg'
             );
             this.setState({ croppedImageUrl: url, blob })
         }
@@ -74,16 +75,16 @@ export default class ProfilePictureUpload extends PureComponent {
 
         return new Promise((resolve) => {
             canvas.toBlob(blob => {
-            if (!blob) {
-                //reject(new Error('Canvas is empty'));
-                console.error('Canvas is empty');
-                return;
-              }
+                if (!blob) {
+                    //reject(new Error('Canvas is empty'));
+                    console.error('Canvas is empty');
+                    return;
+                }
                 blob.name = fileName;
                 window.URL.revokeObjectURL(this.fileUrl);
                 const url = window.URL.createObjectURL(blob);
                 resolve({ url, blob });
-            }, 'image/png');
+            }, 'image/jpeg');
         });
     }
 
@@ -102,40 +103,44 @@ export default class ProfilePictureUpload extends PureComponent {
     }
 
     render() {
-        const { crop, src } = this.state;
+        const { crop, croppedImageUrl, src } = this.state;
 
         return (
             <div>
-            <div className="profilepicupload">
-                <form onSubmit={this.handleSubmit}>
+                <div className="profilepicupload">
+                    <form onSubmit={this.handleSubmit}>
 
-                <input 
-                    type="file" 
-                    name="profilePicture"
-                    accept="image/*"
-                    className="profilepicsubmit"
-                    onChange={this.onSelectFile}
-                    />
-                {this.state.imageShown === true
-                ?
-                <div>
-                    {src && (
-                        <ReactCrop
-                            src={src}
-                            crop={crop}
-                            ruleOfThirds
-                            onImageLoaded={this.onImageLoaded}
-                            onComplete={this.onCropComplete}
-                            onChange={this.onCropChange}
+                        <input
+                            type="file"
+                            name="profilePicture"
+                            accept="image/*"
+                            className="profilepicsubmit"
+                            onChange={this.onSelectFile}
                         />
-                    )}
-                </div>
-                : null}
+                        {this.state.imageShown === true
+                            ?
+                            <div>
+                                {src && (
+                                    <ReactCrop
+                                        src={src}
+                                        crop={crop}
+                                        ruleOfThirds
+                                        onImageLoaded={this.onImageLoaded}
+                                        onComplete={this.onCropComplete}
+                                        onChange={this.onCropChange}
+                                    />
+                                )}
+                                <br />
+                                {croppedImageUrl && (
+                                    <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
+                                )}
+                            </div>
+                            : null}
 
-                <br />
-                <button className='profilesubbutton'>Submit</button>
-                </form>
-            </div>
+                        <br />
+                        <button className='profilesubbutton'>Submit</button>
+                    </form>
+                </div>
             </div>
         )
     }

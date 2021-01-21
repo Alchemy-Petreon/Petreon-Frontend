@@ -28,9 +28,9 @@ export default class PetInformation extends Component {
 
                 <Link to={`/pets/${this.state.pet.id}`}>
                     <img
-                    src={this.state.pet.petProfilePicture}
-                    className="petdashpic"
-                    alt={this.state.pet.petName} />
+                        src={this.state.pet.petProfilePicture}
+                        className="petdashpic"
+                        alt={this.state.pet.petName} />
                 </Link>
 
                 <h6 className='petdashdescription'>{this.state.pet.petProfileDescription}</h6>
@@ -40,7 +40,7 @@ export default class PetInformation extends Component {
                 <Link to={`/pets/${this.props.petId}`}>
                     <span className='details-link'>Go to Pet Profile</span>
                 </Link>
-                
+
                 <Link to={`/update-pet/${this.props.petId}`}>
                     <button>Update Pet</button>
                 </Link>
