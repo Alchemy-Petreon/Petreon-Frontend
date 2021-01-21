@@ -10,24 +10,13 @@ export default class PostItem extends Component {
 
     state = {
         loading: false,
-        post: [],
-    }
-    componentDidMount = async () => {
-        await this.setState({ loading: true });
-        const post = await fetchPost(this.props.post.id);
-        this.setState({
-            loading: false,
-            post: post
-        })
-        console.log(this.state.post)
-    }
-    state = {
+
         postLiked: false,
         likeId: ''
     }
-
     componentDidMount = async () => {
 
+        console.log(this.state.post)
         if (this.context.profile.likes.length) {
             const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
 
@@ -38,7 +27,6 @@ export default class PostItem extends Component {
                 })
             }
         }
-
     }
 
 
