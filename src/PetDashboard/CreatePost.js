@@ -81,7 +81,7 @@ export default class CreatePet extends Component {
 
                         <input
                             name='postText'
-                            maxLength='144'
+                            maxLength='500'
                             className='post-text-input'
                             onChange={(e) => this.setState({ postText: e.target.value })}
                             value={this.state.postText} />
