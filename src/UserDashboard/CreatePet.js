@@ -93,12 +93,6 @@ export default class CreatePet extends PureComponent {
         });
     }
 
-    hideCrop = e => {
-        this.setState({
-            petShown: false
-        })
-    }
-
     handleSubmit = async (e) => {
         e.preventDefault();
 

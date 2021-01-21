@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './style/CreatePet.css'
-import { fetchPet } from './fetches/pet-fetches.js';
+import { fetchPet, uploadPetProfilePicture } from './fetches/pet-fetches.js';
 import { MainContext } from './MainContext.js';
-import mime from 'mime-types';
 import { updatePet } from './fetches/pet-fetches';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 
-export default class UpdatePet extends Component {
+export default class UpdatePet extends PureComponent {
     static contextType = MainContext;
 
     state = {
@@ -17,7 +18,12 @@ export default class UpdatePet extends Component {
         petProfileDescription: '',
         loading: false,
         disableSubmit: false,
-    }
+        src: null,
+        crop: {
+            width: 250,
+            aspect: 1 / 1
+        }
+    };
 
     componentDidMount = async () => {
 
@@ -30,11 +36,83 @@ export default class UpdatePet extends Component {
             petName: pet.petName,
             type: pet.type,
             petProfilePicture: pet.petProfilePicture,
+            //
+            croppedImageUrl: pet.petProfilePicture,
+            //
             petProfilePictureFile: pet.petProfilePictureFile,
             petProfileDescription: pet.petProfileDescription,
             loading: false,
         })
     };
+
+    onSelectFile = e => {
+        if (e.target.files && e.target.files.length > 0) {
+            const reader = new FileReader();
+            reader.addEventListener('load', () => 
+                this.setState({
+                    src: reader.result
+                })
+            );
+            reader.readAsDataURL(e.target.files[0])
+        }
+    };
+
+    onImageLoaded = image => {
+        this.imageRef = image;
+    };
+
+    onCropComplete = crop => {
+        this.makeClientCrop(crop);
+    };
+
+    onCropChange = (crop) => {
+        this.setState({ crop })
+    };
+
+    async makeClientCrop(crop) {
+        if (this.imageRef && crop.width && crop.height) {
+            const { url, blob } = await this.getCroppedImg(
+                this.imageRef,
+                crop,
+                'newFile.jpeg'
+            );
+        this.setState({ croppedImageUrl: url, blob })
+        }
+    }
+
+    getCroppedImg(image, crop, fileName) {
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        const ctx = canvas.getContext('2d');
+
+        ctx.drawImage(
+            image,
+            crop.x * scaleX,
+            crop.y * scaleY,
+            crop.width * scaleX,
+            crop.height * scaleY,
+            0,
+            0,
+            crop.width,
+            crop.height
+        );
+
+        return new Promise((resolve) => {
+            canvas.toBlob(blob => {
+                if (!blob) {
+                    console.error('Canvas is empty');
+                    return;
+                }
+                blob.name = fileName;
+                window.URL.revokeObjectURL(this.fileUrl);
+                const url = window.URL.createObjectURL(blob);
+                resolve({ url, blob });
+            }, 'image/jpeg')
+        });
+    }
 
     handleSubmit = async (e) => {
         e.preventDefault();
@@ -53,44 +131,33 @@ export default class UpdatePet extends Component {
             petProfilePicture: this.state.petProfilePicture,
             petProfilePictureFile: this.state.petProfilePictureFile,
             petProfileDescription: this.state.petProfileDescription
-
         }
 
-        await updatePet(this.props.match.params.id, newPet);
-        // if (petFiles.get('petProfilePicture')) {
-        //     const profilePicture = new FormData()
+        let petUpdate = await updatePet(this.props.match.params.id, newPet);
 
-        //     profilePicture.append('petProfilePicture', petFiles.get('petProfilePicture'))
+        if (petFiles.get('petProfilePicture')) {
+            const profilePicture = new FormData();
 
-        //     await uploadPetProfilePicture(petInfo.id, profilePicture);
+            profilePicture.append('petProfilePicture', this.state.blob)
 
-        // }
+            await uploadPetProfilePicture(petUpdate.id, profilePicture);
+        }
+        
+        this.setState({
+            loading: false
+        })
 
         this.props.history.push('/userdash')
-
     };
 
-    handlePictureChange = async (e) => {
-        const mediaType = mime.lookup(e.target.value)
-
-        if (mediaType.split('/')[0] === 'image') {
-            await this.setState({
-                petProfilePictureFile: e.target.value,
-                petProfilePicture: URL.createObjectURL(e.target.files[0])
-            })
-
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ petPictureFile: '' })
-        }
-
-    }
-
     render() {
+        const { crop, croppedImageUrl, src } = this.state;
+
         return (
             <div className='create-pet-page'>
 
                 <div className='cppnaplesyellow'> </div>
+
                 { this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
@@ -101,7 +168,7 @@ export default class UpdatePet extends Component {
                             <div>
                                 <div className='upload-image-frame'>
                                     <img
-                                        src={this.state.petProfilePicture}
+                                        src={croppedImageUrl}
                                         key={Date.now()}
                                         alt=''
                                         className="petprofilepicupload"
@@ -113,20 +180,35 @@ export default class UpdatePet extends Component {
                                     name="petProfilePicture"
                                     accept='image/*'
                                     className="petprofilepicsubmit"
-                                    onChange={(e) => this.handlePictureChange(e)}
-                                    value={this.state.petProfilePictureFile}
+                                    onChange={this.onSelectFile}
                                 />
+
+                                <div>
+                                    {src && (
+                                        <ReactCrop
+                                            className='petpicpreview'
+                                            src={src}
+                                            crop={crop}
+                                            ruleOfThirds
+                                            onImageLoaded={this.onImageLoaded}
+                                            onComplete={this.onCropComplete}
+                                            onChange={this.onCropChange
+                                            }
+                                        />
+                                    )}
+                                </div>
                             </div>
 
                             <div className='petnamediv'>
                                 <h5 className='petnameheader'>Pet Name</h5>
                                 <input
                                     name='petName'
-                                    maxLength='144'
+                                    maxLength='30'
                                     className='petnameupload'
                                     placeholder={this.state.petName}
                                     onChange={(e) => this.setState({ petName: e.target.value })}
-                                    value={this.state.petName} />
+                                    value={this.state.petName}
+                                    />
                             </div>
 
                             <div className="typechoicediv">
@@ -150,11 +232,12 @@ export default class UpdatePet extends Component {
                                 <textarea
                                     rows="1"
                                     name='petProfileDescription'
-                                    maxLength='750'
+                                    maxLength='260'
                                     className='petdesc'
                                     placeholder={this.state.petProfileDescription}
                                     onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
-                                    value={this.state.petProfileDescription} />
+                                    value={this.state.petProfileDescription}
+                                    />
                             </div>
 
                             <br />

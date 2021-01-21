@@ -27,15 +27,14 @@ export default class Browse extends Component {
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
-                    this.state.subscriptions 
-                        ?
+                    this.state.subscriptions[0] ?
                         this.state.subscriptions.map(subscription =>
-                            <Link to={`/posts/${subscription.id}`}> 
+                            <Link to={`/posts/${subscription.id}`}>
                                 <div className='subscription-box' key={subscription.id}>
-                                    <img 
-                                        className='subscription-image' 
-                                        src={subscription.mediaURL} 
-                                        alt={subscription.mediaURL} 
+                                    <img
+                                        className='subscription-image'
+                                        src={subscription.mediaURL}
+                                        alt={subscription.mediaURL}
                                     />
                                     <div className='sub-box-text'>
                                         <p className='sub-box-petname'>{subscription.petName}</p>
