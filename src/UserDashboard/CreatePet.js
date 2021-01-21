@@ -204,7 +204,7 @@ export default class CreatePet extends PureComponent {
                             <textarea
                                 rows="1"
                                 name='petProfileDescription'
-                                maxLength='550'
+                                maxLength='260'
                                 className='petdesc'
                                 placeholder={this.state.petProfileDescription}
                                 onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
