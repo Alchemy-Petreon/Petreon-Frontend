@@ -9,6 +9,8 @@ import '../style/PetDash.css';
 export default class PetDash extends Component {
     static contextType = MainContext;
 
+
+
     render() {
         return (
             <div className="user-dashboard">
@@ -16,6 +18,7 @@ export default class PetDash extends Component {
                 <div className="naplesyellowud"> </div>
                 <PetInformation
                     petId={this.props.match.params.id}
+                    history={this.props.history}
                 />
 
                 <CreatePost

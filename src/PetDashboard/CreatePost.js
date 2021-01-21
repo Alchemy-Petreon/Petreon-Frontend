@@ -11,11 +11,17 @@ export default class CreatePet extends Component {
         mediaType: '',
         mediaFile: '',
         mediaURL: '',
-        mediaTypeName: ''
+        mediaTypeName: '',
+        loading: false
+
     }
 
     handleSubmit = async (e) => {
+
         e.preventDefault();
+        this.setState({
+            loading: true
+        })
 
         let newMedia = new FormData(e.target)
 
@@ -25,6 +31,7 @@ export default class CreatePet extends Component {
             mediaType: this.state.mediaType,
             postText: this.state.postText
         }
+
 
         let newPostResponse = await createPost(newPost);
 
@@ -51,54 +58,57 @@ export default class CreatePet extends Component {
     render() {
         return (
             <div className='create-post-page'>
+                { this.state.loading
+                    ? <img src={'/loading-spinner.gif'} alt={'spinner'} />
+                    :
 
-                <div className='create-post-box'>
+                    <div className='create-post-box'>
 
-                    <h2 className='create-post-header'> Add New Post</h2>
+                        <h2 className='create-post-header'> Add New Post</h2>
 
-                    <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={this.handleSubmit}>
 
-                        <p className='post-media'>Post Media</p>
+                            <p className='post-media'>Post Media</p>
 
-                        <input
-                            name='mediaFile'
-                            className='post-media-submit'
-                            type='file'
-                            accept="image/*"
-                            onChange={(e) => this.handleFileChange(e)}
-                            value={this.state.mediaFile} />
+                            <input
+                                name='mediaFile'
+                                className='post-media-submit'
+                                type='file'
+                                accept="image/*"
+                                onChange={(e) => this.handleFileChange(e)}
+                                value={this.state.mediaFile} />
 
-                        <br />
+                            <br />
 
-                        {this.state.mediaTypeName === 'image'
-                            ? <img
-                                className='post-preview-image'
-                                alt='post preview'
-                                src={this.state.mediaURL} />
-                            : null}
+                            {this.state.mediaTypeName === 'image'
+                                ? <img
+                                    className='post-preview-image'
+                                    alt='post preview'
+                                    src={this.state.mediaURL} />
+                                : null}
 
-                        {/* {this.state.mediaTypeName === 'video'
+                            {/* {this.state.mediaTypeName === 'video'
                     ? 
                     <div>
                     <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
                     </div>
                         : null} */}
 
-                        <p className='post-text'>Caption</p>
+                            <p className='post-text'>Caption</p>
 
-                        <input
-                            name='postText'
-                            maxLength='144'
-                            className='post-text-input'
-                            onChange={(e) => this.setState({ postText: e.target.value })}
-                            value={this.state.postText} />
+                            <input
+                                name='postText'
+                                maxLength='144'
+                                className='post-text-input'
+                                onChange={(e) => this.setState({ postText: e.target.value })}
+                                value={this.state.postText} />
 
-                        <br />
+                            <br />
 
-                        <button className='create-post-button'>Submit</button>
-                        <br />
-                    </form>
-                </div>
+                            <button className='create-post-button'>Submit</button>
+                            <br />
+                        </form>
+                    </div>}
             </div>
         )
     }
