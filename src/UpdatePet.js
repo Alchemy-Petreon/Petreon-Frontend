@@ -15,23 +15,24 @@ export default class UpdatePet extends Component {
         petProfilePicture: '',
         petProfilePictureFile: '',
         petProfileDescription: '',
-        loading: true,
+        loading: false,
         disableSubmit: false,
     }
 
     componentDidMount = async () => {
 
-        await this.setState({ loading: true });
+        this.setState({ loading: true });
         const pet = await fetchPet(this.props.match.params.id);
 
 
-        await this.setState({
+        this.setState({
             pet: pet,
             petName: pet.petName,
             type: pet.type,
             petProfilePicture: pet.petProfilePicture,
             petProfilePictureFile: pet.petProfilePictureFile,
             petProfileDescription: pet.petProfileDescription,
+            loading: false,
         })
     };
 
@@ -39,7 +40,8 @@ export default class UpdatePet extends Component {
         e.preventDefault();
 
         this.setState({
-            disableSubmit: true
+            disableSubmit: true,
+            loading: true,
         })
 
         const petFiles = new FormData(e.target)
@@ -55,7 +57,6 @@ export default class UpdatePet extends Component {
         }
 
         await updatePet(this.props.match.params.id, newPet);
-
         // if (petFiles.get('petProfilePicture')) {
         //     const profilePicture = new FormData()
 
@@ -90,76 +91,78 @@ export default class UpdatePet extends Component {
             <div className='create-pet-page'>
 
                 <div className='cppnaplesyellow'> </div>
+                { this.state.loading
+                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    :
+                    <div className='cppbox'>
 
-                <div className='cppbox'>
+                        <form onSubmit={this.handleSubmit}>
 
-                    <form onSubmit={this.handleSubmit}>
+                            <div>
+                                <div className='upload-image-frame'>
+                                    <img
+                                        src={this.state.petProfilePicture}
+                                        key={Date.now()}
+                                        alt=''
+                                        className="petprofilepicupload"
+                                    />
+                                </div>
 
-                        <div>
-                            <div className='upload-image-frame'>
-                                <img
-                                    src={this.state.petProfilePicture}
-                                    key={Date.now()}
-                                    alt=''
-                                    className="petprofilepicupload"
+                                <input
+                                    type="file"
+                                    name="petProfilePicture"
+                                    accept='image/*'
+                                    className="petprofilepicsubmit"
+                                    onChange={(e) => this.handlePictureChange(e)}
+                                    value={this.state.petProfilePictureFile}
                                 />
                             </div>
 
-                            <input
-                                type="file"
-                                name="petProfilePicture"
-                                accept='image/*'
-                                className="petprofilepicsubmit"
-                                onChange={(e) => this.handlePictureChange(e)}
-                                value={this.state.petProfilePictureFile}
-                            />
-                        </div>
+                            <div className='petnamediv'>
+                                <h5 className='petnameheader'>Pet Name</h5>
+                                <input
+                                    name='petName'
+                                    maxLength='144'
+                                    className='petnameupload'
+                                    placeholder={this.state.petName}
+                                    onChange={(e) => this.setState({ petName: e.target.value })}
+                                    value={this.state.petName} />
+                            </div>
 
-                        <div className='petnamediv'>
-                            <h5 className='petnameheader'>Pet Name</h5>
-                            <input
-                                name='petName'
-                                maxLength='144'
-                                className='petnameupload'
-                                placeholder={this.state.petName}
-                                onChange={(e) => this.setState({ petName: e.target.value })}
-                                value={this.state.petName} />
-                        </div>
+                            <div className="typechoicediv">
+                                <h5 className='typeheader'>Pet Type</h5>
+                                <select
+                                    name='type'
+                                    className='typedropdown'
+                                    onChange={(e) => this.setState({ type: e.target.value })}>
+                                    <option value='cat'>Cat</option>
+                                    <option value='dog'>Dog</option>
+                                    <option value='reptile'>Reptile</option>
+                                    <option value='amphibian'>Amphibian</option>
+                                    <option value='fish'>Fish</option>
+                                    <option value='rodent'>Rodent</option>
+                                    <option value='other'>Other</option>
+                                </select>
+                            </div>
 
-                        <div className="typechoicediv">
-                            <h5 className='typeheader'>Pet Type</h5>
-                            <select
-                                name='type'
-                                className='typedropdown'
-                                onChange={(e) => this.setState({ type: e.target.value })}>
-                                <option value='cat'>Cat</option>
-                                <option value='dog'>Dog</option>
-                                <option value='reptile'>Reptile</option>
-                                <option value='amphibian'>Amphibian</option>
-                                <option value='fish'>Fish</option>
-                                <option value='rodent'>Rodent</option>
-                                <option value='other'>Other</option>
-                            </select>
-                        </div>
+                            <div className='petdescdiv'>
+                                <h5 className='petdescheader'>Pet Profile Description:</h5>
+                                <textarea
+                                    rows="1"
+                                    name='petProfileDescription'
+                                    maxLength='750'
+                                    className='petdesc'
+                                    placeholder={this.state.petProfileDescription}
+                                    onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
+                                    value={this.state.petProfileDescription} />
+                            </div>
 
-                        <div className='petdescdiv'>
-                            <h5 className='petdescheader'>Pet Profile Description:</h5>
-                            <textarea
-                                rows="1"
-                                name='petProfileDescription'
-                                maxLength='750'
-                                className='petdesc'
-                                placeholder={this.state.petProfileDescription}
-                                onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
-                                value={this.state.petProfileDescription} />
-                        </div>
+                            <br />
 
-                        <br />
-
-                        <button className='create-pet-button' disabled={this.state.disableSubmit}>Save Changes</button>
-                        <br />
-                    </form>
-                </div>
+                            <button className='create-pet-button' disabled={this.state.disableSubmit}>Save Changes</button>
+                            <br />
+                        </form>
+                    </div>}
             </div>
         )
     }
