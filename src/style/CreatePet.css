@@ -60,7 +60,7 @@
 }
 
 .petprofilepicsubmit::before {
-    content: 'Update Pet Picture';
+    content: 'Upload Pet Picture';
     font-family: Burma-Soft;
     font-size: 14pt;
     padding: 10px;
