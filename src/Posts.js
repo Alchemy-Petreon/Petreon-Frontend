@@ -15,13 +15,11 @@ export default class Posts extends Component {
         allPosts: [],
     }
     componentDidMount = async () => {
-        console.log('this is posts.js', this.props.userId)
         await this.setState({ loading: true });
         this.setState({
             loading: false,
             allPosts: this.props.posts
         })
-        console.log(this.props.posts)
     };
 
     handleDelete = async (id, postId) => {
@@ -37,7 +35,7 @@ export default class Posts extends Component {
             //     allPosts: allPosts
             // })
         } else {
-            alert('You can not delete someone elses post')
+            alert(`You can not delete someone else's post`)
         }
     }
 

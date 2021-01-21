@@ -23,14 +23,12 @@ export default class PetDetails extends Component {
         const isSubscribed = await subscribedToPet(pet.id)
         const user = await fetchUser(pet.userId)
 
-
         this.setState({
             loading: false,
             pet: pet,
             isSubscribed,
             user
         })
-        console.log('petinfo', pet)
     };
 
     handleSubscribe = async (petId) => {
@@ -41,9 +39,7 @@ export default class PetDetails extends Component {
             isSubscribed,
             loading: false
         })
-        console.log(this.state)
-
-    }
+    };
 
     handleUnsubscribe = async (petId) => {
         await this.setState({ loading: true })
@@ -52,8 +48,7 @@ export default class PetDetails extends Component {
             isSubscribed,
             loading: false
         })
-        console.log(this.state)
-    }
+    };
 
 
     render() {
