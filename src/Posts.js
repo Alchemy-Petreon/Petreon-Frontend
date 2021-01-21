@@ -64,7 +64,7 @@ export default class Posts extends Component {
                                     <div className='post-div-naplesyellow'> </div>
                                 </div>
                             </div> :
-                            <></>)
+                            <div></div>)
 
 
                 }
