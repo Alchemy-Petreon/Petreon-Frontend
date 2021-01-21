@@ -19,7 +19,7 @@ export default class Header extends Component {
         this.context.logOut();
         this.context.setProfile({ 'profile': 'empty' });
         await logoutUser();
-        // this.props.history.push('/')
+        this.props.history.push('/')
     }
 
     render() {
