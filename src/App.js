@@ -22,16 +22,27 @@ import { MainContext } from './MainContext';
 import UserProfile from './UserProfile';
 import UpdatePost from './UpdatePost'
 import UpdatePet from './UpdatePet'
+import PrivateRoute from './PrivateRoute'
 export default class App extends Component {
   state = {
     profile: JSON.parse(localStorage.getItem('profile')),
-    loggedIn: false,
+    loggedIn: localStorage.getItem('loggedIn') || false,
     setProfile: (profile) => {
       this.setState(profile);
       localStorage.setItem('profile', JSON.stringify(profile));
     },
-    logOut: () => this.setState({ loggedIn: false }),
-    logIn: () => this.setState({ loggedIn: true })
+    logOut: () => {
+      this.setState({ loggedIn: false });
+      localStorage.setItem('loggedIn', false)
+    },
+    logIn: () => {
+      this.setState({ loggedIn: true });
+      localStorage.setItem('loggedIn', true)
+    }
+  }
+
+  componentDidMount = async () => {
+    await this.state.setProfile(JSON.parse(localStorage.getItem('profile')))
   }
 
   render() {
@@ -58,62 +69,74 @@ export default class App extends Component {
                 />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/browse"
-                exact render={(routerProps) => <Browse {...routerProps} />}
+                token={this.state.loggedIn}
+                exact render={(routerProps) => <Browse {...routerProps}
+                />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/pets/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <PetDetails {...routerProps}
                 />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/posts/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <PostDetails {...routerProps}
                 />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/createpet"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <CreatePet {...routerProps}
                 />}
               />
-              <Route
+              <PrivateRoute
                 path="/petdash/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <PetDash {...routerProps}
                 />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/aboutus"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <AboutUs {...routerProps} />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/userdash"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <UserDash {...routerProps}
                 />}
               />
 
-              <Route
+              <PrivateRoute
                 path="/createpost/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <CreatePost {...routerProps}
                 />}
               />
-              <Route
+              <PrivateRoute
                 path="/update-post/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <UpdatePost {...routerProps}
                 />}
               />
-              <Route
+              <PrivateRoute
                 path="/update-pet/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <UpdatePet {...routerProps}
                 />}
               />
-              <Route
+              <PrivateRoute
                 path="/user/:id"
+                token={this.state.loggedIn}
                 exact render={(routerProps) => <UserProfile {...routerProps}
                 />}
               />

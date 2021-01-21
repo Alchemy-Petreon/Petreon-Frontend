@@ -9,9 +9,7 @@ import { logoutUser } from './fetches/user-fetches';
 export default class Header extends Component {
     static contextType = MainContext;
 
-    componentDidMount = async () => {
-        await this.context.setProfile(JSON.parse(localStorage.getItem('profile')))
-    }
+
 
     handleSeed = async () => {
         await seedData();

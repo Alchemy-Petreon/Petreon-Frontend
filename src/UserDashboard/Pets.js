@@ -11,6 +11,7 @@ export default class Pets extends Component {
     }
 
     componentDidMount = async () => {
+        console.log(this.context.profile.id)
         const petArray = await fetchUserPets(this.context.profile.id)
 
         await this.setState({
