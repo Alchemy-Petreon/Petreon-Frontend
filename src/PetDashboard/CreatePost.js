@@ -77,7 +77,7 @@ export default class CreatePet extends Component {
                                 src={this.state.mediaURL} />
                             : null}
 
-                        <p className='post-text'>Caption</p>
+                        <p className='caption-header'>Caption</p>
 
                         <input
                             name='postText'
