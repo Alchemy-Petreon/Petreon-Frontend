@@ -15,11 +15,15 @@ export default class UserDash extends Component {
             <div>
                 <div className="udbittersweet"> </div>
                 <div className="udnaplesyellow"> </div>
-                <div className="userandpets">
-                    <UserInformation
-                        user={this.context.profile} />
-                    <Pets />
-                    <Subscriptions />
+                <div className='full-user-dash'>
+                    <div>
+                        <UserInformation
+                            user={this.context.profile} />
+                        <Pets />
+                    </div>
+                    <div>
+                        <Subscriptions />
+                    </div>
                 </div>
             </div>
         )

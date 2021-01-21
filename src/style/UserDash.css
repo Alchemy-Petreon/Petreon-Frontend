@@ -8,11 +8,14 @@
     border-top: solid 10px #FFE66D;
 }
 
+.full-user-dash {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: 2%;
+}
+
 .uinfo {
-    position: relative;
-    height: 100%;
     width: 250px;
-    margin-left: 1%;
     text-align: center;
 }
 
@@ -23,7 +26,6 @@
     font-size: 25pt;
     color: #1A535C;
 }
-
 
 .un {
     font-family: Excalibur;
@@ -101,15 +103,13 @@
 }
 
 .petsdisplay {
-    position: relative;
-    height: 100%;
     width: 250px;
-    margin-left: 1%;
     text-align: center;
 }
 
 .petsheader {
-    margin-bottom: 2%;
+    margin-top: 0;
+    margin-bottom: 5%;
     font-family: Excalibur;
     font-size: 20pt;
     color: #FF6B6B;
@@ -123,12 +123,12 @@
 }
 
 .add-pet-button {
-    width: 75px;
-    height: 75px;
+    width: 100px;
+    height: 100px;
     font-family: Burma;
     font-size: 14pt;
     text-align: center;
-    line-height: 75px;
+    line-height: 100px;
     color: #F7FFF7;
     background-color: #1A535C;
     border: none;
@@ -150,7 +150,6 @@
 .petthumbnailimg {
     width: 100px;
     height: 100px;
-    object-fit: cover;
     border: solid 2px #FF6B6B;
     border-radius: 5px;
 }
@@ -163,11 +162,10 @@
 }
 
 .subscription-list {
+    margin-left: 5%;
     display: flex;
     flex-direction: column;
     position: absolute;
-    margin-left: 325px;
-    margin-top: -700px;
     margin-bottom: 5%;
     width: 70%;
     padding-top: 2%;
@@ -186,16 +184,16 @@
 }
 
 .subscription-image{
+    align-self: center;
     margin-left: 0;
     margin-right: 2%;
-    width: 400px;
+    width: 50%;
     border: solid 5px #FF6B6B;
     border-radius: 10px;
 }
 
 .sub-box-petname {
     margin-top: 0;
-    word-wrap: break-word;
     font-family: Excalibur;
     font-size: 25pt;
     color: #FF6B6B;
@@ -205,5 +203,5 @@
 .sub-box-text {
     color: #1A535C;
     font-size: 20pt;
-    word-wrap: break-word;
+    width: 40%;
 }

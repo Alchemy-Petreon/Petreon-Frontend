@@ -37,9 +37,9 @@ export default class Browse extends Component {
                                         src={subscription.mediaURL} 
                                         alt={subscription.mediaURL} 
                                     />
-                                    <div>
+                                    <div className='sub-box-text'>
                                         <p className='sub-box-petname'>{subscription.petName}</p>
-                                        <p className='sub-box-text'>{subscription.postText}</p>
+                                        <p>{subscription.postText}</p>
                                     </div>
                                 </div>
                             </Link>)
