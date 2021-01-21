@@ -63,6 +63,13 @@
     border-radius: 100px;
 }
 
+.qrcode-text {
+    margin-bottom: 2%;
+    font-family: Burma-Soft;
+    font-size: 16pt;
+    color: #1A535C;
+}
+
 .post-item-box {
     width: 100%;
 }
