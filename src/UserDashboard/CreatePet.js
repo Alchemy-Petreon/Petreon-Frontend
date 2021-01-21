@@ -169,14 +169,6 @@ export default class CreatePet extends PureComponent {
                                         onChange={this.onCropChange}
                                     />
                                 )}
-                                <br />
-                                {/* {croppedImageUrl && (
-                                    <img 
-                                        alt='Crop'
-                                        style={{ maxWidth: '100%' }}
-                                        src={croppedImageUrl}
-                                    />
-                                )} */}
                             </div> 
                         </div>
 
