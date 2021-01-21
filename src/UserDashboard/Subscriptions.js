@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { fetchSubscriptions } from '../fetches/post-fetches.js'
-import '../style/Subscriptions.css';
 import { Link } from 'react-router-dom'
 
 
