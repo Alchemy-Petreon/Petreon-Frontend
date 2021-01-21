@@ -160,22 +160,47 @@
 }
 
 .subscription-list {
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    margin-left: 300px;
+    margin-left: 325px;
     margin-top: -700px;
+    margin-bottom: 5%;
     width: 70%;
-}
-
-.subscription-image{
-    margin-bottom: 15px;
-    width: 500px;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 .subscription-box{
-    border: solid black 1px;
-    margin: 20px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    flex-flow: row wrap;
+    border: solid 5px #1A535C;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #F7FFF7;
+    margin-bottom: 2%;
+    word-wrap: break-word;
+}
+
+.subscription-image{
+    margin-left: 0;
+    margin-right: 2%;
+    width: 400px;
+    border: solid 5px #FF6B6B;
+    border-radius: 10px;
+}
+
+.sub-box-petname {
+    margin-top: 0;
+    word-wrap: break-word;
+    font-family: Excalibur;
+    font-size: 25pt;
+    color: #FF6B6B;
+    text-shadow: 1px 1px 0px #FFE66D;
+}
+
+.sub-box-text {
+    color: #1A535C;
+    font-size: 20pt;
+    word-wrap: break-word;
 }
