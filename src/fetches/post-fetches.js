@@ -83,3 +83,30 @@ export async function fetchSubscriptions() {
         throw err;
     }
 }
+
+export async function addLike(postId) {
+    try {
+        const response = await request
+            .post(`${URL}api/v1/likes/${postId}`)
+            .withCredentials()
+
+        console.log('_+_+_+_+_+_+_+_++_+_+_')
+        console.log('response.body')
+        console.log(response.body)
+        console.log('_+_+_+_+_+_+_+_++_+_+_')
+        return response.body
+    } catch (err) {
+        throw err;
+    }
+}
+
+export async function deleteLike(likeId) {
+    try {
+        const response = await request
+            .delete(`${URL}api/v1/likes/${likeId}`)
+            .withCredentials()
+        return response.body
+    } catch (err) {
+        throw err;
+    }
+}
