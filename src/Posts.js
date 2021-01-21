@@ -44,7 +44,7 @@ export default class Posts extends Component {
 
             <div className='post-box'>
                 {  this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
 
 
