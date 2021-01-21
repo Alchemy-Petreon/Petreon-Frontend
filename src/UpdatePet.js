@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './style/CreatePets.css'
+import './style/CreatePet.css'
 import { fetchPet, uploadPetProfilePicture } from './fetches/pet-fetches.js';
 import { MainContext } from './MainContext.js';
 import mime from 'mime-types';

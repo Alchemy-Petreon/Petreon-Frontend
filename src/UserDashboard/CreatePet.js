@@ -127,13 +127,6 @@ export default class CreatePet extends PureComponent {
         this.props.history.push('/userdash');
     }
 
-    // handlePictureChange = async (e) => {
-    //         await this.setState({
-    //             petProfilePictureFile: e.target.value,
-    //             petProfilePictureURL: URL.createObjectURL(e.target.files[0])
-    //         })
-    // }
-
     render() {
         const { crop, croppedImageUrl, src } = this.state;
 
@@ -162,7 +155,6 @@ export default class CreatePet extends PureComponent {
                                 accept='image/*'
                                 className="petprofilepicsubmit"
                                 onChange={this.onSelectFile}
-                                // value={this.state.petProfilePictureFile}
                             />
 
                             <div>
