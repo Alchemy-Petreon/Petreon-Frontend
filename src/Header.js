@@ -35,9 +35,9 @@ export default class Header extends Component {
                 <input type="text" placeholder="Search..." className="search" />
 
                 <button className="button1">
-                    <img 
-                        src="/loupe.png" 
-                        alt="Search" 
+                    <img
+                        src="/loupe.png"
+                        alt="Search"
                         className="glass" />
                 </button>
 
@@ -51,7 +51,7 @@ export default class Header extends Component {
                                 style={{
                                     height: '60px',
                                     borderRadius: '50px'
-                            }}
+                                }}
                             />
                         </Link>
 
@@ -62,7 +62,7 @@ export default class Header extends Component {
                         </button>
                     </div>
                     :
-                    <a href="https://petreon-api.herokuapp.com/api/v1/auth/google" className="login">Log In / Sign Up</a>
+                    <a href="https://petreon-alchemy.herokuapp.com/api/v1/auth/google" className="login">Log In / Sign Up</a>
                 }
             </div>
         )

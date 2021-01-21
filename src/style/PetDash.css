@@ -70,6 +70,15 @@
     border: none;
 }
 
+.delete-pet-button {
+    margin-top: 9%;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    color: black;
+    background-color: #FF6B6B;
+    border: none;
+}
+
 .create-post-page {
     width: 65%;
     position: absolute;

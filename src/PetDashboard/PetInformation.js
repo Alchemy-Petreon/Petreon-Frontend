@@ -50,6 +50,7 @@ export default class PetInformation extends Component {
                     <Link to={`/update-pet/${this.props.petId}`}>
                         <button className='update-pet-button'>Update Pet</button>
                     </Link>
+                    
                     <button className='delete-pet-button'
                         onClick={this.handleDelete}>Delete Pet</button>
                 </div>
