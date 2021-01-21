@@ -46,7 +46,7 @@ export default class ProfilePictureUpload extends PureComponent {
             const { url, blob } = await this.getCroppedImg(
                 this.imageRef,
                 crop,
-                'newFile.jpeg'
+                'newFile.png'
             );
             this.setState({ croppedImageUrl: url, blob })
         }
@@ -83,7 +83,7 @@ export default class ProfilePictureUpload extends PureComponent {
                 window.URL.revokeObjectURL(this.fileUrl);
                 const url = window.URL.createObjectURL(blob);
                 resolve({ url, blob });
-            }, 'image/jpeg');
+            }, 'image/png');
         });
     }
 
@@ -102,7 +102,7 @@ export default class ProfilePictureUpload extends PureComponent {
     }
 
     render() {
-        const { crop, croppedImageUrl, src } = this.state;
+        const { crop, src } = this.state;
 
         return (
             <div>
@@ -128,10 +128,6 @@ export default class ProfilePictureUpload extends PureComponent {
                             onComplete={this.onCropComplete}
                             onChange={this.onCropChange}
                         />
-                    )}
-                    <br />
-                    {croppedImageUrl && (
-                        <img alt="Crop" style={{ maxWidth: '100%' }} src={croppedImageUrl} />
                     )}
                 </div>
                 : null}
