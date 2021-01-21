@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import './style/CreatePets.css'
-import { fetchPet, uploadPetBanner, uploadPetProfilePicture } from './fetches/pet-fetches.js';
+import { fetchPet, uploadPetProfilePicture } from './fetches/pet-fetches.js';
 import { MainContext } from './MainContext.js';
 import mime from 'mime-types';
 import { updatePet } from './fetches/pet-fetches';
 
-export default class CreatePet extends Component {
+export default class UpdatePet extends Component {
     static contextType = MainContext;
 
     state = {
         pet: [],
         petName: '',
-        bannerPicture: '',
-        bannerPictureFile: '',
         type: '',
         petProfilePicture: '',
         petProfilePictureFile: '',
@@ -30,14 +28,11 @@ export default class CreatePet extends Component {
         await this.setState({
             pet: pet,
             petName: pet.petName,
-            bannerPicture: pet.bannerPicture,
-            bannerPictureFile: pet.bannerPictureFile,
             type: pet.type,
             petProfilePicture: pet.petProfilePicture,
             petProfilePictureFile: pet.petProfilePictureFile,
             petProfileDescription: pet.petProfileDescription,
         })
-        console.log('petinfo', pet)
     };
 
     handleSubmit = async (e) => {
@@ -55,14 +50,11 @@ export default class CreatePet extends Component {
             type: this.state.type,
             petProfilePicture: this.state.petProfilePicture,
             petProfilePictureFile: this.state.petProfilePictureFile,
-            petProfileDescription: this.state.petProfileDescription,
-            bannerPicture: this.state.bannerPicture,
+            petProfileDescription: this.state.petProfileDescription
 
         }
 
         await updatePet(this.props.match.params.id, newPet);
-
-        console.log(petFiles.get('petProfilePicture'))
 
         // if (petFiles.get('petProfilePicture')) {
         //     const profilePicture = new FormData()
@@ -74,31 +66,8 @@ export default class CreatePet extends Component {
         // }
 
         this.props.history.push('/userdash')
-        // if (petFiles.get('bannerPicture')) {
-        //     const bannerPicture = new FormData()
 
-        //     bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
-
-        //     await uploadPetBanner(petInfo.id, bannerPicture);
-    }
-    // this.props.history.push('/userdash');
-
-
-
-    handleBannerChange = (e) => {
-        const mediaType = mime.lookup(e.target.value)
-
-        if (mediaType.split('/')[0] === 'image') {
-            this.setState({
-                bannerPictureFile: e.target.value,
-                bannerPicture: URL.createObjectURL(e.target.files[0])
-
-            })
-        } else {
-            window.alert('INVALID MEDIA TYPE');
-            this.setState({ bannerPictureFile: '' })
-        }
-    }
+    };
 
     handlePictureChange = async (e) => {
         const mediaType = mime.lookup(e.target.value)
@@ -125,24 +94,6 @@ export default class CreatePet extends Component {
                 <div className='cppbox'>
 
                     <form onSubmit={this.handleSubmit}>
-
-                        <div>
-                            <img
-                                src={this.state.bannerPicture}
-                                alt='banner'
-                                className="petcreatebanner" />
-                        </div>
-
-                        <div>
-                            <input
-                                type="file"
-                                accept='image/*'
-                                name="bannerPicture"
-                                className="bannerpicturesubmit"
-                                onChange={(e) => this.handleBannerChange(e)}
-                                value={this.state.bannerPictureFile}
-                            />
-                        </div>
 
                         <div>
                             <div className='upload-image-frame'>

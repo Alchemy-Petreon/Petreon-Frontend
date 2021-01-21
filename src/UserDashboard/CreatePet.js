@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import '../style/CreatePets.css'
 import { createPet, uploadPetBanner, uploadPetProfilePicture } from '../fetches/pet-fetches.js';
 import { MainContext } from '../MainContext.js';
-import mime from 'mime-types';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css'
 
-export default class CreatePet extends Component {
+export default class CreatePet extends PureComponent {
     static contextType = MainContext;
 
     state = {
         petName: '',
-        bannerPictureURL: 'https://placekitten.com/1300/350',
-        bannerPictureFile: '',
         type: '',
         petProfilePictureURL: 'https://placekitten.com/250/250',
         petProfilePictureFile: '',
@@ -45,23 +44,7 @@ export default class CreatePet extends Component {
             await uploadPetProfilePicture(petInfo.id, profilePicture);
         }
 
-        if (petFiles.get('bannerPicture')) {
-            const bannerPicture = new FormData()
-
-            bannerPicture.append('bannerPicture', petFiles.get('bannerPicture'))
-
-            await uploadPetBanner(petInfo.id, bannerPicture);
-        }
-
         this.props.history.push('/userdash');
-    }
-
-    handleBannerChange = (e) => {
-            this.setState({
-                bannerPictureFile: e.target.value,
-                bannerPictureURL: URL.createObjectURL(e.target.files[0])
-
-            })
     }
 
     handlePictureChange = async (e) => {
@@ -80,24 +63,6 @@ export default class CreatePet extends Component {
                 <div className='cppbox'>
 
                     <form onSubmit={this.handleSubmit}>
-
-                        <div>
-                            <img
-                                src={this.state.bannerPictureURL}
-                                alt='banner'
-                                className="petcreatebanner" />
-                        </div>
-
-                        <div>
-                            <input
-                                type="file"
-                                accept='image/*'
-                                name="bannerPicture"
-                                className="bannerpicturesubmit"
-                                onChange={(e) => this.handleBannerChange(e)}
-                                value={this.state.bannerPictureFile}
-                            />
-                        </div>
 
                         <div>
                             <div className='upload-image-frame'>

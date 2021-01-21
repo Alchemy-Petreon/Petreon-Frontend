@@ -9,11 +9,6 @@ export default class Login extends Component {
         if (this.props.match.params.exisiting === 'true') {
             const exisitingUser = await fetchUserByEmail()
 
-            console.log('}|}|}|}|}|}|}|}|}|}|}|}|}')
-            console.log('exisitingUser')
-            console.log(exisitingUser)
-            console.log('}|}|}|}|}|}|}|}|}|}|}|}|}')
-
             this.context.setProfile({ profile: exisitingUser })
             this.context.logIn();
             this.props.history.push('/userdash')
