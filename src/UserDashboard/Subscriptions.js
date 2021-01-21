@@ -27,8 +27,9 @@ export default class Browse extends Component {
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
-                    this.state.subscriptions[0] ?
-                        this.state.subscriptions.map(subscription =>
+                    // this.state.subscriptions[0] ?
+                    this.state.subscriptions.map(subscription =>
+                        subscription.id !== null ?
                             <Link to={`/posts/${subscription.id}`}>
                                 <div className='subscription-box' key={subscription.id}>
                                     <img
@@ -41,8 +42,9 @@ export default class Browse extends Component {
                                         <p>{subscription.postText}</p>
                                     </div>
                                 </div>
-                            </Link>)
-                        : null
+                            </Link>
+                            : null)
+                    // : null
                 }
 
             </div>
