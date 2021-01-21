@@ -27,16 +27,10 @@ export default class PostItem extends Component {
     }
 
     componentDidMount = async () => {
-        console.log(')_)_)_)_)_)_)_)_)_)_)_)_)_)')
-        console.log('this.context.profile')
-        console.log(this.context.profile)
-        console.log(')_)_)_)_)_)_)_)_)_)_)_)_)_)')
 
         if (this.context.profile.likes.length) {
             const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
 
-            console.log('isLiked:')
-            console.log(isLiked)
             if (isLiked) {
                 await this.setState({
                     postLiked: true,
@@ -44,6 +38,7 @@ export default class PostItem extends Component {
                 })
             }
         }
+
     }
 
 
@@ -52,23 +47,16 @@ export default class PostItem extends Component {
 
         await this.context.setProfile({ profile: user })
 
+        const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
+
         await this.setState({
-            postLiked: true
+            postLiked: true,
+            likeId: isLiked.id
         })
+
     }
 
     handleUnlike = async () => {
-        console.log('+++++++++++++++++++++++++++++++')
-        console.log('')
-        console.log('this.state:')
-        console.log(this.state)
-        console.log('')
-        console.log('this.context.profile')
-        console.log(this.context.profile)
-        console.log('---------------------------------')
-
-
-
 
         const user = await deleteLike(this.state.likeId)
 
