@@ -19,6 +19,8 @@
 }
 
 .petdashname {
+    width: 300px;
+    word-wrap: break-word;
     font-family: Excalibur;
     font-size: 30pt;
     color: #FF6B6B;
@@ -34,6 +36,8 @@
 }
 
 .petdashdescription, .petdashfollowers {
+    width: 300px;
+    word-wrap: break-word;
     font-family: Burma-Soft;
     font-size: 15pt;
     color: #1A535C;
