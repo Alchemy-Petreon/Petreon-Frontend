@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { addLike, deleteLike } from './fetches/post-fetches.js'
-// import { fetchPost } from './fetches/post-fetches.js'
+import { fetchPost } from './fetches/post-fetches.js'
 import { MainContext } from './MainContext.js'
 
 
 export default class PostItem extends Component {
     static contextType = MainContext;
 
-    // state = {
-    //     loading: false,
-    //     post: [],
-    // }
-    // componentDidMount = async () => {
-    //     await this.setState({ loading: true });
-    //     const post = await fetchPost(this.props.post.id);
-    //     this.setState({
-    //         loading: false,
-    //         post: post
-    //     })
-    //     console.log(this.state.post)
-    // }
+    state = {
+        loading: false,
+        post: [],
+    }
+    componentDidMount = async () => {
+        await this.setState({ loading: true });
+        const post = await fetchPost(this.props.post.id);
+        this.setState({
+            loading: false,
+            post: post
+        })
+        console.log(this.state.post)
+    }
     state = {
         postLiked: false,
         likeId: ''
@@ -49,10 +49,12 @@ export default class PostItem extends Component {
 
         const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
 
-        await this.setState({
-            postLiked: true,
-            likeId: isLiked.id
-        })
+        if (isLiked) {
+            await this.setState({
+                postLiked: true,
+                likeId: isLiked.id
+            })
+        }
 
     }
 
