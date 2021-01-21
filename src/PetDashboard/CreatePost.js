@@ -77,13 +77,6 @@ export default class CreatePet extends Component {
                                 src={this.state.mediaURL} />
                             : null}
 
-                        {/* {this.state.mediaTypeName === 'video'
-                    ? 
-                    <div>
-                    <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
-                    </div>
-                        : null} */}
-
                         <p className='post-text'>Caption</p>
 
                         <input
