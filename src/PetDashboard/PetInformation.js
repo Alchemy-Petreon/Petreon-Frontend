@@ -46,10 +46,12 @@ export default class PetInformation extends Component {
                     <Link to={`/pets/${this.props.petId}`}>
                         <button className='details-link'>Go to Pet Profile</button>
                     </Link>
-                    
+
                     <Link to={`/update-pet/${this.props.petId}`}>
                         <button className='update-pet-button'>Update Pet</button>
                     </Link>
+                    <button className='delete-pet-button'
+                        onClick={this.handleDelete}>Delete Pet</button>
                 </div>
             </div>
         )
