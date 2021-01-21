@@ -87,21 +87,14 @@ export default class CreatePet extends Component {
                                     src={this.state.mediaURL} />
                                 : null}
 
-                            {/* {this.state.mediaTypeName === 'video'
-                    ? 
-                    <div>
-                    <video src={this.state.mediaURL} width='100%' height='100%' controls type='video/quicktime'/>
-                    </div>
-                        : null} */}
+                        <p className='caption-header'>Caption</p>
 
-                            <p className='post-text'>Caption</p>
-
-                            <input
-                                name='postText'
-                                maxLength='144'
-                                className='post-text-input'
-                                onChange={(e) => this.setState({ postText: e.target.value })}
-                                value={this.state.postText} />
+                        <input
+                            name='postText'
+                            maxLength='500'
+                            className='post-text-input'
+                            onChange={(e) => this.setState({ postText: e.target.value })}
+                            value={this.state.postText} />
 
                             <br />
 

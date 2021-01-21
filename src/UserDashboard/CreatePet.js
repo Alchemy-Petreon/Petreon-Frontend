@@ -186,7 +186,7 @@ export default class CreatePet extends PureComponent {
                                     <h5 className='petnameheader'>Pet Name</h5>
                                     <input
                                         name='petName'
-                                        maxLength='144'
+                                        maxLength='30'
                                         className='petnameupload'
                                         placeholder={this.state.petName}
                                         onChange={(e) => this.setState({ petName: e.target.value })}
@@ -216,7 +216,7 @@ export default class CreatePet extends PureComponent {
                                     <textarea
                                         rows="1"
                                         name='petProfileDescription'
-                                        maxLength='750'
+                                        maxLength='260'
                                         className='petdesc'
                                         placeholder={this.state.petProfileDescription}
                                         onChange={(e) => this.setState({ petProfileDescription: e.target.value })}

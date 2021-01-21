@@ -59,7 +59,8 @@ h2 {
 }
 
 .lp1 {
-    margin-top: 0px;
+    margin-top: -30px;
+    font-size: 24pt;
     width: 45%;
     text-align: justify;
 }
@@ -106,6 +107,7 @@ h2 {
 }
 
 .lp2 {
+    margin-top: -30px;
     text-align: right;
     margin-left: 55%;
     width: 40%;
@@ -153,14 +155,15 @@ h2 {
 }
 
 .lp3 {
-    margin-top: 0px;
+    margin-top: -30px;
     width: 45%;
     text-align: justify;
 }
 
 .wallace {
     float: right;
-    margin-top: -295px;
+    margin-top: -225px;
+    margin-bottom: 7%;
     width: 375px;
     height: 375px;
     object-fit: cover;

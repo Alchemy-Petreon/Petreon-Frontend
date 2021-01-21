@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { fetchSubscriptions } from '../fetches/post-fetches.js'
-import '../style/Subscriptions.css';
 import { Link } from 'react-router-dom'
 
 
@@ -9,7 +8,8 @@ export default class Browse extends Component {
     state = {
         loading: false,
         subscriptions: [],
-    }
+    };
+
     componentDidMount = async () => {
         await this.setState({ loading: true });
         const subscriptions = await fetchSubscriptions();
@@ -27,16 +27,23 @@ export default class Browse extends Component {
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} alt={''} />
                     :
-                    this.state.subscriptions ?
+                    this.state.subscriptions 
+                        ?
                         this.state.subscriptions.map(subscription =>
-                            <Link to={`/posts/${subscription.id}`}> <div className='subscription-box' key={subscription.id}>
-                                <p>Posted By: {subscription.petName}</p>
-                                <p>{subscription.postText}</p>
-                                <img className='subscription-image' src={subscription.mediaURL} alt={subscription.mediaURL} />
-
-
-                            </div></Link>)
-                        : <div></div>
+                            <Link to={`/posts/${subscription.id}`}> 
+                                <div className='subscription-box' key={subscription.id}>
+                                    <img 
+                                        className='subscription-image' 
+                                        src={subscription.mediaURL} 
+                                        alt={subscription.mediaURL} 
+                                    />
+                                    <div className='sub-box-text'>
+                                        <p className='sub-box-petname'>{subscription.petName}</p>
+                                        <p>{subscription.postText}</p>
+                                    </div>
+                                </div>
+                            </Link>)
+                        : null
                 }
 
             </div>

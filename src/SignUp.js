@@ -65,7 +65,7 @@ export default class SignUp extends Component {
                         <input
                             className='userinput'
                             name="userName"
-                            maxLength="35"
+                            maxLength="25"
                             onChange={(e) => this.setState({ userName: e.target.value })}
                             value={this.state.userName}
                         />
@@ -74,7 +74,7 @@ export default class SignUp extends Component {
                         <input
                             className='nameinput'
                             name="firstName"
-                            maxLength="35"
+                            maxLength="15"
                             onChange={(e) => this.setState({ firstName: e.target.value })}
                             value={this.state.firstName}
                         />
