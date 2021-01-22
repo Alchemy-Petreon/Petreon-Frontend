@@ -31,10 +31,14 @@ export default class UserProfile extends Component {
                 <div className='user-profile'>
                     <div className='upbittersweet'> </div>
                     <div className='upnaplesyellow'> </div>
+
                     <div className='user-profile-info'>
                         <p className='user-profile-userName'>{this.state.user.userName}</p>
+
                         <img src={this.state.user.profilePicture} className='user-profile-profilePicture' alt='profile' />
+
                         <p className='user-profile-profileDescription'>{this.state.user.profileDescription}</p>
+
                         <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />
                     </div>
 
@@ -44,10 +48,12 @@ export default class UserProfile extends Component {
                         {this.state.petArray.length > 0 ?
                             this.state.petArray.map(pet =>
                                 <div className='user-profile-pets'> 
+                                    <div>
                                     <Link to={`/pets/${pet.id}`}>
                                     <p className='user-profile-petName'>{pet.petName}</p>
                                     <img src={pet.petProfilePicture} className='user-profile-pet-picture' alt='pet' />
                                     </Link>
+                                    </div>
                                 </div>)
                             : null}
                         </div> 
