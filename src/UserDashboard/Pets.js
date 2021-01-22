@@ -11,7 +11,6 @@ export default class Pets extends Component {
     }
 
     componentDidMount = async () => {
-        console.log(this.context.profile.id)
         const petArray = await fetchUserPets(this.context.profile.id)
 
         await this.setState({
@@ -20,8 +19,6 @@ export default class Pets extends Component {
         this.setState({
             loading: false
         })
-        console.log(this.state.petArray)
-
     };
 
     render() {
