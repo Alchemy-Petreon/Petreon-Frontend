@@ -9,7 +9,7 @@ export default class LandingPage extends Component {
             <div className="lp">
 
                 <div className="banner">
-                    <img src="/minimalcolorizing.jpg" alt="kitties" className="landing-banner" />
+                    <img src={`${s3}/minimalcolorizing.jpg`} alt="kitties" className="landing-banner" />
                 </div>
 
                 <div className="colors">
