@@ -26,7 +26,7 @@ import PrivateRoute from './PrivateRoute'
 export default class App extends Component {
   state = {
     profile: JSON.parse(localStorage.getItem('profile')),
-    loggedIn: localStorage.getItem('loggedIn') || false,
+    loggedIn: JSON.parse(localStorage.getItem('loggedIn')) || false,
     setProfile: (profile) => {
       this.setState(profile);
       localStorage.setItem('profile', JSON.stringify(profile));
