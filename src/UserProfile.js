@@ -9,7 +9,6 @@ export default class UserProfile extends Component {
     state = {
         user: {},
         petArray: {}
-
     }
     
     componentDidMount = async () => {
@@ -28,22 +27,26 @@ export default class UserProfile extends Component {
     render() {
         return (
             <section>
-                <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />,
+                <div className='user-profile'>
+                    <div className='user-profile-info'>
+                        <p className='user-profile-userName'>{this.state.user.userName}</p>
+                        <img src={this.state.user.profilePicture} className='user-profile-profilePicture' alt='profile' />
+                        <p className='user-profile-profileDescription'>{this.state.user.profileDescription}</p>
+                        <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />
+                    </div>
 
-                <div>
-                    <p>{this.state.user.firstName}</p>
-                    <p>{this.state.user.userName}</p>
-                    <img src={this.state.user.profilePicture} alt='profile' />
-                    <p>{this.state.user.profileDescription}</p>
-                </div>
-
-                <div>
-                    <p>Pets</p>
-                    {this.state.petArray.length > 0 ?
-                        this.state.petArray.map(pet =>
-                            <div> <p>{pet.petName}</p>
-                                <Link to={`/pets/${pet.id}`}><img src={pet.petProfilePicture} alt='pet' /></Link></div>)
-                        : null}
+                    <div className='user-profile-pets'>
+                        <p className='user-profile-pets-header'>Pets</p>
+                        {this.state.petArray.length > 0 ?
+                            this.state.petArray.map(pet =>
+                                <div> 
+                                    <Link to={`/pets/${pet.id}`}>
+                                    <p className='user-profile-petName'>{pet.petName}</p>
+                                    <img src={pet.petProfilePicture} className='user-profile-pet-picture' alt='pet' />
+                                    </Link>
+                                </div>)
+                            : null}
+                    </div>
                 </div>
             </section>
         )
