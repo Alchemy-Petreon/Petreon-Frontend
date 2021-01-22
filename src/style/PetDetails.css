@@ -156,9 +156,9 @@
 }
 
 .liked-button, .unliked-button {
+    position: absolute;
     background-color: transparent;
     border: none;
-    position: absolute;
     margin-top: -30px;
     margin-left: 2%;
 }
