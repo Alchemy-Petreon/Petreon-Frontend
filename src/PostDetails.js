@@ -5,6 +5,7 @@ import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
 import './style/PostDetails.css'
 import { Link } from 'react-router-dom';
+import LikeButton from './LikeButton';
 
 export default class PostDetails extends Component {
     static contextType = MainContext;
@@ -14,7 +15,6 @@ export default class PostDetails extends Component {
         post: [],
     }
     componentDidMount = async () => {
-        console.log(this.state.post.mediaUrl)
         await this.setState({ loading: true });
         const post = await fetchPost(this.props.match.params.id);
         this.setState({
@@ -47,6 +47,7 @@ export default class PostDetails extends Component {
         }
     }
     render() {
+        console.log(this.state.post.id)
         return (
             <div>
                 {this.state.loading
@@ -63,6 +64,11 @@ export default class PostDetails extends Component {
                         </div>
 
                         <Link to={`/pets/${this.state.post.petId}`}><button className='back-button'>Back to Pet Profile</button></Link>
+
+                        <div className='likes'>
+                            <LikeButton 
+                                postId={this.state.post.id}/>
+                        </div>
 
                         {this.context.profile.id === this.state.post.userId ?
                             <Link to={`/update-post/${this.state.post.id}`}> <button className='edit-button'>Edit Post</button></Link>
