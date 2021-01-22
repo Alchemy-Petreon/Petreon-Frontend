@@ -18,7 +18,6 @@ export default class Subscriptions extends Component {
             loading: false,
             subscriptions: subscriptions
         })
-        console.log('subscriptions:', subscriptions)
     };
 
     render() {
@@ -30,7 +29,6 @@ export default class Subscriptions extends Component {
                     :
                     this.state.subscriptions.map(subscription =>
                         subscription.id !== null ?
-                            <div>
                                 <div className='subscription-box' key={subscription.id}>
                                     <Link to={`/posts/${subscription.id}`}>
                                     <img
@@ -42,13 +40,11 @@ export default class Subscriptions extends Component {
                                         <p className='sub-box-petname'>{subscription.petName}</p>
                                         <p>{subscription.postText}</p>
                                     </div>
-                            </Link>
-                            <LikeButton />
+                                    </Link>
+                                    <LikeButton postId={subscription.id}/>
                                 </div>
-                            </div>
                     : null)
                 }
-
             </div>
         )
     }
