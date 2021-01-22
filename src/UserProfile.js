@@ -28,6 +28,8 @@ export default class UserProfile extends Component {
         return (
             <section>
                 <div className='user-profile'>
+                    <div className='upbittersweet'> </div>
+                    <div className='upnaplesyellow'> </div>
                     <div className='user-profile-info'>
                         <p className='user-profile-userName'>{this.state.user.userName}</p>
                         <img src={this.state.user.profilePicture} className='user-profile-profilePicture' alt='profile' />
