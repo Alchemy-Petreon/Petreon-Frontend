@@ -16,10 +16,11 @@ export default class UserProfile extends Component {
     // static contextType = MainContext;
     state = {
         user: {},
-        petArray: {}
+        petArray: {},
+        loading: true
 
     }
-    
+
     componentDidMount = async () => {
 
         await this.setState({ loading: true });
@@ -30,30 +31,33 @@ export default class UserProfile extends Component {
             user: user,
             petArray: petArray
         })
-        console.log(this.state.user, this.state.petArray)
+        this.setState({ loading: false })
     };
 
     render() {
         return (
-            <section>
-                <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />,
+            <div> {this.state.loading
+                ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
+                :
+                <section>
+                    <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />,
 
                 <div>
-                    <p>{this.state.user.firstName}</p>
-                    <p>{this.state.user.userName}</p>
-                    <img src={this.state.user.profilePicture} alt='profile' />
-                    <p>{this.state.user.profileDescription}</p>
-                </div>
+                        <p>{this.state.user.firstName}</p>
+                        <p>{this.state.user.userName}</p>
+                        <img src={this.state.user.profilePicture} alt='profile' />
+                        <p>{this.state.user.profileDescription}</p>
+                    </div>
 
-                <div>
-                    <p>Pets</p>
-                    {this.state.petArray.length > 0 ?
-                        this.state.petArray.map(pet =>
-                            <div> <p>{pet.petName}</p>
-                                <Link to={`/pets/${pet.id}`}><img src={pet.petProfilePicture} alt='pet' /></Link></div>)
-                        : null}
-                </div>
-            </section>
+                    <div>
+                        <p>Pets</p>
+                        {this.state.petArray.length > 0 ?
+                            this.state.petArray.map(pet =>
+                                <div> <p>{pet.petName}</p>
+                                    <Link to={`/pets/${pet.id}`}><img src={pet.petProfilePicture} alt='pet' /></Link></div>)
+                            : null}
+                    </div>
+                </section>}</div>
         )
     }
 }

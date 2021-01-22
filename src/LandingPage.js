@@ -7,12 +7,12 @@ export default class LandingPage extends Component {
             <div className="lp">
 
                 <div className="banner">
-                    <img src="/minimalcolorizing.jpg" alt="kitties" className="landing-banner"/>
+                    <img src="/minimalcolorizing.jpg" alt="kitties" className="landing-banner" />
                 </div>
 
                 <div className="colors">
                     <div className="midnightgreen">
-                    <h1 className="flaunt">Flaunt Your Furbaby</h1>
+                        <h1 className="flaunt">Flaunt Your Furbaby</h1>
                     </div>
                     <div className="bittersweet"> </div>
                     <div className="naplesyellow"> </div>
