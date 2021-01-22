@@ -59,6 +59,9 @@ export default class LikeButton extends Component {
                     :
                     <button className='unliked-button' onClick={() => this.handleLike(this.props.postId)}><img src='/not-liked.png' className='unliked' alt='' /></button>
                 }
+                <div>
+                    <span className='like-count'>Likes: {this.props.post.likeCount}</span>
+                </div>
             </div>
         )
     }

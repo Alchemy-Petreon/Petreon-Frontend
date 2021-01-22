@@ -14,7 +14,8 @@ export default class PostItem extends Component {
         comments: [],
         postLiked: false,
         likeId: '',
-        isNull: false
+        isNull: false,
+        post: []
     }
 
     componentDidMount = async () => {
@@ -38,32 +39,6 @@ export default class PostItem extends Component {
         }
     }
 
-
-    handleLike = async (postId) => {
-        const user = await addLike(postId)
-
-        await this.context.setProfile({ profile: user })
-
-        const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
-
-        if (isLiked) {
-            await this.setState({
-                postLiked: true,
-                likeId: isLiked.id
-            })
-        }
-    }
-
-    handleUnlike = async () => {
-        const user = await deleteLike(this.state.likeId)
-
-        await this.context.setProfile({ profile: user })
-
-        await this.setState({
-            postLiked: false
-        })
-    }
-
     render() {
         return (
             <div>
@@ -77,6 +52,7 @@ export default class PostItem extends Component {
                 <div>
                 <LikeButton
                     postId={this.props.post.id}
+                    post={this.state.post}
                     />
                     {this.state.isNull !== null ?
                         <span className='post-comments'> Comments : {this.state.comments.length}</span>

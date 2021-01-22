@@ -167,8 +167,16 @@
     width: 50px;
 }
 
-.post-comments {
+.like-count {
     font-family: Burma-Soft;
     font-size: 20pt;
     margin-left: 100px;
+}
+
+.post-comments {
+    float: left;
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    margin-left: 200px;
+    margin-top: -38px;
 }
