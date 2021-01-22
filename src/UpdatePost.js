@@ -123,7 +123,7 @@ export default class UpdatePost extends Component {
                                 accept='image/*'
                                 onChange={(e) => this.handleFileChange(e)}
                                 value={this.state.mediaFile} />
-                                
+
                             <br />
 
                             <button className='edit-post-button'>Save Changes</button>
