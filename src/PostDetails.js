@@ -5,6 +5,7 @@ import CreateComment from './CreateComment.js'
 import { MainContext } from './MainContext.js'
 import './style/PostDetails.css'
 import { Link } from 'react-router-dom';
+import LikeButton from './LikeButton';
 
 export default class PostDetails extends Component {
     static contextType = MainContext;
@@ -63,6 +64,9 @@ export default class PostDetails extends Component {
                         </div>
 
                         <Link to={`/pets/${this.state.post.petId}`}><button className='back-button'>Back to Pet Profile</button></Link>
+                        <div className='likes'>
+                        <LikeButton />
+                        </div>
 
                         {this.context.profile.id === this.state.post.userId ?
                             <Link to={`/update-post/${this.state.post.id}`}> <button className='edit-button'>Edit Post</button></Link>
