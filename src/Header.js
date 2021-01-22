@@ -4,10 +4,17 @@ import './style/Header.css';
 import { MainContext } from './MainContext.js'
 import { seedData } from './fetches/dev-fetches'
 import { logoutUser } from './fetches/user-fetches';
+require('dotenv').config()
 
+const URL = process.env.REACT_APP_SERVER_URL
 
 export default class Header extends Component {
     static contextType = MainContext;
+
+    componentDidMount = () => {
+        console.log(URL)
+    }
+
 
     handleSeed = async () => {
         await seedData();
@@ -60,7 +67,7 @@ export default class Header extends Component {
                         </button>
                     </div>
                     :
-                    <a href={process.env.SERVER_URL} className="login">Log In / Sign Up</a>
+                    <a href={`${URL}api/v1/auth/google`} className="login">Log In / Sign Up</a>
                 }
             </div>
         )

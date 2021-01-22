@@ -32,3 +32,30 @@
     height: 250px;
     border: solid 2px #FFE66D;
 }
+
+.user-profile-pets-header {
+    font-family: Burma;
+    font-size: 20pt;
+    color: #1A535C;
+}
+
+.user-profile-pets {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.user-profile-petName {
+    width: 150px;
+    height: 75px;
+    word-wrap: break-word;
+    font-size: 16pt;
+}
+
+.user-profile-pet-picture {
+    width: 150px;
+    height: 150px;
+    border: solid 5px #FF6B6B;
+    border-radius: 5px;
+}

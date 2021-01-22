@@ -37,17 +37,19 @@ export default class UserProfile extends Component {
                         <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />
                     </div>
 
-                    <div className='user-profile-pets'>
+                    <div>
                         <p className='user-profile-pets-header'>Pets</p>
+                        <div className='user-profile-pet-list'>
                         {this.state.petArray.length > 0 ?
                             this.state.petArray.map(pet =>
-                                <div> 
+                                <div className='user-profile-pets'> 
                                     <Link to={`/pets/${pet.id}`}>
                                     <p className='user-profile-petName'>{pet.petName}</p>
                                     <img src={pet.petProfilePicture} className='user-profile-pet-picture' alt='pet' />
                                     </Link>
                                 </div>)
                             : null}
+                        </div> 
                     </div>
                 </div>
             </section>
