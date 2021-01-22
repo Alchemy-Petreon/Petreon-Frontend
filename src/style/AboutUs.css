@@ -1,0 +1,65 @@
+@font-face {
+    font-family: icons;
+    src: url('../fonts/Type\ Icons.ttf')
+}
+
+.icon-text {
+    font-family: icons;
+    font-size: 40pt;
+    margin-left: 5%;
+    color: #1A535C;
+}
+
+.icon-text:hover {
+    color: #FF6B6B;
+    transition-duration: 1s;
+}
+
+.about-us-bittersweet {
+    height: 10px;
+    width: 100%;
+    background-color: #FF6B6B;
+}
+
+.about-us-naplesyellow {
+    height: 10px;
+    width: 100%;
+    background-color: #FFE66D;
+}
+
+.about-us-page {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-left: 2%;
+    margin-right: 2%;
+    text-align: center;
+}
+
+.name {
+    margin-top: 0;
+    margin-bottom: 4%;
+    font-family: Excalibur;
+    font-size: 32pt;
+    color: #1A535C;
+    text-shadow: 2px 2px 0px #4ECDC4;
+}
+
+.pic {
+    width: 250px;
+    border: solid 5px #1A535C;
+    border-radius: 10px;
+}
+
+.bio {
+    width: 325px;
+    text-align: justify;
+}
+
+.sjaan, .paul, .evan {
+    margin-top: 2%;
+    padding: 20px;
+    border: solid 7px #FF6B6B;
+    border-radius: 10px;
+}
+
