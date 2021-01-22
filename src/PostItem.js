@@ -9,7 +9,6 @@ export default class PostItem extends Component {
 
     state = {
         loading: false,
-
         postLiked: false,
         likeId: ''
     }

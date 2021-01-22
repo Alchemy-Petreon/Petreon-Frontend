@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export default class Browse extends Component {
+export default class Subscriptions extends Component {
     state = {
         loading: false,
         subscriptions: [],
@@ -27,7 +27,6 @@ export default class Browse extends Component {
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
-                    // this.state.subscriptions[0] ?
                     this.state.subscriptions.map(subscription =>
                         subscription.id !== null ?
                             <Link to={`/posts/${subscription.id}`}>
@@ -44,7 +43,6 @@ export default class Browse extends Component {
                                 </div>
                             </Link>
                             : null)
-                    // : null
                 }
 
             </div>
