@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { addLike, deleteLike } from './fetches/post-fetches.js'
 import { fetchPost } from './fetches/post-fetches.js'
 import { MainContext } from './MainContext.js'
 import LikeButton from './LikeButton.js'
