@@ -10,15 +10,17 @@ var QRCode = require('qrcode.react');
 
 export default class PetDetails extends Component {
     static contextType = MainContext;
+
     state = {
         loading: true,
         pet: [],
         isSubscribed: '',
         user: []
     }
-    componentDidMount = async () => {
 
+    componentDidMount = async () => {
         await this.setState({ loading: true });
+
         const pet = await fetchPet(this.props.match.params.id);
         const isSubscribed = await subscribedToPet(pet.id)
         const user = await fetchUser(pet.userId)
@@ -35,6 +37,7 @@ export default class PetDetails extends Component {
         await this.setState({ loading: true })
 
         const isSubscribed = await subscribe(petId);
+
         await this.setState({
             isSubscribed,
             loading: false
@@ -43,7 +46,9 @@ export default class PetDetails extends Component {
 
     handleUnsubscribe = async (petId) => {
         await this.setState({ loading: true })
+
         const isSubscribed = await unsubscribe(petId);
+
         await this.setState({
             isSubscribed,
             loading: false
@@ -58,14 +63,12 @@ export default class PetDetails extends Component {
                     ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
                     <div className='pet-detail-page'>
-
                         <div className='pdnaplesyellow'> </div>
-
 
                         <div className='pet-profile-info'>
                             <p className='pet-profile-name'>{this.state.pet.petName}</p>
-
-                            <img className='pet-profile-picture'
+                            <img 
+                                className='pet-profile-picture'
                                 alt={this.state.pet.petName}
                                 src={this.state.pet.petProfilePicture} />
 
@@ -73,13 +76,15 @@ export default class PetDetails extends Component {
 
                             <p className='pet-owner'>Caregiver</p>
                             <Link to={`/user/${this.state.user.id}`}>
-                                <p className='user-card'> {this.state.user.userName}</p><img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' /></Link>
+                                <p className='user-card'> {this.state.user.userName}</p><img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' />
+                            </Link>
 
 
                             <div>
                                 <p className='qrcode-text'>Buy {this.state.pet.petName} a treat!</p>
                                 <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.pet.venmo}&amount=1&note=For-${this.state.pet.petName}'s-treats`} />
                             </div>
+
                             <br />
 
                             {this.state.isSubscribed ?
@@ -95,6 +100,7 @@ export default class PetDetails extends Component {
                                 </button>
                             }
                         </div>
+                        
                         <div className='pet-posts'>
                             <Posts
                                 posts={this.state.pet.posts} />
