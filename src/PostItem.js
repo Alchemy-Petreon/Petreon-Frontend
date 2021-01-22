@@ -81,17 +81,17 @@ export default class PostItem extends Component {
                         <p className='post-text'>{this.props.post.postText}</p>
                         <img className='post-picture' alt={this.props.post.mediaUrl} src={this.props.post.mediaUrl} />
 
-                        <p className='post-text'>{this.props.post.postText}</p>
-                        {this.state.isNull !== null ?
-                            < p > Comments : {this.state.comments.length}</p>
-                            : <p>Comments: 0</p>}
-
-
                     </div>
                 </Link>
+                <div>
                 <LikeButton
                     postId={this.props.post.id}
-                />
+                    />
+                    {this.state.isNull !== null ?
+                        <span className='post-comments'> Comments : {this.state.comments.length}</span>
+                        : <span className='post-comments'>Comments: 0</span>}
+                </div>
+
             </div >
         )
     }

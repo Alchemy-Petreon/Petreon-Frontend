@@ -159,10 +159,16 @@
     position: absolute;
     background-color: transparent;
     border: none;
-    margin-top: -30px;
+    margin-top: -20px;
     margin-left: 2%;
 }
 
 .liked, .unliked {
     width: 50px;
+}
+
+.post-comments {
+    font-family: Burma-Soft;
+    font-size: 20pt;
+    margin-left: 100px;
 }
