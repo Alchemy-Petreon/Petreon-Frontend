@@ -5,6 +5,7 @@ import { MainContext } from '../MainContext'
 
 export default class PetInformation extends Component {
     static contextType = MainContext;
+
     state = {
         loading: false,
         pet: []
@@ -12,15 +13,18 @@ export default class PetInformation extends Component {
 
     componentDidMount = async () => {
         await this.setState({ loading: true });
+
         const pet = await fetchPet(this.props.petId);
+
         this.setState({
             loading: false,
             pet: pet
         })
-        console.log(this.state.pet)
     }
+
     handleDelete = async () => {
         await deletePet(this.state.pet.id)
+        
         this.props.history.push('/userdash')
     }
 
