@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchUser } from "./fetches/user-fetches.js"
 import { fetchUserPets } from './fetches/pet-fetches.js';
 import { Link } from 'react-router-dom';
+import './style/UserProfile.css'
 
 var QRCode = require('qrcode.react');
 
