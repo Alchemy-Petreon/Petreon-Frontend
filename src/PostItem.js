@@ -38,32 +38,6 @@ export default class PostItem extends Component {
         }
     }
 
-
-    handleLike = async (postId) => {
-        const user = await addLike(postId)
-
-        await this.context.setProfile({ profile: user })
-
-        const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
-
-        if (isLiked) {
-            await this.setState({
-                postLiked: true,
-                likeId: isLiked.id
-            })
-        }
-    }
-
-    handleUnlike = async () => {
-        const user = await deleteLike(this.state.likeId)
-
-        await this.context.setProfile({ profile: user })
-
-        await this.setState({
-            postLiked: false
-        })
-    }
-
     render() {
         return (
             <div>
