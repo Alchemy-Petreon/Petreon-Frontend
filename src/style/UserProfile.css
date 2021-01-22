@@ -10,14 +10,11 @@
     background-color: #FFE66D;
 }
 
-.user-profile {
-    display: flex;
-    flex-flow: column wrap;
-}
-
 .user-profile-info {
+    position: absolute;
     text-align: center;
     width: 300px;
+    margin-left: 2%;
 }
 
 .user-profile-userName {
@@ -34,26 +31,37 @@
 }
 
 .user-profile-pets-header {
+    width: 70%;
+    margin-left: 330px;
     font-family: Burma;
     font-size: 20pt;
     color: #1A535C;
+    text-align: center;
+}
+
+.user-profile-pet-list {
+    width: 70%;
+    margin-left: 330px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 .user-profile-pets {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
+    margin-left: 3%;
 }
 
 .user-profile-petName {
     width: 150px;
-    height: 75px;
     word-wrap: break-word;
     font-size: 16pt;
+    color: #1A535C;
 }
 
 .user-profile-pet-picture {
+    margin-top: 0;
     width: 150px;
     height: 150px;
     border: solid 5px #FF6B6B;

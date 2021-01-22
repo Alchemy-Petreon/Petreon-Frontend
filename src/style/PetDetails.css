@@ -90,6 +90,7 @@
     width: 60%;
     border: solid 3px #FF6B6B;
     border-radius: 5px;
+    margin-bottom: 30px;
 }
 
 .post-text {
@@ -152,4 +153,16 @@
     background-color: #FF6B6B;
     border: none;
     border-radius: 10px;
+}
+
+.liked-button, .unliked-button {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 2%;
+}
+
+.liked, .unliked {
+    width: 50px;
 }
