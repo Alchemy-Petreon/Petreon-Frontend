@@ -14,7 +14,8 @@ export default class PostItem extends Component {
         comments: [],
         postLiked: false,
         likeId: '',
-        isNull: false
+        isNull: false,
+        post: []
     }
 
     componentDidMount = async () => {
@@ -51,6 +52,7 @@ export default class PostItem extends Component {
                 <div>
                 <LikeButton
                     postId={this.props.post.id}
+                    post={this.state.post}
                     />
                     {this.state.isNull !== null ?
                         <span className='post-comments'> Comments : {this.state.comments.length}</span>
