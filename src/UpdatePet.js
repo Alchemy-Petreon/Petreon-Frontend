@@ -44,9 +44,10 @@ export default class UpdatePet extends PureComponent {
     };
 
     onSelectFile = e => {
+        this.setState({ newPetProfilePicture: e.target.files })
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
-            reader.addEventListener('load', () => 
+            reader.addEventListener('load', () =>
                 this.setState({
                     src: reader.result
                 })
@@ -74,7 +75,7 @@ export default class UpdatePet extends PureComponent {
                 crop,
                 'newFile.jpeg'
             );
-        this.setState({ croppedImageUrl: url, blob })
+            this.setState({ croppedImageUrl: url, blob })
         }
     }
 
@@ -132,15 +133,15 @@ export default class UpdatePet extends PureComponent {
         }
 
         let petUpdate = await updatePet(this.props.match.params.id, newPet);
+        if (this.state.newPetProfilePicture) {
+            if (petFiles.get('petProfilePicture')) {
+                const profilePicture = new FormData();
 
-        if (petFiles.get('petProfilePicture')) {
-            const profilePicture = new FormData();
+                profilePicture.append('petProfilePicture', this.state.blob)
 
-            profilePicture.append('petProfilePicture', this.state.blob)
-
-            await uploadPetProfilePicture(petUpdate.id, profilePicture);
+                await uploadPetProfilePicture(petUpdate.id, profilePicture);
+            }
         }
-        
         this.setState({
             loading: false
         })
@@ -206,7 +207,7 @@ export default class UpdatePet extends PureComponent {
                                     placeholder={this.state.petName}
                                     onChange={(e) => this.setState({ petName: e.target.value })}
                                     value={this.state.petName}
-                                    />
+                                />
                             </div>
 
                             <div className="typechoicediv">
@@ -235,7 +236,7 @@ export default class UpdatePet extends PureComponent {
                                     placeholder={this.state.petProfileDescription}
                                     onChange={(e) => this.setState({ petProfileDescription: e.target.value })}
                                     value={this.state.petProfileDescription}
-                                    />
+                                />
                             </div>
 
                             <br />
