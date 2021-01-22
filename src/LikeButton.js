@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import { addLike, deleteLike } from './fetches/post-fetches.js'
+import { MainContext } from './MainContext.js'
 
 
 export default class LikeButton extends Component {
+    static contextType = MainContext;
+
     state = {
         postLiked: false,
         likeId: ''
@@ -10,7 +13,7 @@ export default class LikeButton extends Component {
 
     componentDidMount = async () => {
         if (this.context.profile.likes.length) {
-            const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
+            const isLiked = this.context.profile.likes.find(like => this.props.postId === like.postId)
 
             if (isLiked) {
                 await this.setState({
@@ -26,7 +29,7 @@ export default class LikeButton extends Component {
 
         await this.context.setProfile({ profile: user })
 
-        const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
+        const isLiked = this.context.profile.likes.find(like => this.props.postId === like.postId)
 
         if (isLiked) {
             await this.setState({
@@ -52,11 +55,10 @@ export default class LikeButton extends Component {
         return (
             <div>
                 {this.state.postLiked ?
-                    <button onClick={() => this.handleUnlike()} > Unlike</button>
+                    <button className='liked-button' onClick={() => this.handleUnlike()}><img src='/liked.png' className='liked' alt='' /></button>
                     :
-                    <button onClick={() => this.handleLike(this.props.postId)}>Like</button>
+                    <button className='unliked-button' onClick={() => this.handleLike(this.props.postId)}><img src='/not-liked.png' className='unliked' alt='' /></button>
                 }
-
             </div>
         )
     }

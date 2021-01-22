@@ -76,9 +76,9 @@ export default class PetDetails extends Component {
                                 <p className='user-card'> {this.state.user.userName}</p><img className='owner-profile-picture' src={this.state.user.profilePicture} alt='profile' /></Link>
 
 
-                            <div> 
+                            <div>
                                 <p className='qrcode-text'>Buy {this.state.pet.petName} a treat!</p>
-                                    <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.pet.venmo}&amount=1&note=For-${this.state.pet.petName}'s-treats`} />
+                                <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.pet.venmo}&amount=1&note=For-${this.state.pet.petName}'s-treats`} />
                             </div>
                             <br />
 
