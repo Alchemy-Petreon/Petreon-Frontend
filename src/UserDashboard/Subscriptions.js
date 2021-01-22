@@ -8,7 +8,7 @@ import LikeButton from '../LikeButton.js'
 export default class Subscriptions extends Component {
     state = {
         loading: false,
-        subscriptions: [],
+        subscriptions: []
     };
 
     componentDidMount = async () => {
@@ -41,7 +41,10 @@ export default class Subscriptions extends Component {
                                         <p>{subscription.postText}</p>
                                     </div>
                                     </Link>
-                                    <LikeButton postId={subscription.id}/>
+                                    <LikeButton 
+                                        postId={subscription.id}
+                                        likeCount={subscription.likeCount}
+                                        />
                                     <span className='sub-comments'>Comments: {subscription.commentCount}</span>
                                 </div>
                     : null)
