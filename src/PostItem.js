@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { addLike, deleteLike } from './fetches/post-fetches.js'
-// import { fetchPost } from './fetches/post-fetches.js'
 import { MainContext } from './MainContext.js'
 
 
@@ -74,9 +73,9 @@ export default class PostItem extends Component {
 
 
                 {this.state.postLiked ?
-                    <button onClick={() => this.handleUnlike()} > Unlike</button>
+                    <button className='liked-button' onClick={() => this.handleUnlike()}><img src='/liked.png' className='liked' alt='' /></button>
                     :
-                    <button onClick={() => this.handleLike(this.props.post.id)}>Like</button>
+                    <button className='unliked-button' onClick={() => this.handleLike(this.props.post.id)}><img src='/not-liked.png' className='unliked' alt='' /></button>
                 }
             </div >
         )
