@@ -37,14 +37,7 @@ export default class Header extends Component {
                     <span className="browse">Browse Pets</span>
                 </Link>
 
-                <input type="text" placeholder="Search..." className="search" />
 
-                <button className="button1">
-                    <img
-                        src="/loupe.png"
-                        alt="Search"
-                        className="glass" />
-                </button>
 
                 {this.context.loggedIn ?
                     <div style={{ display: 'flex', alignItems: 'center' }}>

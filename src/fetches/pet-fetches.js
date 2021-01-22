@@ -93,3 +93,14 @@ export async function uploadPetBanner(petId, file) {
         throw err;
     }
 }
+
+export async function searchResults(searchQuery) {
+    try {
+        const response = await request
+            .get(`${URL}api/v1/search/?search=${searchQuery}`)
+            .withCredentials()
+        return response.body;
+    } catch (err) {
+        throw err;
+    }
+}
