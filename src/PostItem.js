@@ -64,9 +64,6 @@ export default class PostItem extends Component {
         })
     }
 
-
-
-
     render() {
         return (
             <div>
