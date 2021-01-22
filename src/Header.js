@@ -9,8 +9,6 @@ import { logoutUser } from './fetches/user-fetches';
 export default class Header extends Component {
     static contextType = MainContext;
 
-
-
     handleSeed = async () => {
         await seedData();
     }
@@ -62,7 +60,7 @@ export default class Header extends Component {
                         </button>
                     </div>
                     :
-                    <a href="https://petreon-alchemy.herokuapp.com/api/v1/auth/google" className="login">Log In / Sign Up</a>
+                    <a href={process.env.SERVER_URL} className="login">Log In / Sign Up</a>
                 }
             </div>
         )

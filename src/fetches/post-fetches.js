@@ -1,6 +1,6 @@
 import request from "superagent";
 
-const URL = 'https://petreon-alchemy.herokuapp.com/'
+const URL = process.env.SERVER_URL
 
 export async function fetchPosts() {
     try {
