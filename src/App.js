@@ -23,6 +23,7 @@ import UserProfile from './UserProfile';
 import UpdatePost from './UpdatePost'
 import UpdatePet from './UpdatePet'
 import PrivateRoute from './PrivateRoute'
+
 export default class App extends Component {
   state = {
     profile: JSON.parse(localStorage.getItem('profile')),

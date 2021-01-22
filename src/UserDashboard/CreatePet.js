@@ -132,7 +132,7 @@ export default class CreatePet extends PureComponent {
         return (
             <div>
                 { this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
                     <div className='create-pet-page'>
 

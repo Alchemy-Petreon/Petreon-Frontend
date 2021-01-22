@@ -26,7 +26,7 @@ export default class Browse extends Component {
                 <div className='browsenaplesyellow'> </div>
                 <div className='pet-box'>
                     {this.state.loading
-                        ? <img src={'/loading-spinner.gif'} alt={''} />
+                        ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                         :
                         this.state.allPets.map(pet =>
                             <Link to={`/pets/${pet.id}`} >  <div className='pet-box' key={pet.id}>

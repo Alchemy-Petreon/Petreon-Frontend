@@ -44,11 +44,12 @@ export default class Posts extends Component {
 
             <div className='post-box'>
                 {  this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
 
-                    this.state.allPosts[0].id !== null ?
-                        this.state.allPosts.map(post =>
+
+                    this.state.allPosts.map(post =>
+                        this.state.allPosts[0].id !== null ?
                             <div className='post-item-box' key={post.id}>
                                 <PostItem
                                     post={post} />
@@ -62,9 +63,9 @@ export default class Posts extends Component {
                                     <div className='post-div-bittersweet'> </div>
                                     <div className='post-div-naplesyellow'> </div>
                                 </div>
-                            </div>)
-                        :
-                        <></>
+                            </div> :
+                            <></>)
+
 
                 }
 
