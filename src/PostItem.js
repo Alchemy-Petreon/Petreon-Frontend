@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { NIL } from 'uuid';
 import { addLike, deleteLike } from './fetches/post-fetches.js'
 import { fetchPost } from './fetches/post-fetches.js'
+
 import { MainContext } from './MainContext.js'
+import LikeButton from './LikeButton.js'
 
 
 export default class PostItem extends Component {
@@ -11,6 +13,7 @@ export default class PostItem extends Component {
 
     state = {
         loading: false,
+
         comments: [],
         postLiked: false,
         likeId: '',
@@ -67,7 +70,10 @@ export default class PostItem extends Component {
     }
 
 
+
+
     render() {
+        console.log(this.props.post.id)
         return (
             <div>
                 <Link className='post-link' to={`/posts/${this.props.post.id}`}>
@@ -84,13 +90,9 @@ export default class PostItem extends Component {
 
                     </div>
                 </Link>
-
-
-                {this.state.postLiked ?
-                    <button onClick={() => this.handleUnlike()} > Unlike</button>
-                    :
-                    <button onClick={() => this.handleLike(this.props.post.id)}>Like</button>
-                }
+                <LikeButton
+                    postId={this.props.post.id}
+                />
             </div >
         )
     }
