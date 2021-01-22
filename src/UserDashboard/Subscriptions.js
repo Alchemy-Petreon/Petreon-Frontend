@@ -42,7 +42,7 @@ export default class Subscriptions extends Component {
                                     </div>
                                 </div>
                             </Link>
-                            : null)
+                    : null)
                 }
 
             </div>
