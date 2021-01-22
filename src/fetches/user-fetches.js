@@ -109,7 +109,6 @@ export async function subscribe(petId) {
             .get(`${URL}api/v1/users/subscribe/${petId}`)
             .withCredentials()
         return response.body;
-
     } catch (err) {
         throw err;
     }
@@ -120,7 +119,6 @@ export async function unsubscribe(petId) {
         const response = await request
             .get(`${URL}api/v1/users/unsubscribe/${petId}`)
             .withCredentials()
-
         return response.body;
     } catch (err) {
         throw err;
@@ -132,7 +130,6 @@ export async function subscribedToPet(petId) {
         const response = await request
             .get(`${URL}api/v1/users/subscriptions/${petId}`)
             .withCredentials()
-
         return response.body
     } catch (err) {
         throw err;
