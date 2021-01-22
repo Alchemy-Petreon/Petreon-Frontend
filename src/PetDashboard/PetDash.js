@@ -3,28 +3,23 @@ import CreatePost from './CreatePost.js';
 import PetInformation from './PetInformation.js';
 import { MainContext } from '../MainContext.js';
 import '../style/PetDash.css';
-// import { Link } from 'react-router-dom';
-
 
 export default class PetDash extends Component {
     static contextType = MainContext;
-
-
 
     render() {
         return (
             <div className="user-dashboard">
                 <div className="bittersweetud"> </div>
                 <div className="naplesyellowud"> </div>
+
                 <PetInformation
                     petId={this.props.match.params.id}
-                    history={this.props.history}
-                />
+                    history={this.props.history} />
 
                 <CreatePost
                     petId={this.props.match.params.id}
                     history={this.props.history} />
-
             </div>
         )
     }
