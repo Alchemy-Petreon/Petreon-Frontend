@@ -9,10 +9,10 @@ export default class PostItem extends Component {
 
     state = {
         loading: false,
-
     }
 
     render() {
+        console.log(this.props.post.id)
         return (
             <div>
                 <Link className='post-link' to={`/posts/${this.props.post.id}`}>

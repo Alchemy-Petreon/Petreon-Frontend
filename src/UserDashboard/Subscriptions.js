@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { fetchSubscriptions } from '../fetches/post-fetches.js'
 import { Link } from 'react-router-dom'
+import LikeButton from '../LikeButton.js'
 
 
 
-export default class Browse extends Component {
+export default class Subscriptions extends Component {
     state = {
         loading: false,
         subscriptions: [],
@@ -17,7 +18,6 @@ export default class Browse extends Component {
             loading: false,
             subscriptions: subscriptions
         })
-        console.log('subscriptions:', subscriptions)
     };
 
     render() {
@@ -27,11 +27,10 @@ export default class Browse extends Component {
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
-                    // this.state.subscriptions[0] ?
                     this.state.subscriptions.map(subscription =>
                         subscription.id !== null ?
-                            <Link to={`/posts/${subscription.id}`}>
                                 <div className='subscription-box' key={subscription.id}>
+                                    <Link to={`/posts/${subscription.id}`}>
                                     <img
                                         className='subscription-image'
                                         src={subscription.mediaURL}
@@ -41,12 +40,11 @@ export default class Browse extends Component {
                                         <p className='sub-box-petname'>{subscription.petName}</p>
                                         <p>{subscription.postText}</p>
                                     </div>
+                                    </Link>
+                                    <LikeButton postId={subscription.id}/>
                                 </div>
-                            </Link>
-                            : null)
-                    // : null
+                    : null)
                 }
-
             </div>
         )
     }

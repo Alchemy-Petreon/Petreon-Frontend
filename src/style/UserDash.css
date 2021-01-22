@@ -180,6 +180,7 @@
     align-self: center;
     margin-left: 0;
     margin-right: 2%;
+    margin-bottom: 30px;
     width: 50%;
     border: solid 5px #FF6B6B;
     border-radius: 10px;
@@ -194,7 +195,8 @@
 }
 
 .sub-box-text {
+    float: right;
     color: #1A535C;
     font-size: 20pt;
-    width: 40%;
+    width: 45%;
 }
