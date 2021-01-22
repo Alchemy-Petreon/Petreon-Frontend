@@ -14,7 +14,6 @@ export async function createComment(newComment) {
     }
 }
 
-
 export async function deleteComment(id) {
     try {
         const response = await request
