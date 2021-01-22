@@ -11,26 +11,25 @@ export default class UserProfile extends Component {
         user: {},
         petArray: {},
         loading: true
-
-
     }
 
     componentDidMount = async () => {
-
         await this.setState({ loading: true });
+
         const user = await fetchUser(this.props.match.params.id);
         const petArray = await fetchUserPets(this.props.match.params.id)
+
         this.setState({
             loading: false,
             user: user,
             petArray: petArray
         })
+
         this.setState({ loading: false })
     };
 
     render() {
         return (
-            
             <div> 
             {this.state.loading
             ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
@@ -42,11 +41,10 @@ export default class UserProfile extends Component {
 
                     <div className='user-profile-info'>
                         <p className='user-profile-userName'>{this.state.user.userName}</p>
-
-                        <img src={this.state.user.profilePicture} className='user-profile-profilePicture' alt='profile' />
-
+                        <img 
+                            src={this.state.user.profilePicture} className='user-profile-profilePicture' 
+                            alt='profile' />
                         <p className='user-profile-profileDescription'>{this.state.user.profileDescription}</p>
-
                         <QRCode value={`venmo://paycharge?txn=pay&recipients=${this.state.user.venmo}&amount=1&note=For-${this.state.user.firstName}s-pets`} />
                     </div>
 
@@ -58,8 +56,9 @@ export default class UserProfile extends Component {
                                 <div className='user-profile-pets'> 
                                     <div>
                                     <Link to={`/pets/${pet.id}`}>
-                                    <p className='user-profile-petName'>{pet.petName}</p>
-                                    <img src={pet.petProfilePicture} className='user-profile-pet-picture' alt='pet' />
+                                        <p className='user-profile-petName'>{pet.petName}</p>
+                                        <img 
+                                            src={pet.petProfilePicture} className='user-profile-pet-picture' alt='pet' />
                                     </Link>
                                     </div>
                                 </div>)
