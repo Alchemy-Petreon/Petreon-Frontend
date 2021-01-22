@@ -93,12 +93,6 @@ export default class CreatePet extends PureComponent {
         });
     }
 
-    hideCrop = e => {
-        this.setState({
-            petShown: false
-        })
-    }
-
     handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -192,7 +186,6 @@ export default class CreatePet extends PureComponent {
                                         onChange={(e) => this.setState({ petName: e.target.value })}
                                         value={this.state.petName}
                                         required />
-
                                 </div>
 
                                 <div className="typechoicediv">
