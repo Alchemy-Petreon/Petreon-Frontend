@@ -51,7 +51,7 @@ export default class PostItem extends Component {
                 <div>
                 <LikeButton
                     postId={this.props.post.id}
-                    post={this.state.post}
+                    likeCount={this.state.post.likeCount}
                     />
                     {this.state.isNull !== null ?
                         <span className='post-comments'> Comments : {this.state.comments.length}</span>
