@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { addLike, deleteLike } from './fetches/post-fetches.js'
 // import { fetchPost } from './fetches/post-fetches.js'
 import { MainContext } from './MainContext.js'
+import LikeButton from './LikeBUtton.js'
 
 
 export default class PostItem extends Component {
@@ -11,51 +11,8 @@ export default class PostItem extends Component {
     state = {
         loading: false,
 
-        postLiked: false,
-        likeId: ''
-    }
-    componentDidMount = async () => {
-
-        console.log(this.state.post)
-        if (this.context.profile.likes.length) {
-            const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
-
-            if (isLiked) {
-                await this.setState({
-                    postLiked: true,
-                    likeId: isLiked.id
-                })
-            }
-        }
     }
 
-
-    handleLike = async (postId) => {
-        const user = await addLike(postId)
-
-        await this.context.setProfile({ profile: user })
-
-        const isLiked = this.context.profile.likes.find(like => this.props.post.id === like.postId)
-
-        if (isLiked) {
-            await this.setState({
-                postLiked: true,
-                likeId: isLiked.id
-            })
-        }
-
-    }
-
-    handleUnlike = async () => {
-
-        const user = await deleteLike(this.state.likeId)
-
-        await this.context.setProfile({ profile: user })
-
-        await this.setState({
-            postLiked: false
-        })
-    }
     render() {
         return (
             <div>
@@ -71,13 +28,9 @@ export default class PostItem extends Component {
 
                     </div>
                 </Link>
-
-
-                {this.state.postLiked ?
-                    <button onClick={() => this.handleUnlike()} > Unlike</button>
-                    :
-                    <button onClick={() => this.handleLike(this.props.post.id)}>Like</button>
-                }
+                <LikeButton
+                    postId={this.props.post.id}
+                />
             </div >
         )
     }
