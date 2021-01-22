@@ -1,10 +1,7 @@
 import React, { Component } from 'react'
 import { createComment } from "./fetches/comment-fetches.js"
 
-
-
 export default class CreateComment extends Component {
-
     state = {
         commentText: ''
     }
@@ -12,25 +9,23 @@ export default class CreateComment extends Component {
     handleCreate = async (e) => {
         e.preventDefault();
 
-        console.log(this.state);
-
         this.setState({ loading: true })
-        const comment = {
 
+        const comment = {
             userId: this.props.userId,
             postId: this.props.postId,
             text: this.state.commentText
-
         }
-        await createComment(comment);
-        this.props.changeLoading(true)
 
+        await createComment(comment);
+
+        this.props.changeLoading(true)
     }
+
     render() {
         return (
             <div className='comment-box'>
                 <div className='add-comment'>
-
                     <form onSubmit={this.handleCreate}>
                         <input 
                             className='comment-input'
