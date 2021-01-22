@@ -13,12 +13,11 @@ export default class CreatePet extends Component {
         mediaURL: '',
         mediaTypeName: '',
         loading: false
-
     }
 
     handleSubmit = async (e) => {
-
         e.preventDefault();
+
         this.setState({
             loading: true
         })
@@ -32,17 +31,14 @@ export default class CreatePet extends Component {
             postText: this.state.postText
         }
 
-
         let newPostResponse = await createPost(newPost);
 
         await updatePostPicture(newMedia, newPostResponse.id)
 
         this.props.history.push(`/pets/${this.props.petId}`);
-
     }
 
     handleFileChange = async (e) => {
-
         const mediaType = mime.lookup(e.target.value)
         const mediaTypeName = mediaType.split('/')[0]
 
