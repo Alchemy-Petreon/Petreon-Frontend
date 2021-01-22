@@ -3,7 +3,6 @@ import { createUser, checkUsername } from "./fetches/user-fetches.js"
 import { MainContext } from './MainContext.js'
 import './style/SignUp.css'
 
-
 export default class SignUp extends Component {
     static contextType = MainContext;
 
@@ -49,7 +48,6 @@ export default class SignUp extends Component {
         }
     }
 
-
     render() {
         return (
             <div className='sup'>
@@ -58,9 +56,7 @@ export default class SignUp extends Component {
                 <h3 className='suhead'>Sign Up</h3>
 
                 <div className="box">
-
                     <form onSubmit={this.handleSubmit}>
-
                         <p>Username:</p>
                         <input
                             className='userinput'
@@ -100,7 +96,6 @@ export default class SignUp extends Component {
                         <br />
 
                         <button className='signup-button'>Submit</button>
-
                         <br />
                     </form>
                 </div>

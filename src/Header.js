@@ -32,23 +32,22 @@ export default class Header extends Component {
                     <span className="logo">Petreon</span>
                 </Link>
 
+                <Link to="/browse">
+                    <span className="browse">Browse Pets</span>
+                </Link>
+
+                <Link to="/aboutus">
+                    <span className="about-us">About Us</span>
+                </Link>
+
                 {this.context.loggedIn ?
                     <div>
-                        <Link to="/browse">
-                            <span className="browse">Browse Pets</span>
-                        </Link>
-
-                        <Link to="/aboutus">
-                            <span className="about-us">About Us</span>
-                        </Link>
-
                         <div className='header-user-info'>
                             <Link to={'/userdash'}>
                                 <img
                                     className='header-picture'
                                     src={this.context.profile.profilePicture}
-                                    alt={this.context.profile.userName}
-                                />
+                                    alt={this.context.profile.userName} />
                             </Link>
 
                             <button

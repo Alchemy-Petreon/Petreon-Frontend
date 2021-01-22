@@ -28,8 +28,8 @@ export default class UpdatePet extends PureComponent {
     componentDidMount = async () => {
 
         this.setState({ loading: true });
-        const pet = await fetchPet(this.props.match.params.id);
 
+        const pet = await fetchPet(this.props.match.params.id);
 
         this.setState({
             pet: pet,
@@ -45,6 +45,7 @@ export default class UpdatePet extends PureComponent {
 
     onSelectFile = e => {
         this.setState({ newPetProfilePicture: e.target.files })
+
         if (e.target.files && e.target.files.length > 0) {
             const reader = new FileReader();
             reader.addEventListener('load', () =>
@@ -133,6 +134,7 @@ export default class UpdatePet extends PureComponent {
         }
 
         let petUpdate = await updatePet(this.props.match.params.id, newPet);
+
         if (this.state.newPetProfilePicture) {
             if (petFiles.get('petProfilePicture')) {
                 const profilePicture = new FormData();
@@ -142,6 +144,7 @@ export default class UpdatePet extends PureComponent {
                 await uploadPetProfilePicture(petUpdate.id, profilePicture);
             }
         }
+
         this.setState({
             loading: false
         })
@@ -154,24 +157,20 @@ export default class UpdatePet extends PureComponent {
 
         return (
             <div className='create-pet-page'>
-
                 <div className='cppnaplesyellow'> </div>
-
                 { this.state.loading
                     ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
                     <div className='cppbox'>
 
                         <form onSubmit={this.handleSubmit}>
-
                             <div>
                                 <div className='upload-image-frame'>
                                     <img
                                         src={croppedImageUrl}
                                         key={Date.now()}
                                         alt=''
-                                        className="petprofilepicupload"
-                                    />
+                                        className="petprofilepicupload" />
                                 </div>
 
                                 <input

@@ -57,8 +57,9 @@ a {
 }
 
 .login {
-    float: left;
+    float: right;
     margin-top: 18px;
+    margin-right: 5%;
     font-family: Burma-Soft;
     font-size: 25pt;
     color: #1A535C;
@@ -83,7 +84,7 @@ a {
     border-radius: 5px;
 }
 
-.logo:hover, .browse:hover, .login:hover, .signup:hover {
+.logo:hover, .browse:hover, .login:hover, .signup:hover, .about-us:hover {
     color: #FF6B6B;
     text-shadow: 1px 1px 0 #1A535C;
     transition-duration: 1s;

@@ -18,6 +18,7 @@ export default class UpdatePost extends Component {
 
     componentDidMount = async () => {
         await this.setState({ loading: true });
+
         const post = await fetchPost(this.props.match.params.id);
 
         await this.setState({
@@ -30,6 +31,7 @@ export default class UpdatePost extends Component {
             mediaTypeName: post.mediaTypeName,
             mediaUrl: post.mediaUrl,
         })
+
         this.setState({ loading: false })
     }
 
@@ -45,11 +47,12 @@ export default class UpdatePost extends Component {
                 postText: this.state.postText,
                 mediaFile: this.state.mediaFile,
                 mediaURL: this.state.mediaURL,
-
             };
 
             await updatePost(this.props.match.params.id, newPost);
+
             let newMedia = new FormData(e.target)
+
             await updatePostPicture(newMedia, this.props.match.params.id)
 
         } else {
@@ -62,15 +65,12 @@ export default class UpdatePost extends Component {
                 mediaURL: this.state.mediaURL,
                 mediaUrl: this.state.mediaUrl
             }
-
             await updatePost(this.props.match.params.id, newPost);
         }
-
         this.props.history.push(`/pets/${this.state.post.petId}`);
     }
 
     handleFileChange = async (e) => {
-
         const mediaType = mime.lookup(e.target.value)
         const mediaTypeName = mediaType.split('/')[0]
 
@@ -93,7 +93,6 @@ export default class UpdatePost extends Component {
                     : <div className='post-detail'>
 
                         <form onSubmit={this.handleSubmit}>
-
                             {this.state.mediaTypeName === 'image'
                                 ? <img
                                     className='post-update-picture'
@@ -114,6 +113,7 @@ export default class UpdatePost extends Component {
                                 placeholder={this.state.post.postText}
                                 onChange={(e) => this.setState({ postText: e.target.value })}
                                 value={this.state.postText} />
+
                             <br />
 
                             <input
@@ -123,6 +123,7 @@ export default class UpdatePost extends Component {
                                 accept='image/*'
                                 onChange={(e) => this.handleFileChange(e)}
                                 value={this.state.mediaFile} />
+
                             <br />
 
                             <button className='edit-post-button'>Save Changes</button>

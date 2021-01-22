@@ -11,7 +11,6 @@ export default class PetItem extends Component {
                             <img className='pet-browse-picture' alt={this.props.pet.petName} src={this.props.pet.petProfilePicture} />
 
                             <p className='pet-name'>{this.props.pet.petName}</p>
-
                         </div>
                     </div>
                 </Link>

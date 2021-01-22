@@ -5,8 +5,6 @@ import PostItem from './PostItem.js'
 import { MainContext } from './MainContext.js'
 import './style/PetDetails.css';
 
-
-
 export default class Posts extends Component {
     static contextType = MainContext;
 
@@ -14,6 +12,7 @@ export default class Posts extends Component {
         loading: true,
         allPosts: [],
     }
+
     componentDidMount = async () => {
         await this.setState({ loading: true });
         this.setState({
@@ -37,19 +36,15 @@ export default class Posts extends Component {
 
     render() {
         return (
-
             <div className='post-box'>
                 {  this.state.loading
                     ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
-
-
                     this.state.allPosts.map(post =>
                         this.state.allPosts[0].id !== null ?
                             <div className='post-item-box' key={post.id}>
                                 <PostItem
                                     post={post} />
-
                                 {this.context.profile.id === String(post.userId) ?
                                     <p><button className='delete-button' onClick={() => this.handleDelete(post.id, post.userId)}>delete</button></p>
                                     : null}
@@ -62,7 +57,6 @@ export default class Posts extends Component {
                             </div> :
                             null)
                 }
-
             </div>
         )
     }

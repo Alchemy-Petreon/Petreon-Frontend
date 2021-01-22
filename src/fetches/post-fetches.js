@@ -89,11 +89,6 @@ export async function addLike(postId) {
         const response = await request
             .post(`${URL}api/v1/likes/${postId}`)
             .withCredentials()
-
-        console.log('_+_+_+_+_+_+_+_++_+_+_')
-        console.log('response.body')
-        console.log(response.body)
-        console.log('_+_+_+_+_+_+_+_++_+_+_')
         return response.body
     } catch (err) {
         throw err;

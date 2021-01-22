@@ -48,7 +48,6 @@ export default class PostDetails extends Component {
         }
     }
     render() {
-        console.log(this.state.post.id)
         return (
             <div>
                 {this.state.loading
