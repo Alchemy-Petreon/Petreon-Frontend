@@ -25,7 +25,7 @@ export default class Browse extends Component {
 
             <div className='subscription-list'>
                 {  this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
                     // this.state.subscriptions[0] ?
                     this.state.subscriptions.map(subscription =>

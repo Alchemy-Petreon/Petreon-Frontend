@@ -9,8 +9,6 @@ import { logoutUser } from './fetches/user-fetches';
 export default class Header extends Component {
     static contextType = MainContext;
 
-
-
     handleSeed = async () => {
         await seedData();
     }
@@ -35,9 +33,9 @@ export default class Header extends Component {
                 <input type="text" placeholder="Search..." className="search" />
 
                 <button className="button1">
-                    <img 
-                        src="/loupe.png" 
-                        alt="Search" 
+                    <img
+                        src="/loupe.png"
+                        alt="Search"
                         className="glass" />
                 </button>
 
@@ -51,7 +49,7 @@ export default class Header extends Component {
                                 style={{
                                     height: '60px',
                                     borderRadius: '50px'
-                            }}
+                                }}
                             />
                         </Link>
 
@@ -62,7 +60,7 @@ export default class Header extends Component {
                         </button>
                     </div>
                     :
-                    <a href="https://petreon-api.herokuapp.com/api/v1/auth/google" className="login">Log In / Sign Up</a>
+                    <a href={process.env.SERVER_URL} className="login">Log In / Sign Up</a>
                 }
             </div>
         )
