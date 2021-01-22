@@ -36,9 +36,7 @@ export default class UpdatePet extends PureComponent {
             petName: pet.petName,
             type: pet.type,
             petProfilePicture: pet.petProfilePicture,
-            //
             croppedImageUrl: pet.petProfilePicture,
-            //
             petProfilePictureFile: pet.petProfilePictureFile,
             petProfileDescription: pet.petProfileDescription,
             loading: false,
