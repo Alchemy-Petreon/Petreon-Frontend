@@ -39,6 +39,7 @@ export default class Subscriptions extends Component {
                                     <div className='sub-box-text'>
                                         <p className='sub-box-petname'>{subscription.petName}</p>
                                         <p>{subscription.postText}</p>
+                                        <p>Comments:{subscription.commentCount}</p>
                                     </div>
                                     </Link>
                                     <LikeButton postId={subscription.id}/>

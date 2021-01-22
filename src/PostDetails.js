@@ -35,13 +35,14 @@ export default class PostDetails extends Component {
 
     };
     handleDelete = async (id, commentId) => {
-        console.log(id, commentId, this.context.profile.id, this.props.userId)
+        this.setState({ loading: true })
         if (this.context.profile.id === String(commentId)) {
             await deleteComment(id)
             const post = await fetchPost(this.props.match.params.id);
             this.setState({
                 post: post
             })
+            this.setState({ loading: false })
         } else {
             alert(`You can not delete someone else's comment`)
         }
