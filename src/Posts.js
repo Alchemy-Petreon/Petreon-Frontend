@@ -30,10 +30,6 @@ export default class Posts extends Component {
             this.setState({
                 allPosts: newPet.posts
             })
-            // const allPosts = await fetchPosts();
-            // this.setState({
-            //     allPosts: allPosts
-            // })
         } else {
             alert(`You can not delete someone else's post`)
         }
@@ -56,7 +52,7 @@ export default class Posts extends Component {
 
                                 {this.context.profile.id === String(post.userId) ?
                                     <p><button className='delete-button' onClick={() => this.handleDelete(post.id, post.userId)}>delete</button></p>
-                                    : <div></div>}
+                                    : null}
 
                                 <div className='post-colors'>
                                     <div className='post-div-midnightgreen'> </div>
@@ -64,9 +60,7 @@ export default class Posts extends Component {
                                     <div className='post-div-naplesyellow'> </div>
                                 </div>
                             </div> :
-                            <></>)
-
-
+                            null)
                 }
 
             </div>
