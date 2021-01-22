@@ -39,7 +39,7 @@ export default class Browse extends Component {
             <div>
                 <div className='browsebittersweet'> </div>
                 <div className='browsenaplesyellow'> </div>
-                <div>
+                <div className='search-bar'>
                     <form onSubmit={this.handleSearch}>
                         <input type="text" placeholder="Search..." className="search"
                             name="search"

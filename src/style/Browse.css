@@ -10,11 +10,16 @@
     background-color: #FFE66D;
 }
 
+.search-bar {
+    position: absolute;
+    width: 80%;
+    margin-left: 7%;
+}
+
 .pet-box {
-    margin-top: 2%;
+    margin-top: 7%;
     margin-left: 5%;
     margin-right: 5%;
-    margin-bottom: 5%;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
