@@ -9,9 +9,12 @@ var QRCode = require('qrcode.react');
 export default class UserProfile extends Component {
     state = {
         user: {},
-        petArray: {}
+        petArray: {},
+        loading: true
+
+
     }
-    
+
     componentDidMount = async () => {
 
         await this.setState({ loading: true });
@@ -22,11 +25,16 @@ export default class UserProfile extends Component {
             user: user,
             petArray: petArray
         })
-        console.log(this.state.user, this.state.petArray)
+        this.setState({ loading: false })
     };
 
     render() {
         return (
+
+ <div> {this.state.loading
+                ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
+                :
+                <section>
             <section>
                 <div className='user-profile'>
                     <div className='upbittersweet'> </div>
@@ -59,7 +67,10 @@ export default class UserProfile extends Component {
                         </div> 
                     </div>
                 </div>
+ : null}
+                    </div>
             </section>
+
         )
     }
 }

@@ -27,23 +27,27 @@ export default class Pets extends Component {
     render() {
         return (
             <div className='petsdisplay'>
+
                 <h5 className='petsheader'>My Pets</h5>
-                <div className='petlist'>
+                {this.state.loading
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
+                    :
+                    <div className='petlist'>
 
-                    {this.state.petArray.length > 0 && !this.state.loading ?
-                        this.state.petArray.map(pet =>
-                            <div className='petownerthumbnail' key={pet.id}>
-                                <div>
-                                    <p className='petthumbnailname'>{pet.petName}</p>
+                        {this.state.petArray.length > 0 && !this.state.loading ?
+                            this.state.petArray.map(pet =>
+                                <div className='petownerthumbnail' key={pet.id}>
+                                    <div>
+                                        <p className='petthumbnailname'>{pet.petName}</p>
 
-                                    <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
-                                </div>
+                                        <Link to={`/petdash/${pet.id}`}><img className='petthumbnailimg' src={pet.petProfilePicture} alt='' /></Link>
+                                    </div>
 
-                            </div>)
+                                </div>)
 
-                        : null}
-                    <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
-                </div>
+                            : null}
+                        <Link to="/createpet"><p className="add-pet-button">Add Pet</p></Link>
+                    </div>}
             </div>
         )
     }

@@ -11,7 +11,7 @@ var QRCode = require('qrcode.react');
 export default class PetDetails extends Component {
     static contextType = MainContext;
     state = {
-        loading: false,
+        loading: true,
         pet: [],
         isSubscribed: '',
         user: []
