@@ -159,7 +159,7 @@ export default class UpdatePet extends PureComponent {
                 <div className='cppnaplesyellow'> </div>
 
                 { this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
                     <div className='cppbox'>
 

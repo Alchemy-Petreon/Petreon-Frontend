@@ -154,13 +154,6 @@
     border-radius: 5px;
 }
 
-.delete-pet-button {
-    font-family: Burma;
-    font-size: 10pt;
-    border: none;
-    background-color: #FF6B6B;
-}
-
 .subscription-list {
     margin-left: 5%;
     display: flex;

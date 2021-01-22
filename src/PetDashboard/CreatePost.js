@@ -59,7 +59,7 @@ export default class CreatePet extends Component {
         return (
             <div className='create-post-page'>
                 { this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={'spinner'} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={'spinner'} />
                     :
 
                     <div className='create-post-box'>

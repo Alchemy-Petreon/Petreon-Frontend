@@ -50,7 +50,7 @@ export default class PostDetails extends Component {
         return (
             <div>
                 {this.state.loading
-                    ? <img src={'/loading-spinner.gif'} alt={''} />
+                    ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                     :
                     <div className='post-detail-page'>
                         <div className='post-detail-naplesyellow'> </div>
