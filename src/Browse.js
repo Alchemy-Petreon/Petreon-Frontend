@@ -59,10 +59,12 @@ export default class Browse extends Component {
                         ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
                         :
                         this.state.allPets.map(pet =>
-                            <Link to={`/pets/${pet.id}`} >  <div className='pet-box' key={pet.id}>
-                                <PetItem
-                                    pet={pet} />
-                            </div></Link>)
+                            <Link to={`/pets/${pet.id}`} >
+                                <div className='pet-box' key={pet.id}>
+                                    <PetItem
+                                        pet={pet} />
+                                </div>
+                            </Link>)
                     }
 
                 </div>
