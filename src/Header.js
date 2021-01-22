@@ -31,6 +31,7 @@ export default class Header extends Component {
                 <Link to="/">
                     <span className="logo">Petreon</span>
                 </Link>
+
                 <Link to="/browse">
                     <span className="browse">Browse Pets</span>
                 </Link>
@@ -46,8 +47,7 @@ export default class Header extends Component {
                                 <img
                                     className='header-picture'
                                     src={this.context.profile.profilePicture}
-                                    alt={this.context.profile.userName}
-                                />
+                                    alt={this.context.profile.userName} />
                             </Link>
 
                             <button
