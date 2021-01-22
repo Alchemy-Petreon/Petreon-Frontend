@@ -6,7 +6,6 @@ import mime from 'mime-types';
 export default class UpdatePost extends Component {
     static contextType = MainContext;
 
-
     state = {
         postText: '',
         mediaType: '',
@@ -62,16 +61,12 @@ export default class UpdatePost extends Component {
                 mediaFile: this.state.mediaFile,
                 mediaURL: this.state.mediaURL,
                 mediaUrl: this.state.mediaUrl
-
             }
 
             await updatePost(this.props.match.params.id, newPost);
-
         }
 
-
         this.props.history.push(`/pets/${this.state.post.petId}`);
-
     }
 
     handleFileChange = async (e) => {
@@ -86,9 +81,7 @@ export default class UpdatePost extends Component {
             mediaUrl: URL.createObjectURL(e.target.files[0]),
             mediaTypeName: mediaTypeName,
         })
-
     }
-
 
     render() {
         return (
@@ -130,17 +123,6 @@ export default class UpdatePost extends Component {
                                 accept='image/*'
                                 onChange={(e) => this.handleFileChange(e)}
                                 value={this.state.mediaFile} />
-
-
-                            <br />
-
-                            {this.state.mediaTypeName === 'image'
-                                ? <img
-                                    className='post-preview-image'
-                                    alt='post preview'
-                                    src={this.state.mediaURL} />
-                                : null}
-
                             <br />
 
                             <button className='edit-post-button'>Save Changes</button>

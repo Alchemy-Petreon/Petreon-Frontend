@@ -216,6 +216,7 @@ export default class UpdatePet extends PureComponent {
                                     name='type'
                                     className='typedropdown'
                                     onChange={(e) => this.setState({ type: e.target.value })}>
+                                    <option>Choose Type</option>
                                     <option value='cat'>Cat</option>
                                     <option value='dog'>Dog</option>
                                     <option value='reptile'>Reptile</option>

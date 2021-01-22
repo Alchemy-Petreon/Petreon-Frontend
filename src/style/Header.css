@@ -6,6 +6,7 @@ a {
     height: 70px;
     width: 100%;
     padding-top: 10px;
+    padding-bottom: 5px;
     background-color: #F7FFF7;
     border-bottom: solid 10px #1A535C;
 }
@@ -19,7 +20,7 @@ a {
     color: #1A535C;
 }
 
-.browse {
+.browse, .about-us {
     float: left;
     margin-right: 3%;
     margin-top: 18px;
@@ -63,14 +64,20 @@ a {
     color: #1A535C;
 }
 
+.header-user-info {
+    float: right;
+    margin-right: 5%;
+}
+
 .header-picture {
-    margin-left: 25px;
+    height: 60px;
+    border-radius: 30px;
 }
 
 .logout-button {
-    margin-left: 25px;
+    margin-left: 30px;
     font-family: Burma;
-    font-size: 12pt;
+    font-size: 14pt;
     background-color: #FF6B6B;
     border: none;
     border-radius: 5px;

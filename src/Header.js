@@ -15,7 +15,6 @@ export default class Header extends Component {
         console.log(URL)
     }
 
-
     handleSeed = async () => {
         await seedData();
     }
@@ -33,25 +32,22 @@ export default class Header extends Component {
                     <span className="logo">Petreon</span>
                 </Link>
 
-
-
-
                 {this.context.loggedIn ?
                     <div>
                         <Link to="/browse">
                             <span className="browse">Browse Pets</span>
                         </Link>
 
-                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                        <Link to="/aboutus">
+                            <span className="about-us">About Us</span>
+                        </Link>
+
+                        <div className='header-user-info'>
                             <Link to={'/userdash'}>
                                 <img
                                     className='header-picture'
                                     src={this.context.profile.profilePicture}
                                     alt={this.context.profile.userName}
-                                    style={{
-                                        height: '60px',
-                                        borderRadius: '50px'
-                                    }}
                                 />
                             </Link>
 
@@ -59,7 +55,7 @@ export default class Header extends Component {
                                 className='logout-button'
                                 onClick={this.handleLogout}>
                                 Logout
-                        </button>
+                            </button>
                         </div>
                     </div>
                     :

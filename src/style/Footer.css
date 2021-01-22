@@ -15,13 +15,13 @@
     font-size: 20pt;
     color: #F7FFF7;
 }
-
+/* 
 .about-us {
     float: left;
     font-family: Burma;
     font-size: 18pt;
     color: #F7FFF7;
-}
+} */
 
 .about-us:hover {
     color: #FF6B6B;

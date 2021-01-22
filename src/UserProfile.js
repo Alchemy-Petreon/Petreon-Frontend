@@ -30,11 +30,11 @@ export default class UserProfile extends Component {
 
     render() {
         return (
-
- <div> {this.state.loading
-                ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
-                :
-                <section>
+            
+            <div> 
+            {this.state.loading
+            ? <img src={'/loading-spinner.gif'} className='loading-spinner' alt={''} />
+            :
             <section>
                 <div className='user-profile'>
                     <div className='upbittersweet'> </div>
@@ -67,10 +67,8 @@ export default class UserProfile extends Component {
                         </div> 
                     </div>
                 </div>
- : null}
-                    </div>
-            </section>
-
+            </section>}
+            </div>
         )
     }
 }

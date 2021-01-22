@@ -6,7 +6,6 @@ import {
   Switch,
 } from 'react-router-dom';
 import Header from './Header.js';
-import Footer from './Footer.js';
 import LandingPage from './LandingPage.js';
 import Login from './Login.js';
 import SignUp from './SignUp.js';
@@ -142,7 +141,6 @@ export default class App extends Component {
                 />}
               />
             </Switch>
-            <Footer />
           </Router>
         </div>
       </MainContext.Provider>
