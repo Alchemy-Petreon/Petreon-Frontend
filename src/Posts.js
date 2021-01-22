@@ -15,8 +15,8 @@ export default class Posts extends Component {
         allPosts: [],
     }
     componentDidMount = async () => {
-        await this.setState({ loading: true });
-        this.setState({
+        // await this.setState({ loading: true });
+        await this.setState({
             loading: false,
             allPosts: this.props.posts
         })

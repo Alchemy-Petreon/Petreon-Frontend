@@ -24,7 +24,16 @@ export default class LikeButton extends Component {
         }
     }
 
+    componentWillUnmount = () => {
+        console.log('UNMOUNTING!')
+    }
+
     handleLike = async (postId) => {
+        console.log('===========================')
+        console.log('this.state')
+        console.log(this.state)
+        console.log('===========================')
+
         const user = await addLike(postId)
 
         await this.context.setProfile({ profile: user })

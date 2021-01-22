@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom'
 var QRCode = require('qrcode.react');
 
 export default class PetDetails extends Component {
+    _isMounted = false;
     static contextType = MainContext;
     state = {
         loading: false,
@@ -18,18 +19,25 @@ export default class PetDetails extends Component {
     }
     componentDidMount = async () => {
 
+        this._isMounted = true;
         await this.setState({ loading: true });
         const pet = await fetchPet(this.props.match.params.id);
         const isSubscribed = await subscribedToPet(pet.id)
         const user = await fetchUser(pet.userId)
 
-        this.setState({
-            loading: false,
-            pet: pet,
-            isSubscribed,
-            user
-        })
+        if (this._isMounted) {
+            await this.setState({
+                loading: false,
+                pet: pet,
+                isSubscribed,
+                user
+            })
+        }
     };
+
+    componentWillUnmount() {
+        this._isMounted = false;
+    }
 
     handleSubscribe = async (petId) => {
         await this.setState({ loading: true })
