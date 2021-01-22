@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
-// import { MainContext } from './MainContext.js';
 import { fetchUser } from "./fetches/user-fetches.js"
 import { fetchUserPets } from './fetches/pet-fetches.js';
 import { Link } from 'react-router-dom';
 
 var QRCode = require('qrcode.react');
 
-// React.render(
-//     <QRCode value="http://facebook.github.io/react/" />,
-
-// );
-
-
 export default class UserProfile extends Component {
-    // static contextType = MainContext;
     state = {
         user: {},
         petArray: {}
