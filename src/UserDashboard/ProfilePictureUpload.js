@@ -76,7 +76,6 @@ export default class ProfilePictureUpload extends PureComponent {
         return new Promise((resolve) => {
             canvas.toBlob(blob => {
                 if (!blob) {
-                    //reject(new Error('Canvas is empty'));
                     console.error('Canvas is empty');
                     return;
                 }

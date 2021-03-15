@@ -69,7 +69,7 @@ export default class App extends Component {
                 />}
               />
 
-              <PrivateRoute
+              <Route
                 exact path="/browse"
                 token={this.state.loggedIn}
                 render={(routerProps) => <Browse {...routerProps}
@@ -103,7 +103,7 @@ export default class App extends Component {
                 />}
               />
 
-              <PrivateRoute
+              <Route
                 exact path="/aboutus"
                 token={this.state.loggedIn}
                 render={(routerProps) => <AboutUs {...routerProps} />}
